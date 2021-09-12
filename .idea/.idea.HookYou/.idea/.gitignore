@@ -1,0 +1,13 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/contentModel.xml
+/projectSettingsUpdater.xml
+/.idea.HookYou.iml
+/modules.xml
+# Datasource local storage ignored files
+/../../../../../../../../:\Users\kopko\Documents\HookYou\.idea\.idea.HookYou\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
