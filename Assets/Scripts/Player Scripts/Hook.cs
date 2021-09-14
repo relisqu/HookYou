@@ -24,8 +24,9 @@ namespace Assets.Scripts
 
         [Header("Distance:")] [SerializeField] private float MaxDistance;
 
-        [Header("Launching")] 
-        [Range(0, 3)] [SerializeField] private float LaunchSpeed;
+        [Header("Launching")] [Range(0, 3)] [SerializeField]
+        private float LaunchSpeed;
+
         [SerializeField] private float DropCooldown;
         public float WallHangDuration;
         public float HookReload;
@@ -57,6 +58,7 @@ namespace Assets.Scripts
                         ThrowHook();
                         break;
                     case HookState.Hooking:
+                    case HookState.OnWall:
                     {
                         if (TrySetupGrapplePoint())
                         {
@@ -67,19 +69,18 @@ namespace Assets.Scripts
                         }
                         else
                         {
-                            if (hookingCoroutine != null) StopCoroutine(hookingCoroutine);
-                            if (wallHangingCoroutine != null) StopCoroutine(wallHangingCoroutine);
-                            droppingCoroutine = StartCoroutine(DropHook());
-                        }
-                        break;
-                    }
-                    case HookState.OnWall:
-                    {
-                        if (TrySetupGrapplePoint())
-                        {
-                            if (wallHangingCoroutine != null) StopCoroutine(wallHangingCoroutine);
-                            if (droppingCoroutine != null) StopCoroutine(droppingCoroutine);
-                            ThrowHook();
+                            if (TrySetupGrapplePoint())
+                            {
+                                if (wallHangingCoroutine != null) StopCoroutine(wallHangingCoroutine);
+                                if (droppingCoroutine != null) StopCoroutine(droppingCoroutine);
+                                ThrowHook();
+                            }
+                            else
+                            {
+                                if (hookingCoroutine != null) StopCoroutine(hookingCoroutine);
+                                if (wallHangingCoroutine != null) StopCoroutine(wallHangingCoroutine);
+                                droppingCoroutine = StartCoroutine(DropHook());
+                            }
                         }
 
                         break;
@@ -90,7 +91,7 @@ namespace Assets.Scripts
 
         public Vector3 GetHookDirection()
         {
-           return  (grapplePoint - PlayerTransform.position).normalized;
+            return (grapplePoint - PlayerTransform.position).normalized;
         }
 
         private IEnumerator MoveToWall()
