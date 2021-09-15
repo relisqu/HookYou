@@ -17895,6 +17895,11 @@ PrefabInstance:
       propertyPath: ConnectedDoor
       value: 
       objectReference: {fileID: 830973126}
+    - target: {fileID: 4891297524954418846, guid: 95ca568593c257d4aa872ef85afeb223,
+        type: 3}
+      propertyPath: Direction
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6261677783005446548, guid: 95ca568593c257d4aa872ef85afeb223,
         type: 3}
       propertyPath: m_Sprite

@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace Assets.Scripts.LevelCreator
+namespace LevelCreator
 {
     public class DoorAnimator : MonoBehaviour
     {
@@ -17,13 +16,11 @@ namespace Assets.Scripts.LevelCreator
 
         public void SetClosed()
         {
-            print("Closing");
             Animator.SetTrigger(CloseDoor);
         }
 
         public void SetOpened()
         {
-            print("Openning");
             Animator.SetTrigger(OpenDoor);
         }
 
