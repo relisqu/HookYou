@@ -61,32 +61,9 @@ namespace Assets.Scripts
 
         private void Update()
         {
+            
+
             firePointDistanceVector = Camera.ScreenToWorldPoint(Input.mousePosition) - HookPivot.position;
-            if (Vector3.Dot(playerMovement, GetHookDirection().normalized) < HookBreakDirection)
-            {
-                if (isTryingToBreakHook)
-                {
-                    currentHookBreakTime += Time.deltaTime;
-                }
-                else
-                {
-                    isTryingToBreakHook = true;
-                    currentHookBreakTime = 0;
-                }
-            }
-            else
-            {
-                currentHookBreakTime = 0;
-                isTryingToBreakHook = false;
-            }
-
-            if (currentHookBreakTime > HookBreakTime)
-            {
-                if (hookingCoroutine != null) StopCoroutine(hookingCoroutine);
-                if (wallHangingCoroutine != null) StopCoroutine(wallHangingCoroutine);
-                droppingCoroutine = StartCoroutine(DropHook());
-            }
-
             if (Input.GetMouseButtonUp(1))
             {
                 switch (currentHookState)
@@ -108,6 +85,33 @@ namespace Assets.Scripts
                         break;
                     }
                 }
+            }
+
+            if (currentHookState == HookState.NotHooking) return;
+            if (Vector3.Dot(playerMovement, GetHookDirection().normalized) < HookBreakDirection)
+            {
+                if (isTryingToBreakHook)
+                {
+                    currentHookBreakTime += Time.deltaTime;
+                }
+                else
+                {
+                    isTryingToBreakHook = true;
+                    currentHookBreakTime = 0;
+                }
+            }
+            else
+            {
+                currentHookBreakTime = 0;
+                isTryingToBreakHook = false;
+            }
+
+            if (currentHookBreakTime > HookBreakTime )
+            {
+                if (hookingCoroutine != null) StopCoroutine(hookingCoroutine);
+                if (wallHangingCoroutine != null) StopCoroutine(wallHangingCoroutine);
+                if (droppingCoroutine != null) StopCoroutine(droppingCoroutine);
+                droppingCoroutine = StartCoroutine(DropHook());
             }
         }
         
