@@ -1,7 +1,10 @@
 using System;
 using System.Collections;
+using System.Numerics;
 using Assets.Scripts.Old_Scripts;
 using UnityEngine;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 namespace Assets.Scripts
 {
@@ -10,26 +13,32 @@ namespace Assets.Scripts
         [Header("Main Camera")] [SerializeField]
         private Camera Camera;
 
-        [Header("References:")] [SerializeField]
-        private Transform PlayerTransform;
-
+        [Header("References:")] 
+        [SerializeField] private Transform PlayerTransform;
         [SerializeField] private SpringJoint2D PlayerSpringJoint2D;
         [SerializeField] private Transform HookPivot;
         [SerializeField] private GrappleRope Rope;
 
-        [Header("Raycast settings:")] [SerializeField]
-        public LayerMask HookFocusLayers;
-
-        [SerializeField] public LayerMask HookIgnoreLayers;
+        [Header("Raycast settings:")] 
+        [SerializeField] private LayerMask HookFocusLayers;
+        [SerializeField] private LayerMask HookIgnoreLayers;
 
         [Header("Distance:")] [SerializeField] private float MaxDistance;
 
-        [Header("Launching")] [Range(0, 3)] [SerializeField]
-        private float LaunchSpeed;
-
+        [Header("Launching Constants")] 
+        [Range(0, 3)] [SerializeField] private float LaunchSpeed;
         [SerializeField] private float DropCooldown;
-        public float WallHangDuration;
-        public float HookReload;
+        [SerializeField] private float WallHangDuration;
+        [SerializeField] private float HookBreakTime;
+        [Range(-1, 1)][SerializeField] private float HookBreakDirection;
+        private Vector3 playerMovement;
+
+
+        public void SetPlayerMovement(Vector3 movement)
+        {
+            playerMovement = movement;
+        }
+
         public HookState CurrentHookState => currentHookState;
 
         public enum HookState
@@ -47,9 +56,37 @@ namespace Assets.Scripts
             Rope.enabled = false;
         }
 
+        private float currentHookBreakTime;
+        private bool isTryingToBreakHook;
+
         private void Update()
         {
             firePointDistanceVector = Camera.ScreenToWorldPoint(Input.mousePosition) - HookPivot.position;
+            if (Vector3.Dot(playerMovement, GetHookDirection().normalized) < HookBreakDirection)
+            {
+                if (isTryingToBreakHook)
+                {
+                    currentHookBreakTime += Time.deltaTime;
+                }
+                else
+                {
+                    isTryingToBreakHook = true;
+                    currentHookBreakTime = 0;
+                }
+            }
+            else
+            {
+                currentHookBreakTime = 0;
+                isTryingToBreakHook = false;
+            }
+
+            if (currentHookBreakTime > HookBreakTime)
+            {
+                if (hookingCoroutine != null) StopCoroutine(hookingCoroutine);
+                if (wallHangingCoroutine != null) StopCoroutine(wallHangingCoroutine);
+                droppingCoroutine = StartCoroutine(DropHook());
+            }
+
             if (Input.GetMouseButtonUp(1))
             {
                 switch (currentHookState)
@@ -67,28 +104,13 @@ namespace Assets.Scripts
                             if (hookingCoroutine != null) StopCoroutine(hookingCoroutine);
                             ThrowHook();
                         }
-                        else
-                        {
-                            if (TrySetupGrapplePoint())
-                            {
-                                if (wallHangingCoroutine != null) StopCoroutine(wallHangingCoroutine);
-                                if (droppingCoroutine != null) StopCoroutine(droppingCoroutine);
-                                ThrowHook();
-                            }
-                            else
-                            {
-                                if (hookingCoroutine != null) StopCoroutine(hookingCoroutine);
-                                if (wallHangingCoroutine != null) StopCoroutine(wallHangingCoroutine);
-                                droppingCoroutine = StartCoroutine(DropHook());
-                            }
-                        }
 
                         break;
                     }
                 }
             }
         }
-
+        
         public Vector3 GetHookDirection()
         {
             return (grapplePoint - PlayerTransform.position).normalized;
@@ -120,17 +142,16 @@ namespace Assets.Scripts
             yield return new WaitForSeconds(WallHangDuration);
             droppingCoroutine = StartCoroutine(DropHook());
         }
-
         private IEnumerator DropHook()
         {
             currentHookState = HookState.DroppedHook;
             PlayerSpringJoint2D.enabled = false;
             Rope.enabled = false;
+            currentHookBreakTime = 0;
+            isTryingToBreakHook = false;
             yield return new WaitForSeconds(DropCooldown);
             currentHookState = HookState.NotHooking;
         }
-
-
         void ThrowHook()
         {
             if (TrySetupGrapplePoint())
@@ -141,7 +162,6 @@ namespace Assets.Scripts
                 hookingCoroutine = StartCoroutine(MoveToWall());
             }
         }
-
         bool TrySetupGrapplePoint()
         {
             if (Physics2D.Raycast(HookPivot.position, firePointDistanceVector.normalized, MaxDistance,
@@ -160,7 +180,6 @@ namespace Assets.Scripts
 
             return false;
         }
-
         [SerializeField] private HookState currentHookState;
         private Vector2 firePointDistanceVector;
         private Coroutine hookingCoroutine;

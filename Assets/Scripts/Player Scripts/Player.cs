@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         movement.Normalize();
-
+        Hook.SetPlayerMovement(movement);
         IsMoving = movement.sqrMagnitude > 0;
         if (IsMoving && Hook.CurrentHookState == Hook.HookState.NotHooking)
         {
@@ -95,10 +95,9 @@ public class Player : MonoBehaviour
         if (Hook.CurrentHookState != Hook.HookState.NotHooking)
         {
             print(Hook.GetHookDirection());
-            
+
             Animator.SetFloat(XDirection, Hook.GetHookDirection().x);
             Animator.SetFloat(YDirection, Hook.GetHookDirection().y);
-            
         }
 
         Animator.SetBool(IsMovingHash, IsMoving);

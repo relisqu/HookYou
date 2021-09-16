@@ -6849,6 +6849,8 @@ MonoBehaviour:
   DropCooldown: 0.02
   WallHangDuration: 3.23
   HookReload: 1.82
+  HookBreakTime: 1
+  PlayerMovement: {x: 0, y: 0, z: 0}
   currentHookState: 0
 --- !u!4 &1243613934 stripped
 Transform:
