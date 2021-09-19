@@ -24,6 +24,8 @@ namespace Assets.Scripts.LevelCreator
             AlwaysOpened,
             AlwaysClosed
         }
+        
+        
 
         public Vector3 GetTeleportationPoint()
         {

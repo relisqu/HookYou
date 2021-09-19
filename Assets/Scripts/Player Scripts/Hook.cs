@@ -13,27 +13,30 @@ namespace Assets.Scripts
         [Header("Main Camera")] [SerializeField]
         private Camera Camera;
 
-        [Header("References:")] 
-        [SerializeField] private Transform PlayerTransform;
+        [Header("References:")] [SerializeField]
+        private Transform PlayerTransform;
+
         [SerializeField] private SpringJoint2D PlayerSpringJoint2D;
         [SerializeField] private Transform HookPivot;
         [SerializeField] private GrappleRope Rope;
 
-        [Header("Raycast settings:")] 
-        [SerializeField] private LayerMask HookFocusLayers;
+        [Header("Raycast settings:")] [SerializeField]
+        private LayerMask HookFocusLayers;
+
         [SerializeField] private LayerMask HookIgnoreLayers;
 
         [Header("Distance:")] [SerializeField] private float MaxDistance;
 
-        [Header("Launching Constants")] 
-        [Range(0, 3)] [SerializeField] private float LaunchSpeed;
+        [Header("Launching Constants")] [Range(0, 3)] [SerializeField]
+        private float LaunchSpeed;
+
         [SerializeField] private float DropCooldown;
         [SerializeField] private float WallHangDuration;
         [SerializeField] private float HookBreakTime;
-        [Range(-1, 1)][SerializeField] private float HookBreakDirection;
+        [Range(-1, 1)] [SerializeField] private float HookBreakDirection;
         private Vector3 playerMovement;
-
-
+        private RaycastHit2D currentHitPosition;
+        private bool isNowInHitState;
         public void SetPlayerMovement(Vector3 movement)
         {
             playerMovement = movement;
@@ -61,8 +64,7 @@ namespace Assets.Scripts
 
         private void Update()
         {
-            
-
+            TrackMousePosition();
             firePointDistanceVector = Camera.ScreenToWorldPoint(Input.mousePosition) - HookPivot.position;
             if (Input.GetMouseButtonUp(1))
             {
@@ -106,7 +108,7 @@ namespace Assets.Scripts
                 isTryingToBreakHook = false;
             }
 
-            if (currentHookBreakTime > HookBreakTime )
+            if (currentHookBreakTime > HookBreakTime)
             {
                 if (hookingCoroutine != null) StopCoroutine(hookingCoroutine);
                 if (wallHangingCoroutine != null) StopCoroutine(wallHangingCoroutine);
@@ -114,7 +116,7 @@ namespace Assets.Scripts
                 droppingCoroutine = StartCoroutine(DropHook());
             }
         }
-        
+
         public Vector3 GetHookDirection()
         {
             return (grapplePoint - PlayerTransform.position).normalized;
@@ -146,6 +148,7 @@ namespace Assets.Scripts
             yield return new WaitForSeconds(WallHangDuration);
             droppingCoroutine = StartCoroutine(DropHook());
         }
+
         private IEnumerator DropHook()
         {
             currentHookState = HookState.DroppedHook;
@@ -156,6 +159,7 @@ namespace Assets.Scripts
             yield return new WaitForSeconds(DropCooldown);
             currentHookState = HookState.NotHooking;
         }
+
         void ThrowHook()
         {
             if (TrySetupGrapplePoint())
@@ -166,24 +170,43 @@ namespace Assets.Scripts
                 hookingCoroutine = StartCoroutine(MoveToWall());
             }
         }
+
+        void TrackMousePosition()
+        {
+            isNowInHitState = Physics2D.Raycast(HookPivot.position, firePointDistanceVector.normalized, MaxDistance,
+                HookFocusLayers);
+            if (isNowInHitState)
+            {
+                currentHitPosition = Physics2D.Raycast(HookPivot.position, firePointDistanceVector.normalized,
+                    Mathf.Infinity,
+                    HookFocusLayers);
+                
+            }
+            print(currentHitPosition);
+        }
+
         bool TrySetupGrapplePoint()
         {
-            if (Physics2D.Raycast(HookPivot.position, firePointDistanceVector.normalized, MaxDistance,
-                HookFocusLayers))
+            if (currentHitPosition.collider != null && isNowInHitState)
             {
-                var hit = Physics2D.Raycast(HookPivot.position, firePointDistanceVector.normalized, Mathf.Infinity,
-                    HookFocusLayers);
-                if (hit.collider != null)
-                {
-                    grapplePoint = hit.point;
-                    Rope.SetupLinePoints(HookPivot, grapplePoint);
-                    Rope.SetHook();
-                    return true;
-                }
+                grapplePoint = currentHitPosition.point;
+                Rope.SetupLinePoints(HookPivot, grapplePoint);
+                Rope.SetHook();
+                return true;
             }
 
             return false;
         }
+
+        public RaycastHit2D GetRaycastHit()
+        {
+            return currentHitPosition;
+        }
+        public bool IsAbleToHook()
+        {
+            return isNowInHitState;
+        }
+
         [SerializeField] private HookState currentHookState;
         private Vector2 firePointDistanceVector;
         private Coroutine hookingCoroutine;
