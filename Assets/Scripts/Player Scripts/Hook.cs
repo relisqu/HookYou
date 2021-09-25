@@ -1,12 +1,10 @@
-using System;
 using System.Collections;
-using System.Numerics;
 using Assets.Scripts.Old_Scripts;
 using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
-namespace Assets.Scripts
+namespace Player_Scripts
 {
     public class Hook : MonoBehaviour
     {

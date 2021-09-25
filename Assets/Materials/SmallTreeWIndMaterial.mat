@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BigTreeWindMaterial 1
+  m_Name: SmallTreeWIndMaterial
   m_Shader: {fileID: -6465566751694194690, guid: 84831d96c7c4df8488da39a8de0debdb,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -49,10 +49,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_579b3daaec3a44e6a0573e2228bb0d99: 3.2
-    - Vector1_d00ae83b125047dbae9f32cf0caeaa41: 0
+    - Vector1_579b3daaec3a44e6a0573e2228bb0d99: 10.5
+    - Vector1_d00ae83b125047dbae9f32cf0caeaa41: 0.7
     - _EnableExternalAlpha: 0
-    - _WindIntensity: 0.1
+    - _WindIntensity: 0.36
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
