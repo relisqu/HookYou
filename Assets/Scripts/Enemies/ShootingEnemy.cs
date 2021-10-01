@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -16,21 +15,6 @@ namespace Grappling_Hook.Test
         public int wallLayer;
         public ParticleSystem shootingParticles;
         public string shootingSoundName;
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.TryGetComponent(out Player player))
-            {
-                foundPlayer = player;
-            }
-        }
-
-        private void OnTriggerExit2D(Collider2D other)
-        {
-            if (other.TryGetComponent(out Player player))
-            {
-                foundPlayer = null;
-            }
-        }
 
         private void Start()
         {
@@ -38,21 +22,27 @@ namespace Grappling_Hook.Test
             StartCoroutine(Shoot());
         }
 
-        IEnumerator Shoot()
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.TryGetComponent(out Player player)) foundPlayer = player;
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.TryGetComponent(out Player player)) foundPlayer = null;
+        }
+
+        private IEnumerator Shoot()
         {
             while (true)
             {
-               
                 if (foundPlayer != null)
-                {
                     if (PlayerIsSeen(foundPlayer))
                     {
                         AudioManager.instance.Play(shootingSoundName);
                         animator.SetTrigger("IsShooting");
                     }
 
-                    
-                }
                 yield return new WaitForSeconds(reload);
             }
 
@@ -70,12 +60,12 @@ namespace Grappling_Hook.Test
             }
         }
 
-        float AngleBetweenTwoPoints(Vector3 a, Vector3 b)
+        private float AngleBetweenTwoPoints(Vector3 a, Vector3 b)
         {
             return Mathf.Atan2(b.y - a.y, b.x - a.x) * Mathf.Rad2Deg;
         }
 
-        bool PlayerIsSeen(Player player)
+        private bool PlayerIsSeen(Player player)
         {
             var distance = player.transform.position - transform.position;
             var _hit = Physics2D.Raycast(transform.position, distance.normalized,
@@ -89,5 +79,4 @@ namespace Grappling_Hook.Test
             shootingParticles.Play();
         }
     }
-    
 }

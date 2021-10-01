@@ -53,6 +53,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\MoodChange.cs" />
+     <Compile Include="Assets\Scripts\HookBlocks\HookBlock.cs" />
      <Compile Include="Assets\Scripts\Boss.cs" />
      <Compile Include="Assets\Scripts\Old Scripts\FloorData.cs" />
      <Compile Include="Assets\Scripts\Player Scripts\SwordAttack.cs" />
@@ -67,12 +68,12 @@
      <Compile Include="Assets\Scripts\AudioManager\Sound.cs" />
      <Compile Include="Assets\Scripts\Old Scripts\LevelManager.cs" />
      <Compile Include="Assets\Scripts\Old Scripts\LevelData.cs" />
+     <Compile Include="Assets\Scripts\HookBlocks\StickyBlock.cs" />
      <Compile Include="Assets\Scripts\Old Scripts\GrappleRope.cs" />
      <Compile Include="Assets\Scripts\HookCursor.cs" />
      <Compile Include="Assets\Scripts\Player Scripts\WallFinder.cs" />
      <Compile Include="Assets\Scripts\BossPhaseState.cs" />
      <Compile Include="Assets\StartGameScript.cs" />
-     <Compile Include="Assets\Scripts\Player Scripts\Hook.cs" />
      <Compile Include="Assets\Ending.cs" />
      <Compile Include="Assets\Scripts\Player Scripts\RotateAppearance.cs" />
      <Compile Include="Assets\Scripts\LevelCreator\LevelManager.cs" />
@@ -84,7 +85,9 @@
      <Compile Include="Assets\Scripts\Enemies\ShootingEnemy.cs" />
      <Compile Include="Assets\Scripts\LevelCreator\Door.cs" />
      <Compile Include="Assets\Scripts\CanonModule.cs" />
+     <Compile Include="Assets\Scripts\Player Scripts\Hook.cs" />
      <Compile Include="Assets\Scripts\Player Scripts\PlayerObstaclesManager.cs" />
+     <Compile Include="Assets\Scripts\HookBlocks\PushableBlock.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />

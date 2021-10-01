@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Assets.Scripts.Old_Scripts;
+﻿using System.Collections;
 using UnityEngine;
 
 public class MovableWallScript : MonoBehaviour
@@ -13,8 +10,27 @@ public class MovableWallScript : MonoBehaviour
     public bool isDown;
     public Player player;
 
-    
-    IEnumerator MoveWall()
+    private void Start()
+    {
+        StartCoroutine(MoveWall());
+    }
+
+    private void Update()
+    {
+        /* if (player != null  && player.wall != this)
+         {
+             player = null;
+         }
+ 
+         if (player != null && player.isHangingOnWall && isDown )
+         {
+             gun.RemoveRope();
+             player = null;
+         }*/
+    }
+
+
+    private IEnumerator MoveWall()
     {
         while (true)
         {
@@ -25,25 +41,7 @@ public class MovableWallScript : MonoBehaviour
             isDown = false;
             yield return new WaitForSeconds(stayingUpTime);
         }
+
         yield return new WaitForSeconds(0.01f);
-    }
-
-    void Start()
-    {
-        StartCoroutine(MoveWall());
-    }
-    
-    void Update()
-    {
-       /* if (player != null  && player.wall != this)
-        {
-            player = null;
-        }
-
-        if (player != null && player.isHangingOnWall && isDown )
-        {
-            gun.RemoveRope();
-            player = null;
-        }*/
     }
 }

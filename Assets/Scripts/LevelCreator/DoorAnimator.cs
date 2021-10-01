@@ -5,16 +5,16 @@ namespace LevelCreator
 {
     public class DoorAnimator : MonoBehaviour
     {
+        private static readonly int OpenDoor = Animator.StringToHash("OpenDoor");
+        private static readonly int CloseDoor = Animator.StringToHash("CloseDoor");
+        private static readonly int IsOpenedFromBeginning = Animator.StringToHash("IsOpenedFromBeginning");
+        private static readonly int DirectionXIndex = Animator.StringToHash("xDirection");
+        private static readonly int DirectionYIndex = Animator.StringToHash("yDirection");
         [SerializeField] private DoorDirectionType Direction;
 
         [Header("Reference: ")] [SerializeField]
         private Animator Animator;
-        enum DoorDirectionType {
-            Left,
-            Right,
-            Top,
-            Down
-        }
+
         private void OnEnable()
         {
             var xDirection = 0;
@@ -25,7 +25,7 @@ namespace LevelCreator
                     xDirection = 1;
                     break;
                 case DoorDirectionType.Right:
-                    
+
                     xDirection = -1;
                     break;
                 case DoorDirectionType.Top:
@@ -37,8 +37,9 @@ namespace LevelCreator
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-            Animator.SetFloat(DirectionXIndex,xDirection);      
-            Animator.SetFloat(DirectionYIndex,yDirection);   
+
+            Animator.SetFloat(DirectionXIndex, xDirection);
+            Animator.SetFloat(DirectionYIndex, yDirection);
         }
 
         public void SetClosed()
@@ -53,14 +54,16 @@ namespace LevelCreator
 
         public void SetupDoor(bool isOpenedFromBeginning)
         {
-            print("Door is opened: "+isOpenedFromBeginning);
+            print("Door is opened: " + isOpenedFromBeginning);
             Animator.SetBool(IsOpenedFromBeginning, isOpenedFromBeginning);
         }
 
-        private static readonly int OpenDoor = Animator.StringToHash("OpenDoor");
-        private static readonly int CloseDoor = Animator.StringToHash("CloseDoor");
-        private static readonly int IsOpenedFromBeginning = Animator.StringToHash("IsOpenedFromBeginning");
-        private static readonly int DirectionXIndex = Animator.StringToHash("xDirection");
-        private static readonly int DirectionYIndex = Animator.StringToHash("yDirection");
+        private enum DoorDirectionType
+        {
+            Left,
+            Right,
+            Top,
+            Down
+        }
     }
 }

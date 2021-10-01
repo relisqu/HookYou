@@ -7,6 +7,7 @@ namespace Assets.Scripts
 {
     public class SwordAttack : MonoBehaviour
     {
+        private static readonly int IsHitting = Animator.StringToHash("IsHitting");
         [FormerlySerializedAs("damage")] public float Damage;
         [FormerlySerializedAs("swordReload")] public float SwordReload;
         [FormerlySerializedAs("attackRange")] public float AttackRange;
@@ -17,15 +18,18 @@ namespace Assets.Scripts
         [FormerlySerializedAs("swordHolder")] public Transform SwordHolder;
         [FormerlySerializedAs("enemyLayers")] public LayerMask EnemyLayers;
         [FormerlySerializedAs("animator")] public Animator Animator;
+        private readonly Collider2D[] collidedEnemies = new Collider2D[20];
 
         private bool isAttacking;
+
+        private Camera mainCamera;
 
         private void Awake()
         {
             mainCamera = Camera.main;
         }
 
-        void Update()
+        private void Update()
         {
             if (Input.GetMouseButtonDown(0) && !isAttacking)
             {
@@ -38,12 +42,18 @@ namespace Assets.Scripts
             SwordHolder.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
         }
 
-        float AngleBetweenTwoPoints(Vector3 a, Vector3 b)
+        private void OnDrawGizmosSelected()
+        {
+            if (AttackPoint == null) return;
+            Gizmos.DrawWireSphere(AttackPoint.position, AttackRange);
+        }
+
+        private float AngleBetweenTwoPoints(Vector3 a, Vector3 b)
         {
             return Mathf.Atan2(b.y - a.y, b.x - a.x) * Mathf.Rad2Deg;
         }
 
-        IEnumerator SwingSword()
+        private IEnumerator SwingSword()
         {
             isAttacking = true;
             yield return new WaitForSeconds(SwordReload);
@@ -74,15 +84,5 @@ namespace Assets.Scripts
                 }
             }
         }
-
-        private void OnDrawGizmosSelected()
-        {
-            if (AttackPoint == null) return;
-            Gizmos.DrawWireSphere(AttackPoint.position, AttackRange);
-        }
-
-        private Camera mainCamera;
-        private readonly Collider2D[] collidedEnemies = new Collider2D[20];
-        private static readonly int IsHitting = Animator.StringToHash("IsHitting");
     }
 }

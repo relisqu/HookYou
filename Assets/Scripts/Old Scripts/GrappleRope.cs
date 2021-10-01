@@ -4,8 +4,10 @@ namespace Assets.Scripts.Old_Scripts
 {
     public class GrappleRope : MonoBehaviour
     {
+        private static readonly int PlayerOnWall = Animator.StringToHash("PlayerOnWall");
+
         [Header("General refrences:")] [SerializeField]
-        LineRenderer m_lineRenderer;
+        private LineRenderer m_lineRenderer;
 
         [SerializeField] private GameObject HookSprite;
         [SerializeField] private Animator HookAnimator;
@@ -13,14 +15,13 @@ namespace Assets.Scripts.Old_Scripts
         [Header("General Settings:")] [SerializeField]
         private int percision = 20;
 
-        [SerializeField] public bool isGrappling = false;
+        [SerializeField] public bool isGrappling;
 
-        bool drawLine = true;
-        bool straightLine = true;
+        private readonly bool drawLine = true;
+        private Transform firePoint;
 
         private Transform grapplePoint;
-        private Vector3 firePoint;
-        private static readonly int PlayerOnWall = Animator.StringToHash("PlayerOnWall");
+        private bool straightLine = true;
 
         private void Awake()
         {
@@ -30,19 +31,9 @@ namespace Assets.Scripts.Old_Scripts
             HookSprite.SetActive(false);
         }
 
-        public void SetupLinePoints(Transform grapplePoint, Vector3 firePoint)
+        private void Update()
         {
-            this.grapplePoint = grapplePoint;
-            this.firePoint = firePoint;
-        }
-
-        public void SetHook()
-        {
-            var moveDirection = grapplePoint.position - firePoint;
-            if (moveDirection == Vector3.zero) return;
-            var angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
-            HookSprite.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            HookSprite.transform.position = firePoint;
+            if (drawLine) DrawRope();
         }
 
         private void OnEnable()
@@ -62,38 +53,40 @@ namespace Assets.Scripts.Old_Scripts
             isGrappling = false;
         }
 
-        void LinePointToFirePoint()
+        public void SetupLinePoints(Transform grapplePoint, Transform firePoint)
         {
-            for (int i = 0; i < percision; i++)
-            {
-                m_lineRenderer.SetPosition(i, firePoint);
-            }
+            this.grapplePoint = grapplePoint;
+            this.firePoint = firePoint;
         }
 
-        void Update()
+        public void SetHook()
         {
-            if (drawLine)
-            {
-                DrawRope();
-            }
+            var moveDirection = grapplePoint.position - firePoint.position;
+            if (moveDirection == Vector3.zero) return;
+            var angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+            HookSprite.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            HookSprite.transform.position = firePoint.position;
         }
 
-        void DrawRope()
+        private void LinePointToFirePoint()
         {
-            if (!isGrappling)
-            {
-                isGrappling = true;
-            }
+            for (var i = 0; i < percision; i++) m_lineRenderer.SetPosition(i, firePoint.position);
+        }
+
+        private void DrawRope()
+        {
+            if (!isGrappling) isGrappling = true;
 
             DrawRopeNoWaves();
         }
 
 
-        void DrawRopeNoWaves()
+        private void DrawRopeNoWaves()
         {
             m_lineRenderer.positionCount = 2;
             m_lineRenderer.SetPosition(0, grapplePoint.position);
-            m_lineRenderer.SetPosition(1, firePoint);
+            m_lineRenderer.SetPosition(1, firePoint.position);
+            SetHook();
         }
 
         public void SetHookMovingOnWall()

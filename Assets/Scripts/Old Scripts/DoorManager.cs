@@ -1,9 +1,5 @@
-using Grappling_Hook.Test;
-using UnityEngine;
-using UnityEngine.Serialization;
-
 namespace Assets.Scripts.Old_Scripts
-{/*
+{ /*
     public class DoorManager : MonoBehaviour
     {
         [FormerlySerializedAs("levelManager")] public LevelManager LevelManager;

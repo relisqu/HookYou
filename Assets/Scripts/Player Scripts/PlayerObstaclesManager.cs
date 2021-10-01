@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Assets.Scripts
@@ -11,24 +10,32 @@ namespace Assets.Scripts
         [SerializeField] private Collider2D AbyssCollider;
         private bool WasEnteringFromEdge;
 
-        private void OnTriggerEnter2D(Collider2D other)
+        private void OnCollisionEnter2D(Collision2D other)
         {
-            if (ObstaclesMask == (ObstaclesMask | (1 << other.gameObject.layer)))
+            if (ObstaclesMask == (ObstaclesMask | (1 << other.gameObject.layer))) Player.Die();
+
+            if (other.gameObject.TryGetComponent(out BossBullet bullet) && bullet.isDamaging)
             {
+                bullet.gameObject.SetActive(false);
                 Player.Die();
             }
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (ObstaclesMask == (ObstaclesMask | (1 << other.gameObject.layer))) Player.Die();
 
             if (other.TryGetComponent(out BossBullet bullet) && bullet.isDamaging)
             {
                 bullet.gameObject.SetActive(false);
                 Player.Die();
             }
+
             if (AbyssMask == (AbyssMask | (1 << other.gameObject.layer)) && AbyssCollider.isTrigger)
             {
                 if (Player.IsInAir) return;
                 Player.Die();
             }
-
         }
 
 
@@ -37,20 +44,6 @@ namespace Assets.Scripts
             if (AbyssMask == (AbyssMask | (1 << other.gameObject.layer)) && AbyssCollider.isTrigger)
             {
                 if (Player.IsInAir) return;
-                Player.Die();
-            }
-        }
-
-        private void OnCollisionEnter2D(Collision2D other)
-        {
-            if (ObstaclesMask == (ObstaclesMask | (1 << other.gameObject.layer)))
-            {
-                Player.Die();
-            }
-
-            if (other.gameObject.TryGetComponent(out BossBullet bullet) && bullet.isDamaging)
-            {
-                bullet.gameObject.SetActive(false);
                 Player.Die();
             }
         }
