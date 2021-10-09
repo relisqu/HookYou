@@ -3,21 +3,18 @@ using UnityEngine;
 
 namespace HookBlocks
 {
-    public class PushableBlock : HookBlock
+    public abstract class PushableBlock : HookBlock
     {
-        [SerializeField] private Rigidbody2D Rigidbody2D;
+        [SerializeField] protected Rigidbody2D Rigidbody2D;
         [SerializeField] private float PushSpeed;
 
         public override void AddActivitiesAfterHook(Hook hook)
         {
+            if (Rigidbody2D.velocity.sqrMagnitude>=0.1f) Rigidbody2D.velocity = Vector2.zero;
             hook.DropHook();
-            if (Rigidbody2D.velocity != Vector2.zero) Rigidbody2D.velocity = Vector2.zero;
-            Rigidbody2D.AddForce(CalculatePushDirection(hook.GetPlayerTransform().position) * PushSpeed);
+            Rigidbody2D.AddForce(CalculatePushDirection(hook.GetPlayerTransform().position) * PushSpeed,ForceMode2D.Impulse);
         }
-
-        public Vector2 CalculatePushDirection(Vector3 playerPosition)
-        {
-            return transform.position - playerPosition;
-        }
+        public abstract Vector2 CalculatePushDirection(Vector3 playerPosition);
+        
     }
 }

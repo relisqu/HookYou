@@ -44,20 +44,7 @@ namespace Player_Scripts
 
         [SerializeField] private float DropDuration;
         [SerializeField] private float WallHangDuration;
-        private float currentBreakTime;
-        private RaycastHit2D currentHit;
-
-        private Coroutine droppingCoroutine;
-        private Vector3 grapplePoint;
-
-        private Transform hookEndDefaultParent;
-        private Coroutine hookingCoroutine;
-        private Vector2 HookToMouseDirection;
-        private bool isAbleToHook;
-        private bool isTryingToBreakHook;
-        private Vector3 playerMovement;
-        private Coroutine wallHangingCoroutine;
-        private HookBlock currentBlock;
+       
         public HookState CurrentHookState { get; private set; }
 
         private void Start()
@@ -80,6 +67,7 @@ namespace Player_Scripts
                     case HookState.Hooking:
                         break;
                     case HookState.OnWall:
+                        ThrowHook();
                         break;
                     case HookState.DroppedHook:
                         break;
@@ -126,10 +114,11 @@ namespace Player_Scripts
             var currentDistance = Vector2.Distance(playerPosition, grapplePoint);
             PlayerSpringJoint2D.distance = currentDistance;
             Rope.enabled = true;
+            var speed = currentBlock.RequiresSpecificHookSpeed()?currentBlock.GetHookShotSpeed():LaunchSpeed;
             while (PlayerSpringJoint2D.distance > 0.3f && currentDistance > 0.3f)
             {
                 PlayerSpringJoint2D.distance =
-                    Mathf.Lerp(PlayerSpringJoint2D.distance, 0.1f, Time.fixedDeltaTime * LaunchSpeed);
+                    Mathf.Lerp(PlayerSpringJoint2D.distance, 0.1f, Time.fixedDeltaTime * speed);
 
                 yield return null;
             }
@@ -171,7 +160,6 @@ namespace Player_Scripts
             }
 
             return isAbleToHook;
-            print(currentHit);
         }
 
         public void DropHook()
@@ -246,5 +234,19 @@ namespace Player_Scripts
         {
             return PlayerTransform;
         }
+        
+        private float currentBreakTime;
+        private RaycastHit2D currentHit;
+
+        private Coroutine droppingCoroutine;
+        private Vector3 grapplePoint;
+        private Transform hookEndDefaultParent;
+        private Coroutine hookingCoroutine;
+        private Vector2 HookToMouseDirection;
+        private bool isAbleToHook;
+        private bool isTryingToBreakHook;
+        private Vector3 playerMovement;
+        private Coroutine wallHangingCoroutine;
+        private HookBlock currentBlock;
     }
 }
