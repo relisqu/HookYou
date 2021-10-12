@@ -38,6 +38,7 @@ namespace Player_Scripts
         private float LaunchSpeed;
 
         [Range(-1, 1)] [SerializeField] private float BreakForceDirection;
+        [Range(0, 1)] [SerializeField] private float HookWallStopability;
 
         [FormerlySerializedAs("BreakForceRequiredTime")] [SerializeField]
         private float BreakRequiredTime;
@@ -115,7 +116,7 @@ namespace Player_Scripts
             PlayerSpringJoint2D.distance = currentDistance;
             Rope.enabled = true;
             var speed = currentBlock.RequiresSpecificHookSpeed()?currentBlock.GetHookShotSpeed():LaunchSpeed;
-            while (PlayerSpringJoint2D.distance > 0.3f && currentDistance > 0.3f)
+            while (PlayerSpringJoint2D.distance > HookWallStopability && currentDistance > HookWallStopability)
             {
                 PlayerSpringJoint2D.distance =
                     Mathf.Lerp(PlayerSpringJoint2D.distance, 0.1f, Time.fixedDeltaTime * speed);

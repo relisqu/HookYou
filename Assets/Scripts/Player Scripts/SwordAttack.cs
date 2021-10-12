@@ -8,25 +8,30 @@ namespace Assets.Scripts
 {
     public class SwordAttack : MonoBehaviour
     {
-        private static readonly int IsHitting = Animator.StringToHash("IsHitting");
-        [FormerlySerializedAs("damage")] public float Damage;
-        [FormerlySerializedAs("swordReload")] public float SwordReload;
-        [FormerlySerializedAs("attackRange")] public float AttackRange;
+        [FormerlySerializedAs("damage")] [SerializeField]
+        private float Damage;
+
+        [FormerlySerializedAs("swordReload")] [SerializeField]
+        private float SwordReload;
+
+        [FormerlySerializedAs("attackRange")] [SerializeField]
+        private float AttackRange;
 
         [Header("References: ")] [FormerlySerializedAs("attackPoint")]
         public Transform AttackPoint;
 
-        [FormerlySerializedAs("swordHolder")] public Transform SwordHolder;
-        [FormerlySerializedAs("enemyLayers")] public LayerMask EnemyLayers;
-        [FormerlySerializedAs("animator")] public Animator Animator;
-        private readonly Collider2D[] collidedEnemies = new Collider2D[20];
+        [FormerlySerializedAs("swordHolder")] [SerializeField]
+        private Transform SwordHolder;
 
-        private bool isAttacking;
+        [FormerlySerializedAs("enemyLayers")] [SerializeField]
+        private LayerMask EnemyLayers;
 
-        private Camera mainCamera;
-        public int GetDamage => 1;
+        [FormerlySerializedAs("animator")] [SerializeField]
+        private Animator Animator;
+
+
         public bool IsAttacking => isAttacking;
-        private bool startedAttack;
+        public int GetDamage => 1;
 
         private void Awake()
         {
@@ -51,10 +56,17 @@ namespace Assets.Scripts
             if (AttackPoint == null) return;
             Gizmos.DrawWireSphere(AttackPoint.position, AttackRange);
         }
-
-        private float AngleBetweenTwoPoints(Vector3 a, Vector3 b)
+        
+        public void StopAttack()
         {
-            return Mathf.Atan2(b.y - a.y, b.x - a.x) * Mathf.Rad2Deg;
+            isAttacking = false;
+            StopAllCoroutines();
+        }
+
+        public void Attack()
+        {
+            AudioManager.instance.Play("sword_attack");
+            isAttacking = true;
         }
 
         private IEnumerator SwingSword()
@@ -64,17 +76,14 @@ namespace Assets.Scripts
             startedAttack = false;
         }
 
-        public void StopAttack()
+        private float AngleBetweenTwoPoints(Vector3 a, Vector3 b)
         {
-            
-            isAttacking = false;
-            StopAllCoroutines();
-        } 
-        public void Attack()
-        {
-            AudioManager.instance.Play("sword_attack");
-            isAttacking = true;
+            return Mathf.Atan2(b.y - a.y, b.x - a.x) * Mathf.Rad2Deg;
         }
-        
+
+        private bool startedAttack;
+        private Camera mainCamera;
+        private bool isAttacking;
+        private static readonly int IsHitting = Animator.StringToHash("IsHitting");
     }
 }
