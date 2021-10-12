@@ -1,41 +1,69 @@
 using System;
 using UnityEngine;
 
-namespace Assets.Scripts.LevelCreator
+namespace LevelCreator
 {
     public class DoorAnimator : MonoBehaviour
     {
-        [SerializeField] private float Direction;
+        private static readonly int OpenDoor = Animator.StringToHash("OpenDoor");
+        private static readonly int CloseDoor = Animator.StringToHash("CloseDoor");
+        private static readonly int IsOpenedFromBeginning = Animator.StringToHash("IsOpenedFromBeginning");
+        private static readonly int DirectionXIndex = Animator.StringToHash("xDirection");
+        private static readonly int DirectionYIndex = Animator.StringToHash("yDirection");
+        [SerializeField] private DoorDirectionType Direction;
 
         [Header("Reference: ")] [SerializeField]
         private Animator Animator;
 
         private void OnEnable()
         {
-            Animator.SetFloat(DirectionIndex,Direction);
+            var xDirection = 0;
+            var yDirection = 0;
+            switch (Direction)
+            {
+                case DoorDirectionType.Left:
+                    xDirection = 1;
+                    break;
+                case DoorDirectionType.Right:
+
+                    xDirection = -1;
+                    break;
+                case DoorDirectionType.Top:
+                    yDirection = 1;
+                    break;
+                case DoorDirectionType.Down:
+                    yDirection = -1;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            Animator.SetFloat(DirectionXIndex, xDirection);
+            Animator.SetFloat(DirectionYIndex, yDirection);
         }
 
         public void SetClosed()
         {
-            print("Closing");
             Animator.SetTrigger(CloseDoor);
         }
 
         public void SetOpened()
         {
-            print("Openning");
             Animator.SetTrigger(OpenDoor);
         }
 
         public void SetupDoor(bool isOpenedFromBeginning)
         {
-            print("Door is opened: "+isOpenedFromBeginning);
+            print("Door is opened: " + isOpenedFromBeginning);
             Animator.SetBool(IsOpenedFromBeginning, isOpenedFromBeginning);
         }
 
-        private static readonly int OpenDoor = Animator.StringToHash("OpenDoor");
-        private static readonly int CloseDoor = Animator.StringToHash("CloseDoor");
-        private static readonly int IsOpenedFromBeginning = Animator.StringToHash("IsOpenedFromBeginning");
-        private static readonly int DirectionIndex = Animator.StringToHash("Direction");
+        private enum DoorDirectionType
+        {
+            Left,
+            Right,
+            Top,
+            Down
+        }
     }
 }

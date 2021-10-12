@@ -1,4 +1,5 @@
 using System;
+using LevelCreator;
 using UnityEngine;
 
 namespace Assets.Scripts.LevelCreator
@@ -9,45 +10,32 @@ namespace Assets.Scripts.LevelCreator
         [SerializeField] private DoorType Type;
         [SerializeField] private Transform PlayerTeleportationPoint;
         [SerializeField] private DoorAnimator DoorAnimator;
-
-
-        private bool isCurrentlyOpened;
         public Action<Player> EnteredDoor;
         public Action<Player> ExitedDoor;
 
-        enum DoorType
-        {
-            Boss,
-            Enemy,
-            Runner,
-            AlwaysOpened,
-            AlwaysClosed
-        }
 
-        public Vector3 GetTeleportationPoint()
-        {
-            return PlayerTeleportationPoint.position;
-        }
-
-        private void OnCollisionEnter2D(Collision2D other)
-        {
-           
-            if (!isCurrentlyOpened || !other.gameObject.TryGetComponent(out Player player)) return;
-            GoThroughDoor(player);
-        }
+        private bool isCurrentlyOpened;
 
         private void OnEnable()
         {
             if (Type == DoorType.AlwaysOpened)
-            {
                 Open();
-            }
             else
-            {
                 TryClose();
-            }
 
             DoorAnimator.SetupDoor(Type == DoorType.AlwaysOpened);
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (!isCurrentlyOpened || !other.gameObject.TryGetComponent(out Player player)) return;
+            GoThroughDoor(player);
+        }
+
+
+        public Vector3 GetTeleportationPoint()
+        {
+            return PlayerTeleportationPoint.position;
         }
 
         public void Open()
@@ -77,6 +65,15 @@ namespace Assets.Scripts.LevelCreator
                 DoorAnimator.SetClosed();
                 DoorAnimator.SetupDoor(isCurrentlyOpened);
             }
+        }
+
+        private enum DoorType
+        {
+            Boss,
+            Enemy,
+            Runner,
+            AlwaysOpened,
+            AlwaysClosed
         }
     }
 }

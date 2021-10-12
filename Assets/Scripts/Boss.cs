@@ -1,13 +1,17 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using Assets.Scripts.Old_Scripts;
 using Grappling_Hook.Test;
 using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    private bool isActivated = false;
+    public delegate void OnBossActivation(LevelData data);
+
+    public delegate void OnBossDefeat(LevelData data);
+
+    public static OnBossActivation ActivateBoss;
+
+    public static OnBossDefeat KillBoss;
     public BossPhaseState[] states;
     public CanonModule[] modules;
     public Transform rotationModule;
@@ -16,39 +20,43 @@ public class Boss : MonoBehaviour
     public float throwAwaySpeed;
 
     public LevelData level;
-    private BossPhaseState currentState;
-    private int сurrentPoint = 0;
-    private bool isAlive = true;
-    private int currentSessionBullets;
-    private bool isOverheated;
-    private int currentStateIndex = 0;
     public float rotationSpeed;
-    private float angle = 0;
-    private bool isPushing;
-
-    public delegate void OnBossActivation(LevelData data);
-
-    public static OnBossActivation ActivateBoss;
-
-    public delegate void OnBossDefeat(LevelData data);
-
-    public static OnBossDefeat KillBoss;
 
     public ParticleSystem explosion;
+    private float angle;
+    private int currentSessionBullets;
+    private BossPhaseState currentState;
+    private int currentStateIndex;
+    private bool isActivated;
     private bool isActivating;
-    void FixedUpdate()
+    private bool isAlive = true;
+    private bool isOverheated;
+    private bool isPushing;
+    private int сurrentPoint;
+
+    private void FixedUpdate()
     {
         if (isActivated) Move();
     }
 
-    IEnumerator Overheat()
+    private void OnDrawGizmosSelected()
+    {
+        if (positions == null || positions.Length < 1) return;
+        foreach (var position in positions)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawSphere(position, 0.5f);
+        }
+    }
+
+    private IEnumerator Overheat()
     {
         isOverheated = true;
         yield return new WaitForSeconds(currentState.overheatTime);
         isOverheated = false;
     }
 
-    void Move()
+    private void Move()
     {
         if (isOverheated || !isAlive) return;
         var step = states[currentStateIndex].bossSpeed * Time.fixedDeltaTime;
@@ -56,21 +64,17 @@ public class Boss : MonoBehaviour
         var newPosition = Vector2.MoveTowards(transform.position, neededPosition + level.generationPosition, step);
         transform.position = newPosition;
         if (Vector3.Distance(newPosition, neededPosition + level.generationPosition) < step)
-        {
             сurrentPoint = (сurrentPoint + 1) % positions.Length;
-        }
     }
 
-    IEnumerator Shoot()
+    private IEnumerator Shoot()
     {
         while (isAlive && isActivated)
         {
             if (!isOverheated)
             {
                 foreach (var cannonModule in modules)
-                {
-                    cannonModule.Shoot(currentState.shotSpeed, currentState.shotSize,cannonModule.transform.rotation);
-                }
+                    cannonModule.Shoot(currentState.shotSpeed, currentState.shotSize, cannonModule.transform.rotation);
 
                 currentSessionBullets += 1;
 
@@ -92,16 +96,16 @@ public class Boss : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator Rotate(float endZRot)
+    private IEnumerator Rotate(float endZRot)
     {
         if (isOverheated) yield break;
-        Quaternion startRotation = rotationModule.rotation;
+        var startRotation = rotationModule.rotation;
 
         float time = 0;
         while (time < 1f)
         {
             time = Mathf.Min(1f, time + Time.deltaTime / rotationSpeed);
-            Vector3 newEulerOffset = Vector3.forward * (endZRot * time);
+            var newEulerOffset = Vector3.forward * (endZRot * time);
             // global z rotation
             rotationModule.rotation = Quaternion.Euler(newEulerOffset) * startRotation;
             // local z rotation
@@ -110,38 +114,32 @@ public class Boss : MonoBehaviour
         }
     }
 
-    IEnumerator CreateExplosion()
+    private IEnumerator CreateExplosion()
     {
         isActivating = true;
         explosion.Play();
-        while (!explosion.isStopped)
-        {
-            yield return new WaitForSeconds(0.01f);
-        }
-        
+        while (!explosion.isStopped) yield return new WaitForSeconds(0.01f);
+
         ActivateBoss?.Invoke(level);
         isActivated = true;
         currentState = states[currentStateIndex];
         angle = currentState.rotationAngle;
         StartCoroutine(Shoot());
-        
+
         isActivating = false;
         yield return new WaitForSeconds(0.01f);
-
     }
 
     public Coroutine GetDamage()
     {
         if (isActivating) return null;
         if (!isActivated)
-        {
             //ActivateBoss?.Invoke(level);
             //isActivated = true;
             //currentState = states[currentStateIndex];
             //angle = currentState.rotationAngle;
-           // StartCoroutine(Shoot());
+            // StartCoroutine(Shoot());
             return StartCoroutine(CreateExplosion());
-        }
 
         currentStateIndex += 1;
         if (currentStateIndex == states.Length)
@@ -154,21 +152,11 @@ public class Boss : MonoBehaviour
         return StartCoroutine(CreateExplosion());
     }
 
-    void Die()
+    private void Die()
     {
         print("Boss ded");
         KillBoss?.Invoke(level);
         isAlive = false;
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        if (positions == null || positions.Length < 1) return;
-        foreach (var position in positions)
-        {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawSphere(position, 0.5f);
-        }
     }
 
     public IEnumerator IsPushingAway()
@@ -178,7 +166,7 @@ public class Boss : MonoBehaviour
         isPushing = false;
     }
 
-    public IEnumerator ThrowAway(Coroutine explosion,GameObject player)
+    public IEnumerator ThrowAway(Coroutine explosion, GameObject player)
     {
         if (explosion == null) yield break;
         yield return explosion;

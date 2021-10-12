@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WallFinder : MonoBehaviour
 {
@@ -13,19 +11,16 @@ public class WallFinder : MonoBehaviour
         IsNearWall = WallLayers == (WallLayers | (1 << o.layer));
     }
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        var otherObj = other.gameObject;
+        if (WallLayers == (WallLayers | (1 << otherObj.layer))) IsNearWall = false;
+    }
+
 
     private void OnTriggerStay2D(Collider2D other)
     {
         var otherObj = other.gameObject;
         IsNearWall = WallLayers == (WallLayers | (1 << otherObj.layer));
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        var otherObj = other.gameObject;
-        if (WallLayers == (WallLayers | (1 << otherObj.layer)))
-        {
-            IsNearWall = false;
-        }
     }
 }

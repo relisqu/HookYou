@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +7,10 @@ namespace Assets.Scripts.LevelCreator
     {
         [SerializeField] private List<Level> Levels;
 
+        private void Start()
+        {
+        }
+
         public void EnterTheFloor(Player player)
         {
             Levels[0].EnterLevel(player);
@@ -15,20 +18,13 @@ namespace Assets.Scripts.LevelCreator
 
         public void RestartFloor(Player player)
         {
-            foreach (var room in Levels)
-            {
-                room.Restart();
-            }
+            foreach (var room in Levels) room.Restart();
 
 
             player.LastVisitedDoor = null;
             var checkpoint = Levels.FindLast(level =>
                 level.GetLevelType() == Level.LevelType.Checkpoint && level.IsCompleted);
             player.transform.position = checkpoint.GetDefaultTeleportLocation();
-        }
-
-        private void Start()
-        {
         }
 
         public void RestartCurrentRoom(Player player)
