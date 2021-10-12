@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Destructibility;
 using Grappling_Hook.Test;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -23,6 +24,9 @@ namespace Assets.Scripts
         private bool isAttacking;
 
         private Camera mainCamera;
+        public int GetDamage => 1;
+        public bool IsAttacking => isAttacking;
+        private bool startedAttack;
 
         private void Awake()
         {
@@ -31,7 +35,7 @@ namespace Assets.Scripts
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0) && !isAttacking)
+            if (Input.GetMouseButtonDown(0) && !startedAttack)
             {
                 Animator.SetTrigger(IsHitting);
                 StartCoroutine(SwingSword());
@@ -55,34 +59,22 @@ namespace Assets.Scripts
 
         private IEnumerator SwingSword()
         {
-            isAttacking = true;
+            startedAttack = true;
             yield return new WaitForSeconds(SwordReload);
-            isAttacking = false;
+            startedAttack = false;
         }
 
+        public void StopAttack()
+        {
+            
+            isAttacking = false;
+            StopAllCoroutines();
+        } 
         public void Attack()
         {
-            Physics2D.OverlapCircleNonAlloc(AttackPoint.position, AttackRange, collidedEnemies, EnemyLayers);
             AudioManager.instance.Play("sword_attack");
-            if (collidedEnemies[0] == null) return;
-            foreach (var enemy in collidedEnemies)
-            {
-                if (enemy == null) return;
-
-                if (enemy.TryGetComponent(out Boss boss))
-                {
-                    StartCoroutine(boss.ThrowAway(boss.GetDamage(), gameObject));
-                }
-                else if (enemy.TryGetComponent(out Enemy towardsPlayerEnemy))
-                {
-                    towardsPlayerEnemy.GetDamage(Damage);
-                }
-                else if (enemy.TryGetComponent(out BossBullet bullet))
-                {
-                    bullet.transform.rotation = Quaternion.Inverse(bullet.transform.rotation);
-                    bullet.isDamaging = false;
-                }
-            }
+            isAttacking = true;
         }
+        
     }
 }
