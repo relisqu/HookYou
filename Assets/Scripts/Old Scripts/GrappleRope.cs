@@ -70,6 +70,7 @@ namespace Assets.Scripts.Old_Scripts
 
         private void LinePointToFirePoint()
         {
+            if (m_lineRenderer == null) return;
             for (var i = 0; i < percision; i++) m_lineRenderer.SetPosition(i, firePoint.position);
         }
 
