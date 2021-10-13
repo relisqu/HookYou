@@ -63,7 +63,6 @@ namespace Assets.Scripts
         public void StopAttack()
         {
             isAttacking = false;
-            StopAllCoroutines();
         }
 
         public void Attack()

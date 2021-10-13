@@ -24340,7 +24340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sword: {fileID: 1160664872}
   Hook: {fileID: 1215849461}
-  DefaultWalkingSpeed: 2.5
+  DefaultWalkingSpeed: 3.2
   HookFlyingMultiplier: 2.5
   SwordSlowDownMultiplier: 0.61
   rigidbody2D: {fileID: 1946059979}
