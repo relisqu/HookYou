@@ -31,6 +31,9 @@ namespace Assets.Scripts
 
 
         public bool IsAttacking => isAttacking;
+
+        public bool StartedAttack => startedAttack;
+
         public int GetDamage => 1;
 
         private void Awake()
