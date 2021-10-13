@@ -1535,6 +1535,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHealth: 1
+  Animator: {fileID: 210175298}
+--- !u!95 &210175297
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210175290}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 09a6ac35c1eda33439b2aaef0c7bac23, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &210175298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210175290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f85f16a0d8524e5daa0bca4644e16c21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 210175297}
+  HitTag: 
+  DeathTag: death
 --- !u!4 &213892990 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 317090653009145076, guid: 4a63bfe816e69f24189ccb582ef4f59b,
@@ -5269,6 +5304,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1951550518260475406, guid: 758f505db6f783e429b904729fb448e9,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.8685322
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951550518260475406, guid: 758f505db6f783e429b904729fb448e9,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.007925987
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951550518260475406, guid: 758f505db6f783e429b904729fb448e9,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951550518260475406, guid: 758f505db6f783e429b904729fb448e9,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6406433748730521070, guid: 758f505db6f783e429b904729fb448e9,
         type: 3}
       propertyPath: m_Name
@@ -24357,6 +24412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHealth: 1
+  Animator: {fileID: 0}
   Player: {fileID: 1946059976}
 --- !u!114 &1946059985
 MonoBehaviour:

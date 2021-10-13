@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Destructibility
 {
-    public class DeathAnimator
+    public class DeathAnimator : MonoBehaviour
     {
         [SerializeField] private Animator Animator;
         [SerializeField] private string HitTag;
