@@ -31,6 +31,9 @@ namespace Assets.Scripts
 
 
         public bool IsAttacking => isAttacking;
+
+        public bool StartedAttack => startedAttack;
+
         public int GetDamage => 1;
 
         private void Awake()
@@ -60,7 +63,6 @@ namespace Assets.Scripts
         public void StopAttack()
         {
             isAttacking = false;
-            StopAllCoroutines();
         }
 
         public void Attack()

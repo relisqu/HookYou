@@ -238,7 +238,6 @@ namespace Player_Scripts
         
         private float currentBreakTime;
         private RaycastHit2D currentHit;
-
         private Coroutine droppingCoroutine;
         private Vector3 grapplePoint;
         private Transform hookEndDefaultParent;

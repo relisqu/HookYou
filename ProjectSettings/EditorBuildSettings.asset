@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/FirstLocation.unity
     guid: 23f7755dbdfba26449f471ec78f274dd
-  - enabled: 1
-    path: Assets/Scene/SecondLocation.unity
-    guid: 5f4d79e11f8ae1646868a003f7e6f029
-  - enabled: 1
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Scene/WinScene.unity
     guid: ed9780f917ef1024592e8bc891b3a4bc
   m_configObjects: {}

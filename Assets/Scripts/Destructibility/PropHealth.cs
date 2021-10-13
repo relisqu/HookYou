@@ -4,7 +4,7 @@ namespace Destructibility
     {
         public override void Die()
         {
-            gameObject.SetActive(false);
+           // gameObject.SetActive(false);
         }
     }
 }
