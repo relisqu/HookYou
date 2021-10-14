@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 7ecd7ad65efbe3f449fd564e50c7da59
+guid: bbb14de622248de4bbd4564abac8552e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1163504838602118676
-    second: crate_0
+      213: -3882438708426577246
+    second: metal_crate_0
   - first:
-      213: 5758118596646955673
-    second: crate_1
+      213: -6173064422427203600
+    second: metal_crate_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -71,7 +71,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 32
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -83,7 +83,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 32
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -95,7 +95,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 32
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -107,7 +107,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 32
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -121,12 +121,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: crate_0
+      name: metal_crate_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 15
-        width: 16
+        y: 8
+        width: 18
         height: 17
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -135,18 +135,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce92ca883866adfe0800000000000000
-      internalID: -1163504838602118676
+      spriteID: 2aae102909ece1ac0800000000000000
+      internalID: -3882438708426577246
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crate_1
+      name: metal_crate_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 7
+        x: 1
+        y: 0
         width: 16
         height: 5
       alignment: 0
@@ -156,8 +156,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99a66b71b52f8ef40800000000000000
-      internalID: 5758118596646955673
+      spriteID: 0f7ef953d9ed45aa0800000000000000
+      internalID: -6173064422427203600
       vertices: []
       indices: 
       edges: []

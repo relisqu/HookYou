@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad83cdf15ac04bb0a88df299c173b75d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SwingSpeed: 0
+  SwingSpeed: 1
   RequiresUniqueHookSpeed: 0
   HookShotSpeed: 0
   Rigidbody2D: {fileID: 6945912344236190296}
-  PushSpeed: 0
+  PushSpeed: 15
 --- !u!1001 &657535553556611648
 PrefabInstance:
   m_ObjectHideFlags: 0
