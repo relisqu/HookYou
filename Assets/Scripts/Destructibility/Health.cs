@@ -19,12 +19,12 @@ namespace Destructibility
             currentHealth -= Math.Abs(damage);
             if (currentHealth <= 0)
             {
-                Animator?.PlayDeathAnimation();
+                Animator.PlayDeathAnimation();
                 Die();
             }
             else
             {
-                Animator?.PlayHitAnimation();
+                Animator.PlayHitAnimation();
                 
             }
         }

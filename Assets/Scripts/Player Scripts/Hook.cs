@@ -101,7 +101,6 @@ namespace Player_Scripts
                 if (wallHangingCoroutine != null) StopCoroutine(wallHangingCoroutine);
                 if (droppingCoroutine != null) StopCoroutine(droppingCoroutine);
                 if (hookingCoroutine != null) StopCoroutine(hookingCoroutine);
-                PlayerSpringJoint2D.connectedAnchor = HookFinalPivot.position;
                 PlayerSpringJoint2D.enabled = true;
                 CurrentHookState = HookState.Hooking;
                 hookingCoroutine = StartCoroutine(MoveToWall());

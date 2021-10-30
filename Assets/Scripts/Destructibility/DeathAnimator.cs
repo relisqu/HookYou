@@ -10,12 +10,12 @@ namespace Destructibility
 
         public void PlayHitAnimation()
         {
-            Animator.SetTrigger(HitTag);
+           if(Animator!=null) Animator.SetTrigger(HitTag);
         }
 
         public void PlayDeathAnimation()
         {
-            Animator.SetTrigger(DeathTag);
+            if(Animator!=null)  Animator.SetTrigger(DeathTag);
         }
         
     }
