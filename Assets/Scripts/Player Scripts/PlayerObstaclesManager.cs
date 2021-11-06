@@ -1,3 +1,4 @@
+using Player_Scripts;
 using UnityEngine;
 
 namespace Assets.Scripts
@@ -8,7 +9,6 @@ namespace Assets.Scripts
         [SerializeField] private LayerMask ObstaclesMask;
         [SerializeField] private LayerMask AbyssMask;
         [SerializeField] private Collider2D AbyssCollider;
-        private bool WasEnteringFromEdge;
 
         private void OnCollisionEnter2D(Collision2D other)
         {

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Player_Scripts;
 using UnityEngine;
 
 public class MovableWallScript : MonoBehaviour

@@ -1,6 +1,9 @@
 using System.Collections.Generic;
+using Destructibility;
 using Grappling_Hook.Test;
+using Player_Scripts;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Assets.Scripts.LevelCreator
 {
@@ -14,19 +17,19 @@ namespace Assets.Scripts.LevelCreator
             Checkpoint
         }
 
-        [SerializeField] private List<Enemy> Enemies;
+        [FormerlySerializedAs("Enemies")] [SerializeField] private List<Health> LevelObjects;
         [SerializeField] private List<Door> Doors;
         [SerializeField] private Transform TeleportationPoint;
         [SerializeField] private LevelType Type;
         private int currentEnemiesCount;
         public bool IsCompleted { get; private set; }
 
-        private int defaultEnemiesAmount => Enemies.Count;
+        private int defaultEnemiesAmount => LevelObjects.Count;
         public Player Player { get; private set; }
 
         private void OnEnable()
         {
-            foreach (var enemy in Enemies)
+/*            foreach (var enemy in LevelObjects)
             {
                 enemy.EnemyDied += CheckEnemiesAmount;
                 enemy.DisableEnemy();
@@ -36,14 +39,14 @@ namespace Assets.Scripts.LevelCreator
             {
                 door.EnteredDoor += EnterLevel;
                 door.ExitedDoor += LeaveLevel;
-            }
+            }*/
         }
 
         private void OnDisable()
         {
-            foreach (var enemy in Enemies) enemy.EnemyDied -= CheckEnemiesAmount;
+          //  foreach (var enemy in LevelObjects) enemy.EnemyDied -= CheckEnemiesAmount;
 
-            foreach (var door in Doors) door.EnteredDoor -= EnterLevel;
+          //  foreach (var door in Doors) door.EnteredDoor -= EnterLevel;
         }
 
         public LevelType GetLevelType()
@@ -53,10 +56,10 @@ namespace Assets.Scripts.LevelCreator
 
         public void Restart()
         {
-            foreach (var enemy in Enemies) enemy.EnableEnemy();
+           // foreach (var enemy in LevelObjects) enemy.EnableEnemy();
 
             currentEnemiesCount = defaultEnemiesAmount;
-            foreach (var door in Doors) door.TryClose();
+         //   foreach (var door in Doors) door.TryClose();
 
             Player.transform.position = TeleportationPoint.position;
         }
@@ -72,7 +75,7 @@ namespace Assets.Scripts.LevelCreator
             currentEnemiesCount--;
             if (currentEnemiesCount < 1)
             {
-                foreach (var door in Doors) door.Open();
+         //      foreach (var door in Doors) door.Open();
 
                 IsCompleted = true;
             }

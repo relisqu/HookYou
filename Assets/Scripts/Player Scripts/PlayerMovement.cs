@@ -17,11 +17,12 @@ namespace Player_Scripts
 
         private Vector2 movement;
         private bool isMoving;
+        private Vector2 lastMovement= Vector2.right;
         [SerializeField]private Rigidbody2D rigidbody2D;
         private bool previouslyMoved;
         public Vector2 GetMovement => movement;
         public bool IsMoving => isMoving;
-
+        
 
         private void Update()
         {
@@ -31,7 +32,6 @@ namespace Player_Scripts
             Hook.SetPlayerWalkingMovement(movement);
             isMoving = movement.sqrMagnitude > 0;
             rigidbody2D.velocity = movement * GetCurrentSpeed();
-            Debug.Log(rigidbody2D.velocity);
             switch (isMoving)
             {
                 case true:
@@ -43,6 +43,7 @@ namespace Player_Scripts
                     break;
             }
 
+            if (isMoving) lastMovement = movement;
             previouslyMoved = isMoving;
         }
  
@@ -62,5 +63,9 @@ namespace Player_Scripts
 
             return currentSpeed;
         }
+        public float GetMovementRotationAngle()
+        {
+            return Vector2.SignedAngle(Vector2.right, lastMovement);
+        }
     }
-}
+    }
