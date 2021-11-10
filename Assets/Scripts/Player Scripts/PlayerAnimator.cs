@@ -10,6 +10,7 @@ namespace Player_Scripts
         private static readonly int XDirection = Animator.StringToHash("xDirection");
         private static readonly int YDirection = Animator.StringToHash("yDirection");
         [SerializeField] private Animator Animator;
+        [SerializeField] private Animator TransformAnimator;
         [SerializeField] private PlayerMovement PlayerMovement;
         [SerializeField] private Hook Hook;
         [SerializeField] private SwordAttack Sword;
@@ -28,29 +29,32 @@ namespace Player_Scripts
 
         void PlayAttackAnimation()
         {
-            Animator.SetTrigger(SwordAttacked);
+            TransformAnimator.SetTrigger(SwordAttacked);
         }
 
         private void Update()
         {
-            if (PlayerMovement.IsMoving && !Sword.IsAttacking&& Hook.CurrentHookState == Hook.HookState.NotHooking)
+            if (PlayerMovement.IsMoving && !Sword.IsAttacking && Hook.CurrentHookState == Hook.HookState.NotHooking)
             {
+                print("aa");
                 Animator.SetFloat(XDirection, PlayerMovement.GetMovement.x);
                 Animator.SetFloat(YDirection, PlayerMovement.GetMovement.y);
             }
 
             if (Hook.CurrentHookState != Hook.HookState.NotHooking)
             {
+                print("bb");
                 Animator.SetFloat(XDirection, Hook.GetHookDirection().x);
                 Animator.SetFloat(YDirection, Hook.GetHookDirection().y);
             }
 
-            if (Sword.StartedAttack)
+            if (Sword.StartedAttack || Sword.IsAttacking)
             {
+                print("Cc");
                 Animator.SetFloat(XDirection, SwordRotator.right.x);
                 Animator.SetFloat(YDirection, SwordRotator.right.y);
             }
-
+            
             Animator.SetBool(IsMovingHash, PlayerMovement.IsMoving);
         }
     }

@@ -31,7 +31,7 @@ namespace Player_Scripts
             movement.Normalize();
             Hook.SetPlayerWalkingMovement(movement);
             var finalSpeed = movement * GetCurrentSpeed();
-            isMoving = movement.sqrMagnitude > 0;
+            isMoving = finalSpeed.sqrMagnitude > 0;
             rigidbody2D.velocity = finalSpeed;
             switch (isMoving)
             {
