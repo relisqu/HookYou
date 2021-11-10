@@ -8,9 +8,6 @@ namespace Assets.Scripts.LevelCreator
     {
         [SerializeField] private List<Level> Levels;
 
-        private void Start()
-        {
-        }
 
         public void EnterTheFloor(Player player)
         {

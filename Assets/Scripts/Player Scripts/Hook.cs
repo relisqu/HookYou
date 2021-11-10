@@ -124,7 +124,7 @@ namespace Player_Scripts
             }
 
             yield return new WaitForSeconds(0.01f);
-            currentBlock.AddActivitiesAfterHook(this);
+            currentBlock.TouchTheBlock(this);
         }
 
 

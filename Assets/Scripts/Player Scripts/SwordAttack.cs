@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Destructibility;
 using Grappling_Hook.Test;
 using UnityEngine;
@@ -35,6 +36,7 @@ namespace Assets.Scripts
 
         public int GetDamage => 1;
 
+        public Action Attacked;
         private void Update()
         {
             if (Input.GetMouseButtonDown(0) && !startedAttack)
@@ -46,7 +48,7 @@ namespace Assets.Scripts
             }
 
         }
-
+        
         private void OnDrawGizmosSelected()
         {
             if (AttackPoint == null) return;
@@ -66,6 +68,7 @@ namespace Assets.Scripts
 
         private IEnumerator SwingSword()
         {
+            Attacked?.Invoke();
             startedAttack = true;
             yield return new WaitForSeconds(SwordReload);
             startedAttack = false;
@@ -75,5 +78,10 @@ namespace Assets.Scripts
         private bool isAttacking;
         private static readonly int IsHitting = Animator.StringToHash("IsHitting");
         private static readonly int IsOddSwing = Animator.StringToHash("IsOddSwing");
+
+        public void GetAttackDirection()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

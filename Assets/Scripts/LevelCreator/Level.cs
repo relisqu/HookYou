@@ -17,36 +17,36 @@ namespace Assets.Scripts.LevelCreator
             Checkpoint
         }
 
-        [FormerlySerializedAs("Enemies")] [SerializeField] private List<Health> LevelObjects;
+        [FormerlySerializedAs("Enemies")] [SerializeField] private List<RespawnableLevelObject> LevelObjects;
         [SerializeField] private List<Door> Doors;
         [SerializeField] private Transform TeleportationPoint;
         [SerializeField] private LevelType Type;
-        private int currentEnemiesCount;
+        private int currentActiveObjectsCount;
         public bool IsCompleted { get; private set; }
 
-        private int defaultEnemiesAmount => LevelObjects.Count;
+        private int defaultObjectsAmount => LevelObjects.Count;
         public Player Player { get; private set; }
 
         private void OnEnable()
         {
-/*            foreach (var enemy in LevelObjects)
+            foreach (var respawnableLevelObject in LevelObjects)
             {
-                enemy.EnemyDied += CheckEnemiesAmount;
-                enemy.DisableEnemy();
+                respawnableLevelObject.GetHealth().Died += ReduceObjectsAmount;
+                respawnableLevelObject.Despawn();
             }
 
             foreach (var door in Doors)
             {
                 door.EnteredDoor += EnterLevel;
                 door.ExitedDoor += LeaveLevel;
-            }*/
+            }
         }
 
         private void OnDisable()
         {
-          //  foreach (var enemy in LevelObjects) enemy.EnemyDied -= CheckEnemiesAmount;
+           foreach (var levelObject in LevelObjects) levelObject.GetHealth().Died -= ReduceObjectsAmount;
 
-          //  foreach (var door in Doors) door.EnteredDoor -= EnterLevel;
+           foreach (var door in Doors) door.EnteredDoor -= EnterLevel;
         }
 
         public LevelType GetLevelType()
@@ -56,10 +56,10 @@ namespace Assets.Scripts.LevelCreator
 
         public void Restart()
         {
-           // foreach (var enemy in LevelObjects) enemy.EnableEnemy();
+            foreach (var enemy in LevelObjects) enemy.Spawn();
 
-            currentEnemiesCount = defaultEnemiesAmount;
-         //   foreach (var door in Doors) door.TryClose();
+            currentActiveObjectsCount = defaultObjectsAmount;
+            foreach (var door in Doors) door.TryClose();
 
             Player.transform.position = TeleportationPoint.position;
         }
@@ -70,20 +70,31 @@ namespace Assets.Scripts.LevelCreator
             IsCompleted = true;
         }
 
-        private void CheckEnemiesAmount()
+        private void ReduceObjectsAmount()
         {
-            currentEnemiesCount--;
-            if (currentEnemiesCount < 1)
+            print("HUI NAAA");
+            currentActiveObjectsCount--;
+            
+            if (currentActiveObjectsCount < 1)
             {
-         //      foreach (var door in Doors) door.Open();
-
-                IsCompleted = true;
+                CompleteLevel();
+                OpenAllDoors();
             }
+        }
+
+        private void CompleteLevel()
+        {
+                IsCompleted = true;
+        }
+
+        private void OpenAllDoors()
+        {
+            foreach (var door in Doors) door.Open();
         }
 
         public void EnterLevel(Player player)
         {
-            this.Player = player;
+            Player = player;
             if (!IsCompleted) Restart();
         }
 

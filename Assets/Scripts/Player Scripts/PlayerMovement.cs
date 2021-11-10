@@ -30,8 +30,9 @@ namespace Player_Scripts
             movement.y = Input.GetAxisRaw("Vertical");
             movement.Normalize();
             Hook.SetPlayerWalkingMovement(movement);
+            var finalSpeed = movement * GetCurrentSpeed();
             isMoving = movement.sqrMagnitude > 0;
-            rigidbody2D.velocity = movement * GetCurrentSpeed();
+            rigidbody2D.velocity = finalSpeed;
             switch (isMoving)
             {
                 case true:
@@ -46,7 +47,7 @@ namespace Player_Scripts
             if (isMoving) lastMovement = movement;
             previouslyMoved = isMoving;
         }
- 
+    
 
         public float GetCurrentSpeed()
         {
