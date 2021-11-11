@@ -69,10 +69,6 @@ namespace Assets.Scripts
             isAttacking = true;
         }
 
-        public void VisualAttack()
-        {
-            isVisuallyAttacking = true;
-        }
         public void StopVisualAttack()
         {
             isVisuallyAttacking = false;

@@ -64,7 +64,7 @@ namespace Player_Scripts
                 currentSpeed *= HookFlyingMultiplier;
             }
 
-            if (Sword.IsAttackingVisually)
+            if (Sword.IsAttacking ||Sword.IsAttackingVisually)
             {
                 currentSpeed *= SwordSlowDownMultiplier;
             }

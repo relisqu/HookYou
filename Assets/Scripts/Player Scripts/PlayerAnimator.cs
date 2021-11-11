@@ -36,13 +36,14 @@ namespace Player_Scripts
 
         private void Update()
         {
-            if (PlayerMovement.IsMoving && !Sword.IsAttackingVisually && Hook.CurrentHookState == Hook.HookState.NotHooking)
+            var isHooking = Hook.CurrentHookState == Hook.HookState.Hooking || Hook.CurrentHookState == Hook.HookState.OnWall;
+            if (PlayerMovement.IsMoving && !Sword.IsAttackingVisually && !isHooking )
             {
                 Animator.SetFloat(XDirection, PlayerMovement.GetMovement.x);
                 Animator.SetFloat(YDirection, PlayerMovement.GetMovement.y);
             }
 
-            if (Hook.CurrentHookState != Hook.HookState.NotHooking &&Hook.CurrentHookState != Hook.HookState.DroppedHook)
+            if (isHooking)
             {
                 Animator.SetFloat(XDirection, Hook.GetHookDirection().x);
                 Animator.SetFloat(YDirection, Hook.GetHookDirection().y);
