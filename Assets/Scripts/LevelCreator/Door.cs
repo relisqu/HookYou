@@ -1,5 +1,6 @@
 using System;
 using LevelCreator;
+using Player_Scripts;
 using UnityEngine;
 
 namespace Assets.Scripts.LevelCreator

@@ -1,14 +1,19 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class RotateAppearance : MonoBehaviour
 {
-    private static readonly int XDirection = Animator.StringToHash("xDirection");
-    private static readonly int YDirection = Animator.StringToHash("yDirection");
-    public Animator PlayerAnimator;
-    public Camera Camera;
+    private Camera camera;
 
-    private void FixedUpdate()
+    private void Start()
     {
-        var lookRotation = (Camera.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
+        camera = Camera.main;
+    }
+
+    private void Update()
+    {
+    
+        var lookRotation = (camera.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
+        if(Input.GetMouseButtonDown(0))transform.rotation = Quaternion.Euler(new Vector3(0f,0f,-Vector2.SignedAngle(lookRotation,Vector3.right)));
     }
 }

@@ -4,7 +4,7 @@ namespace HookBlocks
 {
     public class StickyBlock : HookBlock
     {
-        public override void AddActivitiesAfterHook(Hook hook)
+        protected override void AddActivitiesAfterHook(Hook hook)
         {
             hook.HangOnWall();
         }

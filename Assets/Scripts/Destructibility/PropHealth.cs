@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Destructibility
 {
     public class PropHealth: Health
@@ -5,6 +7,8 @@ namespace Destructibility
         public override void Die()
         {
            // gameObject.SetActive(false);
+           Died?.Invoke();
+           
         }
     }
 }

@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Destructibility;
 using Grappling_Hook.Test;
+using Player_Scripts;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -20,8 +22,6 @@ namespace Assets.Scripts
         [Header("References: ")] [FormerlySerializedAs("attackPoint")]
         public Transform AttackPoint;
 
-        [FormerlySerializedAs("swordHolder")] [SerializeField]
-        private Transform SwordHolder;
 
         [FormerlySerializedAs("enemyLayers")] [SerializeField]
         private LayerMask EnemyLayers;
@@ -29,31 +29,29 @@ namespace Assets.Scripts
         [FormerlySerializedAs("animator")] [SerializeField]
         private Animator Animator;
 
+        private bool isOddSwing;
+        private bool isVisuallyAttacking;
 
         public bool IsAttacking => isAttacking;
 
         public bool StartedAttack => startedAttack;
+        public bool IsAttackingVisually => isVisuallyAttacking;
 
         public int GetDamage => 1;
 
-        private void Awake()
-        {
-            mainCamera = Camera.main;
-        }
-
+        public Action Attacked;
         private void Update()
         {
             if (Input.GetMouseButtonDown(0) && !startedAttack)
             {
                 Animator.SetTrigger(IsHitting);
+                Animator.SetBool(IsOddSwing,isOddSwing);
+                isOddSwing = !isOddSwing;
                 StartCoroutine(SwingSword());
             }
 
-            var mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            var angle = AngleBetweenTwoPoints(SwordHolder.position, mousePosition);
-            SwordHolder.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
         }
-
+        
         private void OnDrawGizmosSelected()
         {
             if (AttackPoint == null) return;
@@ -62,7 +60,7 @@ namespace Assets.Scripts
         
         public void StopAttack()
         {
-            isAttacking = false;
+            isAttacking = false; 
         }
 
         public void Attack()
@@ -71,21 +69,28 @@ namespace Assets.Scripts
             isAttacking = true;
         }
 
+        public void StopVisualAttack()
+        {
+            isVisuallyAttacking = false;
+        }
+
         private IEnumerator SwingSword()
         {
+            Attacked?.Invoke();
+            isVisuallyAttacking = true;
             startedAttack = true;
             yield return new WaitForSeconds(SwordReload);
             startedAttack = false;
         }
 
-        private float AngleBetweenTwoPoints(Vector3 a, Vector3 b)
-        {
-            return Mathf.Atan2(b.y - a.y, b.x - a.x) * Mathf.Rad2Deg;
-        }
-
         private bool startedAttack;
-        private Camera mainCamera;
         private bool isAttacking;
         private static readonly int IsHitting = Animator.StringToHash("IsHitting");
+        private static readonly int IsOddSwing = Animator.StringToHash("IsOddSwing");
+
+        public void GetAttackDirection()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

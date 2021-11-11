@@ -115,6 +115,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SwingSpeed: 1.5
+  RequiresUniqueHookSpeed: 0
+  HookShotSpeed: 0
 --- !u!1 &4424508811414952950
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +187,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 15
+  m_SortingOrder: 14
   m_Sprite: {fileID: -3760145121201342229, guid: 2ca803da0edd06a43aeefb6314f18bf9,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.3254902}

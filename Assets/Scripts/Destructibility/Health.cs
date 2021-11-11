@@ -8,6 +8,8 @@ namespace Destructibility
         [SerializeField] private int InitialHealth;
         [SerializeField] private DeathAnimator Animator;
         private int currentHealth;
+        public bool IsAlive => currentHealth>0;
+        public Action Died { get; set; }
 
         private void OnEnable()
         {
@@ -19,12 +21,13 @@ namespace Destructibility
             currentHealth -= Math.Abs(damage);
             if (currentHealth <= 0)
             {
-                Animator?.PlayDeathAnimation();
+                Animator.PlayDeathAnimation();
                 Die();
+                
             }
             else
             {
-                Animator?.PlayHitAnimation();
+                Animator.PlayHitAnimation();
                 
             }
         }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Player_Scripts;
 using UnityEngine;
 
 namespace Assets.Scripts.LevelCreator
@@ -7,9 +8,6 @@ namespace Assets.Scripts.LevelCreator
     {
         [SerializeField] private List<Level> Levels;
 
-        private void Start()
-        {
-        }
 
         public void EnterTheFloor(Player player)
         {
