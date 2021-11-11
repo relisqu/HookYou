@@ -72,7 +72,6 @@ namespace Assets.Scripts.LevelCreator
 
         private void ReduceObjectsAmount()
         {
-            print("HUI NAAA");
             currentActiveObjectsCount--;
             
             if (currentActiveObjectsCount < 1)

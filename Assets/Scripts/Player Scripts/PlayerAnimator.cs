@@ -20,17 +20,24 @@ namespace Player_Scripts
         private void OnEnable()
         {
             Sword.Attacked += PlayAttackAnimation;
+            Hook.HookTouchedWall += PlayHookShrinkAnimation;
         }
 
         private void OnDisable()
         {
             Sword.Attacked -= PlayAttackAnimation;
+            Hook.HookTouchedWall -= PlayHookShrinkAnimation;
         }
 
         void PlayAttackAnimation()
         {
              
             PlayerMovement.CreateSwordTrust(SwordRotator.right.normalized);
+            TransformAnimator.SetTrigger(SwordAttacked);
+        }
+
+        void PlayHookShrinkAnimation()
+        {
             TransformAnimator.SetTrigger(SwordAttacked);
         }
 
