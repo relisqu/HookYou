@@ -2,6 +2,7 @@
 using System.Collections;
 using Destructibility;
 using Grappling_Hook.Test;
+using Player_Scripts;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -29,10 +30,12 @@ namespace Assets.Scripts
         private Animator Animator;
 
         private bool isOddSwing;
+        private bool isVisuallyAttacking;
 
         public bool IsAttacking => isAttacking;
 
         public bool StartedAttack => startedAttack;
+        public bool IsAttackingVisually => isVisuallyAttacking;
 
         public int GetDamage => 1;
 
@@ -66,9 +69,19 @@ namespace Assets.Scripts
             isAttacking = true;
         }
 
+        public void VisualAttack()
+        {
+            isVisuallyAttacking = true;
+        }
+        public void StopVisualAttack()
+        {
+            isVisuallyAttacking = false;
+        }
+
         private IEnumerator SwingSword()
         {
             Attacked?.Invoke();
+            isVisuallyAttacking = true;
             startedAttack = true;
             yield return new WaitForSeconds(SwordReload);
             startedAttack = false;

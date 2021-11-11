@@ -29,28 +29,27 @@ namespace Player_Scripts
 
         void PlayAttackAnimation()
         {
+             
+            PlayerMovement.CreateSwordTrust(SwordRotator.right.normalized);
             TransformAnimator.SetTrigger(SwordAttacked);
         }
 
         private void Update()
         {
-            if (PlayerMovement.IsMoving && !Sword.IsAttacking && Hook.CurrentHookState == Hook.HookState.NotHooking)
+            if (PlayerMovement.IsMoving && !Sword.IsAttackingVisually && Hook.CurrentHookState == Hook.HookState.NotHooking)
             {
-                print("aa");
                 Animator.SetFloat(XDirection, PlayerMovement.GetMovement.x);
                 Animator.SetFloat(YDirection, PlayerMovement.GetMovement.y);
             }
 
-            if (Hook.CurrentHookState != Hook.HookState.NotHooking)
+            if (Hook.CurrentHookState != Hook.HookState.NotHooking &&Hook.CurrentHookState != Hook.HookState.DroppedHook)
             {
-                print("bb");
                 Animator.SetFloat(XDirection, Hook.GetHookDirection().x);
                 Animator.SetFloat(YDirection, Hook.GetHookDirection().y);
             }
 
-            if (Sword.StartedAttack || Sword.IsAttacking)
+            if (Sword.IsAttackingVisually)
             {
-                print("Cc");
                 Animator.SetFloat(XDirection, SwordRotator.right.x);
                 Animator.SetFloat(YDirection, SwordRotator.right.y);
             }

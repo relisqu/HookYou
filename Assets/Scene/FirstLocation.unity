@@ -18423,31 +18423,22 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 1
       - serializedVersion: 3
-        time: 0.0765663
-        value: 0.4696981
-        inSlope: 0.015645115
-        outSlope: 0.015645115
+        time: 0.089887224
+        value: 0.49120536
+        inSlope: 0.4160238
+        outSlope: 0.4160238
         tangentMode: 0
         weightedMode: 0
         inWeight: 1
         outWeight: 0.26371026
       - serializedVersion: 3
-        time: 0.5560513
-        value: 0.18849593
-        inSlope: -0.65456766
-        outSlope: -0.65456766
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.27607813
-        outWeight: 0.33333334
-      - serializedVersion: 3
         time: 1
         value: 0
-        inSlope: 0.27535158
-        outSlope: 0.27535158
+        inSlope: -0.08609824
+        outSlope: -0.08609824
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.45822594
+        inWeight: 0.21639071
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -18481,13 +18472,13 @@ TrailRenderer:
       m_Mode: 1
       m_NumColorKeys: 4
       m_NumAlphaKeys: 5
-    numCornerVertices: 0
+    numCornerVertices: 6
     numCapVertices: 0
     alignment: 0
     textureMode: 0
     shadowBias: 1
     generateLightingData: 0
-  m_MinVertexDistance: 0
+  m_MinVertexDistance: 0.01
   m_Autodestruct: 0
   m_Emitting: 1
 --- !u!4 &1626563116 stripped
@@ -18550,6 +18541,7 @@ MonoBehaviour:
   DefaultWalkingSpeed: 3.2
   HookFlyingMultiplier: 2.5
   SwordSlowDownMultiplier: 0
+  SwordTrust: 1
   rigidbody2D: {fileID: 7058878490146533717}
 --- !u!114 &1656735705
 MonoBehaviour:
@@ -25736,8 +25728,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
+  m_Mass: 1
+  m_LinearDrag: 2
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}

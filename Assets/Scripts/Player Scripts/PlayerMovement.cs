@@ -14,6 +14,7 @@ namespace Player_Scripts
 
         [Range(0, 10)] [SerializeField] private float HookFlyingMultiplier;
         [Range(0, 1)] [SerializeField] private float SwordSlowDownMultiplier;
+        [Range(0, 10)] [SerializeField] private float SwordTrust;
 
         private Vector2 movement;
         private bool isMoving;
@@ -22,17 +23,21 @@ namespace Player_Scripts
         private bool previouslyMoved;
         public Vector2 GetMovement => movement;
         public bool IsMoving => isMoving;
-        
+
+        public void CreateSwordTrust(Vector2 direction)
+        {   rigidbody2D.velocity=Vector2.zero;
+            rigidbody2D.AddForce(SwordTrust*direction,ForceMode2D.Impulse);
+            print(rigidbody2D.velocity);
+        }
 
         private void Update()
-        {
+        {   
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
             movement.Normalize();
             Hook.SetPlayerWalkingMovement(movement);
             var finalSpeed = movement * GetCurrentSpeed();
             isMoving = finalSpeed.sqrMagnitude > 0;
-            rigidbody2D.velocity = finalSpeed;
             switch (isMoving)
             {
                 case true:
@@ -46,6 +51,8 @@ namespace Player_Scripts
 
             if (isMoving) lastMovement = movement;
             previouslyMoved = isMoving;
+            if(Sword.IsAttackingVisually) return;
+            rigidbody2D.velocity = finalSpeed;
         }
     
 
@@ -57,7 +64,7 @@ namespace Player_Scripts
                 currentSpeed *= HookFlyingMultiplier;
             }
 
-            if (Sword.StartedAttack)
+            if (Sword.IsAttackingVisually)
             {
                 currentSpeed *= SwordSlowDownMultiplier;
             }
