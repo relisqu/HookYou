@@ -27,7 +27,7 @@ namespace Destructibility
             }
             else
             {
-                Animator.PlayHitAnimation();
+               Animator?.PlayHitAnimation();
                 
             }
         }

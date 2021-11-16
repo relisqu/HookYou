@@ -18,11 +18,6 @@ namespace Destructibility
             TakeSwordDamage(other);
         }
 
-        private void OnTriggerExit2D(Collider2D other)
-        {
-            TakeSwordDamage(other);
-        }
-
         private void TakeSwordDamage(Collider2D other)
         {
             if (other.TryGetComponent(out SwordAttack sword))
