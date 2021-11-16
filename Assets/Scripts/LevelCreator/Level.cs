@@ -27,7 +27,7 @@ namespace Assets.Scripts.LevelCreator
         private int defaultObjectsAmount => LevelObjects.Count;
         public Player Player { get; private set; }
 
-        private void OnEnable()
+        private void Awake()
         {
             foreach (var respawnableLevelObject in LevelObjects)
             {
@@ -56,8 +56,10 @@ namespace Assets.Scripts.LevelCreator
 
         public void Restart()
         {
-            foreach (var enemy in LevelObjects) enemy.Spawn();
-
+            foreach (var enemy in LevelObjects)
+            {
+                enemy.Spawn();
+            }
             currentActiveObjectsCount = defaultObjectsAmount;
             foreach (var door in Doors) door.TryClose();
 

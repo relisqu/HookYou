@@ -15,8 +15,8 @@ namespace Destructibility
         
         public void Spawn()
         {
-           transform.position = spawnPosition;
             gameObject.SetActive(true);
+            transform.position = spawnPosition;
         }
 
         public void Despawn()
