@@ -8,14 +8,14 @@ namespace Destructibility
         private Vector3 spawnPosition;
         [SerializeField]private Health Health;
         
-        private void OnEnable()
+        private void Awake()
         {
             spawnPosition = transform.position;
         }
         
         public void Spawn()
         {
-            transform.position = spawnPosition;
+           transform.position = spawnPosition;
             gameObject.SetActive(true);
         }
 
