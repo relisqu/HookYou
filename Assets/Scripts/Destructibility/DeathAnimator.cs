@@ -7,6 +7,7 @@ namespace Destructibility
         [SerializeField] private Animator Animator;
         [SerializeField] private string HitTag;
         [SerializeField] private string DeathTag;
+        [SerializeField] private string RespawnTag;
 
         public void PlayHitAnimation()
         {
@@ -17,6 +18,10 @@ namespace Destructibility
         {
             if(Animator!=null)  Animator.SetTrigger(DeathTag);
         }
-        
+
+        public void PlayRespawnAnimation()
+        {
+            if(Animator!=null)  Animator.SetTrigger(RespawnTag);
+        }
     }
 }

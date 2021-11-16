@@ -17,7 +17,7 @@ namespace Assets.Scripts.LevelCreator
         public void RestartFloor(Player player)
         {
             foreach (var room in Levels) room.Restart();
-
+            
 
             player.LastVisitedDoor = null;
             var checkpoint = Levels.FindLast(level =>

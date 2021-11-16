@@ -157,7 +157,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Animator: {fileID: 3218316697580001600}
   HitTag: 
-  DeathTag: isPressed
+  DeathTag: press
+  RespawnTag: unpress
 --- !u!95 &3218316697580001600
 Animator:
   serializedVersion: 3
@@ -190,6 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: {fileID: 3218316697580001659}
+  DrakeCoefficient: 0.6
 --- !u!1 &3218316697881271555
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,14 +24,16 @@ namespace Assets.Scripts.LevelCreator
         private int currentActiveObjectsCount;
         public bool IsCompleted { get; private set; }
 
-        private int defaultObjectsAmount => LevelObjects.Count;
+        private int defaultObjectsAmount;
         public Player Player { get; private set; }
 
         private void Awake()
         {
+            defaultObjectsAmount = LevelObjects.Count;
             foreach (var respawnableLevelObject in LevelObjects)
             {
                 respawnableLevelObject.GetHealth().Died += ReduceObjectsAmount;
+                respawnableLevelObject.GetHealth().Respawned += RespawnObject;
                 respawnableLevelObject.Despawn();
             }
 
@@ -42,10 +44,19 @@ namespace Assets.Scripts.LevelCreator
             }
         }
 
+        private void RespawnObject()
+        {
+            currentActiveObjectsCount++;
+            print("Ressurect"+currentActiveObjectsCount);
+        }
+
         private void OnDisable()
         {
-           foreach (var levelObject in LevelObjects) levelObject.GetHealth().Died -= ReduceObjectsAmount;
-
+            foreach (var levelObject in LevelObjects)
+            {
+                levelObject.GetHealth().Died -= ReduceObjectsAmount;
+                levelObject.GetHealth().Respawned -= RespawnObject;
+            }
            foreach (var door in Doors) door.EnteredDoor -= EnterLevel;
         }
 
@@ -76,6 +87,7 @@ namespace Assets.Scripts.LevelCreator
         {
             currentActiveObjectsCount--;
             
+            print("Ded"+currentActiveObjectsCount);
             if (currentActiveObjectsCount < 1)
             {
                 CompleteLevel();
