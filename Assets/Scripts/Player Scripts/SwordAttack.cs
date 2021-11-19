@@ -92,5 +92,10 @@ namespace Assets.Scripts
         {
             throw new System.NotImplementedException();
         }
+
+        public bool IsInAttackRange(Transform componentTransform)
+        {
+            return Vector2.Distance(componentTransform.position, transform.position) <= AttackRange*1.5f;
+        }
     }
 }

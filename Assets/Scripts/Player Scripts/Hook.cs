@@ -250,5 +250,10 @@ namespace Player_Scripts
         private Vector3 playerMovement;
         private Coroutine wallHangingCoroutine;
         private HookBlock currentBlock;
+
+        public bool IsInHookRadius(Transform obj)
+        {
+            return  Vector2.Distance(obj.position, transform.position) <= MaxDistance;
+        }
     }
 }
