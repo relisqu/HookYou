@@ -12,6 +12,26 @@ PrefabInstance:
       propertyPath: HookShotSpeed
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 1312031563336885326, guid: b50eb0cfbc305ef41950e143a632fcf8,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.8173332
+      objectReference: {fileID: 0}
+    - target: {fileID: 1312031563336885326, guid: b50eb0cfbc305ef41950e143a632fcf8,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.587885
+      objectReference: {fileID: 0}
+    - target: {fileID: 1312031563336885326, guid: b50eb0cfbc305ef41950e143a632fcf8,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0028438568
+      objectReference: {fileID: 0}
+    - target: {fileID: 1312031563336885326, guid: b50eb0cfbc305ef41950e143a632fcf8,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.36413103
+      objectReference: {fileID: 0}
     - target: {fileID: 5893013537894606766, guid: b50eb0cfbc305ef41950e143a632fcf8,
         type: 3}
       propertyPath: m_Name
@@ -30,12 +50,12 @@ PrefabInstance:
     - target: {fileID: 6974605999504840255, guid: b50eb0cfbc305ef41950e143a632fcf8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.73
+      value: 19.95
       objectReference: {fileID: 0}
     - target: {fileID: 6974605999504840255, guid: b50eb0cfbc305ef41950e143a632fcf8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.12
+      value: -5.91
       objectReference: {fileID: 0}
     - target: {fileID: 6974605999504840255, guid: b50eb0cfbc305ef41950e143a632fcf8,
         type: 3}
@@ -104,6 +124,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &787827967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4621967049302896014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc2dce05ab04f71b7ccf021d0a380c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 1591842490}
 --- !u!114 &1591842489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,16 +179,4 @@ MonoBehaviour:
   Animator: {fileID: 1591842492}
   HitTag: 
   DeathTag: death
---- !u!114 &787827967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4621967049302896014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcc2dce05ab04f71b7ccf021d0a380c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: {fileID: 1591842490}
+  RespawnTag: 
