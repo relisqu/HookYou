@@ -12,12 +12,10 @@ namespace Player_Scripts
         public bool IsMoving;
         public Animator Animator;
         [SerializeField] private PlayerMovement PlayerMovement;
-
-
         [SerializeField] private LevelManager Manager;
-
         [SerializeField] private WallFinder WallFinder;
         [SerializeField] private AbyssColliderChanger AbyssColliderChanger;
+        [SerializeField]private PropsCollector PropsCollector;
         public Hook Hook;
 
 
@@ -55,5 +53,11 @@ namespace Player_Scripts
         }
     
         private bool isTeleporting;
+
+        public PropsCollector GetPropCollector()
+        {
+            return PropsCollector;
+        }
+
     }
 }

@@ -28,6 +28,7 @@ namespace Assets.Scripts
 
         [FormerlySerializedAs("animator")] [SerializeField]
         private Animator Animator;
+        [SerializeField]private SwordHitVFX SwordHitVFX;
 
         private bool isOddSwing;
         private bool isVisuallyAttacking;
@@ -72,6 +73,11 @@ namespace Assets.Scripts
         public void StopVisualAttack()
         {
             isVisuallyAttacking = false;
+        }
+
+        public void Hit()
+        {
+            SwordHitVFX.Hit();
         }
 
         private IEnumerator SwingSword()

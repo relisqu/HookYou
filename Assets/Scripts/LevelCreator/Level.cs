@@ -17,7 +17,9 @@ namespace Assets.Scripts.LevelCreator
             Checkpoint
         }
 
-        [FormerlySerializedAs("Enemies")] [SerializeField] private List<RespawnableLevelObject> LevelObjects;
+        [FormerlySerializedAs("Enemies")] [SerializeField]
+        private List<RespawnableLevelObject> LevelObjects;
+
         [SerializeField] private List<Door> Doors;
         [SerializeField] private Transform TeleportationPoint;
         [SerializeField] private LevelType Type;
@@ -47,7 +49,6 @@ namespace Assets.Scripts.LevelCreator
         private void RespawnObject()
         {
             currentActiveObjectsCount++;
-            print("Ressurect"+currentActiveObjectsCount);
         }
 
         private void OnDisable()
@@ -57,7 +58,8 @@ namespace Assets.Scripts.LevelCreator
                 levelObject.GetHealth().Died -= ReduceObjectsAmount;
                 levelObject.GetHealth().Respawned -= RespawnObject;
             }
-           foreach (var door in Doors) door.EnteredDoor -= EnterLevel;
+
+            foreach (var door in Doors) door.EnteredDoor -= EnterLevel;
         }
 
         public LevelType GetLevelType()
@@ -71,6 +73,7 @@ namespace Assets.Scripts.LevelCreator
             {
                 enemy.Spawn();
             }
+
             currentActiveObjectsCount = defaultObjectsAmount;
             foreach (var door in Doors) door.TryClose();
 
@@ -86,18 +89,15 @@ namespace Assets.Scripts.LevelCreator
         private void ReduceObjectsAmount()
         {
             currentActiveObjectsCount--;
-            
-            print("Ded"+currentActiveObjectsCount);
-            if (currentActiveObjectsCount < 1)
-            {
-                CompleteLevel();
-                OpenAllDoors();
-            }
+            if (currentActiveObjectsCount >= 1) return;
+            CompleteLevel();
+            OpenAllDoors();
         }
 
         private void CompleteLevel()
         {
-                IsCompleted = true;
+            IsCompleted = true;
+            Player.GetPropCollector().CollectGem();
         }
 
         private void OpenAllDoors()
