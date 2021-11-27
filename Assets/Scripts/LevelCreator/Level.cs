@@ -96,6 +96,7 @@ namespace Assets.Scripts.LevelCreator
 
         private void CompleteLevel()
         {
+            if(IsCompleted) return;
             IsCompleted = true;
             Player.GetPropCollector().CollectGem();
         }
