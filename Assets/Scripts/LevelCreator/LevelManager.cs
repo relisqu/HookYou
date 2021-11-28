@@ -8,6 +8,8 @@ namespace Assets.Scripts.LevelCreator
     {
         [SerializeField] private List<Level> Levels;
 
+       
+
 
         public void EnterTheFloor(Player player)
         {
@@ -44,6 +46,17 @@ namespace Assets.Scripts.LevelCreator
                     ? player.LastVisitedDoor.GetTeleportationPoint()
                     : lastRoom.GetDefaultTeleportLocation();
             }
+        }
+        public bool IsCurrentRoomCompleted(Player player)
+        {
+            var lastRoom = Levels.FindLast(level => level.Player == player);
+            if (lastRoom == null)
+            {
+                Levels[0].Restart();
+                return Levels[0].IsCompleted;
+            }
+            return lastRoom.IsCompleted;
+            
         }
     }
 }

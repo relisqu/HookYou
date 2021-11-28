@@ -17,6 +17,7 @@ namespace Destructibility
         {
             gameObject.SetActive(true);
             transform.position = spawnPosition;
+            if (!GetHealth().IsAlive) GetHealth().Respawn();
         }
 
         public void Despawn()
