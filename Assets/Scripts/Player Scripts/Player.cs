@@ -7,17 +7,13 @@ namespace Player_Scripts
 {
     public class Player : MonoBehaviour
     {
-
-
         public bool IsMoving;
         public Animator Animator;
         [SerializeField] private PlayerMovement PlayerMovement;
-
-
         [SerializeField] private LevelManager Manager;
-
         [SerializeField] private WallFinder WallFinder;
         [SerializeField] private AbyssColliderChanger AbyssColliderChanger;
+        [SerializeField] private PropsCollector PropsCollector;
         public Hook Hook;
 
 
@@ -34,6 +30,10 @@ namespace Player_Scripts
         private void Update()
         {
             AbyssColliderChanger.SetAbyssTrigger(Hook.CurrentHookState != Hook.HookState.NotHooking);
+            if (Input.GetKeyDown(KeyCode.R) && !Manager.IsCurrentRoomCompleted(this))
+            {
+                Die();
+            }
         }
 
         public void Teleport()
@@ -53,7 +53,12 @@ namespace Player_Scripts
         {
             Manager.RestartCurrentRoom(this);
         }
-    
+
         private bool isTeleporting;
+
+        public PropsCollector GetPropCollector()
+        {
+            return PropsCollector;
+        }
     }
 }

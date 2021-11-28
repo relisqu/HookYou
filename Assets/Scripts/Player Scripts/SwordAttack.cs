@@ -28,6 +28,7 @@ namespace Assets.Scripts
 
         [FormerlySerializedAs("animator")] [SerializeField]
         private Animator Animator;
+        [SerializeField]private SwordHitVFX SwordHitVFX;
 
         private bool isOddSwing;
         private bool isVisuallyAttacking;
@@ -74,6 +75,11 @@ namespace Assets.Scripts
             isVisuallyAttacking = false;
         }
 
+        public void Hit()
+        {
+            SwordHitVFX.Hit();
+        }
+
         private IEnumerator SwingSword()
         {
             Attacked?.Invoke();
@@ -91,6 +97,11 @@ namespace Assets.Scripts
         public void GetAttackDirection()
         {
             throw new System.NotImplementedException();
+        }
+
+        public bool IsInAttackRange(Transform componentTransform)
+        {
+            return Vector2.Distance(componentTransform.position, transform.position) <= AttackRange*1.5f;
         }
     }
 }

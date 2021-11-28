@@ -10,6 +10,7 @@ namespace Destructibility
         private int currentHealth;
         public bool IsAlive => currentHealth>0;
         public Action Died { get; set; }
+        public Action Respawned { get; set; }
 
         private void OnEnable()
         {
@@ -27,11 +28,18 @@ namespace Destructibility
             }
             else
             {
-                Animator.PlayHitAnimation();
+               Animator?.PlayHitAnimation();
                 
             }
         }
 
         public abstract void Die();
+
+        public void Respawn()
+        {
+            currentHealth = InitialHealth;
+            Respawned?.Invoke();
+            Animator.PlayRespawnAnimation();
+        }
     }
 }
