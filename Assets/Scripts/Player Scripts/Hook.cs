@@ -36,7 +36,7 @@ namespace Player_Scripts
 
         [SerializeField] private float MaxDistance;
 
-        [Header("Launching Constants")] [Range(0, 3)] [SerializeField]
+        [Header("Launching Constants")] [Range(0, 10)] [SerializeField]
         private float LaunchSpeed;
 
         [Range(-1, 1)] [SerializeField] private float BreakForceDirection;
@@ -121,7 +121,7 @@ namespace Player_Scripts
             while (PlayerSpringJoint2D.distance > HookWallStopability && currentDistance > HookWallStopability)
             {
                 PlayerSpringJoint2D.distance =
-                    Mathf.Lerp(PlayerSpringJoint2D.distance, 0.1f, Time.fixedDeltaTime * speed);
+                    Mathf.Lerp(PlayerSpringJoint2D.distance, 0.1f, Time.deltaTime * speed);
 
                 yield return null;
             }
