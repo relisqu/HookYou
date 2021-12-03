@@ -56,11 +56,11 @@ namespace Assets.Scripts.LevelCreator
             
         }
 
-        private void OnEnable()
+        private void Start()
         {
             if (Type == LevelType.Time)
             {
-                Timer.TimeIsOver += Restart;
+                Timer.TimeIsOver += Player.Die;
             }
         }
 
@@ -69,7 +69,7 @@ namespace Assets.Scripts.LevelCreator
             currentActiveObjectsCount++;
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             foreach (var levelObject in CompletionLevelObjects)
             {
@@ -80,7 +80,7 @@ namespace Assets.Scripts.LevelCreator
             foreach (var door in Doors) door.EnteredDoor -= EnterLevel;
             if (Type == LevelType.Time)
             {
-                Timer.TimeIsOver -= Restart;
+                Timer.TimeIsOver  -= Player.Die;
             }
         }
 

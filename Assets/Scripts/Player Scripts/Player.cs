@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Assets.Scripts;
 using Assets.Scripts.LevelCreator;
@@ -7,22 +8,19 @@ namespace Player_Scripts
 {
     public class Player : MonoBehaviour
     {
-        public bool IsMoving;
-        public Animator Animator;
         [SerializeField] private PlayerMovement PlayerMovement;
         [SerializeField] private LevelManager Manager;
-        [SerializeField] private WallFinder WallFinder;
         [SerializeField] private AbyssColliderChanger AbyssColliderChanger;
         [SerializeField] private PropsCollector PropsCollector;
         public Hook Hook;
-
+        public Action OnDied; 
 
         public bool IsInAir => Hook.CurrentHookState == Hook.HookState.Hooking ||
                                Hook.CurrentHookState == Hook.HookState.OnWall;
 
         public Door LastVisitedDoor { get; set; }
 
-        private void Start()
+        private void Awake()
         {
             Manager.EnterTheFloor(this);
         }
@@ -52,6 +50,8 @@ namespace Player_Scripts
         public void Die()
         {
             Manager.RestartCurrentRoom(this);
+            OnDied?.Invoke();
+            
         }
 
         private bool isTeleporting;

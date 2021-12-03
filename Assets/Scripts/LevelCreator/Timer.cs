@@ -43,7 +43,6 @@ namespace LevelCreator
                 var minutes= Mathf.Floor(currentTime/60).ToString("00");
                 UIText.SetText(minutes+":"+seconds+" <sprite index=0>");
                 UIText.color = Color.Lerp(_initialColor, _redColor,(Seconds-currentTime)/Seconds);
-                print(Color.Lerp(_initialColor, _redColor,(Seconds-currentTime)/Seconds)+" "+_redColor.linear+" "+(Seconds-currentTime)/Seconds);
                 yield return new WaitForSecondsRealtime(1);
                 currentTime--;
                 if (currentTime < 0)

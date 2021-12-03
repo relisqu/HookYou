@@ -2,8 +2,11 @@ using UnityEngine;
 
 namespace Destructibility
 {
-    public class EnemyHealth : MonoBehaviour
+    public class EnemyHealth : Health
     {
-        
+        public override void Die()
+        {
+            Died?.Invoke();
+        }
     }
 }
