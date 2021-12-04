@@ -12,7 +12,7 @@ namespace Player_Scripts
         private static readonly int XDirection = Animator.StringToHash("xDirection");
         private static readonly int YDirection = Animator.StringToHash("yDirection");
         private static readonly int SwordAttacked = Animator.StringToHash("swordAttacked");
-        
+
         [SerializeField] private Animator Animator;
         [SerializeField] private Animator TransformAnimator;
         [SerializeField] private PlayerMovement PlayerMovement;
@@ -20,13 +20,16 @@ namespace Player_Scripts
         [SerializeField] private Hook Hook;
         [SerializeField] private SwordAttack Sword;
         [SerializeField] private Transform SwordRotator;
-        
-        [BoxGroup("Death animation")]
-        [SerializeField] private Color DeathColor;
-        [BoxGroup("Death animation")]
-        [SerializeField] private float DeathFlickDuration;
-        [BoxGroup("Death animation")]
-        [SerializeField] private int DeathFlicksCount;
+
+        [BoxGroup("Death animation")] [SerializeField]
+        private Color DeathColor;
+
+        [BoxGroup("Death animation")] [SerializeField]
+        private float DeathFlickDuration;
+
+        [BoxGroup("Death animation")] [SerializeField]
+        private int DeathFlicksCount;
+
         private void OnEnable()
         {
             Sword.Attacked += PlayAttackAnimation;
@@ -44,7 +47,6 @@ namespace Player_Scripts
 
         void PlayAttackAnimation()
         {
-             
             PlayerMovement.CreateSwordTrust(SwordRotator.right.normalized);
             TransformAnimator.SetTrigger(SwordAttacked);
         }
@@ -56,13 +58,16 @@ namespace Player_Scripts
 
         void PlayDieAnimation()
         {
-            _spriteRenderer.DOColor(DeathColor, DeathFlickDuration).SetLoops(DeathFlicksCount, LoopType.Yoyo).SetEase(Ease.OutQuint);
+            _spriteRenderer.DOColor(DeathColor, DeathFlickDuration).SetLoops(DeathFlicksCount, LoopType.Yoyo)
+                .SetEase(Ease.OutQuint).OnComplete(
+                    () => { _spriteRenderer.color = Color.white; });
         }
 
         private void Update()
         {
-            var isHooking = Hook.CurrentHookState == Hook.HookState.Hooking || Hook.CurrentHookState == Hook.HookState.OnWall;
-            if (PlayerMovement.IsMoving && !Sword.IsAttackingVisually && !isHooking )
+            var isHooking = Hook.CurrentHookState == Hook.HookState.Hooking ||
+                            Hook.CurrentHookState == Hook.HookState.OnWall;
+            if (PlayerMovement.IsMoving && !Sword.IsAttackingVisually && !isHooking)
             {
                 Animator.SetFloat(XDirection, PlayerMovement.GetMovement.x);
                 Animator.SetFloat(YDirection, PlayerMovement.GetMovement.y);
@@ -79,9 +84,10 @@ namespace Player_Scripts
                 Animator.SetFloat(XDirection, SwordRotator.right.x);
                 Animator.SetFloat(YDirection, SwordRotator.right.y);
             }
-            
+
             Animator.SetBool(IsMovingHash, PlayerMovement.IsMoving);
         }
+
         private SpriteRenderer _spriteRenderer;
     }
 }

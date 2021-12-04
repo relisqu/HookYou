@@ -9,19 +9,23 @@ namespace Destructibility
     {
         [SerializeField] private float DeathImpulseRange;
         [SerializeField] private float DeathImpulseSpeed;
-        [SerializeField] private PlayerMovement Player;
+        private PlayerMovement Player;
 
         protected override void ReactToSwordHit(SwordAttack sword)
         {
             var position = transform.position;
             var playerPosition = Player.transform.position;
             var newPosition = (position-playerPosition) * DeathImpulseRange + position;
+            Health.TakeDamage(sword.GetDamage);
             transform.DOMove(newPosition, 1/DeathImpulseSpeed).SetEase(Ease.OutCubic).OnComplete(() =>
             {
-                Health.TakeDamage(sword.GetDamage);
                 StartCoroutine(MakeIFrame());
             });
 
+        }
+        private void Start()
+        {
+            Player = FindObjectOfType<PlayerMovement>();
         }
     }
 }

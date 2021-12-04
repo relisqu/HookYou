@@ -9,7 +9,7 @@ namespace AI
 {
     public class DashingAI : MonoBehaviour
     {
-        [SerializeField] private PlayerMovement Player;
+        private PlayerMovement Player;
         [SerializeField] private float Speed;
         [SerializeField] private float AttackRadius;
 
@@ -47,10 +47,16 @@ namespace AI
         {
             isAttacking = true;
             yield return new WaitForSeconds(PauseDuration);
-            if (!Health.IsAlive) yield break;
             var position = transform.position;
             var playerPosition = Player.transform.position;
             var newPosition = (playerPosition - position) * DashRange + position;
+            if (!Health.IsAlive)
+            {
+                isAttacking = false;
+                StopAllCoroutines();
+                yield break;
+            }
+
             transform.DOMove(newPosition, 1 / DashSpeed).SetEase(Ease.OutCubic)
                 .OnComplete(() => { isAttacking = false; });
         }
@@ -59,6 +65,11 @@ namespace AI
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, AttackRadius);
+        }
+
+        private void Start()
+        {
+            Player = FindObjectOfType<PlayerMovement>();
         }
     }
 }

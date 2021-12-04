@@ -9,17 +9,17 @@ namespace Destructibility
         [SerializeField] private string DeathTag;
         [SerializeField] private string RespawnTag;
 
-        public void PlayHitAnimation()
+        public virtual void PlayHitAnimation()
         {
            if(Animator!=null) Animator.SetTrigger(HitTag);
         }
 
-        public void PlayDeathAnimation()
+        public virtual void PlayDeathAnimation()
         {
             if(Animator!=null)  Animator.SetTrigger(DeathTag);
         }
 
-        public void PlayRespawnAnimation()
+        public virtual void PlayRespawnAnimation()
         {
             if(Animator!=null)  Animator.SetTrigger(RespawnTag);
         }
