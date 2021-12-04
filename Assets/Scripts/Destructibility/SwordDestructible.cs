@@ -7,7 +7,7 @@ namespace Destructibility
 {
     public class SwordDestructible : MonoBehaviour
     {
-        [SerializeField] private Health Health;
+        [SerializeField] protected Health Health;
         private bool isAbleToAttack=true;
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -26,14 +26,20 @@ namespace Destructibility
             {
                 if (sword.IsAttacking)
                 {
-                    Health.TakeDamage(sword.GetDamage);
                     sword.Hit();
-                    StartCoroutine(MakeIFrame());
+                    ReactToSwordHit(sword);
                 }
             }
         }
 
-        private IEnumerator MakeIFrame()
+        protected virtual void ReactToSwordHit(SwordAttack sword)
+        {
+            Health.TakeDamage(sword.GetDamage);
+            StartCoroutine(MakeIFrame());
+        }
+
+
+        protected IEnumerator MakeIFrame()
         {
             isAbleToAttack = false;
             yield return new WaitForFixedUpdate();
