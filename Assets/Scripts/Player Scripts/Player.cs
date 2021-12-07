@@ -50,6 +50,7 @@ namespace Player_Scripts
         public void Die()
         {
             Manager.RestartCurrentRoom(this);
+            Hook.ClearHook();
             OnDied?.Invoke();
             
         }

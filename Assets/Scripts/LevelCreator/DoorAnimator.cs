@@ -54,7 +54,6 @@ namespace LevelCreator
 
         public void SetupDoor(bool isOpenedFromBeginning)
         {
-            print("Door is opened: " + isOpenedFromBeginning);
             Animator.SetBool(IsOpenedFromBeginning, isOpenedFromBeginning);
         }
 

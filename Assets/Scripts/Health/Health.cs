@@ -41,5 +41,10 @@ namespace Destructibility
             Respawned?.Invoke();
             Animator.PlayRespawnAnimation();
         }
+
+        public void SetFakelyDied()
+        {
+            currentHealth = 0;
+        }
     }
 }

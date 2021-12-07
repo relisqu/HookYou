@@ -52,7 +52,6 @@ namespace Assets.Scripts.LevelCreator
                 door.EnteredDoor += EnterLevel;
                 door.ExitedDoor += LeaveLevel;
             }
-            print((Type == LevelType.Time)+" "+Type+" "+LevelType.Time);
             
         }
 

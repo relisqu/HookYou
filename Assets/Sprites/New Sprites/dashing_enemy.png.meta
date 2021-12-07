@@ -1,7 +1,37 @@
 fileFormatVersion: 2
 guid: 3015eb2bbf3c0a3489fd2add822ec816
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 8172531753669152038
+    second: dashing_enemy_0
+  - first:
+      213: -2924634407326669789
+    second: dashing_enemy_1
+  - first:
+      213: -371933162954896939
+    second: dashing_enemy_2
+  - first:
+      213: 8774015038268444533
+    second: dashing_enemy_3
+  - first:
+      213: 1817088351312114285
+    second: dashing_enemy_4
+  - first:
+      213: -3797438203416762686
+    second: dashing_enemy_5
+  - first:
+      213: 1669590970890012015
+    second: dashing_enemy_6
+  - first:
+      213: 6546349365893925071
+    second: dashing_enemy_7
+  - first:
+      213: -5588971259774305068
+    second: dashing_enemy_8
+  - first:
+      213: 518940861437728499
+    second: dashing_enemy_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,7 +62,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -41,12 +71,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -68,7 +98,43 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -77,7 +143,217 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: dashing_enemy_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 36
+        width: 47
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62dcc0d745aaa6170800000000000000
+      internalID: 8172531753669152038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dashing_enemy_1
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 36
+        width: 47
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 324a86d708c9967d0800000000000000
+      internalID: -2924634407326669789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dashing_enemy_2
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 36
+        width: 47
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d9c2e542c0a6daf0800000000000000
+      internalID: -371933162954896939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dashing_enemy_3
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 36
+        width: 47
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57f0de9c03093c970800000000000000
+      internalID: 8774015038268444533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dashing_enemy_4
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 36
+        width: 47
+        height: 36
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6192943}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6275796a38973910800000000000000
+      internalID: 1817088351312114285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dashing_enemy_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 47
+        height: 36
+      alignment: 9
+      pivot: {x: 0.48936167, y: 0.6944445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c6a8dcd21acc4bc0800000000000000
+      internalID: -3797438203416762686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dashing_enemy_6
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 0
+        width: 47
+        height: 36
+      alignment: 9
+      pivot: {x: 0.48936167, y: 0.6944445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f65491464249b2710800000000000000
+      internalID: 1669590970890012015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dashing_enemy_7
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 9
+        width: 27
+        height: 14
+      alignment: 9
+      pivot: {x: 0.5185185, y: 1.7142859}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc806b1701e49da50800000000000000
+      internalID: 6546349365893925071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dashing_enemy_8
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 9
+        width: 28
+        height: 13
+      alignment: 9
+      pivot: {x: 0.5, y: 1.8461539}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dcf849304cff62b0800000000000000
+      internalID: -5588971259774305068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dashing_enemy_9
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 9
+        width: 30
+        height: 13
+      alignment: 9
+      pivot: {x: 0.5, y: 1.8461539}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f65e69c6f5a33700800000000000000
+      internalID: 518940861437728499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

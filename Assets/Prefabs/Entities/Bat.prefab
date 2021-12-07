@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 1905978877553214994}
   - component: {fileID: 1905978877553214993}
   - component: {fileID: -1611460766174812999}
+  - component: {fileID: 1258876572}
+  - component: {fileID: 1587939550}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Untagged
@@ -77,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 15
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847,
+  m_Sprite: {fileID: 8172531753669152038, guid: 3015eb2bbf3c0a3489fd2add822ec816,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -101,7 +103,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea83058222924c078d901fa4698816d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   Speed: 2
   AttackRadius: 4.6
   DashRange: 1.49
@@ -121,9 +122,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: {fileID: 1905978877553214995}
-  DeathImpulseRange: 2.31
-  DeathImpulseSpeed: 0.85
-  Player: {fileID: 0}
+  DeathImpulseRange: 1.86
+  DeathImpulseSpeed: 3
 --- !u!114 &1905978877553214995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,10 +150,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f85f16a0d8524e5daa0bca4644e16c21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Animator: {fileID: 0}
+  Animator: {fileID: 1258876572}
   HitTag: 
-  DeathTag: 
-  RespawnTag: 
+  DeathTag: die
+  RespawnTag: ressurect
 --- !u!58 &1905978877553214993
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -183,3 +183,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: {fileID: 1905978877553214995}
+--- !u!95 &1258876572
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905978877553214997}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1484d0ac5928f61499edc00b825e7d24, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1587939550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905978877553214997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3a884c1dbb40399e0aff590473d0c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

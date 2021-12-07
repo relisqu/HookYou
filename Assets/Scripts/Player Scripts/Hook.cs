@@ -18,9 +18,10 @@ namespace Player_Scripts
         }
 
         public Action HookTouchedWall { get; set; }
+
         [Header("Main Camera")] [SerializeField]
         private Camera Camera;
-        
+
 
         [Header("References:")] [SerializeField]
         private Transform PlayerTransform;
@@ -47,7 +48,7 @@ namespace Player_Scripts
 
         [SerializeField] private float DropDuration;
         [SerializeField] private float WallHangDuration;
-       
+
         public HookState CurrentHookState { get; private set; }
 
         private void Start()
@@ -117,7 +118,7 @@ namespace Player_Scripts
             var currentDistance = Vector2.Distance(playerPosition, grapplePoint);
             PlayerSpringJoint2D.distance = currentDistance;
             Rope.enabled = true;
-            var speed = currentBlock.RequiresSpecificHookSpeed()?currentBlock.GetHookShotSpeed():LaunchSpeed;
+            var speed = currentBlock.RequiresSpecificHookSpeed() ? currentBlock.GetHookShotSpeed() : LaunchSpeed;
             while (PlayerSpringJoint2D.distance > HookWallStopability && currentDistance > HookWallStopability)
             {
                 PlayerSpringJoint2D.distance =
@@ -220,6 +221,16 @@ namespace Player_Scripts
             CurrentHookState = HookState.NotHooking;
         }
 
+        public void ClearHook()
+        {
+            CurrentHookState = HookState.DroppedHook;
+            PlayerSpringJoint2D.enabled = false;
+            Rope.enabled = false;
+            currentBreakTime = 0;
+            isTryingToBreakHook = false;
+            CurrentHookState = HookState.NotHooking;
+        }
+
         private IEnumerator HangOnWallIEnumerator()
         {
             Rope.SetHookMovingOnWall();
@@ -237,7 +248,7 @@ namespace Player_Scripts
         {
             return PlayerTransform;
         }
-        
+
         private float currentBreakTime;
         private RaycastHit2D currentHit;
         private Coroutine droppingCoroutine;
@@ -253,7 +264,7 @@ namespace Player_Scripts
 
         public bool IsInHookRadius(Transform obj)
         {
-            return  Vector2.Distance(obj.position, transform.position) <= MaxDistance;
+            return Vector2.Distance(obj.position, transform.position) <= MaxDistance;
         }
     }
 }

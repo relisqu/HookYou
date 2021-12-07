@@ -1,3 +1,4 @@
+using AI;
 using Assets.Scripts;
 using DG.Tweening;
 using Player_Scripts;
@@ -10,15 +11,19 @@ namespace Destructibility
         [SerializeField] private float DeathImpulseRange;
         [SerializeField] private float DeathImpulseSpeed;
         private PlayerMovement Player;
+        private BatMovementAnimator animator;
 
         protected override void ReactToSwordHit(SwordAttack sword)
         {
             var position = transform.position;
             var playerPosition = Player.transform.position;
             var newPosition = (position-playerPosition) * DeathImpulseRange + position;
-            Health.TakeDamage(sword.GetDamage);
+            Health.SetFakelyDied();
+            StartCoroutine(animator.GetDamage());
             transform.DOMove(newPosition, 1/DeathImpulseSpeed).SetEase(Ease.OutCubic).OnComplete(() =>
             {
+                animator.SetNormalSprite();
+                Health.TakeDamage(sword.GetDamage);
                 StartCoroutine(MakeIFrame());
             });
 
@@ -26,6 +31,7 @@ namespace Destructibility
         private void Start()
         {
             Player = FindObjectOfType<PlayerMovement>();
+            animator = GetComponent<BatMovementAnimator>();
         }
     }
 }
