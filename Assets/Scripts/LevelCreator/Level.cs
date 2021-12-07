@@ -124,6 +124,7 @@ namespace Assets.Scripts.LevelCreator
         private void ReduceObjectsAmount()
         {
             currentActiveObjectsCount--;
+            print(currentActiveObjectsCount);
             if (currentActiveObjectsCount >= 1) return;
             CompleteLevel();
             OpenAllDoors();

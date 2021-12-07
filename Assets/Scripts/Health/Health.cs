@@ -19,6 +19,7 @@ namespace Destructibility
 
         public void TakeDamage(int damage)
         {
+            if(!IsAlive) return;
             currentHealth -= Math.Abs(damage);
             if (currentHealth <= 0)
             {
@@ -42,9 +43,5 @@ namespace Destructibility
             Animator.PlayRespawnAnimation();
         }
 
-        public void SetFakelyDied()
-        {
-            currentHealth = 0;
-        }
     }
 }

@@ -15,7 +15,7 @@ namespace AI
         private static readonly int IsAttacking = Animator.StringToHash("isAttacking");
         private Shader shaderGUItext;
         private Shader shaderSpritesDefault;
-        private Color colorDefault;
+        private static readonly int Fly = Animator.StringToHash("fly");
 
         private void Awake()
         {
@@ -24,13 +24,11 @@ namespace AI
             shaderGUItext = Shader.Find("GUI/Text Shader");
             var material = spriteRenderer.material;
             shaderSpritesDefault = material.shader;
-            colorDefault = spriteRenderer.color; // or whatever sprite shader is being used
         }
 
         private void OnEnable()
         {
             previousPosition = transform.position;
-            spriteRenderer.color =colorDefault;
         }
 
         private void FixedUpdate()
@@ -45,6 +43,11 @@ namespace AI
             animator.SetTrigger(ToDash);
         }
 
+        public void FlyAgain()
+        {
+            animator.SetTrigger(Fly);
+        }
+
         public IEnumerator GetDamage()
         {
             SetWhiteSprite();
@@ -55,13 +58,11 @@ namespace AI
         void SetWhiteSprite()
         {
             spriteRenderer.material.shader = shaderGUItext;
-            spriteRenderer.color = Color.white;
         }
 
         public void SetNormalSprite()
         {
             spriteRenderer.material.shader = shaderSpritesDefault;
-            spriteRenderer.color = colorDefault;
             
         }
 
@@ -70,14 +71,11 @@ namespace AI
             animator.SetTrigger(Dash1);
         }
 
-        public void StopAttack()
-        {
-            animator.SetBool(IsAttacking, false);
-        }
+      
 
-        public void StartAttack()
+        public void SetDashing(bool value)
         {
-            animator.SetBool(IsAttacking, true);
+            animator.SetBool(IsAttacking, value);
         }
     }
 }

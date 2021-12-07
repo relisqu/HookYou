@@ -23,41 +23,43 @@ namespace AI
         private float DashSpeed;
 
         [SerializeField] private float PauseDuration;
-        private bool isAttacking;
+        private bool isDashing;
         [SerializeField] private EnemyHealth Health;
 
-
+        private bool isInRadius;
         private void OnEnable()
         {
-            isAttacking = false;
+            isDashing = false;
             dashTween.Kill();
             StopAllCoroutines();
-            Health.Died += DestroyMovingAction;
             Health.Respawned += DestroyMovingAction;
-            
         }
 
         private void OnDisable()
         {
-            Health.Died -= DestroyMovingAction;
             Health.Respawned -= DestroyMovingAction;
         }
 
-        void DestroyMovingAction()
+        public  void DestroyMovingAction()
         {
+            Health.MarkAsDangerous(true);
+            StopAllCoroutines();
             dashTween.Kill();
+            isDashing = false;
             animator.SetNormalSprite();
         }
 
         private void Update()
         {
-            if (isAttacking || !Health.IsAlive)
+            if (isDashing || !Health.IsAlive )
             {
                 return;
             }
-
+        
             var distance = Vector2.Distance(Player.transform.position, transform.position);
-            if (distance > AttackRadius)
+            isInRadius = distance > AttackRadius;
+            animator.SetDashing(isDashing);
+            if (isInRadius)
             {
                 var newDistance =
                     Vector2.MoveTowards(transform.position, Player.transform.position, Speed * Time.deltaTime);
@@ -71,29 +73,18 @@ namespace AI
 
         IEnumerator Dash()
         {
-            animator.StartAttack();
             animator.PrepareToDash();
-            isAttacking = true;
+            isDashing = true;
             yield return new WaitForSeconds(PauseDuration);
             animator.Dash();
             var position = transform.position;
             var playerPosition = Player.transform.position;
             var newPosition = (playerPosition - position) * DashRange + position;
-
-
-            if (!Health.IsAlive)
-            {
-                isAttacking = false;
-                StopAllCoroutines();
-            }
-
-            var count = 0;
+            if (!Health.IsDangerous || !Health.IsAlive) yield break;
             dashTween = transform.DOMove(newPosition, 1 / DashSpeed).SetEase(Ease.OutCubic)
                 .OnComplete(() =>
                 {
-                    animator.StopAttack();
-                    isAttacking = false;
-                    
+                    isDashing = false;
                 });
         }
 

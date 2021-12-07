@@ -12,14 +12,17 @@ namespace Destructibility
         [SerializeField] private float DeathImpulseSpeed;
         private PlayerMovement Player;
         private BatMovementAnimator animator;
+        private DashingAI dashingAI;
 
+        
         protected override void ReactToSwordHit(SwordAttack sword)
         {
             var position = transform.position;
             var playerPosition = Player.transform.position;
             var newPosition = (position-playerPosition) * DeathImpulseRange + position;
-            Health.SetFakelyDied();
             StartCoroutine(animator.GetDamage());
+            ((EnemyHealth) Health).MarkAsDangerous(false);
+            dashingAI.DestroyMovingAction();
             transform.DOMove(newPosition, 1/DeathImpulseSpeed).SetEase(Ease.OutCubic).OnComplete(() =>
             {
                 animator.SetNormalSprite();
@@ -32,6 +35,7 @@ namespace Destructibility
         {
             Player = FindObjectOfType<PlayerMovement>();
             animator = GetComponent<BatMovementAnimator>();
+            dashingAI = GetComponent<DashingAI>();
         }
     }
 }
