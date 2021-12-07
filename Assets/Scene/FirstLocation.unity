@@ -6341,21 +6341,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bat
       objectReference: {fileID: 0}
-    - target: {fileID: 1905978877553214999, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1905978877553214999, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1905978877553214999, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5069926bc0bf5f4e9c5bff7a6e37cca, type: 3}
 --- !u!1001 &1194261928
@@ -18393,7 +18378,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 252073475}
   m_PrefabAsset: {fileID: 0}
---- !u!43 &1694562495
+--- !u!43 &1684484771
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
