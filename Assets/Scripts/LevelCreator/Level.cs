@@ -6,6 +6,7 @@ using Grappling_Hook.Test;
 using LevelCreator;
 using MoreMountains.Tools;
 using Player_Scripts;
+using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -23,6 +24,7 @@ namespace Assets.Scripts.LevelCreator
 
         [SerializeField] private List<RespawnableLevelObject> CompletionLevelObjects;
         [SerializeField] private List<RespawnableLevelObject> AdditionalLevelObjects;
+        [ChildGameObjectsOnly]
         [SerializeField] private List<Door> Doors;
         [SerializeField] private Transform TeleportationPoint;
         [SerializeField] private LevelType Type;
@@ -52,7 +54,9 @@ namespace Assets.Scripts.LevelCreator
                 door.EnteredDoor += EnterLevel;
                 door.ExitedDoor += LeaveLevel;
             }
-            
+
+            IsCompleted = Type == LevelType.Checkpoint;
+
         }
 
         private void Start()

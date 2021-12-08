@@ -42,6 +42,7 @@ namespace Assets.Scripts.LevelCreator
             else
             {
                 lastRoom.Restart();
+                print(player.LastVisitedDoor);
                 player.transform.position = player.LastVisitedDoor != null
                     ? player.LastVisitedDoor.GetTeleportationPoint()
                     : lastRoom.GetDefaultTeleportLocation();
