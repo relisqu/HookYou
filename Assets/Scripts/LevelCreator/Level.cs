@@ -19,7 +19,7 @@ namespace Assets.Scripts.LevelCreator
         {
             Boss,
             Time,
-            Checkpoint
+            Standard,Auto
         }
 
         [SerializeField] private List<RespawnableLevelObject> CompletionLevelObjects;
@@ -55,7 +55,7 @@ namespace Assets.Scripts.LevelCreator
                 door.ExitedDoor += LeaveLevel;
             }
 
-            IsCompleted = Type == LevelType.Checkpoint;
+            IsCompleted = Type == LevelType.Auto;
 
         }
 

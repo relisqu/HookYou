@@ -22,8 +22,7 @@ namespace Assets.Scripts.LevelCreator
             
 
             player.LastVisitedDoor = null;
-            var checkpoint = Levels.FindLast(level =>
-                level.GetLevelType() == Level.LevelType.Checkpoint && level.IsCompleted);
+            var checkpoint = Levels.FindLast(level => level.IsCompleted);
             player.transform.position = checkpoint.GetDefaultTeleportLocation();
         }
 
