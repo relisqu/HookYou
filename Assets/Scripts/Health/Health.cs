@@ -8,6 +8,12 @@ namespace Destructibility
         [SerializeField] private int InitialHealth;
         [SerializeField] private DeathAnimator Animator;
         private int currentHealth;
+
+        public int CurrentHealth
+        {
+            get => currentHealth;
+        }
+
         public bool IsAlive => currentHealth>0;
         public Action Died { get; set; }
         public Action Respawned { get; set; }

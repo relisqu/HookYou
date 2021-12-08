@@ -11,14 +11,14 @@ namespace Destructibility
         private void Awake()
         {
             spawnPosition = transform.position;
+            print("spawn of "+name+":"+spawnPosition);
         }
 
         public void Spawn()
         {
             gameObject.SetActive(true);
             transform.position = spawnPosition;
-            if (!GetHealth().IsAlive)
-                GetHealth().Respawn();
+            GetHealth().Respawn();
         }
 
         public void Despawn()

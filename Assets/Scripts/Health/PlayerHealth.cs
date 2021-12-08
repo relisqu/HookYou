@@ -9,6 +9,7 @@ namespace Destructibility
         public override void Die()
         {
             Player.Die();
+            Respawn();
         }
     }
 }

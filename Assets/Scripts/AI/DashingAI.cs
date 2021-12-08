@@ -31,7 +31,6 @@ namespace AI
         {
             isDashing = false;
             dashTween.Kill();
-            StopAllCoroutines();
             Health.Respawned += DestroyMovingAction;
         }
 

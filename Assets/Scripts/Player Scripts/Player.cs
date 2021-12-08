@@ -20,7 +20,7 @@ namespace Player_Scripts
 
         public Door LastVisitedDoor { get; set; }
 
-        private void Awake()
+        private void Start()
         {
             Manager.EnterTheFloor(this);
         }
@@ -49,10 +49,9 @@ namespace Player_Scripts
 
         public void Die()
         {
-            Manager.RestartCurrentRoom(this);
             Hook.ClearHook();
             OnDied?.Invoke();
-            
+            Manager.RestartCurrentRoom(this);
         }
 
         private bool isTeleporting;
