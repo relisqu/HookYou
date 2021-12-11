@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Assets.Scripts.Old_Scripts;
 using HookBlocks;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 

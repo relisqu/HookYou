@@ -52,8 +52,9 @@ namespace Assets.Scripts.LevelCreator
 
         public void GoThroughDoor(Player player)
         {
-            player.LastVisitedDoor = ConnectedDoor;
             ConnectedDoor.Type = DoorType.AlwaysOpened;
+            ConnectedDoor.Open();
+            player.LastVisitedDoor = ConnectedDoor;
             player.transform.position = ConnectedDoor.PlayerTeleportationPoint.position;
             ConnectedDoor.EnteredDoor?.Invoke(player);
             ExitedDoor?.Invoke(player);

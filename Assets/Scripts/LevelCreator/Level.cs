@@ -54,7 +54,6 @@ namespace Assets.Scripts.LevelCreator
                 door.EnteredDoor += EnterLevel;
                 door.ExitedDoor += LeaveLevel;
             }
-
             IsCompleted = Type == LevelType.Auto;
 
         }
@@ -111,8 +110,8 @@ namespace Assets.Scripts.LevelCreator
             }
 
             foreach (var door in Doors) door.TryClose();
-
-            Player.transform.position = TeleportationPoint.position;
+            
+            //Player.transform.position = TeleportationPoint.position;
         }
 
         private void LeaveLevel(Player _)

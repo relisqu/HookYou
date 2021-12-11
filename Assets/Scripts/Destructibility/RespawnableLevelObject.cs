@@ -8,7 +8,7 @@ namespace Destructibility
         private Vector3 spawnPosition;
         [SerializeField] private Health Health;
 
-        private void Awake()
+        private void Start()
         {
             spawnPosition = transform.position;
             print("spawn of "+name+":"+spawnPosition);

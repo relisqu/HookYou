@@ -17,10 +17,10 @@ namespace Destructibility
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.TryGetComponent(out PushableBlock block))
+            if (other.gameObject.TryGetComponent(out PushableBlock block) )
             {
                 Health.TakeDamage(Int32.MaxValue);
-                block.Drake(DrakeCoefficient);
+                //   block.Drake(DrakeCoefficient);
             }
         }
 
@@ -28,9 +28,10 @@ namespace Destructibility
         {
             if (other.gameObject.TryGetComponent(out PushableBlock block))
             {
+                print("destroyed");
                 Health.Respawn();
             }
+
         }
-        
     }
 }

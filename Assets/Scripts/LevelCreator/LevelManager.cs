@@ -14,6 +14,7 @@ namespace Assets.Scripts.LevelCreator
         public void EnterTheFloor(Player player)
         {
             Levels[0].EnterLevel(player);
+            
         }
 
         public void RestartFloor(Player player)
