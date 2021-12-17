@@ -8,14 +8,15 @@ namespace Destructibility
         private Vector3 spawnPosition;
         [SerializeField] private Health Health;
 
-        private void Start()
+        private void Awake()
         {
             spawnPosition = transform.position;
-            print("spawn of "+name+":"+spawnPosition);
+            print("setting save position of "+name+":"+spawnPosition);
         }
 
         public void Spawn()
         {
+            print("Spawn");
             gameObject.SetActive(true);
             transform.position = spawnPosition;
             GetHealth().Respawn();

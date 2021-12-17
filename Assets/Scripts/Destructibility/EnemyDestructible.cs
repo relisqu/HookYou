@@ -9,7 +9,7 @@ namespace Destructibility
         {
             if (other.TryGetComponent(out EnemyHealth enemy))
             {
-                print(enemy.IsDangerous+" "+ Health.CurrentHealth);
+                print("Died by enemy: "+enemy.IsDangerous+" "+ Health.CurrentHealth);
                 if (!enemy.IsDangerous) return;
                 Health.TakeDamage(1);
             }

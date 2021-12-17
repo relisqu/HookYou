@@ -27,7 +27,7 @@ namespace Player_Scripts
 
         private void Update()
         {
-            AbyssColliderChanger.SetAbyssTrigger(Hook.CurrentHookState != Hook.HookState.NotHooking);
+            AbyssColliderChanger.SetAbyssTrigger( Hook.CurrentHookState != Hook.HookState.NotHooking );
             if (Input.GetKeyDown(KeyCode.R) && !Manager.IsCurrentRoomCompleted(this))
             {
                 Die();

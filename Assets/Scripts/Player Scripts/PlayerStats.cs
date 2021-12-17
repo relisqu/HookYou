@@ -18,7 +18,6 @@ namespace Player_Scripts
         {
             gemsCount += additionalGems;
             SaveProperty(GemsPropertyString,gemsCount);
-            print(gemsCount);
         } 
         public void ChangeGemsCount(int newGems)
         {

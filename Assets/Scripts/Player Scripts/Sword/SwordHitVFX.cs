@@ -15,7 +15,6 @@ namespace Player_Scripts
         {
             isAbleHit = false;
             yield return new WaitForSeconds(Cooldown);
-            print("Cd is over");
             isAbleHit = true;
 
         }
@@ -26,7 +25,6 @@ namespace Player_Scripts
             StartCoroutine(MakeIFrame());
             hitAmount+=1;
             hitAmount %= 3;
-            print(hitAmount);
             Animator.SetInteger(Swoosh,hitAmount);
             Animator.SetTrigger(DamageReceived);
         }

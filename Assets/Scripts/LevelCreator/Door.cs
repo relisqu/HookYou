@@ -52,8 +52,11 @@ namespace Assets.Scripts.LevelCreator
 
         public void GoThroughDoor(Player player)
         {
-            ConnectedDoor.Type = DoorType.AlwaysOpened;
-            ConnectedDoor.Open();
+            if (ConnectedDoor.Type != DoorType.Deadend)
+            {
+                ConnectedDoor.Type = DoorType.AlwaysOpened;
+                ConnectedDoor.Open();
+            }
             player.LastVisitedDoor = ConnectedDoor;
             player.transform.position = ConnectedDoor.PlayerTeleportationPoint.position;
             ConnectedDoor.EnteredDoor?.Invoke(player);
@@ -72,9 +75,8 @@ namespace Assets.Scripts.LevelCreator
 
         private enum DoorType
         {
-            Boss,
+            Deadend,
             Enemy,
-            Runner,
             AlwaysOpened,
             AlwaysClosed
         }

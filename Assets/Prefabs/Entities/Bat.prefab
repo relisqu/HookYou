@@ -14,10 +14,10 @@ GameObject:
   - component: {fileID: 1905978877553215084}
   - component: {fileID: 1905978877553214995}
   - component: {fileID: 1905978877553214994}
-  - component: {fileID: 1905978877553214993}
   - component: {fileID: -1611460766174812999}
   - component: {fileID: 1258876572}
   - component: {fileID: 1587939550}
+  - component: {fileID: 6866934340385403619}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Untagged
@@ -154,22 +154,6 @@ MonoBehaviour:
   HitTag: 
   DeathTag: die
   RespawnTag: ressurect
---- !u!58 &1905978877553214993
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1905978877553214997}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!114 &-1611460766174812999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,3 +198,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b3a884c1dbb40399e0aff590473d0c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!70 &6866934340385403619
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905978877553214997}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.1456677, y: -0.14568594}
+  m_Size: {x: 0.8071296, y: 0.27907565}
+  m_Direction: 1

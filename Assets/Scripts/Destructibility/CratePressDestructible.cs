@@ -20,7 +20,7 @@ namespace Destructibility
             if (other.gameObject.TryGetComponent(out PushableBlock block) )
             {
                 Health.TakeDamage(Int32.MaxValue);
-                //   block.Drake(DrakeCoefficient);
+                block.Drake(DrakeCoefficient);
             }
         }
 
