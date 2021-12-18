@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class HookCursor : MonoBehaviour
 {
-    [SerializeField] private Hook Hook;
-    [SerializeField] private GameObject Cursor;
 
     private void Update()
     {

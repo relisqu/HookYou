@@ -27,7 +27,6 @@ namespace Player_Scripts
         public void CreateSwordTrust(Vector2 direction)
         {   rigidbody2D.velocity=Vector2.zero;
             rigidbody2D.AddForce(SwordTrust*direction,ForceMode2D.Impulse);
-            print(rigidbody2D.velocity);
         }
 
         private void Update()

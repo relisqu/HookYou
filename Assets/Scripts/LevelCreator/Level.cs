@@ -1,7 +1,13 @@
+using System;
 using System.Collections.Generic;
 using Destructibility;
+using DG.Tweening;
 using Grappling_Hook.Test;
+using LevelCreator;
+using MoreMountains.Tools;
 using Player_Scripts;
+using Sirenix.OdinInspector;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -12,27 +18,40 @@ namespace Assets.Scripts.LevelCreator
         public enum LevelType
         {
             Boss,
-            Enemy,
-            Runner,
-            Checkpoint
+            Time,
+            Standard,
+            Auto
         }
+        [ChildGameObjectsOnly]
+        [SerializeField] private List<RespawnableLevelObject> CompletionLevelObjects;
+        [ChildGameObjectsOnly]
+        [SerializeField] private List<RespawnableLevelObject> AdditionalLevelObjects;
 
-        [FormerlySerializedAs("Enemies")] [SerializeField] private List<RespawnableLevelObject> LevelObjects;
-        [SerializeField] private List<Door> Doors;
+        [ChildGameObjectsOnly] [SerializeField]
+        private List<Door> Doors;
+
         [SerializeField] private Transform TeleportationPoint;
         [SerializeField] private LevelType Type;
+        [SerializeField] private Timer Timer;
         private int currentActiveObjectsCount;
         public bool IsCompleted { get; private set; }
 
-        private int defaultObjectsAmount => LevelObjects.Count;
+        private int defaultObjectsAmount;
         public Player Player { get; private set; }
 
-        private void OnEnable()
+        private void Awake()
         {
-            foreach (var respawnableLevelObject in LevelObjects)
+            defaultObjectsAmount = CompletionLevelObjects.Count;
+            foreach (var respawnableLevelObject in CompletionLevelObjects)
             {
                 respawnableLevelObject.GetHealth().Died += ReduceObjectsAmount;
+                respawnableLevelObject.GetHealth().Respawned += RespawnObject;
                 respawnableLevelObject.Despawn();
+            }
+
+            foreach (var prop in AdditionalLevelObjects)
+            {
+                prop.Despawn();
             }
 
             foreach (var door in Doors)
@@ -40,13 +59,25 @@ namespace Assets.Scripts.LevelCreator
                 door.EnteredDoor += EnterLevel;
                 door.ExitedDoor += LeaveLevel;
             }
+
+            IsCompleted = Type == LevelType.Auto;
         }
 
-        private void OnDisable()
-        {
-           foreach (var levelObject in LevelObjects) levelObject.GetHealth().Died -= ReduceObjectsAmount;
 
-           foreach (var door in Doors) door.EnteredDoor -= EnterLevel;
+        private void RespawnObject()
+        {
+            currentActiveObjectsCount++;
+        }
+
+        private void OnDestroy()
+        {
+            foreach (var levelObject in CompletionLevelObjects)
+            {
+                levelObject.GetHealth().Died -= ReduceObjectsAmount;
+                levelObject.GetHealth().Respawned -= RespawnObject;
+            }
+
+            foreach (var door in Doors) door.EnteredDoor -= EnterLevel;
         }
 
         public LevelType GetLevelType()
@@ -56,35 +87,62 @@ namespace Assets.Scripts.LevelCreator
 
         public void Restart()
         {
-            foreach (var enemy in LevelObjects) enemy.Spawn();
+            if (IsCompleted) return;
+            foreach (var enemy in CompletionLevelObjects)
+            {
+                enemy.Spawn();
+            }
+
+            foreach (var prop in AdditionalLevelObjects)
+            {
+                prop.Spawn();
+            }
 
             currentActiveObjectsCount = defaultObjectsAmount;
+            if (Type == LevelType.Time)
+            {
+                Timer.Restart();
+            }
+
             foreach (var door in Doors) door.TryClose();
 
-            Player.transform.position = TeleportationPoint.position;
+            //Player.transform.position = TeleportationPoint.position;
         }
 
         private void LeaveLevel(Player _)
         {
+            if (Type == LevelType.Time)
+            {
+                Timer.TimeIsOver -= Player.Die;
+            }
+
             Player = null;
-            IsCompleted = true;
+            //TODO: Check this method is bugs occur
+            if (LevelType.Time == Type)
+            {
+                Timer.Reset();
+            }
         }
 
         private void ReduceObjectsAmount()
         {
-            print("HUI NAAA");
             currentActiveObjectsCount--;
-            
-            if (currentActiveObjectsCount < 1)
-            {
-                CompleteLevel();
-                OpenAllDoors();
-            }
+            print(currentActiveObjectsCount);
+            if (currentActiveObjectsCount >= 1) return;
+            CompleteLevel();
+            OpenAllDoors();
         }
 
         private void CompleteLevel()
         {
-                IsCompleted = true;
+            if (IsCompleted) return;
+            if (LevelType.Time == Type)
+            {
+                Timer.Disable();
+            }
+
+            IsCompleted = true;
+            Player.GetPropCollector().CollectGem();
         }
 
         private void OpenAllDoors()
@@ -95,6 +153,11 @@ namespace Assets.Scripts.LevelCreator
         public void EnterLevel(Player player)
         {
             Player = player;
+            if (Type == LevelType.Time)
+            {
+                Timer.TimeIsOver += Player.Die;
+            }
+
             if (!IsCompleted) Restart();
         }
 

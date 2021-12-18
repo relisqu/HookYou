@@ -12,8 +12,8 @@ public class RotateAppearance : MonoBehaviour
 
     private void Update()
     {
-    
+        if (!Input.GetMouseButtonDown(0)) return;
         var lookRotation = (camera.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
-        if(Input.GetMouseButtonDown(0))transform.rotation = Quaternion.Euler(new Vector3(0f,0f,-Vector2.SignedAngle(lookRotation,Vector3.right)));
+        transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, -Vector2.SignedAngle(lookRotation, Vector3.right)));
     }
 }
