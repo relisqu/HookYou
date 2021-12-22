@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Additional_Technical_Settings_Scripts;
 using Destructibility;
 using DG.Tweening;
 using Grappling_Hook.Test;
@@ -165,6 +166,7 @@ namespace Assets.Scripts.LevelCreator
 
         public void EnterLevel(Player player)
         {
+            CameraShift.Instance.ShiftToNewLevel(transform.position);
             Player = player;
             if (Type == LevelType.Time)
             {
