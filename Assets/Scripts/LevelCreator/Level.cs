@@ -108,19 +108,32 @@ namespace Assets.Scripts.LevelCreator
 
             //Player.transform.position = TeleportationPoint.position;
         }
-
+        
         private void LeaveLevel(Player _)
         {
-            if (Type == LevelType.Time)
-            {
-                Timer.TimeIsOver -= Player.Die;
-            }
-
-            Player = null;
             //TODO: Check this method is bugs occur
             if (LevelType.Time == Type)
             {
+                Timer.TimeIsOver -= Player.Die;
                 Timer.Reset();
+            }
+            Player = null;
+
+            if (!IsCompleted)
+            {  
+                foreach (var enemy in CompletionLevelObjects)
+                {
+                    enemy.Despawn();
+                }
+
+                foreach (var prop in AdditionalLevelObjects)
+                {
+                    prop.Despawn();
+                }
+
+                currentActiveObjectsCount = defaultObjectsAmount;
+                foreach (var door in Doors) door.TryClose();
+
             }
         }
 
