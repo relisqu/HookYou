@@ -87,7 +87,6 @@ namespace AI
             var playerPosition = Player.transform.position;
 
             var distance = (playerPosition - position).normalized * DashRange;
-            var newPosition = position;
             if (!Health.IsDangerous || !Health.IsAlive) yield break;
             dashTween = transform.DOMove(position + distance, 1 / DashSpeed * 0.1f * distance.magnitude)
                 .SetEase(Ease.OutCubic)

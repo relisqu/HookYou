@@ -388,7 +388,7 @@ MonoBehaviour:
   AttackPoint: {fileID: 2424392383763811558}
   EnemyLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 130871
   Animator: {fileID: 4635049064546730705}
   SwordHitVFX: {fileID: 1255179505}
 --- !u!60 &5209836070904504666
