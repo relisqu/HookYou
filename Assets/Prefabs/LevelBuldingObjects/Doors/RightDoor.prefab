@@ -12,6 +12,16 @@ PrefabInstance:
       propertyPath: Direction
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8020329185410858112, guid: 896eeb3825242a44bb986619c4a0b20b,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.84755135
+      objectReference: {fileID: 0}
+    - target: {fileID: 8020329185410858112, guid: 896eeb3825242a44bb986619c4a0b20b,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.09164524
+      objectReference: {fileID: 0}
     - target: {fileID: 8450207401128001648, guid: 896eeb3825242a44bb986619c4a0b20b,
         type: 3}
       propertyPath: m_RootOrder

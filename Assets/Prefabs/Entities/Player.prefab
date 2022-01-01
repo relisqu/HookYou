@@ -418,9 +418,9 @@ PolygonCollider2D:
     m_Paths:
     - - {x: -0.09382713, y: -0.038908772}
       - {x: 0.109935224, y: -0.046830285}
-      - {x: 0.23496734, y: 0.9272345}
+      - {x: 0.5097177, y: 0.7943372}
       - {x: -0.007361997, y: 1.1568847}
-      - {x: -0.2289767, y: 0.9072393}
+      - {x: -0.48926774, y: 0.7891102}
 --- !u!50 &434379520503585494
 Rigidbody2D:
   serializedVersion: 4
@@ -572,6 +572,13 @@ MonoBehaviour:
   AbyssLayerCollider:
   - {fileID: 0}
   ChangeReactTime: 0.18
+  Player: {fileID: 0}
+  ObstaclesMask:
+    serializedVersion: 2
+    m_Bits: 0
+  AbyssMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &4635049064491891812
 MonoBehaviour:
   m_ObjectHideFlags: 0

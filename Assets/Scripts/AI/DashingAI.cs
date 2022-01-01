@@ -27,6 +27,7 @@ namespace AI
         [SerializeField] private EnemyHealth Health;
 
         private bool isInRadius;
+
         private void OnEnable()
         {
             isDashing = false;
@@ -41,7 +42,7 @@ namespace AI
             Health.Respawned -= SetAsDangerous;
         }
 
-        public  void DestroyMovingAction()
+        public void DestroyMovingAction()
         {
             StopAllCoroutines();
             dashTween.Kill();
@@ -51,17 +52,16 @@ namespace AI
 
         public void SetAsDangerous()
         {
-            
-          Health.MarkAsDangerous(true);
+            Health.MarkAsDangerous(true);
         }
 
         private void Update()
         {
-            if (isDashing || !Health.IsAlive )
+            if (isDashing || !Health.IsAlive)
             {
                 return;
             }
-        
+
             var distance = Vector2.Distance(Player.transform.position, transform.position);
             isInRadius = distance > AttackRadius;
             animator.SetDashing(isDashing);
@@ -85,19 +85,21 @@ namespace AI
             animator.Dash();
             var position = transform.position;
             var playerPosition = Player.transform.position;
-            var newPosition = (playerPosition - position) * DashRange + position;
+
+            var distance = (playerPosition - position).normalized * DashRange;
+            var newPosition = position;
             if (!Health.IsDangerous || !Health.IsAlive) yield break;
-            dashTween = transform.DOMove(newPosition, 1 / DashSpeed).SetEase(Ease.OutCubic)
-                .OnComplete(() =>
-                {
-                    isDashing = false;
-                });
+            dashTween = transform.DOMove(position + distance, 1 / DashSpeed * 0.1f * distance.magnitude)
+                .SetEase(Ease.OutCubic)
+                .OnComplete(() => { isDashing = false; });
         }
 
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, AttackRadius);
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(transform.position, DashRange);
         }
 
         private void Awake()

@@ -105,7 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 2
   AttackRadius: 4.6
-  DashRange: 1.49
+  DashRange: 4
   DashSpeed: 0.82
   PauseDuration: 1
   Health: {fileID: 1905978877553214995}

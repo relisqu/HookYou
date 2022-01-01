@@ -43,6 +43,7 @@ namespace Assets.Scripts.Old_Scripts
             straightLine = true;
             LinePointToFirePoint();
             HookSprite.SetActive(true);
+            SetHook();
         }
 
 
@@ -63,14 +64,15 @@ namespace Assets.Scripts.Old_Scripts
         {
             var moveDirection = grapplePoint.position - firePoint.position;
             if (moveDirection == Vector3.zero) return;
-            var angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
-            HookSprite.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            var angle = ((int)Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg/45)*45;
+            var rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            HookSprite.transform.rotation = rotation;
             HookSprite.transform.position = firePoint.position;
         }
 
         private void LinePointToFirePoint()
         {
-            if (m_lineRenderer == null|| firePoint==null) return;
+            if (m_lineRenderer == null || firePoint == null) return;
             for (var i = 0; i < percision; i++) m_lineRenderer.SetPosition(i, firePoint.position);
         }
 
@@ -87,7 +89,6 @@ namespace Assets.Scripts.Old_Scripts
             m_lineRenderer.positionCount = 2;
             m_lineRenderer.SetPosition(0, grapplePoint.position);
             m_lineRenderer.SetPosition(1, firePoint.position);
-            SetHook();
         }
 
         public void SetHookMovingOnWall()
