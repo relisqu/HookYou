@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Additional_Technical_Settings_Scripts;
 using Destructibility;
 using DG.Tweening;
 using Grappling_Hook.Test;
@@ -108,19 +109,32 @@ namespace Assets.Scripts.LevelCreator
 
             //Player.transform.position = TeleportationPoint.position;
         }
-
+        
         private void LeaveLevel(Player _)
         {
-            if (Type == LevelType.Time)
-            {
-                Timer.TimeIsOver -= Player.Die;
-            }
-
-            Player = null;
             //TODO: Check this method is bugs occur
             if (LevelType.Time == Type)
             {
+                Timer.TimeIsOver -= Player.Die;
                 Timer.Reset();
+            }
+            Player = null;
+
+            if (!IsCompleted)
+            {  
+                foreach (var enemy in CompletionLevelObjects)
+                {
+                    enemy.Despawn();
+                }
+
+                foreach (var prop in AdditionalLevelObjects)
+                {
+                    prop.Despawn();
+                }
+
+                currentActiveObjectsCount = defaultObjectsAmount;
+                foreach (var door in Doors) door.TryClose();
+
             }
         }
 
@@ -152,6 +166,7 @@ namespace Assets.Scripts.LevelCreator
 
         public void EnterLevel(Player player)
         {
+            CameraShift.Instance.ShiftToNewLevel(transform.position);
             Player = player;
             if (Type == LevelType.Time)
             {
