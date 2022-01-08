@@ -25,7 +25,13 @@ namespace Assets.Scripts.LevelCreator
             else
                 TryClose();
             DoorLock.gameObject.SetActive(false);
+            DoorLock.LockDestroyed += Open;
             DoorAnimator.SetupDoor(Type == DoorType.AlwaysOpened);
+        }
+
+        private void OnDisable()
+        {
+            DoorLock.LockDestroyed -= Open;
         }
 
         private void OnCollisionEnter2D(Collision2D other)
