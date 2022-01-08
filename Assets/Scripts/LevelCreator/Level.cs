@@ -23,10 +23,12 @@ namespace Assets.Scripts.LevelCreator
             Standard,
             Auto
         }
-        [ChildGameObjectsOnly]
-        [SerializeField] private List<RespawnableLevelObject> CompletionLevelObjects;
-        [ChildGameObjectsOnly]
-        [SerializeField] private List<RespawnableLevelObject> AdditionalLevelObjects;
+
+        [ChildGameObjectsOnly] [SerializeField]
+        private List<RespawnableLevelObject> CompletionLevelObjects;
+
+        [ChildGameObjectsOnly] [SerializeField]
+        private List<RespawnableLevelObject> AdditionalLevelObjects;
 
         [ChildGameObjectsOnly] [SerializeField]
         private List<Door> Doors;
@@ -109,7 +111,7 @@ namespace Assets.Scripts.LevelCreator
 
             //Player.transform.position = TeleportationPoint.position;
         }
-        
+
         private void LeaveLevel(Player _)
         {
             //TODO: Check this method is bugs occur
@@ -118,10 +120,11 @@ namespace Assets.Scripts.LevelCreator
                 Timer.TimeIsOver -= Player.Die;
                 Timer.Reset();
             }
+
             Player = null;
 
             if (!IsCompleted)
-            {  
+            {
                 foreach (var enemy in CompletionLevelObjects)
                 {
                     enemy.Despawn();
@@ -134,7 +137,6 @@ namespace Assets.Scripts.LevelCreator
 
                 currentActiveObjectsCount = defaultObjectsAmount;
                 foreach (var door in Doors) door.TryClose();
-
             }
         }
 
@@ -168,6 +170,7 @@ namespace Assets.Scripts.LevelCreator
         {
             CameraShift.Instance.ShiftToNewLevel(transform.position);
             Player = player;
+            if (player.LastVisitedDoor != null && !IsCompleted) player.LastVisitedDoor.SetBlocked();
             if (Type == LevelType.Time)
             {
                 Timer.TimeIsOver += Player.Die;

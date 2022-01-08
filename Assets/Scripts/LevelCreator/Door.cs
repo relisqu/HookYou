@@ -11,6 +11,7 @@ namespace Assets.Scripts.LevelCreator
         [SerializeField] private DoorType Type;
         [SerializeField] private Transform PlayerTeleportationPoint;
         [SerializeField] private DoorAnimator DoorAnimator;
+        [SerializeField] private DoorLock DoorLock;
         public Action<Player> EnteredDoor;
         public Action<Player> ExitedDoor;
 
@@ -23,7 +24,7 @@ namespace Assets.Scripts.LevelCreator
                 Open();
             else
                 TryClose();
-
+            DoorLock.gameObject.SetActive(false);
             DoorAnimator.SetupDoor(Type == DoorType.AlwaysOpened);
         }
 
@@ -46,17 +47,13 @@ namespace Assets.Scripts.LevelCreator
                 isCurrentlyOpened = true;
                 DoorAnimator.SetupDoor(isCurrentlyOpened);
                 DoorAnimator.SetOpened();
+                SetUnblocked();
             }
         }
 
 
         public void GoThroughDoor(Player player)
         {
-            if (ConnectedDoor.Type != DoorType.Deadend)
-            {
-                ConnectedDoor.Type = DoorType.AlwaysOpened;
-                ConnectedDoor.Open();
-            }
             player.LastVisitedDoor = ConnectedDoor;
             player.transform.position = ConnectedDoor.PlayerTeleportationPoint.position;
             ConnectedDoor.EnteredDoor?.Invoke(player);
@@ -80,5 +77,20 @@ namespace Assets.Scripts.LevelCreator
             AlwaysOpened,
             AlwaysClosed
         }
+
+        public void SetBlocked()
+        {
+            DoorLock.SetLock();
+            isBlocked = true;
+        }
+
+        public void SetUnblocked()
+        {
+            if (!isBlocked) return;
+            DoorLock.DropLock();
+            isBlocked = false;
+        }
+
+        private bool isBlocked;
     }
 }

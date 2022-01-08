@@ -7,10 +7,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5804985765399945560, guid: 896eeb3825242a44bb986619c4a0b20b,
+        type: 3}
+      propertyPath: Offset.x
+      value: -0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6936028549933797237, guid: 896eeb3825242a44bb986619c4a0b20b,
         type: 3}
       propertyPath: Direction
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7386211228914266334, guid: 896eeb3825242a44bb986619c4a0b20b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6889700044301887726, guid: e5cccee71fd5c9d4da8cf81170d70f56,
+        type: 3}
+    - target: {fileID: 7424035506406007904, guid: 896eeb3825242a44bb986619c4a0b20b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.157
       objectReference: {fileID: 0}
     - target: {fileID: 8020329185410858112, guid: 896eeb3825242a44bb986619c4a0b20b,
         type: 3}
@@ -82,6 +98,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 8450207401128001663, guid: 896eeb3825242a44bb986619c4a0b20b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7037842594108204779, guid: e5cccee71fd5c9d4da8cf81170d70f56,
+        type: 3}
     - target: {fileID: 8779704573912218869, guid: 896eeb3825242a44bb986619c4a0b20b,
         type: 3}
       propertyPath: m_LocalPosition.x
