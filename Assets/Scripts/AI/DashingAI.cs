@@ -27,6 +27,7 @@ namespace AI
         [SerializeField] private EnemyHealth Health;
 
         private bool isInRadius;
+        [SerializeField] private PopupVFX BatWarningVfx;
 
         private void OnEnable()
         {
@@ -81,6 +82,7 @@ namespace AI
         {
             animator.PrepareToDash();
             isDashing = true;
+            BatWarningVfx.InitiateObject();
             yield return new WaitForSeconds(PauseDuration);
             animator.Dash();
             var position = transform.position;
@@ -106,7 +108,7 @@ namespace AI
             Player = FindObjectOfType<PlayerMovement>();
             animator = GetComponent<BatMovementAnimator>();
         }
-
+        
         private TweenerCore<Vector3, Vector3, VectorOptions> dashTween;
     }
 }

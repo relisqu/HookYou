@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1258876572}
   - component: {fileID: 1587939550}
   - component: {fileID: 6866934340385403619}
+  - component: {fileID: 1994344504812080865}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Untagged
@@ -109,6 +110,7 @@ MonoBehaviour:
   DashSpeed: 0.82
   PauseDuration: 1
   Health: {fileID: 1905978877553214995}
+  BatWarningVfx: {fileID: 1994344504812080865}
 --- !u!114 &1905978877553215084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,3 +216,25 @@ CapsuleCollider2D:
   m_Offset: {x: -0.1456677, y: -0.14568594}
   m_Size: {x: 0.8071296, y: 0.27907565}
   m_Direction: 1
+--- !u!114 &1994344504812080865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905978877553214997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873d722cf0aa4d6292518f9c8bdf7c3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Object: {fileID: 8537296549731774667, guid: ef7e6e0c36ba9654c88f350abb978744, type: 3}
+  Offset: {x: -0.23, y: 0.46, z: 0}
+  Ease: 15
+  Speed: 1.58
+  FlyDistance: 1.34
+  IsBouncy: 1
+  Stiffness: 0.5
+  BounceSpeed: 0.78
+  BounceEase: 31
+  FadeDuration: 0.03
