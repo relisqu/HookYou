@@ -15,6 +15,7 @@ namespace AI
         private static readonly int IsAttacking = Animator.StringToHash("isAttacking");
         private Shader shaderGUItext;
         private Shader shaderSpritesDefault;
+        private bool _isRotatedLeft = true;
         private static readonly int Fly = Animator.StringToHash("fly");
 
         private void Awake()
@@ -34,8 +35,10 @@ namespace AI
         private void FixedUpdate()
         {
             var currentPosition = transform.position;
-            spriteRenderer.flipX = previousPosition.x < currentPosition.x;
+            var isCurrentlyRotatedLeft = previousPosition.x >= currentPosition.x;
+            if (isCurrentlyRotatedLeft == _isRotatedLeft) spriteRenderer.flipX = !isCurrentlyRotatedLeft;
             previousPosition = currentPosition;
+            _isRotatedLeft = isCurrentlyRotatedLeft;
         }
 
         public void PrepareToDash()
@@ -63,7 +66,6 @@ namespace AI
         public void SetNormalSprite()
         {
             spriteRenderer.material.shader = shaderSpritesDefault;
-            
         }
 
         public void Dash()
@@ -71,7 +73,6 @@ namespace AI
             animator.SetTrigger(Dash1);
         }
 
-      
 
         public void SetDashing(bool value)
         {
