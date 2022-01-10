@@ -5,33 +5,37 @@ using DG.Tweening;
 using DG.Tweening.Core;
 using DG.Tweening.Plugins.Options;
 using Player_Scripts;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace AI
 {
     public class DashingAI : MonoBehaviour
     {
-        private PlayerMovement Player;
-        private BatMovementAnimator animator;
-        [SerializeField] private float Speed;
-        [SerializeField] private float AttackRadius;
+        [BoxGroup("Default constrains")] [SerializeField]
+        protected float Speed;
 
-        [Tooltip("How far the AI will fly while dashing")] [SerializeField]
-        private float DashRange;
+        [BoxGroup("Default constrains")] [SerializeField]
+        protected float AttackRadius;
 
-        [Tooltip("How fast the AI will fly while dashing")] [SerializeField]
-        private float DashSpeed;
+        [Tooltip("How far the AI will fly while dashing")] [SerializeField] [BoxGroup("Default constrains")]
+        protected float DashRange;
 
-        [SerializeField] private float PauseDuration;
-        private bool isDashing;
-        [SerializeField] private EnemyHealth Health;
+        [Tooltip("How fast the AI will fly while dashing")] [SerializeField] [BoxGroup("Default constrains")]
+        protected float DashSpeed;
 
-        private bool isInRadius;
-        [SerializeField] private PopupVFX BatWarningVfx;
+        [BoxGroup("Default constrains")] [SerializeField]
+        protected float PauseDuration;
+
+        [BoxGroup("References")] [SerializeField]
+        protected EnemyHealth Health;
+
+        [BoxGroup("References")] [SerializeField]
+        private PopupVFX BatWarningVfx;
 
         private void OnEnable()
         {
-            isDashing = false;
+            _isDashing = false;
             dashTween.Kill();
             Health.Respawned += DestroyMovingAction;
             Health.Respawned += SetAsDangerous;
@@ -47,8 +51,8 @@ namespace AI
         {
             StopAllCoroutines();
             dashTween.Kill();
-            isDashing = false;
-            animator.SetNormalSprite();
+            _isDashing = false;
+            _animator.SetNormalSprite();
         }
 
         public void SetAsDangerous()
@@ -58,18 +62,18 @@ namespace AI
 
         private void Update()
         {
-            if (isDashing || !Health.IsAlive)
+            if (_isDashing || !Health.IsAlive)
             {
                 return;
             }
 
-            var distance = Vector2.Distance(Player.transform.position, transform.position);
-            isInRadius = distance > AttackRadius;
-            animator.SetDashing(isDashing);
-            if (isInRadius)
+            var distance = Vector2.Distance(_player.transform.position, transform.position);
+            _isInRadius = distance > AttackRadius;
+            _animator.SetDashing(_isDashing);
+            if (_isInRadius)
             {
                 var newDistance =
-                    Vector2.MoveTowards(transform.position, Player.transform.position, Speed * Time.deltaTime);
+                    Vector2.MoveTowards(transform.position, _player.transform.position, Speed * Time.deltaTime);
                 transform.position = newDistance;
             }
             else
@@ -80,19 +84,19 @@ namespace AI
 
         IEnumerator Dash()
         {
-            animator.PrepareToDash();
-            isDashing = true;
+            _animator.PrepareToDash();
+            _isDashing = true;
             BatWarningVfx.InitiateObject();
             yield return new WaitForSeconds(PauseDuration);
-            animator.Dash();
+            _animator.Dash();
             var position = transform.position;
-            var playerPosition = Player.transform.position;
+            var playerPosition = _player.transform.position;
 
             var distance = (playerPosition - position).normalized * DashRange;
             if (!Health.IsDangerous || !Health.IsAlive) yield break;
             dashTween = transform.DOMove(position + distance, 1 / DashSpeed * 0.1f * distance.magnitude)
                 .SetEase(Ease.OutCubic)
-                .OnComplete(() => { isDashing = false; });
+                .OnComplete(() => { _isDashing = false; });
         }
 
         private void OnDrawGizmos()
@@ -105,10 +109,15 @@ namespace AI
 
         private void Awake()
         {
-            Player = FindObjectOfType<PlayerMovement>();
-            animator = GetComponent<BatMovementAnimator>();
+            _player = FindObjectOfType<PlayerMovement>();
+            _animator = GetComponent<BatMovementAnimator>();
         }
-        
+
+        private PlayerMovement _player;
+        private BatMovementAnimator _animator;
+        private bool _isDashing;
+
+        private bool _isInRadius;
         private TweenerCore<Vector3, Vector3, VectorOptions> dashTween;
     }
 }

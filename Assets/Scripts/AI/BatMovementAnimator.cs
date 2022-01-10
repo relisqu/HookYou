@@ -35,8 +35,9 @@ namespace AI
         private void FixedUpdate()
         {
             var currentPosition = transform.position;
-            var isCurrentlyRotatedLeft = previousPosition.x >= currentPosition.x;
-            if (isCurrentlyRotatedLeft == _isRotatedLeft) spriteRenderer.flipX = !isCurrentlyRotatedLeft;
+            var isCurrentlyRotatedLeft = previousPosition.x > currentPosition.x;
+            if (isCurrentlyRotatedLeft == _isRotatedLeft && Math.Abs(previousPosition.x - currentPosition.x) > 0.001f)
+                spriteRenderer.flipX = !isCurrentlyRotatedLeft;
             previousPosition = currentPosition;
             _isRotatedLeft = isCurrentlyRotatedLeft;
         }
