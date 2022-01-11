@@ -10,8 +10,14 @@ namespace Destructibility
         [SerializeField] protected Health Health;
         private bool isAbleToAttack = true;
 
+        private void OnEnable()
+        {
+            isAbleToAttack = true;
+        }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
+            print(isAbleToAttack);
             if (isAbleToAttack && Health.IsAlive) TakeSwordDamage(other);
         }
 

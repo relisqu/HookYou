@@ -3,20 +3,19 @@ using UnityEngine;
 
 public class CanonModule : MonoBehaviour
 {
-    public BossBullet bulletObject;
+    public Bullet bulletObject;
     public Transform shootingPosition;
     public int amountToPool;
 
-    private List<BossBullet> bullets;
+    private List<Bullet> bullets;
 
     private void Start()
     {
-        bullets = new List<BossBullet>();
-        BossBullet tmp;
+        bullets = new List<Bullet>();
+        Bullet tmp;
         for (var i = 0; i < amountToPool; i++)
         {
             tmp = Instantiate(bulletObject);
-            tmp.isDamaging = true;
             tmp.gameObject.SetActive(false);
             bullets.Add(tmp);
         }
@@ -30,7 +29,7 @@ public class CanonModule : MonoBehaviour
                 Destroy(bullet.gameObject);
     }
 
-    public BossBullet GetPooledBullet()
+    public Bullet GetPooledBullet()
     {
         for (var i = 0; i < amountToPool; i++)
             if (!bullets[i].gameObject.activeInHierarchy)

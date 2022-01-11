@@ -25,10 +25,10 @@ AnimationClip:
     - time: 0.05
       value: {fileID: -1984628003752568466, guid: 25edc1525d815004ead6c78c15606a3e,
         type: 3}
-    - time: 0.2
+    - time: 0.15
       value: {fileID: 1719088546157316147, guid: 25edc1525d815004ead6c78c15606a3e,
         type: 3}
-    - time: 0.28333333
+    - time: 0.23333333
       value: {fileID: 7505697177895649158, guid: 25edc1525d815004ead6c78c15606a3e,
         type: 3}
     attribute: m_Sprite
@@ -59,7 +59,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.3
+    m_StopTime: 0.25
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -80,13 +80,6 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.18333334
-    functionName: CreateParticles
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.21666667
     functionName: ShootBullet
     data: 
     objectReferenceParameter: {fileID: 0}
