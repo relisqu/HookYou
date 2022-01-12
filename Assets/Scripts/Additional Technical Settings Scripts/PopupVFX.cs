@@ -41,8 +41,8 @@ namespace AI
                         () => { prop.transform.DOScaleY(1f, 1/BounceSpeed*0.08f); }
                     );
                 });
-
-            prop.transform.DOLocalMoveY(FlyDistance, 1 / Speed).SetEase(Ease)
+            var flyValue = prop.transform.position.y + FlyDistance;
+            prop.transform.DOMoveY(flyValue, 1 / Speed).SetEase(Ease)
                 .OnComplete(() => DestroyObject(prop));
         }
 

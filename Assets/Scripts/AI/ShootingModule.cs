@@ -37,9 +37,9 @@ namespace AI
             if (bullet == null) return;
 
             bullet.transform.position = ShootingPosition.position;
+            bullet.gameObject.SetActive(true);
             bullet.transform.rotation = rotation;
             bullet.SetStats(shotSpeed, shotSize);
-            bullet.gameObject.SetActive(true);
             print("Bullet health: "+ bullet.Health.CurrentHealth);
         }
         private void OnDestroy()

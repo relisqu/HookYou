@@ -22,9 +22,11 @@ namespace AI
 
         [SerializeField] private float Distance;
 
-        private void Start()
+
+        private void OnEnable()
         {
             _player = FindObjectOfType<Player>();
+            StopAllCoroutines();
             StartCoroutine(StartShootingBehaviour());
         }
 
@@ -38,7 +40,7 @@ namespace AI
 
             var hit = Physics2D.Raycast(transform.position, distance.normalized,
                 Mathf.Infinity, IgnoreLayers);
-
+            if (hit.transform == null) return false;
             var layerIsWall = (WallsLayers == (WallsLayers | (1 << hit.transform.gameObject.layer)));
             return !layerIsWall;
         }
@@ -92,9 +94,9 @@ namespace AI
 
         private void OnDrawGizmos()
         {
-            Gizmos.color=Color.green;
-            
-            Gizmos.DrawWireSphere(transform.position,Distance);
+            Gizmos.color = Color.green;
+
+            Gizmos.DrawWireSphere(transform.position, Distance);
         }
 
         private Player _player;

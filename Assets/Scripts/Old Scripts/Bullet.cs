@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
         transform.position += transform.up * (Time.fixedDeltaTime * _currentSpeed);
     }
 
-    private void Start()
+    private void Awake()
     {
         _currentSpeed = DefaultSpeed;
     }
