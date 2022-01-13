@@ -23,6 +23,24 @@ TextureImporter:
   - first:
       213: 2324009238687152924
     second: upgraded_bat_6
+  - first:
+      213: 7637048026553538258
+    second: upgraded_bat_8
+  - first:
+      213: -6062008250167089837
+    second: upgraded_bat_9
+  - first:
+      213: 7318336394432388368
+    second: upgraded_bat_10
+  - first:
+      213: 9125005383781043483
+    second: upgraded_bat_11
+  - first:
+      213: 1170122813326963670
+    second: upgraded_bat_12
+  - first:
+      213: -7208039738477889638
+    second: upgraded_bat_13
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -165,7 +183,7 @@ TextureImporter:
         width: 66
         height: 48
       alignment: 9
-      pivot: {x: 0.3905204, y: 0.40023184}
+      pivot: {x: 0.3905204, y: 0.4002318}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -186,7 +204,7 @@ TextureImporter:
         width: 56
         height: 48
       alignment: 9
-      pivot: {x: 0.44811603, y: 0.48256853}
+      pivot: {x: 0.448116, y: 0.4825685}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -203,11 +221,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 198
-        y: 0
-        width: 66.28571
+        y: 1
+        width: 66
         height: 48
       alignment: 9
-      pivot: {x: 0.30172393, y: 0.43477216}
+      pivot: {x: 0.3017239, y: 0.4347722}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -228,7 +246,7 @@ TextureImporter:
         width: 66.28571
         height: 48
       alignment: 9
-      pivot: {x: 0.28663793, y: 0.5}
+      pivot: {x: 0.2866379, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -249,7 +267,7 @@ TextureImporter:
         width: 56
         height: 48
       alignment: 9
-      pivot: {x: 0.46145085, y: 0.49999997}
+      pivot: {x: 0.4614508, y: 0.49999997}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -278,6 +296,153 @@ TextureImporter:
       bones: []
       spriteID: c1b7ca6e61a804020800000000000000
       internalID: 2324009238687152924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: upgraded_bat_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 66
+        height: 48
+      alignment: 9
+      pivot: {x: 0.4258294, y: 0.5213788}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f425aa3d52afac8d0800000000000000
+      internalID: -2825170775849676209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: upgraded_bat_8
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 48
+        width: 66
+        height: 48
+      alignment: 9
+      pivot: {x: 0.3905204, y: 0.4002318}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d65253a7be3cf960800000000000000
+      internalID: 7637048026553538258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: upgraded_bat_9
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 48
+        width: 56
+        height: 48
+      alignment: 9
+      pivot: {x: 0.448116, y: 0.4825685}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 355ad474d9b6fdba0800000000000000
+      internalID: -6062008250167089837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: upgraded_bat_10
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 49
+        width: 66
+        height: 47
+      alignment: 9
+      pivot: {x: 0.3017239, y: 0.4347722}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01d94f03d24ff8560800000000000000
+      internalID: 7318336394432388368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: upgraded_bat_11
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 48
+        width: 66
+        height: 48
+      alignment: 9
+      pivot: {x: 0.2866379, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1dcbc9dc0882ae70800000000000000
+      internalID: 9125005383781043483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: upgraded_bat_12
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 48
+        width: 66
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d33fe7cf7c1d3010800000000000000
+      internalID: 1170122813326963670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: upgraded_bat_13
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 48
+        width: 56
+        height: 48
+      alignment: 9
+      pivot: {x: 0.4614508, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9730253c06e7fb90800000000000000
+      internalID: -7208039738477889638
       vertices: []
       indices: 
       edges: []

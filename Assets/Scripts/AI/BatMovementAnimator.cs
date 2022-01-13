@@ -17,6 +17,7 @@ namespace AI
         private Shader shaderSpritesDefault;
         private bool _isRotatedLeft = true;
         private static readonly int Fly = Animator.StringToHash("fly");
+        private static readonly int Health = Animator.StringToHash("Health");
 
         private void Awake()
         {
@@ -62,6 +63,11 @@ namespace AI
         void SetWhiteSprite()
         {
             spriteRenderer.material.shader = shaderGUItext;
+        }
+
+        public void UpdateHealth(int health)
+        {
+            animator.SetFloat(Health,health);
         }
 
         public void SetNormalSprite()

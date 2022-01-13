@@ -39,18 +39,27 @@ namespace AI
             dashTween.Kill();
             Health.Respawned += DestroyMovingAction;
             Health.Respawned += SetAsDangerous;
+            Health.TookDamage += UpdateHealthSprite;
+            UpdateHealthSprite();
+        }
+
+        private void UpdateHealthSprite()
+        {
+            _animator.UpdateHealth(Health.CurrentHealth);
         }
 
         private void OnDisable()
         {
             Health.Respawned -= DestroyMovingAction;
             Health.Respawned -= SetAsDangerous;
+            Health.TookDamage -= UpdateHealthSprite;
         }
 
         public void DestroyMovingAction()
         {
             StopAllCoroutines();
             dashTween.Kill();
+            UpdateHealthSprite();
             _isDashing = false;
             _animator.SetNormalSprite();
         }

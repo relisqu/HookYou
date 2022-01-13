@@ -24,6 +24,7 @@ namespace Destructibility
             dashingAI.DestroyMovingAction();
             transform.DOMove(newPosition, 1/DeathImpulseSpeed).SetEase(Ease.OutCubic).OnComplete(() =>
             {
+                
                 print("Took damage. Health: "+Health.CurrentHealth);
                 animator.SetNormalSprite();
                 Health.TakeDamage(sword.GetDamage);
