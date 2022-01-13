@@ -21,16 +21,23 @@ namespace Destructibility
             var playerPosition = Player.transform.position;
             var newPosition = (position-playerPosition) * DeathImpulseRange + position;
             StartCoroutine(animator.GetDamage());
-            ((EnemyHealth) Health).MarkAsDangerous(false);
             dashingAI.DestroyMovingAction();
             transform.DOMove(newPosition, 1/DeathImpulseSpeed).SetEase(Ease.OutCubic).OnComplete(() =>
             {
+                
+                print("Took damage. Health: "+Health.CurrentHealth);
                 animator.SetNormalSprite();
                 Health.TakeDamage(sword.GetDamage);
                 StartCoroutine(MakeIFrame());
             });
 
         }
+
+        public void SetSafeForPlayer()
+        {
+            ((EnemyHealth) Health).MarkAsDangerous(false);
+        }
+
         private void Start()
         {
             Player = FindObjectOfType<PlayerMovement>();

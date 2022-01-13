@@ -43,7 +43,6 @@ namespace Assets.Scripts.Old_Scripts
             straightLine = true;
             LinePointToFirePoint();
             HookSprite.SetActive(true);
-            SetHook();
         }
 
 
@@ -58,6 +57,7 @@ namespace Assets.Scripts.Old_Scripts
         {
             this.grapplePoint = grapplePoint;
             this.firePoint = firePoint;
+            SetHook();
         }
 
         public void SetHook()

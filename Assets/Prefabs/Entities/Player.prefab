@@ -418,9 +418,9 @@ PolygonCollider2D:
     m_Paths:
     - - {x: -0.09382713, y: -0.038908772}
       - {x: 0.109935224, y: -0.046830285}
-      - {x: 0.5097177, y: 0.7943372}
+      - {x: 0.60733104, y: 0.68941486}
       - {x: -0.007361997, y: 1.1568847}
-      - {x: -0.48926774, y: 0.7891102}
+      - {x: -0.6279812, y: 0.69992656}
 --- !u!50 &434379520503585494
 Rigidbody2D:
   serializedVersion: 4
@@ -629,7 +629,7 @@ MonoBehaviour:
     type: 3}
   Offset: {x: 0, y: 0.4, z: 0}
   ease: 21
-  CrystalSpeed: 1.37
+  CrystalSpeed: 1.2
   CrystalDistance: 1.33
 --- !u!1 &2424392383996463237
 GameObject:
@@ -784,11 +784,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   MaxDistance: 7.1
-  LaunchSpeed: 2.45
-  BreakForceDirection: -0.92
+  LaunchSpeed: 5
+  BreakForceDirection: -0.9
   HookWallStopability: 0.5
   BreakRequiredTime: 0.1
-  DropDuration: 0.2
+  DropDuration: 0.05
   WallHangDuration: 5
 --- !u!1 &2424392384982898513
 GameObject:

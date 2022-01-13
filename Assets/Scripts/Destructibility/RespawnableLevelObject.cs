@@ -11,12 +11,10 @@ namespace Destructibility
         private void Awake()
         {
             spawnPosition = transform.position;
-            print("setting save position of "+name+":"+spawnPosition);
         }
 
         public void Spawn()
         {
-            print("Spawn");
             gameObject.SetActive(true);
             transform.position = spawnPosition;
             GetHealth().Respawn();

@@ -38,11 +38,6 @@ namespace Assets.Scripts
         {
             if (ObstaclesMask == (ObstaclesMask | (1 << other.gameObject.layer))) Player.Die();
 
-            if (other.gameObject.TryGetComponent(out BossBullet bullet) && bullet.isDamaging)
-            {
-                bullet.gameObject.SetActive(false);
-                Player.Die();
-            }
         }
 
         private void OnTriggerEnter2D(Collider2D other)

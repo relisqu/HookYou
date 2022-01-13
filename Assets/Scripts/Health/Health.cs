@@ -17,6 +17,7 @@ namespace Destructibility
         public bool IsAlive => currentHealth>0;
         public Action Died { get; set; }
         public Action Respawned { get; set; }
+        public Action TookDamage { get; set; }
 
         private void OnEnable()
         {
@@ -26,6 +27,7 @@ namespace Destructibility
         public void TakeDamage(int damage)
         {
             if(!IsAlive) return;
+            
             currentHealth -= Math.Abs(damage);
             if (currentHealth <= 0)
             {
@@ -36,7 +38,7 @@ namespace Destructibility
             else
             {
                Animator?.PlayHitAnimation();
-                
+               TookDamage?.Invoke();    
             }
         }
 

@@ -9,6 +9,8 @@ namespace Destructibility
         [SerializeField] private string HitTag;
         [SerializeField] private string DeathTag;
         [SerializeField] private string RespawnTag;
+        [SerializeField] private bool isAnimatedDifferently;
+
 
         private void Start()
         {
@@ -26,12 +28,26 @@ namespace Destructibility
 
         public virtual void PlayDeathAnimation()
         {
-            if (Animator != null) Animator.SetTrigger(DeathTag);
+            if (Animator != null)
+            {
+                Animator.SetTrigger(DeathTag);
+            }
+            else if(!isAnimatedDifferently)
+            {
+                gameObject.SetActive(false);
+            }
         }
 
         public virtual void PlayRespawnAnimation()
         {
-            if (Animator != null) Animator.SetTrigger(RespawnTag);
+            if (Animator != null)
+            {
+                Animator.SetTrigger(RespawnTag);
+            }
+            else if(!isAnimatedDifferently)
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 }
