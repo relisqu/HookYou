@@ -67,7 +67,7 @@ namespace AI
 
         public void UpdateHealth(int health)
         {
-            animator.SetFloat(Health,health);
+            if (animator != null) animator.SetFloat(Health, health);
         }
 
         public void SetNormalSprite()
