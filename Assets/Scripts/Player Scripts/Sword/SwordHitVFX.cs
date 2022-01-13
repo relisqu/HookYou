@@ -5,10 +5,7 @@ namespace Player_Scripts
 {
     public class SwordHitVFX : MonoBehaviour
     {
-        [SerializeField]private Animator Animator;
-        private int hitAmount=0;
-        private static readonly int DamageReceived = Animator.StringToHash("damageReceived");
-        private static readonly int Swoosh = Animator.StringToHash("swoosh");
+        [SerializeField]private ParticleSystem ParticleSystem;
         [SerializeField]private float Cooldown;
         private bool isAbleHit = true;
         IEnumerator MakeIFrame()
@@ -23,10 +20,7 @@ namespace Player_Scripts
         {
             if (!isAbleHit) return;
             StartCoroutine(MakeIFrame());
-            hitAmount+=1;
-            hitAmount %= 3;
-            Animator.SetInteger(Swoosh,hitAmount);
-            Animator.SetTrigger(DamageReceived);
+            ParticleSystem.Emit(1);
         }
     }
 }
