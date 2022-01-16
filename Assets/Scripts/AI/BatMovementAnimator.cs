@@ -85,5 +85,10 @@ namespace AI
         {
             animator.SetBool(IsAttacking, value);
         }
+
+        public void SetStunnedAnimation()
+        {
+            animator.SetTrigger("Idle");
+        }
     }
 }

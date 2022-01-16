@@ -89,6 +89,7 @@ namespace Assets.Scripts.Old_Scripts
             m_lineRenderer.positionCount = 2;
             m_lineRenderer.SetPosition(0, grapplePoint.position);
             m_lineRenderer.SetPosition(1, firePoint.position);
+            HookSprite.transform.position = firePoint.position;
         }
 
         public void SetHookMovingOnWall()

@@ -32,7 +32,7 @@ namespace AI
         [BoxGroup("FadeOut")] [Range(0,1)][SerializeField] private float FadeDuration;
         public void InitiateObject()
         {
-            var prop = Instantiate(Object, transform.position + Offset, transform.rotation, transform.root);
+            var prop = Instantiate(Object, transform.position + Offset, transform.rotation);
             prop.transform.localScale = new Vector3(0.8f * Stiffness, 1f, 1f);
             if (IsBouncy)
                 prop.transform.DOScaleX(1f, 1/BounceSpeed*0.08f).SetEase(BounceEase).OnComplete(() =>

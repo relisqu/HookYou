@@ -1,5 +1,85 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1421520181
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1421520182}
+  - component: {fileID: 1421520183}
+  - component: {fileID: 1421520184}
+  - component: {fileID: 2689365543985950460}
+  m_Layer: 17
+  m_Name: GrappableZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1421520182
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421520181}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4919462542451221908}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &1421520183
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421520181}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0142054325, y: 0.21309498}
+  m_Size: {x: 1.1345465, y: 0.57576853}
+  m_Direction: 1
+--- !u!114 &1421520184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421520181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc9bc7e783554f128c98f9ce9f39f000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SwingSpeed: 1.3
+  RequiresUniqueHookSpeed: 0
+  HookShotSpeed: 0
+  EnemyBehaviour: {fileID: 78444212}
+--- !u!114 &2689365543985950460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421520181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5cb3b1bb355458c9b49d8593f0c6fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GrappleCollider2D: {fileID: 1421520183}
+  ActivatedGrappleDuration: 0.4
+  GrappleDelay: 0.15
 --- !u!1 &3518662260708766645
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,19 +460,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a32c0b24384b4e9eb81d7fefaba9f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StunDuration: 1
   IgnoreLayers:
     serializedVersion: 2
-    m_Bits: 11264
+    m_Bits: 142336
   WallsLayers:
     serializedVersion: 2
     m_Bits: 33280
   ChargeBulletsCount: 2
-  SmallChargeReload: 0.2
+  SmallChargeReload: 1
   BigChargeReload: 2
-  BulletSpeed: 7
+  DetectDistance: 6.78
+  BulletSpeed: 2
   ShootingModule: {fileID: 1320333522}
   Animator: {fileID: 532133132}
-  Distance: 6.78
+  Health: {fileID: 1320333525}
+  GrappleZone: {fileID: 2689365543985950460}
 --- !u!114 &2032269139
 MonoBehaviour:
   m_ObjectHideFlags: 0
