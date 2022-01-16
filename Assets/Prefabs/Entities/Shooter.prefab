@@ -369,6 +369,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8970919883858164095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4051670682753199031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 476259a8243a42beb151a8aeeb63cdb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 8970919883127258873}
 --- !u!114 &8970919884034128024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,23 +400,10 @@ MonoBehaviour:
   WallsLayers:
     serializedVersion: 2
     m_Bits: 33280
-  ChargeBulletsCount: 2
+  ChargeBulletsCount: 5
   SmallChargeReload: 0.2
   BigChargeReload: 2
-  BulletSpeed: 7
+  BulletSpeed: 7.5
   ShootingModule: {fileID: 8970919883127258878}
   Animator: {fileID: 8970919884486408992}
   Distance: 6.78
---- !u!114 &8970919883858164095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4051670682753199031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 476259a8243a42beb151a8aeeb63cdb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: {fileID: 8970919883127258873}
