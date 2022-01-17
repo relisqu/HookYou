@@ -11,6 +11,14 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 47e106e4ec0e8ed4d819113907c28782, type: 2}
+    - target: {fileID: 1486047797, guid: f5069926bc0bf5f4e9c5bff7a6e37cca, type: 3}
+      propertyPath: GrappleDelay
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486047797, guid: f5069926bc0bf5f4e9c5bff7a6e37cca, type: 3}
+      propertyPath: ActivatedGrappleDuration
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1905978877553214992, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
         type: 3}
       propertyPath: m_RootOrder
@@ -19,12 +27,12 @@ PrefabInstance:
     - target: {fileID: 1905978877553214992, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.39
+      value: 8.2
       objectReference: {fileID: 0}
     - target: {fileID: 1905978877553214992, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.63
+      value: -24.4
       objectReference: {fileID: 0}
     - target: {fileID: 1905978877553214992, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
         type: 3}
@@ -74,7 +82,7 @@ PrefabInstance:
     - target: {fileID: 1905978877553214997, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
         type: 3}
       propertyPath: m_Name
-      value: Strong Bat
+      value: Strong Bat Variant (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1905978877553214999, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
         type: 3}
@@ -86,6 +94,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SpriteSortPoint
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994344504812080865, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
+        type: 3}
+      propertyPath: Speed
+      value: 2.37
       objectReference: {fileID: 0}
     - target: {fileID: 3061404424463830334, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
         type: 3}
@@ -160,6 +173,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 873d722cf0aa4d6292518f9c8bdf7c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &931233691951099364 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1486047797, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
+    type: 3}
+  m_PrefabInstance: {fileID: 931233691270490065}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5cb3b1bb355458c9b49d8593f0c6fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1457967229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,6 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9290ee1ea2454b1dbc58686e61365232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StunDuration: 1
   Speed: 3
   AttackRadius: 6.9
   DashRange: 6
@@ -179,6 +205,7 @@ MonoBehaviour:
   PauseDuration: 0.8
   Health: {fileID: 1630036619882439106}
   BatWarningVfx: {fileID: 1675688538611263792}
+  GrappleZone: {fileID: 931233691951099364}
   DamagedSpeed: 2
   DamagedAttackRadius: 4.6
   DamagedDashRange: 4
