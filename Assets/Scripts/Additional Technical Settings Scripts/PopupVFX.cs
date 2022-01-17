@@ -35,14 +35,19 @@ namespace AI
         public void InitiateObject()
         {
             var prop = Instantiate(Object, transform.position + Offset, transform.rotation, transform);
-            prop.transform.localScale = new Vector3(0.8f * Stiffness, 1f, 1f);
             if (IsBouncy)
+            {
+                prop.transform.localScale = new Vector3(0.8f * Stiffness, 1f, 1f);
+
+
                 prop.transform.DOScaleX(1f, 1 / BounceSpeed * 0.08f).SetEase(BounceEase).OnComplete(() =>
                 {
                     prop.transform.DOScaleY(1.3f * Stiffness, 1 / BounceSpeed * 0.08f).OnComplete(
                         () => { prop.transform.DOScaleY(0.7f, 1 / BounceSpeed * 0.02f); }
                     );
                 });
+            }
+
             prop.transform.DOLocalMoveY(FlyDistance, 1 / Speed).SetEase(Ease)
                 .OnComplete(() => DestroyObject(prop));
         }
