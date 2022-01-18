@@ -27,12 +27,12 @@ PrefabInstance:
     - target: {fileID: 1905978877553214992, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.2
+      value: 10.457575
       objectReference: {fileID: 0}
     - target: {fileID: 1905978877553214992, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -24.4
+      value: -23.295198
       objectReference: {fileID: 0}
     - target: {fileID: 1905978877553214992, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
         type: 3}
@@ -82,7 +82,7 @@ PrefabInstance:
     - target: {fileID: 1905978877553214997, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
         type: 3}
       propertyPath: m_Name
-      value: Strong Bat Variant (1)
+      value: Strong Bat Variant (5)
       objectReference: {fileID: 0}
     - target: {fileID: 1905978877553214999, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
         type: 3}
@@ -98,7 +98,27 @@ PrefabInstance:
     - target: {fileID: 1994344504812080865, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
         type: 3}
       propertyPath: Speed
-      value: 2.37
+      value: 1.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994344504812080865, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
+        type: 3}
+      propertyPath: Offset.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994344504812080865, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
+        type: 3}
+      propertyPath: BounceSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994344504812080865, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
+        type: 3}
+      propertyPath: FlyDistance
+      value: 1.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994344504812080865, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
+        type: 3}
+      propertyPath: FadeDuration
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 3061404424463830334, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
         type: 3}
@@ -140,6 +160,11 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.18345478
       objectReference: {fileID: 0}
+    - target: {fileID: 6892999968708142885, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
+        type: 3}
+      propertyPath: EnemyBehaviour
+      value: 
+      objectReference: {fileID: 1457967229}
     m_RemovedComponents:
     - {fileID: 1905978877553214998, guid: f5069926bc0bf5f4e9c5bff7a6e37cca, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f5069926bc0bf5f4e9c5bff7a6e37cca, type: 3}
@@ -164,6 +189,18 @@ MonoBehaviour:
 --- !u!114 &1675688538611263792 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1994344504812080865, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
+    type: 3}
+  m_PrefabInstance: {fileID: 931233691270490065}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630036619882439108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873d722cf0aa4d6292518f9c8bdf7c3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3992799450681497377 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4288884701813502192, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
     type: 3}
   m_PrefabInstance: {fileID: 931233691270490065}
   m_PrefabAsset: {fileID: 0}
@@ -198,6 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StunDuration: 1
+  StunEffect: {fileID: 3992799450681497377}
   Speed: 3
   AttackRadius: 6.9
   DashRange: 6
@@ -205,9 +243,32 @@ MonoBehaviour:
   PauseDuration: 0.8
   Health: {fileID: 1630036619882439106}
   BatWarningVfx: {fileID: 1675688538611263792}
+  StunVfx: {fileID: 7468677681982789743}
   GrappleZone: {fileID: 931233691951099364}
   DamagedSpeed: 2
   DamagedAttackRadius: 4.6
   DamagedDashRange: 4
   DamagedDashSpeed: 0.82
   DamagedPauseDuration: 1
+--- !u!114 &7468677681982789743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630036619882439108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873d722cf0aa4d6292518f9c8bdf7c3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Object: {fileID: 1791208056670278726, guid: 5d4922c7b664df7448495e49ee7a1238, type: 3}
+  Offset: {x: -0.23, y: 0.4, z: 0}
+  Ease: 0
+  Speed: 2
+  FlyDistance: 0.89
+  IsBouncy: 0
+  Stiffness: 0
+  BounceSpeed: 0
+  BounceEase: 0
+  FadeDuration: 0.02

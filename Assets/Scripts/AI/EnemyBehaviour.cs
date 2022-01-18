@@ -1,4 +1,5 @@
 using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace AI
@@ -9,8 +10,11 @@ namespace AI
         protected Action Stunned;
         [SerializeField]protected float StunDuration;
         
+        [BoxGroup("References")] [SerializeField]
+        private PopupVFX StunEffect;
         public void SetStunned()
         {
+            StunEffect.InitiateObject();
             Stunned?.Invoke();
         }
     }

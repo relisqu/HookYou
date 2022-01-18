@@ -143,7 +143,7 @@ namespace AI
         private IEnumerator StunCoroutine()
         {
             isStunned = true;
-            StunVfx.InitiateObject();
+          //  StunVfx.InitiateObject();
             _animator.SetStunnedAnimation();
             Health.MarkAsDangerous(false);
             dashTween.Kill();

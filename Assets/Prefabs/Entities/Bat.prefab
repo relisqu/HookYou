@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 1587939550}
   - component: {fileID: 6866934340385403619}
   - component: {fileID: 1994344504812080865}
+  - component: {fileID: 4288884701813502192}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Untagged
@@ -107,6 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StunDuration: 1
+  StunEffect: {fileID: 4288884701813502192}
   Speed: 2
   AttackRadius: 4.6
   DashRange: 4
@@ -114,6 +116,7 @@ MonoBehaviour:
   PauseDuration: 1
   Health: {fileID: 1905978877553214995}
   BatWarningVfx: {fileID: 1994344504812080865}
+  StunVfx: {fileID: 4288884701813502192}
   GrappleZone: {fileID: 1486047797}
 --- !u!114 &1905978877553215084
 MonoBehaviour:
@@ -243,6 +246,28 @@ MonoBehaviour:
   BounceSpeed: 0.78
   BounceEase: 31
   FadeDuration: 0.03
+--- !u!114 &4288884701813502192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905978877553214997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873d722cf0aa4d6292518f9c8bdf7c3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Object: {fileID: 1791208056670278726, guid: 5d4922c7b664df7448495e49ee7a1238, type: 3}
+  Offset: {x: -0.23, y: 0.4, z: 0}
+  Ease: 0
+  Speed: 2
+  FlyDistance: 0.89
+  IsBouncy: 0
+  Stiffness: 0
+  BounceSpeed: 0
+  BounceEase: 0
+  FadeDuration: 0.02
 --- !u!1 &3653066014339885169
 GameObject:
   m_ObjectHideFlags: 0
