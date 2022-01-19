@@ -35,6 +35,7 @@ namespace AI
 
         [BoxGroup("References")] [SerializeField]
         private PopupVFX StunVfx;
+
         [BoxGroup("References")] [SerializeField]
         private GrappleZone GrappleZone;
 
@@ -143,7 +144,6 @@ namespace AI
         private IEnumerator StunCoroutine()
         {
             isStunned = true;
-          //  StunVfx.InitiateObject();
             _animator.SetStunnedAnimation();
             Health.MarkAsDangerous(false);
             dashTween.Kill();
