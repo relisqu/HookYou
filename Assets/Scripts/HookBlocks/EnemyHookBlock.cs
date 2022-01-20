@@ -12,7 +12,6 @@ namespace HookBlocks
 
         protected override void AddActivitiesAfterHook(Hook hook)
         {
-            if (_health.IsAlive)
                 EnemyBehaviour.SetStunned();
         }
 
