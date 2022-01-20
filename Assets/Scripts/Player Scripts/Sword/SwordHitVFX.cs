@@ -1,16 +1,15 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Player_Scripts
 {
     public class SwordHitVFX : MonoBehaviour
     {
-        [SerializeField]private Animator Animator;
-        private int hitAmount=0;
-        private static readonly int DamageReceived = Animator.StringToHash("damageReceived");
-        private static readonly int Swoosh = Animator.StringToHash("swoosh");
+        [SerializeField]private List<ParticleSystem> ParticleSystem;
         [SerializeField]private float Cooldown;
         private bool isAbleHit = true;
+        private int hitAmount=0;
         IEnumerator MakeIFrame()
         {
             isAbleHit = false;
@@ -19,14 +18,14 @@ namespace Player_Scripts
 
         }
 
+        
         public void Hit()
         {
             if (!isAbleHit) return;
             StartCoroutine(MakeIFrame());
             hitAmount+=1;
-            hitAmount %= 3;
-            Animator.SetInteger(Swoosh,hitAmount);
-            Animator.SetTrigger(DamageReceived);
+            hitAmount %= ParticleSystem.Count;
+            ParticleSystem[hitAmount].Emit(1);
         }
     }
 }

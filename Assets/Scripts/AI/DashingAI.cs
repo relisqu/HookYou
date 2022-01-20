@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace AI
 {
-    public class DashingAI : MonoBehaviour
+    public class DashingAI : EnemyBehaviour
     {
         [BoxGroup("Default constrains")] [SerializeField]
         protected float Speed;
@@ -33,12 +33,19 @@ namespace AI
         [BoxGroup("References")] [SerializeField]
         private PopupVFX BatWarningVfx;
 
+        [BoxGroup("References")] [SerializeField]
+        private PopupVFX StunVfx;
+
+        [BoxGroup("References")] [SerializeField]
+        private GrappleZone GrappleZone;
+
         private void OnEnable()
         {
             _isDashing = false;
             dashTween.Kill();
             Health.Respawned += DestroyMovingAction;
             Health.Respawned += SetAsDangerous;
+            Stunned += StopAttacking;
             Health.TookDamage += UpdateHealthSprite;
             UpdateHealthSprite();
         }
@@ -50,6 +57,7 @@ namespace AI
 
         private void OnDisable()
         {
+            Stunned -= StopAttacking;
             Health.Respawned -= DestroyMovingAction;
             Health.Respawned -= SetAsDangerous;
             Health.TookDamage -= UpdateHealthSprite;
@@ -71,7 +79,7 @@ namespace AI
 
         private void Update()
         {
-            if (_isDashing || !Health.IsAlive)
+            if (_isDashing || !Health.IsAlive || isStunned)
             {
                 return;
             }
@@ -105,7 +113,11 @@ namespace AI
             if (!Health.IsDangerous || !Health.IsAlive) yield break;
             dashTween = transform.DOMove(position + distance, 1 / DashSpeed * 0.1f * distance.magnitude)
                 .SetEase(Ease.OutCubic)
-                .OnComplete(() => { _isDashing = false; });
+                .OnComplete(() =>
+                {
+                    StartCoroutine(GrappleZone.ActivateGrappleCollider());
+                    _isDashing = false;
+                });
         }
 
         private void OnDrawGizmos()
@@ -120,6 +132,25 @@ namespace AI
         {
             _player = FindObjectOfType<PlayerMovement>();
             _animator = GetComponent<BatMovementAnimator>();
+        }
+
+
+        public void StopAttacking()
+        {
+            StopAllCoroutines();
+            StartCoroutine(StunCoroutine());
+        }
+
+        private IEnumerator StunCoroutine()
+        {
+            isStunned = true;
+            _animator.SetStunnedAnimation();
+            Health.MarkAsDangerous(false);
+            dashTween.Kill();
+            _isDashing = false;
+            yield return new WaitForSeconds(StunDuration);
+            Health.MarkAsDangerous(true);
+            isStunned = false;
         }
 
         private PlayerMovement _player;

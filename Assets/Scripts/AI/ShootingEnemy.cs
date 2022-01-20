@@ -1,11 +1,14 @@
 using System;
 using System.Collections;
+using Destructibility;
 using Player_Scripts;
+using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace AI
 {
-    public class ShootingEnemy : MonoBehaviour
+    public class ShootingEnemy : EnemyBehaviour
     {
         [SerializeField] private LayerMask IgnoreLayers;
         [SerializeField] private LayerMask WallsLayers;
@@ -14,26 +17,56 @@ namespace AI
         [SerializeField] private float SmallChargeReload;
         [SerializeField] private float BigChargeReload;
 
+        [FormerlySerializedAs("Distance")] [SerializeField] private float DetectDistance;
 
         [SerializeField] private float BulletSpeed;
-        [SerializeField] private ShootingModule ShootingModule;
-        [SerializeField] private Animator Animator;
+
+        [BoxGroup("References")] [SerializeField]
+        private ShootingModule ShootingModule;
+
+        [BoxGroup("References")] [SerializeField]
+        private Animator Animator;
+
+        [BoxGroup("References")] [SerializeField]
+        private Health Health;
+
+        [BoxGroup("References")] [SerializeField]
+        private GrappleZone GrappleZone;
 
 
-        [SerializeField] private float Distance;
+        public void StopShooting()
+        {
+            StopAllCoroutines();
+            StartCoroutine(StunCoroutine());
+        }
 
+        private IEnumerator StunCoroutine()
+        {
+            isStunned = true;
+            Animator.SetTrigger("Idle");
+            yield return new WaitForSeconds(StunDuration);
+            if (!Health.IsAlive) yield break;
+            isStunned = false;
+            StartCoroutine(StartShootingBehaviour());
+        }
 
         private void OnEnable()
         {
             _player = FindObjectOfType<Player>();
             StopAllCoroutines();
             StartCoroutine(StartShootingBehaviour());
+            Stunned += StopShooting;
+        }
+
+        private void OnDisable()
+        {
+            Stunned -= StopShooting;
         }
 
         private bool PlayerIsInRange(Player player)
         {
             var distance = player.transform.position - transform.position;
-            if (distance.magnitude > Distance)
+            if (distance.magnitude > DetectDistance)
             {
                 return false;
             }
@@ -47,6 +80,7 @@ namespace AI
 
         private IEnumerator StartShootingBehaviour()
         {
+            GrappleZone.DisableCollider();
             while (true)
             {
                 if (PlayerIsInRange(_player))
@@ -78,6 +112,7 @@ namespace AI
                 if (PlayerIsInRange(_player))
                 {
                     Animator.SetTrigger(Shoot1);
+                    StartCoroutine(GrappleZone.ActivateGrappleCollider());
                 }
 
                 if (i < ChargeBulletsCount) yield return new WaitForSeconds(SmallChargeReload);
@@ -85,7 +120,6 @@ namespace AI
 
             yield return new WaitForSeconds(BigChargeReload);
         }
-
 
         private float GetAngleBetweenTwoPoints(Vector3 a, Vector3 b)
         {
@@ -96,7 +130,7 @@ namespace AI
         {
             Gizmos.color = Color.green;
 
-            Gizmos.DrawWireSphere(transform.position, Distance);
+            Gizmos.DrawWireSphere(transform.position, DetectDistance);
         }
 
         private Player _player;
