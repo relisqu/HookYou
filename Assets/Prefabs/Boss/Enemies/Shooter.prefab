@@ -209,7 +209,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7486c1a696874af39b94b524c3d518c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 1370775820860678, guid: 9d1a726bd0a758d4d9df4bbe937c171a, type: 3}
+  Bullet:
+  - {fileID: 4058927452824081450, guid: 9d1a726bd0a758d4d9df4bbe937c171a, type: 3}
   ShootingPosition: {fileID: 4919462542451221908}
   BulletParent: {fileID: 4919462542451221908}
   BulletCount: 20

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using AI.Bullets;
 using Destructibility;
 using Player_Scripts;
 using Sirenix.OdinInspector;
@@ -101,7 +102,7 @@ namespace AI
                 var target = _player.transform.position;
                 var angle = GetAngleBetweenTwoPoints(transform.position, target);
                 var rotation = Quaternion.Euler(new Vector3(0f, 0f, angle - 90));
-                ShootingModule.Shoot(BulletSpeed, 1, rotation);
+                ShootingModule.Shoot<StandardBullet>(BulletSpeed, 1, rotation);
             }
         }
 

@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1599402812121605712
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3129768443086197956, guid: 9d1a726bd0a758d4d9df4bbe937c171a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129768443086197956, guid: 9d1a726bd0a758d4d9df4bbe937c171a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 23.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129768443086197956, guid: 9d1a726bd0a758d4d9df4bbe937c171a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -19.477804
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129768443086197956, guid: 9d1a726bd0a758d4d9df4bbe937c171a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129768443086197956, guid: 9d1a726bd0a758d4d9df4bbe937c171a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129768443086197956, guid: 9d1a726bd0a758d4d9df4bbe937c171a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129768443086197956, guid: 9d1a726bd0a758d4d9df4bbe937c171a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129768443086197956, guid: 9d1a726bd0a758d4d9df4bbe937c171a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129768443086197956, guid: 9d1a726bd0a758d4d9df4bbe937c171a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129768443086197956, guid: 9d1a726bd0a758d4d9df4bbe937c171a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129768443086197956, guid: 9d1a726bd0a758d4d9df4bbe937c171a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402614443793925784, guid: 9d1a726bd0a758d4d9df4bbe937c171a,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.42745098
+      objectReference: {fileID: 0}
+    - target: {fileID: 8967790167479799898, guid: 9d1a726bd0a758d4d9df4bbe937c171a,
+        type: 3}
+      propertyPath: m_Name
+      value: Transparent Bullet
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4058927452824081450, guid: 9d1a726bd0a758d4d9df4bbe937c171a, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 9d1a726bd0a758d4d9df4bbe937c171a, type: 3}
+--- !u!1 &7656618299687122442 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8967790167479799898, guid: 9d1a726bd0a758d4d9df4bbe937c171a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1599402812121605712}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3208180554125844865 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4230999175870302161, guid: 9d1a726bd0a758d4d9df4bbe937c171a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1599402812121605712}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7656618299687122442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a45695ac754d4f819175e658fa2643, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8035313086103864070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7656618299687122442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23d37612905a4507a772e8933662ea2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WallsLayerMask:
+    serializedVersion: 2
+    m_Bits: 32768
+  DefaultSpeed: 2.3
+  Health: {fileID: 3208180554125844865}
+  MaxFlyDuration: 8
