@@ -56,7 +56,10 @@ namespace AI
                 if (bullet != null)
                     Destroy(bullet.gameObject);
         }
-
+        public static float GetAngleBetweenTwoPoints(Vector3 a, Vector3 b)
+        {
+            return Mathf.Atan2(b.y - a.y, b.x - a.x) * Mathf.Rad2Deg;
+        }
         private List<Bullet> _bullets;
     }
 }

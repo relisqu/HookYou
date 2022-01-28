@@ -27,8 +27,6 @@ namespace AI
         [BoxGroup("Default constrains")] [SerializeField]
         protected float PauseDuration;
 
-        [BoxGroup("References")] [SerializeField]
-        protected EnemyHealth Health;
 
         [BoxGroup("References")] [SerializeField]
         private PopupVFX BatWarningVfx;

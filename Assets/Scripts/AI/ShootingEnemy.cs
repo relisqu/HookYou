@@ -28,8 +28,6 @@ namespace AI
         [BoxGroup("References")] [SerializeField]
         private Animator Animator;
 
-        [BoxGroup("References")] [SerializeField]
-        private Health Health;
 
         [BoxGroup("References")] [SerializeField]
         private GrappleZone GrappleZone;
@@ -100,7 +98,7 @@ namespace AI
             if (_player != null)
             {
                 var target = _player.transform.position;
-                var angle = GetAngleBetweenTwoPoints(transform.position, target);
+                var angle = ShootingModule.GetAngleBetweenTwoPoints(transform.position, target);
                 var rotation = Quaternion.Euler(new Vector3(0f, 0f, angle - 90));
                 ShootingModule.Shoot<StandardBullet>(BulletSpeed, 1, rotation);
             }
@@ -122,10 +120,7 @@ namespace AI
             yield return new WaitForSeconds(BigChargeReload);
         }
 
-        private float GetAngleBetweenTwoPoints(Vector3 a, Vector3 b)
-        {
-            return Mathf.Atan2(b.y - a.y, b.x - a.x) * Mathf.Rad2Deg;
-        }
+       
 
         private void OnDrawGizmos()
         {
