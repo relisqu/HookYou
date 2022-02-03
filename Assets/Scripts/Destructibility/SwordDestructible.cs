@@ -9,6 +9,7 @@ namespace Destructibility
     {
         [SerializeField] protected Health Health;
         private bool isAbleToAttack = true;
+        private bool isImmuneToDamage = false;
 
         private void OnEnable()
         {
@@ -21,9 +22,14 @@ namespace Destructibility
             if (isAbleToAttack && Health.IsAlive) TakeSwordDamage(other);
         }
 
+        public void SetImmuneToDamage(bool value)
+        {
+            isImmuneToDamage = value;
+        }
+
         private void TakeSwordDamage(Collider2D other)
         {
-            if (other.TryGetComponent(out SwordAttack sword) && Health.IsAlive)
+            if (other.TryGetComponent(out SwordAttack sword) && Health.IsAlive && !isImmuneToDamage)
             {
                 if (sword.IsAttacking)
                 {
