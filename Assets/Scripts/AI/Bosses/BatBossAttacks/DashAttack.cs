@@ -18,7 +18,7 @@ namespace AI.Bosses.BatBossAttacks
         public override IEnumerator StartAttack()
         {
             _isDashing = true;
-            WarningVFX.InitiateObject();
+            if (WarningVFX != null) WarningVFX.InitiateObject();
             yield return new WaitForSeconds(PrepareDuration);
             var position = transform.position;
             var playerPosition = Player.transform.position;
