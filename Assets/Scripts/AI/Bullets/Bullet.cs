@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] [FormerlySerializedAs("wallLayer")]
-    private LayerMask WallsLayerMask;
+    protected LayerMask WallsLayerMask;
     [SerializeField] private float DefaultSpeed;
 
     [SerializeField] public Health Health;
@@ -20,13 +20,6 @@ public class Bullet : MonoBehaviour
         _currentSpeed = DefaultSpeed;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (WallsLayerMask == (WallsLayerMask | (1 << other.gameObject.layer)))
-        {
-            Health.TakeDamage(1);
-        }
-    }
 
     public void SetStats(float speed, float size)
     {

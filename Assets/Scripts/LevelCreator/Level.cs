@@ -90,6 +90,7 @@ namespace Assets.Scripts.LevelCreator
 
         public void Restart()
         {
+            TemporaryObjectsCleaner.ClearObjects();
             if (IsCompleted) return;
             foreach (var enemy in CompletionLevelObjects)
             {

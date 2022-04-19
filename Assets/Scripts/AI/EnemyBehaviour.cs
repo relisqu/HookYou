@@ -1,4 +1,5 @@
 using System;
+using Destructibility;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -8,14 +9,24 @@ namespace AI
     {
         protected bool isStunned;
         protected Action Stunned;
-        [SerializeField]protected float StunDuration;
-        
+        [SerializeField] protected float StunDuration;
+
+        [BoxGroup("References")] [SerializeField]
+        protected EnemyHealth Health;
+
         [BoxGroup("References")] [SerializeField]
         private PopupVFX StunEffect;
+
         public void SetStunned()
         {
-            StunEffect.InitiateObject();
+            ShowStunEffect();
             Stunned?.Invoke();
+        }
+
+        
+        public virtual void ShowStunEffect()
+        {
+            StunEffect.InitiateObject();
         }
     }
 }

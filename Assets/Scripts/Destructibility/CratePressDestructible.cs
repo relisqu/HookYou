@@ -14,11 +14,11 @@ namespace Destructibility
         [SerializeField]
         private float DrakeCoefficient;
 
-
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.TryGetComponent(out PushableBlock block) )
             {
+
                 Health.TakeDamage(Int32.MaxValue);
                 block.Drake(DrakeCoefficient);
             }
@@ -28,8 +28,8 @@ namespace Destructibility
         {
             if (other.gameObject.TryGetComponent(out PushableBlock block))
             {
-                print("destroyed");
-                Health.Respawn();
+                    Health.Respawn();
+                
             }
 
         }
