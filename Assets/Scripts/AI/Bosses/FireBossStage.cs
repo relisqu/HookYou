@@ -8,9 +8,9 @@ namespace AI
 {
     public class FireBossStage : BossStage
     {
+        [SerializeField] private Attack StartAttack;
         [SerializeField] private List<Attack> AttackOrder;
         [SerializeField] private float DelayBetweenAttacks;
-        [SerializeField] private float RestDuration;
         [SerializeField] private bool IsImmuneToDamage;
 
         [ShowIf("IsImmuneToDamage")] [BoxGroup("References")] [SerializeField]
@@ -18,12 +18,14 @@ namespace AI
 
         public override void Attack()
         {
-            if(IsImmuneToDamage)SwordDestructible.SetImmuneToDamage(IsImmuneToDamage);
+            if (IsImmuneToDamage) SwordDestructible.SetImmuneToDamage(IsImmuneToDamage);
+
             StartCoroutine(PhaseAttack());
         }
 
         IEnumerator PhaseAttack()
         {
+            if (StartAttack != null) yield return StartAttack.StartAttack();
             while (true)
             {
                 foreach (var attack in AttackOrder)
@@ -39,7 +41,7 @@ namespace AI
         public override void StopCurrentAttack()
         {
             StopAllCoroutines();
-            if(IsImmuneToDamage)SwordDestructible.SetImmuneToDamage(!IsImmuneToDamage);
+            if (IsImmuneToDamage) SwordDestructible.SetImmuneToDamage(!IsImmuneToDamage);
         }
     }
 }

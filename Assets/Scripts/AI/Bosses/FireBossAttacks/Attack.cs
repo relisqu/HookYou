@@ -6,7 +6,6 @@ namespace AI
 {
     public abstract class Attack : MonoBehaviour
     {
-        [SerializeField]protected List<Attack> AttackIngredients;
         public abstract IEnumerator StartAttack();
     }
 }

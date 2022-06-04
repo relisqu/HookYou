@@ -1,9 +1,10 @@
 using System.Collections;
+using AI.Bosses.FireBossAttacks;
 using UnityEngine;
 
 namespace AI
 {
-    public class RandomAttack : Attack
+    public class RandomAttack : CombinedAttack
     {
         public override IEnumerator StartAttack()
         {

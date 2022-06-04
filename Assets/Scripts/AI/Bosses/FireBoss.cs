@@ -11,6 +11,7 @@ namespace AI
 {
     public class FireBoss : EnemyBehaviour
     {
+        
         [BoxGroup("References")] [SerializeField]
         private ShootingModule ShootingModule;
 

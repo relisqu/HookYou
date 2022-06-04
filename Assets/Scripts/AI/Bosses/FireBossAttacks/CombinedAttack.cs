@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace AI.Bosses.FireBossAttacks
@@ -6,6 +7,7 @@ namespace AI.Bosses.FireBossAttacks
     public class CombinedAttack : Attack
     {
         [SerializeField] private float AttacksDelay;
+        [SerializeField]protected List<Attack> AttackIngredients;
 
         public override IEnumerator StartAttack()
         {
