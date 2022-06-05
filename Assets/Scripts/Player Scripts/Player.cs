@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Assets.Scripts;
 using Assets.Scripts.LevelCreator;
+using DefaultNamespace;
 using UnityEngine;
 
 namespace Player_Scripts
@@ -49,6 +50,7 @@ namespace Player_Scripts
 
         public void Die()
         {
+            CameraShake.ShakeCamera(0.2f,10f);
             Hook.ClearHook();
             OnDied?.Invoke();
             Manager.RestartCurrentRoom(this);
