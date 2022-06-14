@@ -13,6 +13,7 @@ namespace AI.BatBossAttacks
         [SerializeField] private PlayerMovement Player;
         [SerializeField] private List<Transform> Points;
 
+        [SerializeField] private Transform RootTransform;
         [SerializeField] private GameObject Enemy;
         [SerializeField] private float MinDistanceFromPlayer;
         [SerializeField] private float MovementSpeed;
@@ -36,10 +37,10 @@ namespace AI.BatBossAttacks
                 yield return null;
             }
 
-            var direction = point.position - transform.position;
+            var direction = point.position - RootTransform.position;
 
 
-            yield return transform.DOMove(point.position - CircleRadius * direction.normalized, MovementSpeed)
+            yield return RootTransform.DOMove(point.position - CircleRadius * direction.normalized, MovementSpeed)
                 .SetSpeedBased()
                 .WaitForCompletion();
 
@@ -47,8 +48,8 @@ namespace AI.BatBossAttacks
             {
                 var angle = RotationSpeed * 10f * Time.fixedDeltaTime;
                 i += angle;
-                transform.RotateAround(point.position, Vector3.forward, angle);
-                transform.rotation = Quaternion.identity;
+                RootTransform.RotateAround(point.position, Vector3.forward, angle);
+                RootTransform.rotation = Quaternion.identity;
                 yield return new WaitForFixedUpdate();
             }
 

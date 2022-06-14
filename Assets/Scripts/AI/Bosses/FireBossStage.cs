@@ -12,12 +12,14 @@ namespace AI
         [SerializeField] private List<Attack> AttackOrder;
         [SerializeField] private float DelayBetweenAttacks;
         [SerializeField] private bool IsImmuneToDamage;
+        [SerializeField] public bool ChangesOtherBossPhaseOnComplete;
 
         [ShowIf("IsImmuneToDamage")] [BoxGroup("References")] [SerializeField]
         private SwordDestructible SwordDestructible;
 
         public override void Attack()
         {
+            print("Started attack. isImmune: " + IsImmuneToDamage);
             if (IsImmuneToDamage) SwordDestructible.SetImmuneToDamage(IsImmuneToDamage);
 
             StartCoroutine(PhaseAttack());
@@ -33,6 +35,8 @@ namespace AI
                     yield return attack.StartAttack();
                     yield return new WaitForSeconds(DelayBetweenAttacks);
                 }
+
+                yield return null;
             }
 
             yield return null;
@@ -40,6 +44,7 @@ namespace AI
 
         public override void StopCurrentAttack()
         {
+            print("Stopped attack.");
             StopAllCoroutines();
             if (IsImmuneToDamage) SwordDestructible.SetImmuneToDamage(!IsImmuneToDamage);
         }

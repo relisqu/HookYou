@@ -11,19 +11,20 @@ namespace AI
 {
     public class FireBoss : EnemyBehaviour
     {
-        
         [BoxGroup("References")] [SerializeField]
         private ShootingModule ShootingModule;
 
         [BoxGroup("References")] [SerializeField]
         private PlayerMovement Player;
 
+        [BoxGroup("References")] [SerializeField]
+        private FireBoss OtherBoss;
 
-        [BoxGroup("First Phase")] [SerializeField]
-        private int AttacksCount;
+        [BoxGroup("References")] [SerializeField]
+        private Health Health;
 
 
-        [SerializeField] private BossStage InitialStage;
+        [SerializeField] private FireBossStage InitialStage;
 
         public override void ShowStunEffect()
         {
@@ -54,23 +55,39 @@ namespace AI
             }
         }
 
-        private float GetAngleBetweenTwoPoints(Vector3 a, Vector3 b)
-        {
-            return Mathf.Atan2(b.y - a.y, b.x - a.x) * Mathf.Rad2Deg;
-        }
-
-
-        void GroundAttack()
-        {
-        }
 
         private void Start()
         {
             InitialStage.Attack();
             _currentPhase = InitialStage;
-            Health.TookDamage += _currentPhase.MoveToNextStage;
+            Health.TookDamage += ChangeAllBossPhases;
         }
 
-        private BossStage _currentPhase;
+        void ChangePhase()
+        {
+            if (_currentPhase.GetNextStage() == null)
+            {
+                Health.Animator.PlayDeathAnimation();
+                Health.Die();
+                return;
+                
+            }
+
+            if (_currentPhase != null)
+            {
+                _currentPhase.MoveToNextStage();
+                _currentPhase = (FireBossStage)_currentPhase.GetNextStage();
+            }
+            
+        }
+
+        private void ChangeAllBossPhases()
+        {
+            var phaseRequiresOtherBossChange = _currentPhase.ChangesOtherBossPhaseOnComplete;
+            ChangePhase();
+            if(phaseRequiresOtherBossChange) OtherBoss.ChangePhase();
+        }
+
+        private FireBossStage _currentPhase;
     }
 }

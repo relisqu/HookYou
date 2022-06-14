@@ -6,9 +6,10 @@ namespace Destructibility
     public abstract class Health : MonoBehaviour
     {
         [SerializeField] private int InitialHealth;
-        [SerializeField] private DeathAnimator Animator;
+        [SerializeField] public DeathAnimator Animator;
         private int currentHealth;
 
+        
         public int CurrentHealth
         {
             get => currentHealth;

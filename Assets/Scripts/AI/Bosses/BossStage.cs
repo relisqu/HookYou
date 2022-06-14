@@ -18,5 +18,12 @@ namespace AI
             StopCurrentAttack();
             if (NextStage != null) NextStage.Attack();
         }
+
+        public BossStage GetNextStage()
+        {
+            return NextStage;
+        }
+
+     
     }
 }

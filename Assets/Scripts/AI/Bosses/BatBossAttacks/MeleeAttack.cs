@@ -12,12 +12,13 @@ namespace AI.Bosses.BatBossAttacks
 
         public override IEnumerator StartAttack()
         {
+            print("AAAAAAA");
             animationStopped = true;
-
             var lookRotation = (Player.transform.position - HandsModule.position).normalized;
             HandsModule.rotation =
                 Quaternion.Euler(new Vector3(0f, 0f, -Vector2.SignedAngle(lookRotation, Vector3.right)));
             HandsModuleAnimator.SetTrigger(Attack);
+            print("Triggered");
             yield return WaitForAnimation();
         }
 

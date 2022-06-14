@@ -12,14 +12,8 @@ namespace HookBlocks
 
         protected override void AddActivitiesAfterHook(Hook hook)
         {
-                EnemyBehaviour.SetStunned();
+                if(EnemyBehaviour!= null) EnemyBehaviour.SetStunned();
         }
 
-        private void Start()
-        {
-            _health = EnemyBehaviour.GetComponent<Health>();
-        }
-
-        private Health _health;
     }
 }

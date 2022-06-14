@@ -1,3 +1,4 @@
+using System.Collections;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -29,12 +30,19 @@ namespace AI
 
         [BoxGroup("Bounce")] [SerializeField] private Ease BounceEase;
 
+
+        [BoxGroup("AppearDuration")] [SerializeField]
+        private float AppearDuration;
+
         [BoxGroup("FadeOut")] [Range(0, 1)] [SerializeField]
         private float FadeDuration;
+
+        private GameObject _prop;
 
         public void InitiateObject()
         {
             var prop = Instantiate(Object, transform.position + Offset, transform.rotation, transform);
+            _prop = prop;
             if (IsBouncy)
             {
                 prop.transform.localScale = new Vector3(0.8f * Stiffness, 1f, 1f);
@@ -49,12 +57,24 @@ namespace AI
             }
 
             prop.transform.DOLocalMoveY(FlyDistance, 1 / Speed).SetEase(Ease)
-                .OnComplete(() => DestroyObject(prop));
+                .OnComplete(() => StartCoroutine(DestroyObject(prop)));
         }
 
-        private void DestroyObject(GameObject obj)
+        private IEnumerator DestroyObject(GameObject obj)
         {
+            yield return new WaitForSeconds(AppearDuration);
             obj.GetComponent<SpriteRenderer>().DOColor(Color.clear, FadeDuration).OnComplete(() => Destroy(obj));
+        }
+
+        public void DestroyObject()
+        {
+            if (_prop != null)
+            {
+                StopAllCoroutines();
+                _prop.GetComponent<SpriteRenderer>().DOColor(Color.clear, FadeDuration)
+                    .OnComplete(() => Destroy(_prop));
+            }
         }
     }
 }
+

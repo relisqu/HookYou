@@ -20,7 +20,9 @@ namespace AI.Bosses.FireBossAttacks
 
         public override IEnumerator StartAttack()
         {
-            yield return GetRandomBiasedAttack();
+            var attack = GetRandomBiasedAttack();
+            print(attack.name);
+            yield return attack.StartAttack();
         }
 
         public float GetAttackBias(LocationBiasAttack attack)
