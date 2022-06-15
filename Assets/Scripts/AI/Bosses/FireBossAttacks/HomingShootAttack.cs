@@ -25,6 +25,8 @@ namespace AI
 
         public override IEnumerator StartAttack()
         {
+            PlayAttackAnimation();
+            yield return new WaitForSeconds(0.25f);
             yield return StartCoroutine(AttackLookingAtPlayer(DirectedBulletCount, DelayBetweenShots, DirectedBulletSpeed));
         }
 
@@ -39,10 +41,15 @@ namespace AI
 
                 var angle = ShootingModule.GetAngleBetweenTwoPoints(transform.position, predictedPlayerPos);
                 var rotation = Quaternion.Euler(new Vector3(0f, 0f, angle - 90));
-
+                    
+                PlayAttackAnimation(AttackNameTrigger+"Bullet");
+                yield return new WaitForSeconds(0.1f);
                 ShootingModule.Shoot<TransparentBullet>(bulletSpeed, 1, rotation);
-                yield return new WaitForSeconds(bulletDelay);
+                yield return new WaitForSeconds(bulletDelay-0.1f);
             }
+            
+            PlayAttackAnimation(AttackNameTrigger+"End");
+            yield return new WaitForSeconds(0.3f);
         }
     }
 }

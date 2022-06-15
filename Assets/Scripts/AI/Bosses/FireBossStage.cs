@@ -42,6 +42,7 @@ namespace AI
             yield return null;
         }
 
+        private Attack _currentAttack;
         public override void StopCurrentAttack()
         {
             print("Stopped attack.");

@@ -19,6 +19,8 @@ namespace AI
 
         public override IEnumerator StartAttack()
         {
+            PlayAttackAnimation();
+            yield return new WaitForSeconds(0.43f);
             for (int i = 0; i < CircleBulletCount; i++)
                 ShootingModule.Shoot<StandardBullet>(CircleBulletSpeed, 1,
                     Quaternion.AngleAxis(i * 365 / CircleBulletCount, Vector3.forward));

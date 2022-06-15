@@ -1,64 +1,46 @@
 fileFormatVersion: 2
-guid: d525c119fc3ad1243ba3de2a05b4cb83
+guid: 32f5d208b967e894aaf764d18e881969
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4406362842939958533
-    second: fireBoss-Appear_0
+      213: -1313778176361108374
+    second: fireBoss-UpgradedAttack_0
   - first:
-      213: -5317585113112153258
-    second: fireBoss-Appear_1
+      213: -3787786757751117531
+    second: fireBoss-UpgradedAttack_1
   - first:
-      213: -6599567724127677813
-    second: fireBoss-Appear_2
+      213: 989787555080299854
+    second: fireBoss-UpgradedAttack_2
   - first:
-      213: -3788771296864694061
-    second: fireBoss-Appear_3
+      213: 342964211339685226
+    second: fireBoss-UpgradedAttack_3
   - first:
-      213: 1168379782141804957
-    second: fireBoss-Appear_4
+      213: -2238124358021054350
+    second: fireBoss-UpgradedAttack_4
   - first:
-      213: 8084939031844096518
-    second: fireBoss-Appear_5
+      213: -2540943486700300458
+    second: fireBoss-UpgradedAttack_5
   - first:
-      213: -7323308009268031665
-    second: fireBoss-Appear_6
+      213: 6856654101006818546
+    second: fireBoss-UpgradedAttack_6
   - first:
-      213: -7655646243515319044
-    second: fireBoss-Appear_7
+      213: 5900919795747495247
+    second: fireBoss-UpgradedAttack_7
   - first:
-      213: -6501186608014970420
-    second: fireBoss-Appear_8
+      213: 52566023372942716
+    second: fireBoss-UpgradedAttack_8
   - first:
-      213: 3442909707425898834
-    second: fireBoss-Appear_9
+      213: -8058897854563973896
+    second: fireBoss-UpgradedAttack_9
   - first:
-      213: -4889792553562057437
-    second: fireBoss-Appear_10
+      213: -8782596823104970983
+    second: fireBoss-UpgradedAttack_10
   - first:
-      213: 8798033286072339623
-    second: fireBoss-Appear_11
+      213: -3550646310817322346
+    second: fireBoss-UpgradedAttack_11
   - first:
-      213: 5816664088841776538
-    second: fireBoss-Appear_12
-  - first:
-      213: 2743475386379923607
-    second: fireBoss-Appear_13
-  - first:
-      213: 1730740801321759463
-    second: fireBoss-Appear_14
-  - first:
-      213: -839233701777705286
-    second: fireBoss-Appear_15
-  - first:
-      213: 766912178413912336
-    second: fireBoss-Appear_16
-  - first:
-      213: 2633107271147091318
-    second: fireBoss-Appear_17
-  - first:
-      213: 2749229786747437521
-    second: fireBoss-Appear_18
+      213: 6176303981331457601
+    second: fireBoss-UpgradedAttack_12
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -122,7 +104,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -134,7 +116,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -146,7 +128,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -158,7 +140,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -172,7 +154,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fireBoss-Appear_0
+      name: fireBoss-UpgradedAttack_0
       rect:
         serializedVersion: 2
         x: 0
@@ -180,20 +162,20 @@ TextureImporter:
         width: 111
         height: 139
       alignment: 9
-      pivot: {x: 0.45, y: 0.27}
+      pivot: {x: 0.47, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfa551b175479d2c0800000000000000
-      internalID: -4406362842939958533
+      spriteID: a6ce55495b584cde0800000000000000
+      internalID: -1313778176361108374
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fireBoss-Appear_1
+      name: fireBoss-UpgradedAttack_1
       rect:
         serializedVersion: 2
         x: 111
@@ -201,20 +183,20 @@ TextureImporter:
         width: 111
         height: 139
       alignment: 9
-      pivot: {x: 0.45, y: 0.27}
+      pivot: {x: 0.47, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6537b0e63842436b0800000000000000
-      internalID: -5317585113112153258
+      spriteID: 529e05b23041f6bc0800000000000000
+      internalID: -3787786757751117531
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fireBoss-Appear_2
+      name: fireBoss-UpgradedAttack_2
       rect:
         serializedVersion: 2
         x: 222
@@ -222,41 +204,41 @@ TextureImporter:
         width: 111
         height: 139
       alignment: 9
-      pivot: {x: 0.45, y: 0.27}
+      pivot: {x: 0.47, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b829c34fe10a964a0800000000000000
-      internalID: -6599567724127677813
+      spriteID: e45e9a7898e6cbd00800000000000000
+      internalID: 989787555080299854
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fireBoss-Appear_3
+      name: fireBoss-UpgradedAttack_3
       rect:
         serializedVersion: 2
-        x: 333
+        x: 332
         y: 0
         width: 111
         height: 139
       alignment: 9
-      pivot: {x: 0.45, y: 0.27}
+      pivot: {x: 0.47, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d01f2b44949b6bc0800000000000000
-      internalID: -3788771296864694061
+      spriteID: a6de293122472c400800000000000000
+      internalID: 342964211339685226
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fireBoss-Appear_4
+      name: fireBoss-UpgradedAttack_4
       rect:
         serializedVersion: 2
         x: 444
@@ -264,20 +246,20 @@ TextureImporter:
         width: 111
         height: 139
       alignment: 9
-      pivot: {x: 0.45, y: 0.27}
+      pivot: {x: 0.47, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d918f45b83be63010800000000000000
-      internalID: 1168379782141804957
+      spriteID: 270810521c590f0e0800000000000000
+      internalID: -2238124358021054350
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fireBoss-Appear_5
+      name: fireBoss-UpgradedAttack_5
       rect:
         serializedVersion: 2
         x: 555
@@ -285,20 +267,20 @@ TextureImporter:
         width: 111
         height: 139
       alignment: 9
-      pivot: {x: 0.45, y: 0.27}
+      pivot: {x: 0.47, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60a02cfa639733070800000000000000
-      internalID: 8084939031844096518
+      spriteID: 657d2e08c51ccbcd0800000000000000
+      internalID: -2540943486700300458
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fireBoss-Appear_6
+      name: fireBoss-UpgradedAttack_6
       rect:
         serializedVersion: 2
         x: 666
@@ -306,20 +288,20 @@ TextureImporter:
         width: 111
         height: 139
       alignment: 9
-      pivot: {x: 0.45, y: 0.27}
+      pivot: {x: 0.47, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4f4ec68a226e5a90800000000000000
-      internalID: -7323308009268031665
+      spriteID: 2fc9c36a39ab72f50800000000000000
+      internalID: 6856654101006818546
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fireBoss-Appear_7
+      name: fireBoss-UpgradedAttack_7
       rect:
         serializedVersion: 2
         x: 777
@@ -327,20 +309,20 @@ TextureImporter:
         width: 111
         height: 139
       alignment: 9
-      pivot: {x: 0.45, y: 0.27}
+      pivot: {x: 0.47, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cfc37398d4ea1c590800000000000000
-      internalID: -7655646243515319044
+      spriteID: f4d99913a4744e150800000000000000
+      internalID: 5900919795747495247
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fireBoss-Appear_8
+      name: fireBoss-UpgradedAttack_8
       rect:
         serializedVersion: 2
         x: 888
@@ -348,20 +330,20 @@ TextureImporter:
         width: 111
         height: 139
       alignment: 9
-      pivot: {x: 0.45, y: 0.27}
+      pivot: {x: 0.47, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc1bdba893527c5a0800000000000000
-      internalID: -6501186608014970420
+      spriteID: c7d266e0580cab000800000000000000
+      internalID: 52566023372942716
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fireBoss-Appear_9
+      name: fireBoss-UpgradedAttack_9
       rect:
         serializedVersion: 2
         x: 999
@@ -369,20 +351,20 @@ TextureImporter:
         width: 111
         height: 139
       alignment: 9
-      pivot: {x: 0.45, y: 0.27}
+      pivot: {x: 0.47, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2516dd8332ca7cf20800000000000000
-      internalID: 3442909707425898834
+      spriteID: 8f48e81691b092090800000000000000
+      internalID: -8058897854563973896
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fireBoss-Appear_10
+      name: fireBoss-UpgradedAttack_10
       rect:
         serializedVersion: 2
         x: 1110
@@ -390,20 +372,20 @@ TextureImporter:
         width: 111
         height: 139
       alignment: 9
-      pivot: {x: 0.45, y: 0.27}
+      pivot: {x: 0.47, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 325559b6497f32cb0800000000000000
-      internalID: -4889792553562057437
+      spriteID: 91f9a59b8b2fd1680800000000000000
+      internalID: -8782596823104970983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fireBoss-Appear_11
+      name: fireBoss-UpgradedAttack_11
       rect:
         serializedVersion: 2
         x: 1221
@@ -411,20 +393,20 @@ TextureImporter:
         width: 111
         height: 139
       alignment: 9
-      pivot: {x: 0.45, y: 0.27}
+      pivot: {x: 0.47, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ac8762e8a4e81a70800000000000000
-      internalID: 8798033286072339623
+      spriteID: 69aaea01ef199bec0800000000000000
+      internalID: -3550646310817322346
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fireBoss-Appear_12
+      name: fireBoss-UpgradedAttack_12
       rect:
         serializedVersion: 2
         x: 1332
@@ -432,140 +414,14 @@ TextureImporter:
         width: 111
         height: 139
       alignment: 9
-      pivot: {x: 0.45, y: 0.27}
+      pivot: {x: 0.47, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9d6f29bb21f8b050800000000000000
-      internalID: 5816664088841776538
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fireBoss-Appear_13
-      rect:
-        serializedVersion: 2
-        x: 1443
-        y: 0
-        width: 111
-        height: 139
-      alignment: 9
-      pivot: {x: 0.45, y: 0.27}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 790f33f0458c21620800000000000000
-      internalID: 2743475386379923607
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fireBoss-Appear_14
-      rect:
-        serializedVersion: 2
-        x: 1554
-        y: 0
-        width: 111
-        height: 139
-      alignment: 9
-      pivot: {x: 0.45, y: 0.27}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7e2fe05c693d40810800000000000000
-      internalID: 1730740801321759463
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fireBoss-Appear_15
-      rect:
-        serializedVersion: 2
-        x: 1665
-        y: 0
-        width: 111
-        height: 139
-      alignment: 9
-      pivot: {x: 0.45, y: 0.27}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ab6f00a05617a54f0800000000000000
-      internalID: -839233701777705286
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fireBoss-Appear_16
-      rect:
-        serializedVersion: 2
-        x: 1776
-        y: 0
-        width: 111
-        height: 139
-      alignment: 9
-      pivot: {x: 0.4465321, y: 0.27692536}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0114840209e94aa00800000000000000
-      internalID: 766912178413912336
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fireBoss-Appear_17
-      rect:
-        serializedVersion: 2
-        x: 1887
-        y: 0
-        width: 111
-        height: 139
-      alignment: 9
-      pivot: {x: 0.44999957, y: 0.2803826}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6757830cc1daa8420800000000000000
-      internalID: 2633107271147091318
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fireBoss-Appear_18
-      rect:
-        serializedVersion: 2
-        x: 1998
-        y: 0
-        width: 111
-        height: 139
-      alignment: 9
-      pivot: {x: 0.44999957, y: 0.28168043}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1d1010dcce9372620800000000000000
-      internalID: 2749229786747437521
+      spriteID: 146a7106fb3a6b550800000000000000
+      internalID: 6176303981331457601
       vertices: []
       indices: 
       edges: []

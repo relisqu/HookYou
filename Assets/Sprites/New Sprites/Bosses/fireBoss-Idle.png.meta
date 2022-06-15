@@ -1,7 +1,25 @@
 fileFormatVersion: 2
 guid: 8256a962acbacec4a80171e8171c8091
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 6025780292197375619
+    second: fireBoss-Idle_0
+  - first:
+      213: 3397379853848034951
+    second: fireBoss-Idle_1
+  - first:
+      213: 1261457921687138379
+    second: fireBoss-Idle_2
+  - first:
+      213: 4388140534962653169
+    second: fireBoss-Idle_3
+  - first:
+      213: 6910794665183434287
+    second: fireBoss-Idle_4
+  - first:
+      213: -8118368073345703346
+    second: fireBoss-Idle_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -113,7 +131,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: fireBoss-Idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 111
+        height: 139
+      alignment: 9
+      pivot: {x: 0.45, y: 0.27}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38e59f2ff3fdf9350800000000000000
+      internalID: 6025780292197375619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireBoss-Idle_1
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 0
+        width: 111
+        height: 139
+      alignment: 9
+      pivot: {x: 0.45, y: 0.27}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78e3eab1afae52f20800000000000000
+      internalID: 3397379853848034951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireBoss-Idle_2
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 0
+        width: 111
+        height: 139
+      alignment: 9
+      pivot: {x: 0.45, y: 0.27}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b40b349db49918110800000000000000
+      internalID: 1261457921687138379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireBoss-Idle_3
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 0
+        width: 111
+        height: 139
+      alignment: 9
+      pivot: {x: 0.45, y: 0.27}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f701f2319ec5ec30800000000000000
+      internalID: 4388140534962653169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireBoss-Idle_4
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 0
+        width: 111
+        height: 139
+      alignment: 9
+      pivot: {x: 0.45, y: 0.27}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f265ced022318ef50800000000000000
+      internalID: 6910794665183434287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireBoss-Idle_5
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 0
+        width: 111
+        height: 139
+      alignment: 9
+      pivot: {x: 0.45, y: 0.27}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e426b501043c55f80800000000000000
+      internalID: -8118368073345703346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

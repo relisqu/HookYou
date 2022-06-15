@@ -20,8 +20,8 @@ namespace AI
         [BoxGroup("References")] [SerializeField]
         private FireBoss OtherBoss;
 
-        [BoxGroup("References")] [SerializeField]
-        private Health Health;
+        //[BoxGroup("References")] [SerializeField]
+        //private Health Health;
 
 
         [SerializeField] private FireBossStage InitialStage;
@@ -56,11 +56,15 @@ namespace AI
         }
 
 
-        private void Start()
+        public void StartAttacks()
         {
             InitialStage.Attack();
             _currentPhase = InitialStage;
             Health.TookDamage += ChangeAllBossPhases;
+        }
+
+        private void Start()
+        {
         }
 
         void ChangePhase()
@@ -85,7 +89,7 @@ namespace AI
         {
             var phaseRequiresOtherBossChange = _currentPhase.ChangesOtherBossPhaseOnComplete;
             ChangePhase();
-            if(phaseRequiresOtherBossChange) OtherBoss.ChangePhase();
+            if(phaseRequiresOtherBossChange && OtherBoss!=null) OtherBoss.ChangePhase();
         }
 
         private FireBossStage _currentPhase;
