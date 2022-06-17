@@ -15,5 +15,9 @@ namespace AI.Bosses.Attacks
             yield return new WaitForSeconds(AnimationWaitTime);
         }
 
+        public override Attack GetCurrentAttack()
+        {
+            return this;
+        }
     }
 }

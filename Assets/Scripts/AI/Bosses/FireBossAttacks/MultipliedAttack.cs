@@ -17,5 +17,10 @@ namespace AI.Bosses.FireBossAttacks
                 if (index != AttackIngredients.Count - 1) yield return new WaitForSeconds(RepeatNumber);
             }
         }
+
+        public override Attack GetCurrentAttack()
+        {
+            return AttackIngredients[0].GetCurrentAttack();
+        }
     }
 }

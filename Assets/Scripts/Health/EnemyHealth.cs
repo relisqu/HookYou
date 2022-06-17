@@ -15,5 +15,16 @@ namespace Destructibility
         {
             isDangerous = value;
         }
+        
+        
+        public void SetDangerous()
+        {
+            isDangerous = true;
+        }
+        
+        public void SetSafe()
+        {
+            isDangerous = false;
+        }
     }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1113430307}
   - component: {fileID: 1113430306}
   - component: {fileID: 1113430308}
+  - component: {fileID: 5796012890932276578}
   m_Layer: 17
   m_Name: GrappleCollider
   m_TagString: Untagged
@@ -74,6 +75,21 @@ MonoBehaviour:
   RequiresUniqueHookSpeed: 0
   HookShotSpeed: 1
   EnemyBehaviour: {fileID: 0}
+--- !u!114 &5796012890932276578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113430305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5cb3b1bb355458c9b49d8593f0c6fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GrappleCollider2D: {fileID: 1113430306}
+  ActivatedGrappleDuration: 0
+  GrappleDelay: 0
 --- !u!1 &60754406459324285
 GameObject:
   m_ObjectHideFlags: 0
@@ -83,6 +99,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5633563553997890078}
+  - component: {fileID: 1607873367}
+  - component: {fileID: 1607873368}
   m_Layer: 0
   m_Name: Phase4
   m_TagString: Untagged
@@ -104,6 +122,41 @@ Transform:
   m_Father: {fileID: 5796012892908496113}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1607873367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60754406459324285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4bd8cbac5c40caadc83883cb167d0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextStage: {fileID: 1949603360}
+  Notes: 
+  StartAttack: {fileID: 1607873368}
+  AttackOrder: []
+  DelayBetweenAttacks: 0
+  IsImmuneToDamage: 1
+  ChangesOtherBossPhaseOnComplete: 0
+  SwordDestructible: {fileID: 5796012892908496109}
+--- !u!114 &1607873368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60754406459324285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af346915cf344bea68d711ec3329926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackNameTrigger: WakeUp
+  BeforeAttackWaitTime: 0
+  WaitTime: 0.06
 --- !u!1 &5796012890927441299
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,6 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8e9064a3e54b46b2d0211c12be9125, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackNameTrigger: 
   AttacksDelay: 0
   AttackIngredients:
   - {fileID: 5796012891930551331}
@@ -166,6 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdffb35460994fff89e13428a08457f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackNameTrigger: 
   AttacksDelay: 0
   AttackIngredients:
   - {fileID: 5796012892613083830}
@@ -183,6 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdffb35460994fff89e13428a08457f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackNameTrigger: 
   AttacksDelay: 0
   AttackIngredients:
   - {fileID: 5796012890943844984}
@@ -231,6 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c34b801a916c44f0a803e9c38aae8d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackNameTrigger: DefaultAttack
   ShootingModule: {fileID: 5796012892908496115}
   Player: {fileID: 0}
   DirectedBulletCount: 3
@@ -281,7 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d4bd8cbac5c40caadc83883cb167d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextStage: {fileID: 0}
+  NextStage: {fileID: 5796012890932276579}
   Notes: Second Stage
   StartAttack: {fileID: 5796012891994931493}
   AttackOrder:
@@ -292,7 +349,8 @@ MonoBehaviour:
   - {fileID: 5796012891397315798}
   DelayBetweenAttacks: 1
   IsImmuneToDamage: 0
-  SwordDestructible: {fileID: 0}
+  ChangesOtherBossPhaseOnComplete: 1
+  SwordDestructible: {fileID: 5796012892908496109}
 --- !u!114 &5796012890996979637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,6 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdffb35460994fff89e13428a08457f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackNameTrigger: 
   AttacksDelay: 0
   AttackIngredients:
   - {fileID: 5796012892613083830}
@@ -319,9 +378,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5796012891032403419}
-  - component: {fileID: 5796012891032403418}
-  - component: {fileID: 5796012891032403420}
-  m_Layer: 0
+  - component: {fileID: 1167632418}
+  - component: {fileID: 1167632421}
+  m_Layer: 10
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,65 +396,13 @@ Transform:
   m_GameObject: {fileID: 5796012891032403423}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5796012891994931492}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5796012891032403418
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5796012891032403423}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 7
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847,
-    type: 3}
-  m_Color: {r: 1, g: 0.02264148, b: 0.02264148, a: 0.36078432}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!58 &5796012891032403420
-CircleCollider2D:
+--- !u!70 &1167632418
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -408,8 +415,22 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 0.0001, y: 0.0001}
+  m_Direction: 1
+--- !u!114 &1167632421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5796012891032403423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bafee9226f704fcaaeded69d9f00c3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialHealth: 12
+  Animator: {fileID: 0}
 --- !u!1 &5796012891263284669
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,7 +476,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5796012891397315799}
   - component: {fileID: 5796012891397315798}
-  - component: {fileID: 1690084627}
+  - component: {fileID: 121565003}
   m_Layer: 0
   m_Name: StunAttack
   m_TagString: Untagged
@@ -489,10 +510,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7adb262776aa484caa3f1b1e7cee97ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Boss: {fileID: 5796012892908496114}
+  AttackNameTrigger: StunAttack
   StunDuration: 2.53
-  GrappleZone: {fileID: 1112296864}
---- !u!114 &1690084627
+  GrappleZone: {fileID: 5796012890932276578}
+  StunEffect: {fileID: 121565003}
+--- !u!114 &121565003
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -504,16 +526,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 873d722cf0aa4d6292518f9c8bdf7c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Object: {fileID: 5796012891397315801}
-  Offset: {x: 0, y: 0.87, z: 0}
+  Object: {fileID: 1722968007354784519, guid: 20acc0f3728424445b08629e789974cc, type: 3}
+  Offset: {x: 0, y: 4.5, z: 0}
   Ease: 0
-  Speed: 0
-  FlyDistance: 0
+  Speed: 0.46
+  FlyDistance: 4.7
   IsBouncy: 0
   Stiffness: 0
   BounceSpeed: 0
   BounceEase: 0
-  FadeDuration: 1
+  AppearDuration: 3
+  FadeDuration: 0.859
 --- !u!1 &5796012891930551333
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,9 +580,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4862207a95274d4ea94943ebfc770da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackNameTrigger: CircleAttack
   ShootingModule: {fileID: 5796012892908496115}
   CircleBulletCount: 8
-  CircleBulletSpeed: 15
+  CircleBulletSpeed: 10
 --- !u!1 &5796012891994931495
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,9 +628,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fca37ad85234c8eb0700566a65af90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShockWave: {fileID: 5796012891032403423}
-  Radius: 4.5
-  Speed: 2.86
+  AttackNameTrigger: GroundAttack
+  AnimationWaitTime: 1.15
 --- !u!1 &5796012892613083832
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,6 +673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c34b801a916c44f0a803e9c38aae8d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackNameTrigger: UpgradedAttack
   ShootingModule: {fileID: 5796012892908496115}
   Player: {fileID: 0}
   DirectedBulletCount: 6
@@ -710,7 +734,8 @@ MonoBehaviour:
   - {fileID: 5796012891397315798}
   DelayBetweenAttacks: 0.83
   IsImmuneToDamage: 0
-  SwordDestructible: {fileID: 0}
+  ChangesOtherBossPhaseOnComplete: 1
+  SwordDestructible: {fileID: 5796012892908496109}
 --- !u!1 &5796012892908496119
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,7 +752,8 @@ GameObject:
   - component: {fileID: 5796012892908496116}
   - component: {fileID: 5796012892908496109}
   - component: {fileID: 5796012892908496104}
-  - component: {fileID: 1112296864}
+  - component: {fileID: 422276628}
+  - component: {fileID: 422276629}
   m_Layer: 10
   m_Name: FireBoss
   m_TagString: Untagged
@@ -744,7 +770,7 @@ Transform:
   m_GameObject: {fileID: 5796012892908496119}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 16.63, y: -17.32, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5796012892886859974}
   - {fileID: 5796012890996979634}
@@ -795,8 +821,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7,
+  m_SortingOrder: 15
+  m_Sprite: {fileID: -4406362842939958533, guid: d525c119fc3ad1243ba3de2a05b4cb83,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -807,7 +833,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &5796012892908496115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -840,10 +866,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StunDuration: 0.51
   Health: {fileID: 5796012892908496117}
-  StunEffect: {fileID: 1690084627}
+  StunEffect: {fileID: 121565003}
   ShootingModule: {fileID: 5796012892908496115}
   Player: {fileID: 0}
-  AttacksCount: 5
+  OtherBoss: {fileID: 0}
   InitialStage: {fileID: 5796012892886859977}
 --- !u!114 &5796012892908496117
 MonoBehaviour:
@@ -871,8 +897,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f85f16a0d8524e5daa0bca4644e16c21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Animator: {fileID: 0}
-  HitTag: 
+  Animator: {fileID: 422276628}
+  HitTag: Hit
   DeathTag: 
   RespawnTag: 
   isAnimatedDifferently: 0
@@ -905,8 +931,8 @@ BoxCollider2D:
   m_Offset: {x: 0.029950857, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.45, y: 0.27}
+    oldSize: {x: 6.9375, y: 8.6875}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -915,7 +941,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9400983, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1112296864
+--- !u!95 &422276628
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5796012892908496119}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a7a9a94d0056f5c478540e1aee93f01b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &422276629
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -924,12 +969,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 5796012892908496119}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5cb3b1bb355458c9b49d8593f0c6fc5, type: 3}
+  m_Script: {fileID: 11500000, guid: 873d722cf0aa4d6292518f9c8bdf7c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GrappleCollider2D: {fileID: 1113430306}
-  ActivatedGrappleDuration: 0
-  GrappleDelay: 0
+  Object: {fileID: 2862513045572197531, guid: 4ea1a16f2c8699e4e9c2a157aa5fe18b, type: 3}
+  Offset: {x: 0, y: 4.5, z: 0.5}
+  Ease: 1
+  Speed: 2.67
+  FlyDistance: 4.7
+  IsBouncy: 0
+  Stiffness: 0
+  BounceSpeed: 0
+  BounceEase: 0
+  AppearDuration: Infinity
+  FadeDuration: 0.876
 --- !u!1 &6986989958950752880
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,6 +992,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2223013749956163893}
+  - component: {fileID: 5796012890932276579}
+  - component: {fileID: 5796012890932276580}
   m_Layer: 0
   m_Name: Phase3
   m_TagString: Untagged
@@ -960,6 +1015,41 @@ Transform:
   m_Father: {fileID: 5796012892908496113}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5796012890932276579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6986989958950752880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4bd8cbac5c40caadc83883cb167d0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextStage: {fileID: 1607873367}
+  Notes: 
+  StartAttack: {fileID: 5796012890932276580}
+  AttackOrder: []
+  DelayBetweenAttacks: 0
+  IsImmuneToDamage: 1
+  ChangesOtherBossPhaseOnComplete: 0
+  SwordDestructible: {fileID: 5796012892908496109}
+--- !u!114 &5796012890932276580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6986989958950752880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af346915cf344bea68d711ec3329926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackNameTrigger: StartSleep
+  BeforeAttackWaitTime: 0.22
+  WaitTime: 0
 --- !u!1 &7378629174656064785
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,6 +1059,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2693400831505441408}
+  - component: {fileID: 1949603358}
+  - component: {fileID: 1949603359}
+  - component: {fileID: 1949603360}
+  - component: {fileID: 1949603361}
   m_Layer: 0
   m_Name: Phase5
   m_TagString: Untagged
@@ -990,3 +1084,79 @@ Transform:
   m_Father: {fileID: 5796012892908496113}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1949603358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7378629174656064785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc8e9064a3e54b46b2d0211c12be9125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackNameTrigger: 
+  AttacksDelay: 0.1
+  AttackIngredients:
+  - {fileID: 1949603359}
+  - {fileID: 5796012891930551331}
+--- !u!114 &1949603359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7378629174656064785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdffb35460994fff89e13428a08457f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackNameTrigger: 
+  AttacksDelay: 0.03
+  AttackIngredients:
+  - {fileID: 5796012890943844984}
+  RepeatNumber: 4
+  DelayBetweenShots: 0.27
+--- !u!114 &1949603360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7378629174656064785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4bd8cbac5c40caadc83883cb167d0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextStage: {fileID: 0}
+  Notes: 
+  StartAttack: {fileID: 1949603361}
+  AttackOrder:
+  - {fileID: 1949603358}
+  - {fileID: 1949603358}
+  - {fileID: 1949603358}
+  - {fileID: 5796012892613083830}
+  - {fileID: 5796012892613083830}
+  - {fileID: 5796012891397315798}
+  DelayBetweenAttacks: 0
+  IsImmuneToDamage: 0
+  ChangesOtherBossPhaseOnComplete: 0
+  SwordDestructible: {fileID: 5796012892908496109}
+--- !u!114 &1949603361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7378629174656064785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af346915cf344bea68d711ec3329926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackNameTrigger: FinalWakeUp
+  BeforeAttackWaitTime: 0
+  WaitTime: 0.47

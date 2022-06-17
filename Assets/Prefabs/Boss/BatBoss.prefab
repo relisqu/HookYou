@@ -27,11 +27,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4700879}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.82, y: 2.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4997254739501400994}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4700880
 MonoBehaviour:
@@ -123,12 +123,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4bec6edcf3d4809a36b751f3a9d77dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackNameTrigger: Dash
   RootTransform: {fileID: 4997254739501400994}
-  WarningVFX: {fileID: 0}
+  WarningVFX: {fileID: 4997254739501400992}
   Player: {fileID: 0}
-  PrepareDuration: 0.16
-  DashRange: 2.46
-  DashSpeed: 5.32
+  PrepareDuration: 0.89
+  DashRange: 11.98
+  DashSpeed: 12.8
 --- !u!1 &823409279
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,6 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f444a4eedc940819ee4634176622117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackNameTrigger: 
   AttacksDelay: 0.18
   AttackIngredients:
   - {fileID: 2078613079}
@@ -210,7 +212,7 @@ Transform:
   - {fileID: 1574250917}
   - {fileID: 1413117923}
   m_Father: {fileID: 4997254739501400994}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1185958589
 GameObject:
@@ -260,7 +262,8 @@ MonoBehaviour:
   StartAttack: {fileID: 0}
   AttackOrder: []
   DelayBetweenAttacks: 0
-  IsImmuneToDamage: 1
+  IsImmuneToDamage: 0
+  ChangesOtherBossPhaseOnComplete: 1
   SwordDestructible: {fileID: 434465219}
 --- !u!1 &1413117921
 GameObject:
@@ -272,6 +275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1413117923}
   - component: {fileID: 1413117922}
+  - component: {fileID: 1129418758}
   m_Layer: 0
   m_Name: StunAttack
   m_TagString: Untagged
@@ -305,9 +309,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7adb262776aa484caa3f1b1e7cee97ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Boss: {fileID: 4997254739501401004}
+  AttackNameTrigger: Stun
   StunDuration: 2
   GrappleZone: {fileID: 4700880}
+  StunEffect: {fileID: 1129418758}
+--- !u!114 &1129418758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413117921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873d722cf0aa4d6292518f9c8bdf7c3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Object: {fileID: 1722968007354784519, guid: 20acc0f3728424445b08629e789974cc, type: 3}
+  Offset: {x: 0.39, y: 6.3, z: 0.5}
+  Ease: 1
+  Speed: 2.67
+  FlyDistance: 6.3
+  IsBouncy: 0
+  Stiffness: 0
+  BounceSpeed: 0
+  BounceEase: 0
+  AppearDuration: Infinity
+  FadeDuration: 0.876
 --- !u!1 &1574250916
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,6 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f444a4eedc940819ee4634176622117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackNameTrigger: 
   AttacksDelay: 0.12
   AttackIngredients:
   - {fileID: 2078613079}
@@ -401,6 +430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d88d68d59ed47b4a9cc37ebff6bebe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackNameTrigger: Idle
   Player: {fileID: 0}
   Points:
   - {fileID: 0}
@@ -411,9 +441,9 @@ MonoBehaviour:
   Enemy: {fileID: 4051670682256166620, guid: a1d0e32a179dabb4daec6858feaba736, type: 3}
   MinDistanceFromPlayer: 3.26
   MovementSpeed: 7.01
-  RotationSpeed: 12.33
+  RotationSpeed: 30.97
   SpinsAmount: 2
-  CircleRadius: 1.08
+  CircleRadius: 2.3
 --- !u!1 &1624109357
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,6 +455,7 @@ GameObject:
   - component: {fileID: 1624109360}
   - component: {fileID: 1624109358}
   - component: {fileID: 1624109359}
+  - component: {fileID: 1376876570}
   m_Layer: 0
   m_Name: ThirdStage
   m_TagString: Untagged
@@ -460,7 +491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NextStage: {fileID: 5265871718143466247}
   Notes: 
-  StartAttack: {fileID: 0}
+  StartAttack: {fileID: 1376876570}
   AttackOrder:
   - {fileID: 1624109359}
   - {fileID: 1624109359}
@@ -469,7 +500,8 @@ MonoBehaviour:
   - {fileID: 1413117922}
   DelayBetweenAttacks: 0.54
   IsImmuneToDamage: 0
-  SwordDestructible: {fileID: 0}
+  ChangesOtherBossPhaseOnComplete: 1
+  SwordDestructible: {fileID: 434465219}
 --- !u!114 &1624109359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,6 +514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f235a505a4b44eefaae650663ba71953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackNameTrigger: 
   RequiredDistanceBetweenObjects: 5.27
   PlayerTransform: {fileID: 0}
   BossTransform: {fileID: 4997254739501400994}
@@ -492,9 +525,24 @@ MonoBehaviour:
   - Attack: {fileID: 1599444175}
     BiasType: 0
     BiasBonus: 0.15
-  - Attack: {fileID: 823409281}
+  - Attack: {fileID: 2078613079}
     BiasType: 1
     BiasBonus: 0.2
+--- !u!114 &1376876570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624109357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af346915cf344bea68d711ec3329926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackNameTrigger: WakeUp
+  BeforeAttackWaitTime: 0.2
+  WaitTime: 0.6
 --- !u!1 &1882452722
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,7 +591,8 @@ MonoBehaviour:
   StartAttack: {fileID: 0}
   AttackOrder: []
   DelayBetweenAttacks: 0
-  IsImmuneToDamage: 1
+  IsImmuneToDamage: 0
+  ChangesOtherBossPhaseOnComplete: 1
   SwordDestructible: {fileID: 434465219}
 --- !u!1 &1781673126217715698
 GameObject:
@@ -575,7 +624,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4997254739501400994}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5265871718143466247
 MonoBehaviour:
@@ -601,7 +650,8 @@ MonoBehaviour:
   - {fileID: 1413117922}
   DelayBetweenAttacks: 0.82
   IsImmuneToDamage: 0
-  SwordDestructible: {fileID: 0}
+  ChangesOtherBossPhaseOnComplete: 1
+  SwordDestructible: {fileID: 434465219}
 --- !u!114 &4491450704478242484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614,6 +664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f235a505a4b44eefaae650663ba71953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackNameTrigger: 
   RequiredDistanceBetweenObjects: 5.27
   PlayerTransform: {fileID: 0}
   BossTransform: {fileID: 4997254739501400994}
@@ -657,7 +708,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4997254739501400994}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4363971818591864437
 MonoBehaviour:
@@ -674,10 +725,16 @@ MonoBehaviour:
   NextStage: {fileID: 0}
   Notes: 
   StartAttack: {fileID: 0}
-  AttackOrder: []
+  AttackOrder:
+  - {fileID: 3385850865515035302}
+  - {fileID: 3385850865515035302}
+  - {fileID: 3385850865515035302}
+  - {fileID: 101509393}
+  - {fileID: 1413117922}
   DelayBetweenAttacks: 0
   IsImmuneToDamage: 0
-  SwordDestructible: {fileID: 0}
+  ChangesOtherBossPhaseOnComplete: 0
+  SwordDestructible: {fileID: 434465219}
 --- !u!114 &3385850865515035302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -690,10 +747,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f235a505a4b44eefaae650663ba71953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackNameTrigger: 
   RequiredDistanceBetweenObjects: 5.27
   PlayerTransform: {fileID: 0}
-  BossTransform: {fileID: 0}
-  AttackIngredients: []
+  BossTransform: {fileID: 4997254739501400994}
+  AttackIngredients:
+  - Attack: {fileID: 101509393}
+    BiasType: 0
+    BiasBonus: 0.15
+  - Attack: {fileID: 823409281}
+    BiasType: 1
+    BiasBonus: 0.15
 --- !u!1 &4997254739501401000
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,7 +772,12 @@ GameObject:
   - component: {fileID: 4997254739501401007}
   - component: {fileID: 4997254739501400992}
   - component: {fileID: 434465219}
-  m_Layer: 0
+  - component: {fileID: 368219919108130351}
+  - component: {fileID: 434465227}
+  - component: {fileID: 434465226}
+  - component: {fileID: 434465228}
+  - component: {fileID: 434465229}
+  m_Layer: 10
   m_Name: BatBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -730,10 +799,10 @@ Transform:
   - {fileID: 1185958591}
   - {fileID: 1882452724}
   - {fileID: 1624109360}
-  - {fileID: 5874656563318229500}
-  - {fileID: 4306030960990200799}
   - {fileID: 1065206103}
   - {fileID: 4700883}
+  - {fileID: 5874656563318229500}
+  - {fileID: 4306030960990200799}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -776,8 +845,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d,
+  m_SortingOrder: 15
+  m_Sprite: {fileID: 5750357641541182518, guid: 192761953893ba14fb956d10095f43fe,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -788,7 +857,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &4997254739501401004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -807,7 +876,6 @@ MonoBehaviour:
   ShootingModule: {fileID: 0}
   Player: {fileID: 0}
   OtherBoss: {fileID: 0}
-  AttacksCount: 0
   InitialStage: {fileID: 1185958590}
 --- !u!114 &4997254739501401007
 MonoBehaviour:
@@ -822,7 +890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHealth: 5
-  Animator: {fileID: 0}
+  Animator: {fileID: 434465226}
 --- !u!114 &4997254739501400992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -836,14 +904,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Object: {fileID: 8537296549731774667, guid: ef7e6e0c36ba9654c88f350abb978744, type: 3}
-  Offset: {x: -0.23, y: 0.46, z: 0}
+  Offset: {x: -0.05, y: 5.35, z: 0}
   Ease: 15
   Speed: 1.58
-  FlyDistance: 1.34
+  FlyDistance: 5.35
   IsBouncy: 1
   Stiffness: 0.5
   BounceSpeed: 0.78
   BounceEase: 31
+  AppearDuration: 0.13
   FadeDuration: 0.03
 --- !u!114 &434465219
 MonoBehaviour:
@@ -858,105 +927,93 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: {fileID: 4997254739501401007}
---- !u!1 &4997254740292197044
-GameObject:
+--- !u!70 &368219919108130351
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4997254740292197045}
-  - component: {fileID: 4997254740292197002}
-  - component: {fileID: 3854997183917355702}
-  m_Layer: 10
-  m_Name: Hands
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4997254740292197045
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4997254740292197044}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.7400036, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4997254740357030118}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4997254740292197002
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4997254740292197044}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 608cf802ad83f3a4185e65dcaf2558bc, type: 3}
-  m_Color: {r: 1, g: 0.069811285, b: 0.069811285, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 5.12, y: 5.12}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!58 &3854997183917355702
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4997254740292197044}
+  m_GameObject: {fileID: 4997254739501401000}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.0000076293945}
-  serializedVersion: 2
-  m_Radius: 2.56
+  m_Offset: {x: 1.94, y: 2.36}
+  m_Size: {x: 1.6711483, y: 2.6721382}
+  m_Direction: 0
+--- !u!95 &434465227
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4997254739501401000}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6923a68e40eacc14d875068e19816642, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &434465226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4997254739501401000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f85f16a0d8524e5daa0bca4644e16c21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 434465227}
+  HitTag: Hit
+  DeathTag: 
+  RespawnTag: 
+  isAnimatedDifferently: 0
+--- !u!114 &434465228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4997254739501401000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873d722cf0aa4d6292518f9c8bdf7c3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Object: {fileID: 2862513045572197531, guid: 4ea1a16f2c8699e4e9c2a157aa5fe18b, type: 3}
+  Offset: {x: 0.39, y: 6.3, z: 0.5}
+  Ease: 1
+  Speed: 2.67
+  FlyDistance: 6.3
+  IsBouncy: 0
+  Stiffness: 0
+  BounceSpeed: 0
+  BounceEase: 0
+  AppearDuration: Infinity
+  FadeDuration: 0.876
+--- !u!114 &434465229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4997254739501401000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71f1f6d361c643ff84eb7b34bcd5439f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4997254740357030115
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,7 +1023,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4997254740357030118}
-  - component: {fileID: 4997254740357030113}
   - component: {fileID: 2078613079}
   m_Layer: 0
   m_Name: RoundLayer
@@ -983,32 +1039,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4997254740357030115}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03, y: -0.95, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
-  m_Children:
-  - {fileID: 4997254740292197045}
+  m_LocalPosition: {x: 1.02, y: 0.73, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
   m_Father: {fileID: 4997254739501400994}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &4997254740357030113
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4997254740357030115}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 46c2efb1eddca364388b09b19665b501, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &2078613079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1021,6 +1057,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b94c6d48ea841c5821762e0b56bb187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackNameTrigger: Melee
   HandsModule: {fileID: 4997254740357030118}
-  HandsModuleAnimator: {fileID: 4997254740357030113}
   Player: {fileID: 0}
+  RockObject: {fileID: 32755397609110273, guid: 8784f623d39460c46a7ab5362860583f,
+    type: 3}
+  RockSpawnDistance: 3.05
+  RockCount: 4
+  TimeBetweenRockSpawns: 0.25
+  AngleBetweenRocks: 30
+  TimeBeforeAttack: 0.37

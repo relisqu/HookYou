@@ -30,6 +30,11 @@ namespace AI
             yield return StartCoroutine(AttackLookingAtPlayer(DirectedBulletCount, DelayBetweenShots, DirectedBulletSpeed));
         }
 
+        public override Attack GetCurrentAttack()
+        {
+            return this;
+        }
+
         IEnumerator AttackLookingAtPlayer(int bulletCount, float bulletDelay, float bulletSpeed)
         {
             for (int i = 0; i < bulletCount; i++)
@@ -51,5 +56,6 @@ namespace AI
             PlayAttackAnimation(AttackNameTrigger+"End");
             yield return new WaitForSeconds(0.3f);
         }
+        
     }
 }

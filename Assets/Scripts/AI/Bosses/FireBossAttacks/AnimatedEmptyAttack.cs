@@ -13,5 +13,10 @@ namespace AI.Bosses.FireBossAttacks
             PlayAttackAnimation();
             yield return new WaitForSeconds(WaitTime);
         }
+
+        public override Attack GetCurrentAttack()
+        {
+            return this;
+        }
     }
 }

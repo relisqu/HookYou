@@ -26,5 +26,9 @@ namespace AI
                     Quaternion.AngleAxis(i * 365 / CircleBulletCount, Vector3.forward));
             yield return null;
         }
+        public override Attack GetCurrentAttack()
+        {
+            return this;
+        }
     }
 }

@@ -15,19 +15,26 @@ namespace AI.Bosses.BatBossAttacks
         [SerializeField] private float PrepareDuration;
         [SerializeField] private float DashRange;
         [SerializeField] private float DashSpeed;
+        [SerializeField] private Ease DashEase;
         
 
         public override IEnumerator StartAttack()
         {
+            PlayAttackAnimation(AttackNameTrigger+"Prepare");
             _isDashing = true;
             if (WarningVFX != null) WarningVFX.InitiateObject();
             yield return new WaitForSeconds(PrepareDuration);
             var position = RootTransform.position;
             var playerPosition = Player.transform.position;
             var distance = (playerPosition - position).normalized * DashRange;
+            PlayAttackAnimation(AttackNameTrigger);
             yield return RootTransform.DOMove(position + distance, DashSpeed).SetSpeedBased()
-                .SetEase(Ease.OutCubic)
+                .SetEase(DashEase)
                 .OnComplete(() => { _isDashing = false; }).WaitForCompletion();
+        }
+        public override Attack GetCurrentAttack()
+        {
+            return this;
         }
     }
 }

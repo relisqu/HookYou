@@ -58,8 +58,8 @@ namespace AI
 
         public void StartAttacks()
         {
-            InitialStage.Attack();
             _currentPhase = InitialStage;
+            _currentPhase.Attack();
             Health.TookDamage += ChangeAllBossPhases;
         }
 
@@ -74,24 +74,46 @@ namespace AI
                 Health.Animator.PlayDeathAnimation();
                 Health.Die();
                 return;
-                
             }
 
             if (_currentPhase != null)
             {
+                var _currentAttack = GetCurrentAttack();
+                if (_currentAttack != null && _currentAttack.GetType() == typeof(StunAttack))
+                {
+                    StopStunEffect();
+                }
+
                 _currentPhase.MoveToNextStage();
-                _currentPhase = (FireBossStage)_currentPhase.GetNextStage();
+                _currentPhase = (FireBossStage) _currentPhase.GetNextStage();
             }
-            
         }
+
+        private void Update()
+        {
+            currentAttack = GetCurrentAttack();
+        }
+
+        private Attack currentAttack;
 
         private void ChangeAllBossPhases()
         {
             var phaseRequiresOtherBossChange = _currentPhase.ChangesOtherBossPhaseOnComplete;
             ChangePhase();
-            if(phaseRequiresOtherBossChange && OtherBoss!=null) OtherBoss.ChangePhase();
+            if (phaseRequiresOtherBossChange && OtherBoss != null) OtherBoss.ChangePhase();
         }
 
         private FireBossStage _currentPhase;
+
+        public Attack GetCurrentAttack()
+        {
+            // print("Get current attack: "+_currentPhase.GetCurrentAttack().GetCurrentAttack());
+            return _currentPhase.GetCurrentAttack();
+        }
+
+        public void SetVulnerableToSword()
+        {
+            GetComponent<SwordDestructible>().SetImmuneToDamage(false);
+        }
     }
 }

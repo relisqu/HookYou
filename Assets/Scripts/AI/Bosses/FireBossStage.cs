@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Destructibility;
@@ -14,24 +15,36 @@ namespace AI
         [SerializeField] private bool IsImmuneToDamage;
         [SerializeField] public bool ChangesOtherBossPhaseOnComplete;
 
-        [ShowIf("IsImmuneToDamage")] [BoxGroup("References")] [SerializeField]
+        [BoxGroup("References")] [SerializeField]
         private SwordDestructible SwordDestructible;
+
+        private void Start()
+        {
+            SwordDestructible = GetComponentInParent<SwordDestructible>();
+        }
 
         public override void Attack()
         {
-            print("Started attack. isImmune: " + IsImmuneToDamage);
-            if (IsImmuneToDamage) SwordDestructible.SetImmuneToDamage(IsImmuneToDamage);
+            print("Set "+SwordDestructible+" to "+ IsImmuneToDamage);
 
             StartCoroutine(PhaseAttack());
         }
 
         IEnumerator PhaseAttack()
         {
-            if (StartAttack != null) yield return StartAttack.StartAttack();
+            print("Started phase: "+name);
+            yield return new WaitForSeconds(0.1f);
+            SwordDestructible.SetImmuneToDamage(IsImmuneToDamage);
+            if (StartAttack != null)
+            {
+                _currentAttack = StartAttack;
+                yield return StartAttack.StartAttack();
+            }
             while (true)
             {
                 foreach (var attack in AttackOrder)
                 {
+                    _currentAttack = attack;
                     yield return attack.StartAttack();
                     yield return new WaitForSeconds(DelayBetweenAttacks);
                 }
@@ -45,9 +58,13 @@ namespace AI
         private Attack _currentAttack;
         public override void StopCurrentAttack()
         {
-            print("Stopped attack.");
             StopAllCoroutines();
-            if (IsImmuneToDamage) SwordDestructible.SetImmuneToDamage(!IsImmuneToDamage);
         }
+
+        public Attack GetCurrentAttack()
+        {
+            return _currentAttack;
+        }
+
     }
 }

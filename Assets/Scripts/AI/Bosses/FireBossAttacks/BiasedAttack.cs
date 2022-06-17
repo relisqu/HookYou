@@ -21,8 +21,14 @@ namespace AI.Bosses.FireBossAttacks
         public override IEnumerator StartAttack()
         {
             var attack = GetRandomBiasedAttack();
-            print(attack.name);
+            _currentAttack = attack;
             yield return attack.StartAttack();
+        }
+
+        private Attack _currentAttack;
+        public override Attack GetCurrentAttack()
+        {
+            return _currentAttack.GetCurrentAttack();
         }
 
         public float GetAttackBias(LocationBiasAttack attack)
@@ -65,6 +71,8 @@ namespace AI.Bosses.FireBossAttacks
         }
 
         private bool _askedToDraw;
+        
+        
     }
 
     [Serializable]
@@ -80,4 +88,5 @@ namespace AI.Bosses.FireBossAttacks
         ObjectFar,
         ObjectClose
     }
+    
 }

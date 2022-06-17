@@ -18,7 +18,12 @@ namespace Destructibility
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (isAbleToAttack && Health.IsAlive) TakeSwordDamage(other);
+            if ( Health.IsAlive) TakeSwordDamage(other);
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if ( Health.IsAlive) TakeSwordDamage(other.collider);
         }
 
         public void SetImmuneToDamage(bool value)
@@ -28,10 +33,11 @@ namespace Destructibility
 
         private void TakeSwordDamage(Collider2D other)
         {
-            if (other.TryGetComponent(out SwordAttack sword) && Health.IsAlive && !isImmuneToDamage)
+            if (isAbleToAttack && other.TryGetComponent(out SwordAttack sword) && Health.IsAlive && !isImmuneToDamage)
             {
                 if (sword.IsAttacking)
                 {
+                    print("AA");
                     sword.Hit();
                     ReactToSwordHit(sword);
                 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Additional_Technical_Settings_Scripts;
+using AI.Bosses.BatBossAttacks;
 using DG.Tweening;
 using Player_Scripts;
 using Sirenix.OdinInspector;
@@ -11,10 +12,10 @@ namespace AI.BatBossAttacks
     public class GenerateEnemiesAttack : Attack
     {
         [SerializeField] private PlayerMovement Player;
-        [SerializeField] private List<Transform> Points;
+        [SerializeField] private List<ShroomPoint> Points;
 
         [SerializeField] private Transform RootTransform;
-        [SerializeField] private GameObject Enemy;
+        [SerializeField] private Vector3 RotationOffset;
         [SerializeField] private float MinDistanceFromPlayer;
         [SerializeField] private float MovementSpeed;
 
@@ -31,16 +32,22 @@ namespace AI.BatBossAttacks
         public override IEnumerator StartAttack()
         {
             var point = Points[Random.Range(0, Points.Count)];
-            while (Vector2.Distance(point.position, Player.transform.position) < MinDistanceFromPlayer)
+            if (point.IsMushroomAlive()) yield break;
+                
+            PlayAttackAnimation();
+            var pointDistance = RotationOffset + point.transform.position;
+            
+            while (Vector2.Distance(pointDistance, Player.transform.position) < MinDistanceFromPlayer)
             {
                 point = Points[Random.Range(0, Points.Count)];
+                pointDistance = RotationOffset + point.transform.position;
                 yield return null;
             }
 
-            var direction = point.position - RootTransform.position;
+            var direction = pointDistance - RootTransform.position;
 
 
-            yield return RootTransform.DOMove(point.position - CircleRadius * direction.normalized, MovementSpeed)
+            yield return RootTransform.DOMove(pointDistance - CircleRadius * direction.normalized, MovementSpeed)
                 .SetSpeedBased()
                 .WaitForCompletion();
 
@@ -48,17 +55,28 @@ namespace AI.BatBossAttacks
             {
                 var angle = RotationSpeed * 10f * Time.fixedDeltaTime;
                 i += angle;
-                RootTransform.RotateAround(point.position, Vector3.forward, angle);
+                RootTransform.RotateAround(pointDistance, Vector3.forward, angle);
                 RootTransform.rotation = Quaternion.identity;
                 yield return new WaitForFixedUpdate();
             }
+            if (point.IsMushroomActive())
+            {
+                point.RespawnShroom();
+            }
+            else
+            {
+                point.SpawnShroom();
+                
+            }
 
-            var shooter = Instantiate(Enemy, point);
-
-
-            TemporaryObjectsCleaner.AddObject(shooter);
+            //TemporaryObjectsCleaner.AddObject(shooter);
 
             yield return null;
+        }
+        
+        public override Attack GetCurrentAttack()
+        {
+            return this;
         }
     }
 }

@@ -26,7 +26,12 @@ namespace AI
         
         public virtual void ShowStunEffect()
         {
-            StunEffect.InitiateObject();
+            if(StunEffect!=null) StunEffect.InitiateObject();
+        }
+
+        public void StopStunEffect()
+        {
+           if(StunEffect!=null) StunEffect.DestroyObject();
         }
     }
 }
