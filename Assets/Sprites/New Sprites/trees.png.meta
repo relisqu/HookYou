@@ -86,6 +86,9 @@ TextureImporter:
   - first:
       213: 2767215598838526711
     second: trees_27
+  - first:
+      213: 5248613880748234862
+    second: trees_28
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -117,8 +120,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -852,6 +855,27 @@ TextureImporter:
       bones: []
       spriteID: 7f2b0b10def176620800000000000000
       internalID: 2767215598838526711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trees_28
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 340
+        width: 21
+        height: 27
+      alignment: 9
+      pivot: {x: 0.49524742, y: 0.10003775}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e68de252482d6d840800000000000000
+      internalID: 5248613880748234862
       vertices: []
       indices: 
       edges: []
