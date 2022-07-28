@@ -116,6 +116,7 @@ namespace Player_Scripts
                 if (_isHookingObject)
                 {
                     HookSpringJoint2D.enabled = true;
+                    ((DefaultPushableBlock) currentBlock).AddActivitiesAtHookStart();
                     hookingCoroutine = StartCoroutine(MoveToWall(HookSpringJoint2D));
                     HookSpringJoint2D.connectedBody = currentHit.rigidbody;
                     CurrentHookState = HookState.Grappling;
@@ -138,7 +139,7 @@ namespace Player_Scripts
             springJoint2D.distance = currentDistance;
             Rope.enabled = true;
             var speed = currentBlock.RequiresSpecificHookSpeed() ? currentBlock.GetHookShotSpeed() : LaunchSpeed;
-            while (springJoint2D.distance > HookWallStopability && currentDistance > HookWallStopability)
+            while (springJoint2D.distance > HookWallStopability/1.2f && currentDistance > HookWallStopability)
             {
                 springJoint2D.distance =
                     Mathf.Lerp(springJoint2D.distance, 0.1f, Time.deltaTime * speed);
@@ -232,6 +233,11 @@ namespace Player_Scripts
 
         private IEnumerator DropHookEnumerator()
         {
+            if (CurrentHookState == HookState.Grappling)
+            {
+                ((DefaultPushableBlock)currentBlock).OnHookBreak();
+            }
+
             CurrentHookState = HookState.DroppedHook;
             PlayerSpringJoint2D.enabled = false;
             HookSpringJoint2D.enabled = false;

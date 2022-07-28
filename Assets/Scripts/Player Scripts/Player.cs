@@ -51,7 +51,7 @@ namespace Player_Scripts
 
         public void Die()
         {
-            CameraShake.ShakeCamera(0.2f,10f);
+            CameraShake.ShakeCamera(0.2f,30f);
             Hook.ClearHook();
             OnDied?.Invoke();
             Manager.RestartCurrentRoom(this);

@@ -23,15 +23,19 @@ namespace AI
             Stunned?.Invoke();
         }
 
-        
+        public void InvokeEvent()
+        {
+            Stunned?.Invoke();
+        }
+
         public virtual void ShowStunEffect()
         {
-            if(StunEffect!=null) StunEffect.InitiateObject();
+            if (StunEffect != null) StunEffect.InitiateObject();
         }
 
         public void StopStunEffect()
         {
-           if(StunEffect!=null) StunEffect.DestroyObject();
+            if (StunEffect != null) StunEffect.DestroyObject();
         }
     }
 }

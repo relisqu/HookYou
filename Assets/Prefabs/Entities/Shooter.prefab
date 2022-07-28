@@ -194,7 +194,7 @@ Transform:
   m_GameObject: {fileID: 6051208874674861368}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.82, y: 0.59, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 4051670682256166623}
   m_RootOrder: 2
@@ -212,8 +212,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0142054325, y: 0.21309498}
-  m_Size: {x: 1.1345465, y: 0.57576853}
+  m_Offset: {x: -0.014205435, y: 0.2929733}
+  m_Size: {x: 1.1345466, y: 0.7355257}
   m_Direction: 1
 --- !u!114 &306464117481376905
 MonoBehaviour:
@@ -230,6 +230,9 @@ MonoBehaviour:
   SwingSpeed: 1.3
   RequiresUniqueHookSpeed: 0
   HookShotSpeed: 0
+  Rigidbody2D: {fileID: 0}
+  PushSpeed: 0
+  Animator: {fileID: 0}
   EnemyBehaviour: {fileID: 8970919884034128024}
 --- !u!114 &6892428651695633296
 MonoBehaviour:
@@ -378,8 +381,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06, y: 0.21}
-  m_Size: {x: 0.92697716, y: 0.47808462}
+  m_Offset: {x: -0.033817448, y: 0.22047289}
+  m_Size: {x: 0.87461317, y: 0.49903116}
   m_Direction: 1
 --- !u!212 &8970919884486408993
 SpriteRenderer:
@@ -451,6 +454,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4528060351911744792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4051670682753199031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873d722cf0aa4d6292518f9c8bdf7c3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Object: {fileID: 1791208056670278726, guid: 5d4922c7b664df7448495e49ee7a1238, type: 3}
+  Offset: {x: -0.23, y: 0.4, z: 0}
+  Ease: 0
+  Speed: 2
+  FlyDistance: 0.89
+  IsBouncy: 0
+  Stiffness: 0
+  BounceSpeed: 0
+  BounceEase: 0
+  AppearDuration: 0
+  FadeDuration: 0.02
 --- !u!114 &8970919883858164095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,25 +519,3 @@ MonoBehaviour:
   ShootingModule: {fileID: 8970919883127258878}
   Animator: {fileID: 8970919884486408992}
   GrappleZone: {fileID: 6892428651695633296}
---- !u!114 &4528060351911744792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4051670682753199031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 873d722cf0aa4d6292518f9c8bdf7c3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Object: {fileID: 1791208056670278726, guid: 5d4922c7b664df7448495e49ee7a1238, type: 3}
-  Offset: {x: -0.23, y: 0.4, z: 0}
-  Ease: 0
-  Speed: 2
-  FlyDistance: 0.89
-  IsBouncy: 0
-  Stiffness: 0
-  BounceSpeed: 0
-  BounceEase: 0
-  FadeDuration: 0.02

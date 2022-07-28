@@ -9,9 +9,24 @@ namespace Destructibility
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.TryGetComponent(out EnemyHealth enemy))
+            DieFromEnemy(other.gameObject);
+        }
+
+        private void OnCollisionStay2D(Collision2D other)
+        {
+            
+            DieFromEnemy(other.gameObject);
+        }
+
+        private void OnTriggerStay2D(Collider2D other)
+        {
+            DieFromEnemy(other.gameObject);
+        }
+
+        public void DieFromEnemy(GameObject obj)
+        {
+            if (obj.TryGetComponent(out EnemyHealth enemy))
             {
-                print("Died by enemy: " + enemy.IsDangerous + " " + Health.CurrentHealth);
                 if (!enemy.IsDangerous) return;
                 Health.TakeDamage(1);
             }
@@ -19,12 +34,7 @@ namespace Destructibility
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (other.gameObject.TryGetComponent(out EnemyHealth enemy))
-            {
-                print("Died by enemy: " + enemy.IsDangerous + " " + Health.CurrentHealth);
-                if (!enemy.IsDangerous) return;
-                Health.TakeDamage(1);
-            }
+            DieFromEnemy(other.gameObject);
         }
     }
 }

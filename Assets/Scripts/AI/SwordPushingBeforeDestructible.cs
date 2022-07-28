@@ -14,23 +14,31 @@ namespace Destructibility
         private BatMovementAnimator animator;
         private DashingAI dashingAI;
 
-        
+
         protected override void ReactToSwordHit(SwordAttack sword)
         {
             var position = transform.position;
             var playerPosition = Player.transform.position;
-            var newPosition = (position-playerPosition) * DeathImpulseRange + position;
+            var newPosition = (position - playerPosition) * DeathImpulseRange + position;
             StartCoroutine(animator.GetDamage());
             dashingAI.DestroyMovingAction();
-            transform.DOMove(newPosition, 1/DeathImpulseSpeed).SetEase(Ease.OutCubic).OnComplete(() =>
+            bool isDying = Health.CurrentHealth <= 1;
+            if (!isDying)
             {
-                
-                print("Took damage. Health: "+Health.CurrentHealth);
-                animator.SetNormalSprite();
                 Health.TakeDamage(sword.GetDamage);
+            }
+
+            transform.DOMove(newPosition, 1 / DeathImpulseSpeed).SetEase(Ease.OutCubic).OnComplete(() =>
+            {
+                print("Took damage. Health: " + Health.CurrentHealth);
+                animator.SetNormalSprite();
+                if (isDying)
+                {
+                    Health.TakeDamage(sword.GetDamage);
+                }
+
                 StartCoroutine(MakeIFrame());
             });
-
         }
 
         public void SetSafeForPlayer()

@@ -27,12 +27,12 @@ PrefabInstance:
     - target: {fileID: 1905978877553214992, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.457575
+      value: 10.75
       objectReference: {fileID: 0}
     - target: {fileID: 1905978877553214992, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -23.295198
+      value: -16.56
       objectReference: {fileID: 0}
     - target: {fileID: 1905978877553214992, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
         type: 3}
@@ -77,12 +77,12 @@ PrefabInstance:
     - target: {fileID: 1905978877553214995, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
         type: 3}
       propertyPath: InitialHealth
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1905978877553214997, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
         type: 3}
       propertyPath: m_Name
-      value: Strong Bat Variant (5)
+      value: Strong Bat Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1905978877553214999, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
         type: 3}
@@ -140,6 +140,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.63
       objectReference: {fileID: 0}
+    - target: {fileID: 4822104167549633854, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 5.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6574685196427989322, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6866934340385403619, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
         type: 3}
       propertyPath: m_Size.x
@@ -165,8 +175,14 @@ PrefabInstance:
       propertyPath: EnemyBehaviour
       value: 
       objectReference: {fileID: 1457967229}
+    - target: {fileID: 7651225039689082005, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
+        type: 3}
+      propertyPath: EnemyBehaviour
+      value: 
+      objectReference: {fileID: 1457967229}
     m_RemovedComponents:
     - {fileID: 1905978877553214998, guid: f5069926bc0bf5f4e9c5bff7a6e37cca, type: 3}
+    - {fileID: 6892999968708142885, guid: f5069926bc0bf5f4e9c5bff7a6e37cca, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f5069926bc0bf5f4e9c5bff7a6e37cca, type: 3}
 --- !u!1 &1630036619882439108 stripped
 GameObject:
@@ -235,20 +251,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StunDuration: 1
+  Health: {fileID: 1630036619882439106}
   StunEffect: {fileID: 3992799450681497377}
   Speed: 3
   AttackRadius: 6.9
   DashRange: 6
   DashSpeed: 1
-  PauseDuration: 0.8
-  Health: {fileID: 1630036619882439106}
+  PauseDuration: 1.1
   BatWarningVfx: {fileID: 1675688538611263792}
   StunVfx: {fileID: 7468677681982789743}
   GrappleZone: {fileID: 931233691951099364}
   DamagedSpeed: 2
   DamagedAttackRadius: 4.6
   DamagedDashRange: 4
-  DamagedDashSpeed: 0.82
+  DamagedDashSpeed: 1.31
   DamagedPauseDuration: 1
 --- !u!114 &7468677681982789743
 MonoBehaviour:
@@ -271,4 +287,5 @@ MonoBehaviour:
   Stiffness: 0
   BounceSpeed: 0
   BounceEase: 0
+  AppearDuration: 0
   FadeDuration: 0.02

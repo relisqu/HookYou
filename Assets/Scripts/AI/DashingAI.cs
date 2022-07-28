@@ -70,6 +70,7 @@ namespace AI
             _animator.SetNormalSprite();
         }
 
+
         public void SetAsDangerous()
         {
             Health.MarkAsDangerous(true);
@@ -77,6 +78,7 @@ namespace AI
 
         private void Update()
         {
+            _animator.SetDashing(_isDashing);
             if (_isDashing || !Health.IsAlive || isStunned)
             {
                 return;
@@ -84,7 +86,6 @@ namespace AI
 
             var distance = Vector2.Distance(_player.transform.position, transform.position);
             _isInRadius = distance > AttackRadius;
-            _animator.SetDashing(_isDashing);
             if (_isInRadius)
             {
                 var newDistance =
@@ -108,15 +109,18 @@ namespace AI
             var playerPosition = _player.transform.position;
 
             var distance = (playerPosition - position).normalized * DashRange;
-            if (!Health.IsDangerous || !Health.IsAlive) yield break;
+            if (!Health.IsAlive) yield break;
             dashTween = transform.DOMove(position + distance, 1 / DashSpeed * 0.1f * distance.magnitude)
                 .SetEase(Ease.OutCubic)
                 .OnComplete(() =>
                 {
-                    StartCoroutine(GrappleZone.ActivateGrappleCollider());
+                    if (!Health.IsAlive) return;
                     _isDashing = false;
+                    _animator.SetDashing(_isDashing);
+                    StartCoroutine(GrappleZone.ActivateGrappleCollider());
                 });
         }
+
 
         private void OnDrawGizmos()
         {

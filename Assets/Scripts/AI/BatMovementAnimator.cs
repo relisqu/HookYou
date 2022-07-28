@@ -38,7 +38,11 @@ namespace AI
             var currentPosition = transform.position;
             var isCurrentlyRotatedLeft = previousPosition.x > currentPosition.x;
             if (isCurrentlyRotatedLeft == _isRotatedLeft && Math.Abs(previousPosition.x - currentPosition.x) > 0.001f)
-                spriteRenderer.flipX = !isCurrentlyRotatedLeft;
+            {
+                //spriteRenderer.flipX = !isCurrentlyRotatedLeft;
+                transform.localScale = new Vector3(1f * (isCurrentlyRotatedLeft ? 1f : -1f), 1f, 1f);
+            }
+
             previousPosition = currentPosition;
             _isRotatedLeft = isCurrentlyRotatedLeft;
         }

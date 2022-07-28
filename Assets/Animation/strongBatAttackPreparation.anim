@@ -30,7 +30,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.2666667
+        time: 2.9333334
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -62,7 +62,7 @@ AnimationClip:
     - time: 0.53333336
       value: {fileID: -5604167964780397799, guid: 0e717cfdd43a1e6488d607089440fc98,
         type: 3}
-    - time: 1.25
+    - time: 2.9166667
       value: {fileID: -5604167964780397799, guid: 0e717cfdd43a1e6488d607089440fc98,
         type: 3}
     attribute: m_Sprite
@@ -102,7 +102,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.2666667
+    m_StopTime: 2.9333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -131,7 +131,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.2666667
+        time: 2.9333334
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -149,4 +149,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: SetSafe
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

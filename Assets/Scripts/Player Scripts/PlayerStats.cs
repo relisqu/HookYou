@@ -24,14 +24,14 @@ namespace Player_Scripts
         }
         private bool _won;
         public void AddGemsCount(int additionalGems)
-        {
+        {/*
             gemsCount += additionalGems;
             if (gemsCount >= 10)
             {
                 GameScreen.SetActive(true);
                 _won = true;
             }
-            
+            */
             //SaveProperty(GemsPropertyString,gemsCount);
             
             

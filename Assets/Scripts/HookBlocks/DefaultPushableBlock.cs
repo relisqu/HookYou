@@ -14,5 +14,13 @@ namespace HookBlocks
         {
             hook.ClearHook();
         }
+
+        public virtual void AddActivitiesAtHookStart()
+        {
+        }
+
+        public virtual void OnHookBreak()
+        {
+        }
     }
 }
