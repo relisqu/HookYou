@@ -14,6 +14,7 @@ namespace Player_Scripts
         {
             NotHooking,
             Hooking,
+            Grappling,
             OnWall,
             DroppedHook
         }
@@ -28,6 +29,8 @@ namespace Player_Scripts
         private Transform PlayerTransform;
 
         [SerializeField] private SpringJoint2D PlayerSpringJoint2D;
+
+        [SerializeField] private SpringJoint2D HookSpringJoint2D;
         [SerializeField] private Transform HookFinalPivot;
         [SerializeField] private Transform HookStartPivot;
         [SerializeField] private GrappleRope Rope;
@@ -52,11 +55,13 @@ namespace Player_Scripts
 
         public HookState CurrentHookState { get; private set; }
 
+
         private void Start()
         {
             hookEndDefaultParent = HookFinalPivot.parent;
             CurrentHookState = HookState.NotHooking;
             PlayerSpringJoint2D.enabled = false;
+            HookSpringJoint2D.enabled = false;
             Rope.enabled = false;
         }
 
@@ -70,6 +75,8 @@ namespace Player_Scripts
                         ThrowHook();
                         break;
                     case HookState.Hooking:
+                        break;
+                    case HookState.Grappling:
                         break;
                     case HookState.OnWall:
                         ThrowHook();
@@ -97,6 +104,7 @@ namespace Player_Scripts
             playerMovement = movement;
         }
 
+        private bool _isHookingObject;
 
         public void ThrowHook()
         {
@@ -105,25 +113,35 @@ namespace Player_Scripts
                 if (wallHangingCoroutine != null) StopCoroutine(wallHangingCoroutine);
                 if (droppingCoroutine != null) StopCoroutine(droppingCoroutine);
                 if (hookingCoroutine != null) StopCoroutine(hookingCoroutine);
-                PlayerSpringJoint2D.enabled = true;
-                CurrentHookState = HookState.Hooking;
+                if (_isHookingObject)
+                {
+                    HookSpringJoint2D.enabled = true;
+                    hookingCoroutine = StartCoroutine(MoveToWall(HookSpringJoint2D));
+                    HookSpringJoint2D.connectedBody = currentHit.rigidbody;
+                    CurrentHookState = HookState.Grappling;
+                }
+                else
+                {
+                    PlayerSpringJoint2D.enabled = true;
+                    hookingCoroutine = StartCoroutine(MoveToWall(PlayerSpringJoint2D));
+                    CurrentHookState = HookState.Hooking;
+                }
+
                 HookTouchedWall?.Invoke();
-                hookingCoroutine = StartCoroutine(MoveToWall());
             }
         }
 
-        private IEnumerator MoveToWall()
+        private IEnumerator MoveToWall(SpringJoint2D springJoint2D)
         {
-            CurrentHookState = HookState.Hooking;
             Vector2 playerPosition = PlayerTransform.position;
             var currentDistance = Vector2.Distance(playerPosition, grapplePoint);
-            PlayerSpringJoint2D.distance = currentDistance;
+            springJoint2D.distance = currentDistance;
             Rope.enabled = true;
             var speed = currentBlock.RequiresSpecificHookSpeed() ? currentBlock.GetHookShotSpeed() : LaunchSpeed;
-            while (PlayerSpringJoint2D.distance > HookWallStopability && currentDistance > HookWallStopability)
+            while (springJoint2D.distance > HookWallStopability && currentDistance > HookWallStopability)
             {
-                PlayerSpringJoint2D.distance =
-                    Mathf.Lerp(PlayerSpringJoint2D.distance, 0.1f, Time.deltaTime * speed);
+                springJoint2D.distance =
+                    Mathf.Lerp(springJoint2D.distance, 0.1f, Time.deltaTime * speed);
 
                 yield return null;
             }
@@ -160,6 +178,7 @@ namespace Player_Scripts
                     Mathf.Infinity,
                     HookFocusLayers);
                 var foundComponent = currentHit.transform.gameObject.TryGetComponent(out HookBlock block);
+                _isHookingObject = block.GetType() != typeof(StickyBlock);
                 currentBlock = block;
                 return foundComponent;
             }
@@ -215,6 +234,7 @@ namespace Player_Scripts
         {
             CurrentHookState = HookState.DroppedHook;
             PlayerSpringJoint2D.enabled = false;
+            HookSpringJoint2D.enabled = false;
             Rope.enabled = false;
             currentBreakTime = 0;
             isTryingToBreakHook = false;
@@ -224,8 +244,8 @@ namespace Player_Scripts
 
         public void ClearHook()
         {
-            CurrentHookState = HookState.DroppedHook;
             PlayerSpringJoint2D.enabled = false;
+            HookSpringJoint2D.enabled = false;
             Rope.enabled = false;
             currentBreakTime = 0;
             isTryingToBreakHook = false;

@@ -13,7 +13,7 @@ namespace Player_Scripts
         [SerializeField] private AbyssColliderChanger AbyssColliderChanger;
         [SerializeField] private PropsCollector PropsCollector;
         public Hook Hook;
-        public Action OnDied; 
+        public Action OnDied;
 
         public bool IsInAir => Hook.CurrentHookState == Hook.HookState.Hooking ||
                                Hook.CurrentHookState == Hook.HookState.OnWall;
@@ -27,7 +27,8 @@ namespace Player_Scripts
 
         private void Update()
         {
-            AbyssColliderChanger.SetAbyssTrigger( Hook.CurrentHookState != Hook.HookState.NotHooking );
+            AbyssColliderChanger.SetAbyssTrigger(Hook.CurrentHookState != Hook.HookState.NotHooking &&
+                                                 Hook.CurrentHookState != Hook.HookState.Grappling);
             if (Input.GetKeyDown(KeyCode.R) && !Manager.IsCurrentRoomCompleted(this))
             {
                 Die();

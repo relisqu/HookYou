@@ -5628,15 +5628,16 @@ MonoBehaviour:
   Camera: {fileID: 0}
   PlayerTransform: {fileID: 2424392383973034736}
   PlayerSpringJoint2D: {fileID: 2424392383973034737}
+  HookSpringJoint2D: {fileID: 0}
   HookFinalPivot: {fileID: 0}
   HookStartPivot: {fileID: 2424392384982898518}
   Rope: {fileID: 2424392383151555603}
   HookFocusLayers:
     serializedVersion: 2
-    m_Bits: 512
-  MaxDistance: 7.1
+    m_Bits: 131584
+  MaxDistance: 8
   LaunchSpeed: 5
-  BreakForceDirection: -0.9
+  BreakForceDirection: -0.2
   HookWallStopability: 0.5
   BreakRequiredTime: 0.1
   DropDuration: 0.05

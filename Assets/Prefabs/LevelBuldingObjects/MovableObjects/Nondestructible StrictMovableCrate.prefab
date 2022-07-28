@@ -45,6 +45,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6945912344236190296, guid: b50eb0cfbc305ef41950e143a632fcf8,
         type: 3}
+      propertyPath: m_Mass
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6945912344236190296, guid: b50eb0cfbc305ef41950e143a632fcf8,
+        type: 3}
       propertyPath: m_LinearDrag
       value: 9
       objectReference: {fileID: 0}
@@ -103,11 +108,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -1728839256317505669, guid: b50eb0cfbc305ef41950e143a632fcf8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b50eb0cfbc305ef41950e143a632fcf8, type: 3}
 --- !u!1 &8328523885845370458 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5893013537894606766, guid: b50eb0cfbc305ef41950e143a632fcf8,
+    type: 3}
+  m_PrefabInstance: {fileID: 2476114264955154932}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &4771628366323194796 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 6945912344236190296, guid: b50eb0cfbc305ef41950e143a632fcf8,
     type: 3}
   m_PrefabInstance: {fileID: 2476114264955154932}
   m_PrefabAsset: {fileID: 0}
@@ -155,3 +167,20 @@ MonoBehaviour:
   DeathTag: 
   RespawnTag: 
   isAnimatedDifferently: 1
+--- !u!114 &9160890647624486166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8328523885845370458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67e1cc5905bb43108e08ad163737e438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SwingSpeed: 1
+  RequiresUniqueHookSpeed: 0
+  HookShotSpeed: 0
+  Rigidbody2D: {fileID: 4771628366323194796}
+  PushSpeed: 0.15
