@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 4288884701813502192}
   - component: {fileID: 4822104167549633854}
   - component: {fileID: 7651225039689082005}
+  - component: {fileID: 5726797488303764943}
   m_Layer: 9
   m_Name: Bat
   m_TagString: Untagged
@@ -133,8 +134,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: {fileID: 1905978877553214995}
-  DeathImpulseRange: 1.86
-  DeathImpulseSpeed: 3
+  DeathImpulseRange: 2.85
+  DeathImpulseSpeed: 4.29
+  Obstacle: {fileID: 5726797488303764943}
 --- !u!114 &1905978877553214995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,6 +314,20 @@ MonoBehaviour:
   PushSpeed: 0
   Animator: {fileID: 1258876572}
   EnemyBehaviour: {fileID: 1905978877553214998}
+--- !u!114 &5726797488303764943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905978877553214997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d502a30a75e642169ff6d1d8b40fabcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ThrowbackForce: 0
+  Health: {fileID: 1905978877553214995}
 --- !u!1 &3653066014339885169
 GameObject:
   m_ObjectHideFlags: 0

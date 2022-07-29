@@ -1,6 +1,10 @@
+using System;
 using AI;
 using Assets.Scripts;
 using DG.Tweening;
+using DG.Tweening.Core;
+using DG.Tweening.Plugins.Options;
+using Obstacles;
 using Player_Scripts;
 using UnityEngine;
 
@@ -10,6 +14,7 @@ namespace Destructibility
     {
         [SerializeField] private float DeathImpulseRange;
         [SerializeField] private float DeathImpulseSpeed;
+        [SerializeField] private AliveObstacle Obstacle;
         private PlayerMovement Player;
         private BatMovementAnimator animator;
         private DashingAI dashingAI;
@@ -28,8 +33,10 @@ namespace Destructibility
                 Health.TakeDamage(sword.GetDamage);
             }
 
-            transform.DOMove(newPosition, 1 / DeathImpulseSpeed).SetEase(Ease.OutCubic).OnComplete(() =>
+            Obstacle.SetThrown(true);
+            routine = transform.DOMove(newPosition, 1 / DeathImpulseSpeed).SetEase(Ease.OutCubic).OnComplete(() =>
             {
+                Obstacle.SetThrown(false);
                 print("Took damage. Health: " + Health.CurrentHealth);
                 animator.SetNormalSprite();
                 if (isDying)
@@ -41,9 +48,16 @@ namespace Destructibility
             });
         }
 
+        private TweenerCore<Vector3, Vector3, VectorOptions> routine;
+
         public void SetSafeForPlayer()
         {
             ((EnemyHealth) Health).MarkAsDangerous(false);
+        }
+
+        public void StopMoveRoutine()
+        {
+            routine?.Kill();
         }
 
         private void Start()
@@ -51,6 +65,12 @@ namespace Destructibility
             Player = FindObjectOfType<PlayerMovement>();
             animator = GetComponent<BatMovementAnimator>();
             dashingAI = GetComponent<DashingAI>();
+            Obstacle.OnCollisionWithObstacle += StopMoveRoutine;
+        }
+
+        private void OnDestroy()
+        {
+            Obstacle.OnCollisionWithObstacle -= StopMoveRoutine;
         }
     }
 }
