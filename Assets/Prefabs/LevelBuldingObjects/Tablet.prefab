@@ -87,6 +87,12 @@ GameObject:
   - component: {fileID: 3185407741868988568}
   - component: {fileID: 3185407741868988569}
   - component: {fileID: 3185407741868988570}
+  - component: {fileID: 1795473071}
+  - component: {fileID: 1795473072}
+  - component: {fileID: 1795473073}
+  - component: {fileID: 1795473074}
+  - component: {fileID: 1795473075}
+  - component: {fileID: 1795473076}
   m_Layer: 0
   m_Name: Tablet
   m_TagString: Untagged
@@ -174,7 +180,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextTransform: {fileID: 3185407742482981259}
+  Text: {fileID: 3185407741975715120}
   TextSpeed: 0.54
+  TextCorruptionValue: 0.3
 --- !u!58 &3185407741868988570
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -191,6 +199,98 @@ CircleCollider2D:
   m_Offset: {x: -0.0662756, y: -0.10458565}
   serializedVersion: 2
   m_Radius: 1.6957836
+--- !u!58 &1795473071
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3185407741868988571}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0141067505, y: 0.20138264}
+  serializedVersion: 2
+  m_Radius: 0.20208168
+--- !u!95 &1795473072
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3185407741868988571}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 066e491994b3bd04e90735ac8ae00f5d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1795473073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3185407741868988571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f85f16a0d8524e5daa0bca4644e16c21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 1795473072}
+  HitTag: 
+  DeathTag: takeDamage
+  RespawnTag: resurrect
+  isAnimatedDifferently: 0
+--- !u!114 &1795473074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3185407741868988571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a45695ac754d4f819175e658fa2643, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialHealth: 1
+  Animator: {fileID: 1795473073}
+--- !u!114 &1795473075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3185407741868988571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 476259a8243a42beb151a8aeeb63cdb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 1795473074}
+--- !u!114 &1795473076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3185407741868988571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc2dce05ab04f71b7ccf021d0a380c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 1795473074}
 --- !u!1 &3185407741975715122
 GameObject:
   m_ObjectHideFlags: 0
