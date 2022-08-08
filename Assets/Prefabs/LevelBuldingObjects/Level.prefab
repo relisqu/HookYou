@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 7977671922356356893}
   - component: {fileID: 7977671922356356891}
   - component: {fileID: 7977671922356356892}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Shadows
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8152,7 +8152,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7977671924135650601}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}

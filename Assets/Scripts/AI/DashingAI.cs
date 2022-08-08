@@ -63,10 +63,11 @@ namespace AI
 
         public void DestroyMovingAction()
         {
+            _isDashing = false;
+            //isStunned = false;
             StopAllCoroutines();
             dashTween.Kill();
             UpdateHealthSprite();
-            _isDashing = false;
             _animator.SetNormalSprite();
         }
 
@@ -76,6 +77,7 @@ namespace AI
             Health.MarkAsDangerous(true);
         }
 
+        
         private void Update()
         {
             _animator.SetDashing(_isDashing);
@@ -85,8 +87,8 @@ namespace AI
             }
 
             var distance = Vector2.Distance(_player.transform.position, transform.position);
-            _isInRadius = distance > AttackRadius;
-            if (_isInRadius)
+            _isOutOfRadius = distance > AttackRadius;
+            if (_isOutOfRadius)
             {
                 var newDistance =
                     Vector2.MoveTowards(transform.position, _player.transform.position, Speed * Time.deltaTime);
@@ -134,9 +136,15 @@ namespace AI
         {
             _player = FindObjectOfType<PlayerMovement>();
             _animator = GetComponent<BatMovementAnimator>();
+            Health.Respawned += ()=>
+            {
+                isStunned = false;
+                StopAllCoroutines();
+            };
         }
 
 
+        
         public void StopAttacking()
         {
             StopAllCoroutines();
@@ -151,7 +159,7 @@ namespace AI
             dashTween.Kill();
             _isDashing = false;
             yield return new WaitForSeconds(StunDuration);
-            Health.MarkAsDangerous(true);
+            //Health.MarkAsDangerous(true);
             isStunned = false;
         }
 
@@ -159,7 +167,7 @@ namespace AI
         private BatMovementAnimator _animator;
         private bool _isDashing;
 
-        private bool _isInRadius;
+        private bool _isOutOfRadius;
         private TweenerCore<Vector3, Vector3, VectorOptions> dashTween;
     }
 }

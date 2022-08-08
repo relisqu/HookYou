@@ -28,6 +28,9 @@ namespace Player_Scripts
         [Header("References:")] [SerializeField]
         private Transform PlayerTransform;
 
+        [SerializeField] private ParticleSystem ParticleSystem;
+        [SerializeField] private Transform ParticleSystemTransform;
+
         [SerializeField] private SpringJoint2D PlayerSpringJoint2D;
 
         [SerializeField] private SpringJoint2D HookSpringJoint2D;
@@ -139,7 +142,7 @@ namespace Player_Scripts
             springJoint2D.distance = currentDistance;
             Rope.enabled = true;
             var speed = currentBlock.RequiresSpecificHookSpeed() ? currentBlock.GetHookShotSpeed() : LaunchSpeed;
-            while (springJoint2D.distance > HookWallStopability/1.2f && currentDistance > HookWallStopability)
+            while (springJoint2D.distance > HookWallStopability / 1.2f && currentDistance > HookWallStopability)
             {
                 springJoint2D.distance =
                     Mathf.Lerp(springJoint2D.distance, 0.1f, Time.deltaTime * speed);
@@ -183,6 +186,11 @@ namespace Player_Scripts
                 currentBlock = block;
                 return foundComponent;
             }
+
+            ParticleSystemTransform.transform.parent = null;
+            ParticleSystemTransform.transform.position  = Camera.ScreenToWorldPoint(Input.mousePosition)+Vector3.forward*30;
+            ParticleSystem.Play();
+
 
             return isAbleToHook;
         }
@@ -235,7 +243,7 @@ namespace Player_Scripts
         {
             if (CurrentHookState == HookState.Grappling)
             {
-                ((DefaultPushableBlock)currentBlock).OnHookBreak();
+                ((DefaultPushableBlock) currentBlock).OnHookBreak();
             }
 
             CurrentHookState = HookState.DroppedHook;
@@ -266,10 +274,6 @@ namespace Player_Scripts
             droppingCoroutine = StartCoroutine(DropHookEnumerator());
         }
 
-        public float GetFlySpeed()
-        {
-            return currentBlock.GetSwingSpeed();
-        }
 
         public Transform GetPlayerTransform()
         {

@@ -5,8 +5,8 @@ namespace Destructibility
 {
     public class RespawnableLevelObject : MonoBehaviour
     {
-        private Vector3 spawnPosition;
-        [SerializeField] private Health Health;
+        protected Vector3 spawnPosition;
+        [SerializeField] protected Health Health;
 
         private void Awake()
         {
