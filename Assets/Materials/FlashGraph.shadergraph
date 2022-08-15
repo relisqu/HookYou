@@ -546,7 +546,7 @@
     },
     "m_Name": "FlashColor",
     "m_DefaultReferenceName": "Color_2def023644ee41e98bd5d11d9bb024d3",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "FlashColor",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,

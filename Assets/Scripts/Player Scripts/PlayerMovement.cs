@@ -24,9 +24,9 @@ namespace Player_Scripts
         public Vector2 GetMovement => movement;
         public bool IsMoving => isMoving;
 
-        public void CreateSwordTrust(Vector2 direction)
+        public void CreateSwordTrust(Vector2 direction, float force)
         {   rigidbody2D.velocity=Vector2.zero;
-            rigidbody2D.AddForce(SwordTrust*direction,ForceMode2D.Impulse);
+            rigidbody2D.AddForce(SwordTrust*force*direction,ForceMode2D.Impulse);
         }
 
         private void Update()

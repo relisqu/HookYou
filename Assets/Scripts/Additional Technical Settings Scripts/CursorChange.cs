@@ -27,7 +27,7 @@ namespace Additional_Technical_Settings_Scripts
 
         void Update()
         {
-            var hit= Physics2D.Raycast(new Vector2(Camera.ScreenToWorldPoint(Input.mousePosition).x,Camera.ScreenToWorldPoint(Input.mousePosition).y), Vector2.zero, 0f);
+          /*  var hit= Physics2D.Raycast(new Vector2(Camera.ScreenToWorldPoint(Input.mousePosition).x,Camera.ScreenToWorldPoint(Input.mousePosition).y), Vector2.zero, 0f);
             
             if (hit.collider == null)
             {
@@ -57,7 +57,7 @@ namespace Additional_Technical_Settings_Scripts
                 {
                     Cursor.SetCursor(HookBlockDisableCursor, Vector2.one, CursorMode.ForceSoftware);
                 }
-            }
+            }*/
         }
     }
 }

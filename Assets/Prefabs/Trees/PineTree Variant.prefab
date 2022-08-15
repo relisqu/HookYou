@@ -1,21 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!70 &1564945063
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6930726929740306782}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0000015435911, y: 0.17642118}
-  m_Size: {x: 0.4359741, y: 0.35284707}
-  m_Direction: 1
 --- !u!1001 &731646201980318033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -108,3 +92,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 731646201980318033}
   m_PrefabAsset: {fileID: 0}
+--- !u!70 &1564945063
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6930726929740306782}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0000015024863, y: 0.3962335}
+  m_Size: {x: 0.7924756, y: 0.7924756}
+  m_Direction: 1

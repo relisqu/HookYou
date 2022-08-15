@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 8970919883127258878}
   - component: {fileID: 8970919883127258879}
   - component: {fileID: 8970919883127258873}
+  - component: {fileID: 1864908628}
+  - component: {fileID: 6316766283681170825}
+  - component: {fileID: 3453272718249019186}
   m_Layer: 10
   m_Name: Shooter
   m_TagString: Untagged
@@ -52,7 +55,7 @@ MonoBehaviour:
   - {fileID: 4058927452824081450, guid: 9d1a726bd0a758d4d9df4bbe937c171a, type: 3}
   ShootingPosition: {fileID: 4051670682753199032}
   BulletParent: {fileID: 4051670682753199032}
-  BulletCount: 20
+  BulletCount: 15
 --- !u!114 &8970919883127258879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,6 +87,80 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitialHealth: 1
   Animator: {fileID: 8970919883127258879}
+  OnDeathMethods:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6316766283681170825}
+        m_TargetAssemblyTypeName: AI.SpriteRendererFlash, Assembly-CSharp
+        m_MethodName: Flash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnRespawnMethods: []
+  OnDamageMethods:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6316766283681170825}
+        m_TargetAssemblyTypeName: AI.SpriteRendererFlash, Assembly-CSharp
+        m_MethodName: Flash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1864908628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4051670682256166620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba7eb9c74028402b8c8bbdecd0321603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlashColor: {r: 1, g: 1, b: 1, a: 1}
+  FlashDuration: 0.2
+  SpriteRenderer: {fileID: 8970919884486408993}
+--- !u!114 &6316766283681170825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4051670682256166620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba7eb9c74028402b8c8bbdecd0321603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlashColor: {r: 1, g: 1, b: 1, a: 1}
+  FlashDuration: 0.2
+  SpriteRenderer: {fileID: 8970919884486408993}
+--- !u!114 &3453272718249019186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4051670682256166620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc2dce05ab04f71b7ccf021d0a380c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 8970919883127258873}
 --- !u!1 &5524738840333729177
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,7 +480,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 75d678e8abdd29247b9ae85da6d310f0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -454,6 +531,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1463569554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4051670682753199031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba7eb9c74028402b8c8bbdecd0321603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlashColor: {r: 1, g: 0, b: 0, a: 1}
+  FlashDuration: 0.2
+  SpriteRenderer: {fileID: 8970919884486408993}
 --- !u!114 &4528060351911744792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -477,6 +569,21 @@ MonoBehaviour:
   BounceEase: 0
   AppearDuration: 0
   FadeDuration: 0.02
+--- !u!114 &7530440725556097381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4051670682753199031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba7eb9c74028402b8c8bbdecd0321603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlashColor: {r: 1, g: 0, b: 0, a: 1}
+  FlashDuration: 0.2
+  SpriteRenderer: {fileID: 8970919884486408993}
 --- !u!114 &8970919883858164095
 MonoBehaviour:
   m_ObjectHideFlags: 0

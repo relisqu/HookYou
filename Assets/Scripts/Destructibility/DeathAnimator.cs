@@ -12,10 +12,22 @@ namespace Destructibility
         [SerializeField] private bool isAnimatedDifferently;
 
 
+        private bool _animatorExists;
+        private static readonly int Health = Animator.StringToHash("Health");
+
+        public void UpdateHealth(int health)
+        {
+            if (_animatorExists)
+            {
+                Animator.SetInteger(Health,health);
+            }
+        }
+
         private void Start()
         {
             if (Animator != null)
             {
+                _animatorExists = true;
                 Animator.gameObject.SetActive(false);
                 Animator.gameObject.SetActive(true);
             }

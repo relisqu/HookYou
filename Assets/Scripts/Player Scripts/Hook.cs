@@ -184,9 +184,11 @@ namespace Player_Scripts
                 var foundComponent = currentHit.transform.gameObject.TryGetComponent(out HookBlock block);
                 _isHookingObject = block.GetType() != typeof(StickyBlock);
                 currentBlock = block;
+                AudioManager.instance.Play("hook_hit");
                 return foundComponent;
             }
-
+            
+            AudioManager.instance.Play("hook_fail");
             ParticleSystemTransform.transform.parent = null;
             ParticleSystemTransform.transform.position  = Camera.ScreenToWorldPoint(Input.mousePosition)+Vector3.forward*30;
             ParticleSystem.Play();

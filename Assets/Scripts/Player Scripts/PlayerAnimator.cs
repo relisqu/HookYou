@@ -45,9 +45,10 @@ namespace Player_Scripts
             Player.OnDied -= PlayDieAnimation;
         }
 
-        void PlayAttackAnimation()
+        void PlayAttackAnimation(float thrustMultiplier)
         {
-            PlayerMovement.CreateSwordTrust(SwordRotator.right.normalized);
+            
+            PlayerMovement.CreateSwordTrust(SwordRotator.right.normalized, thrustMultiplier);
             TransformAnimator.SetTrigger(SwordAttacked);
         }
 

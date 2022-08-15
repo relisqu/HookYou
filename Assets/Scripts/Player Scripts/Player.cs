@@ -55,6 +55,8 @@ namespace Player_Scripts
             Hook.ClearHook();
             OnDied?.Invoke();
             Manager.RestartCurrentRoom(this);
+            AudioManager.instance.Play("death");
+            AudioManager.instance.Play("level_f");
         }
 
         private bool isTeleporting;

@@ -163,6 +163,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitialHealth: 1
   Animator: {fileID: 1591842491}
+  OnDeathMethods:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7927531307999678200}
+        m_TargetAssemblyTypeName: Additional_Technical_Settings_Scripts.SoundPlayer,
+          Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: wood_damage
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnRespawnMethods: []
+  OnDamageMethods: []
 --- !u!114 &1591842491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,6 +198,21 @@ MonoBehaviour:
   DeathTag: death
   RespawnTag: respawn
   isAnimatedDifferently: 0
+--- !u!114 &1600991314871859352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4621967049302896014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3e796e63f9546819d7314c83c2a1fd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 1591842490}
+  ImpulseForce: 840
+  Rigidbody2D: {fileID: 8180894713259630712}
 --- !u!114 &4787072043524546847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +230,7 @@ MonoBehaviour:
   HookShotSpeed: 0
   Rigidbody2D: {fileID: 8180894713259630712}
   PushSpeed: 15
---- !u!114 &1600991314871859352
+--- !u!114 &7927531307999678200
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -206,9 +239,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4621967049302896014}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3e796e63f9546819d7314c83c2a1fd5, type: 3}
+  m_Script: {fileID: 11500000, guid: 1099a2588a2c4276b44a79800b0bbadf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: {fileID: 1591842490}
-  ImpulseForce: 840
-  Rigidbody2D: {fileID: 8180894713259630712}

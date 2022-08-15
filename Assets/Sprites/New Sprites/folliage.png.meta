@@ -1,0 +1,1092 @@
+fileFormatVersion: 2
+guid: 703847fc86fbadd44971bf7c4624197c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6676588311026594179
+    second: folliage_0
+  - first:
+      213: -7928432318833863178
+    second: folliage_1
+  - first:
+      213: 7623914614805268
+    second: folliage_2
+  - first:
+      213: 5750289016880594550
+    second: folliage_3
+  - first:
+      213: -8498885459923773872
+    second: folliage_4
+  - first:
+      213: 2978359389853516214
+    second: folliage_5
+  - first:
+      213: 8943867607110546816
+    second: folliage_6
+  - first:
+      213: -6927029920478263033
+    second: folliage_8
+  - first:
+      213: -1072776580249215815
+    second: folliage_9
+  - first:
+      213: -5606880366658290002
+    second: folliage_10
+  - first:
+      213: -5923110263890523672
+    second: folliage_11
+  - first:
+      213: 1876856304406688963
+    second: folliage_12
+  - first:
+      213: 5971277529275719098
+    second: folliage_16
+  - first:
+      213: 5161348641633388687
+    second: folliage_17
+  - first:
+      213: 1392955553556870525
+    second: folliage_18
+  - first:
+      213: 4824179403314545302
+    second: folliage_19
+  - first:
+      213: -6683967255300842432
+    second: folliage_20
+  - first:
+      213: -5216088740292503959
+    second: folliage_21
+  - first:
+      213: 3411956729019007379
+    second: folliage_22
+  - first:
+      213: -7666347786695630747
+    second: folliage_23
+  - first:
+      213: 2830304391413032330
+    second: folliage_24
+  - first:
+      213: -826324681324904324
+    second: folliage_25
+  - first:
+      213: -7207913284130326496
+    second: folliage_26
+  - first:
+      213: 4052239381299159365
+    second: folliage_27
+  - first:
+      213: -6385824770752836145
+    second: folliage_28
+  - first:
+      213: -3854215411703441301
+    second: folliage_29
+  - first:
+      213: 3140387932595907637
+    second: folliage_30
+  - first:
+      213: -7918200803936176172
+    second: folliage_31
+  - first:
+      213: -7492880447330862623
+    second: folliage_32
+  - first:
+      213: -5054058880323492510
+    second: folliage_33
+  - first:
+      213: 8606435557141596482
+    second: folliage_34
+  - first:
+      213: -7916145758685222732
+    second: folliage_35
+  - first:
+      213: -6039430943815855257
+    second: folliage_36
+  - first:
+      213: -5233174773249696964
+    second: folliage_37
+  - first:
+      213: -963335452893380995
+    second: folliage_38
+  - first:
+      213: -847537758728869674
+    second: folliage_39
+  - first:
+      213: 4264598438508925175
+    second: folliage_40
+  - first:
+      213: -2182384765960336812
+    second: folliage_41
+  - first:
+      213: 4231228884836873829
+    second: folliage_42
+  - first:
+      213: 1041017434247256696
+    second: folliage_43
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: folliage_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 437
+        width: 108
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 381f34ed1b108ac50800000000000000
+      internalID: 6676588311026594179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_1
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 528
+        width: 35
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f55e2a00dc88f190800000000000000
+      internalID: -7928432318833863178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_2
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 531
+        width: 29
+        height: 60
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 413d962f8e51b1000800000000000000
+      internalID: 7623914614805268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_3
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 560
+        width: 6
+        height: 6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67e7ffef4612dcf40800000000000000
+      internalID: 5750289016880594550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_4
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 520
+        width: 49
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 056d28604b4ed0a80800000000000000
+      internalID: -8498885459923773872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_5
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 529
+        width: 19
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b10ba5c512455920800000000000000
+      internalID: 2978359389853516214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_6
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 458
+        width: 29
+        height: 25
+      alignment: 9
+      pivot: {x: 0.5161743, y: 0.2908081}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08572f7b3300f1c70800000000000000
+      internalID: 8943867607110546816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_8
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 474
+        width: 19
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70904610dfe3edf90800000000000000
+      internalID: -6927029920478263033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_9
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 476
+        width: 17
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bc13e2526bbc11f0800000000000000
+      internalID: -1072776580249215815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_10
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 475
+        width: 21
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eae7837530c5032b0800000000000000
+      internalID: -5606880366658290002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_11
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 473
+        width: 19
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e9c553d892eccda0800000000000000
+      internalID: -5923110263890523672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_12
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 464
+        width: 63
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c4fc966ddeeb0a10800000000000000
+      internalID: 1876856304406688963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_16
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 434
+        width: 16
+        height: 13
+      alignment: 9
+      pivot: {x: 0.5315981, y: 0.37000686}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abd50c3964d3ed250800000000000000
+      internalID: 5971277529275719098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_17
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 325
+        width: 54
+        height: 88
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f88c08a5e3bc0a740800000000000000
+      internalID: 5161348641633388687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_18
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 358
+        width: 86
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d753aad12b5c45310800000000000000
+      internalID: 1392955553556870525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_19
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 358
+        width: 106
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 692c1539b9de2f240800000000000000
+      internalID: 4824179403314545302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_20
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 360
+        width: 100
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04c5379c137cd33a0800000000000000
+      internalID: -6683967255300842432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_21
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 187
+        width: 84
+        height: 102
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96653fd3deabc97b0800000000000000
+      internalID: -5216088740292503959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_22
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 238
+        width: 56
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3918e265194b95f20800000000000000
+      internalID: 3411956729019007379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_23
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 175
+        width: 60
+        height: 140
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 560a7695e49ab9590800000000000000
+      internalID: -7666347786695630747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_24
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 173
+        width: 79
+        height: 160
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a85e66039d2474720800000000000000
+      internalID: 2830304391413032330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_25
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 175
+        width: 48
+        height: 144
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c70cd74941e4884f0800000000000000
+      internalID: -826324681324904324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_26
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 185
+        width: 31
+        height: 79
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 028b797ae0958fb90800000000000000
+      internalID: -7207913284130326496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_27
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 184
+        width: 29
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5416f236f327c3830800000000000000
+      internalID: 4052239381299159365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_28
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 171
+        width: 29
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcd036d543ef067a0800000000000000
+      internalID: -6385824770752836145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_29
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 105
+        width: 63
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b689499e083138ac0800000000000000
+      internalID: -3854215411703441301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_30
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 114
+        width: 44
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53c6d4baf26e49b20800000000000000
+      internalID: 3140387932595907637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_31
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 116
+        width: 35
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d7fb2d3256ec1290800000000000000
+      internalID: -7918200803936176172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_32
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 119
+        width: 37
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e9bf50aee0f30890800000000000000
+      internalID: -7492880447330862623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_33
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 103
+        width: 69
+        height: 66
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 265e864d9306cd9b0800000000000000
+      internalID: -5054058880323492510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_34
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 140
+        width: 11
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24947b55a83307770800000000000000
+      internalID: 8606435557141596482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_35
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 142
+        width: 15
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b82a5fbf53342290800000000000000
+      internalID: -7916145758685222732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_36
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 110
+        width: 27
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7639a5c0e81af2ca0800000000000000
+      internalID: -6039430943815855257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_37
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 115
+        width: 30
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3b9ae035470067b0800000000000000
+      internalID: -5233174773249696964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_38
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 117
+        width: 29
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7effb2728b81a2f0800000000000000
+      internalID: -963335452893380995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_39
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 95
+        width: 5
+        height: 5
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d82c3d16e0fc34f0800000000000000
+      internalID: -847537758728869674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_40
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 98
+        width: 12
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f0920d5fa5ee2b30800000000000000
+      internalID: 4264598438508925175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_41
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 94
+        width: 19
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45ac5bd3e9c96b1e0800000000000000
+      internalID: -2182384765960336812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_42
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 0
+        width: 123
+        height: 65
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 566f214b04858ba30800000000000000
+      internalID: 4231228884836873829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folliage_43
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 50
+        width: 15
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87adb4547df627e00800000000000000
+      internalID: 1041017434247256696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

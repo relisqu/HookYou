@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Assets.Scripts;
+using HookBlocks;
 using UnityEngine;
 
 namespace Destructibility
@@ -23,7 +24,7 @@ namespace Destructibility
 
         private void OnTriggerStay2D(Collider2D other)
         {
-            if (Health.IsAlive) TakeSwordDamage(other);
+          //  if (Health.IsAlive) TakeSwordDamage(other);
         }
 
         private void OnCollisionEnter2D(Collision2D other)
@@ -39,11 +40,13 @@ namespace Destructibility
         private void TakeSwordDamage(Collider2D other)
         {
             if (isAbleToAttack)
-                print("Immune");
+                print("Hit");
             if (isAbleToAttack && other.TryGetComponent(out SwordAttack sword) && Health.IsAlive && !isImmuneToDamage)
             {
                 if (sword.IsAttacking)
                 {
+                    
+
                     print("AA");
                     sword.Hit();
                     ReactToSwordHit(sword);

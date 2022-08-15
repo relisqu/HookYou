@@ -65,7 +65,7 @@ namespace AI
         {
             _isDashing = false;
             //isStunned = false;
-            StopAllCoroutines();
+            if (_dashCoroutine != null) StopCoroutine(_dashCoroutine);
             dashTween.Kill();
             UpdateHealthSprite();
             _animator.SetNormalSprite();
@@ -77,7 +77,7 @@ namespace AI
             Health.MarkAsDangerous(true);
         }
 
-        
+
         private void Update()
         {
             _animator.SetDashing(_isDashing);
@@ -96,9 +96,11 @@ namespace AI
             }
             else
             {
-                StartCoroutine(Dash());
+                _dashCoroutine = StartCoroutine(Dash());
             }
         }
+
+        private Coroutine _dashCoroutine;
 
         IEnumerator Dash()
         {
@@ -136,7 +138,7 @@ namespace AI
         {
             _player = FindObjectOfType<PlayerMovement>();
             _animator = GetComponent<BatMovementAnimator>();
-            Health.Respawned += ()=>
+            Health.Respawned += () =>
             {
                 isStunned = false;
                 StopAllCoroutines();
@@ -144,7 +146,6 @@ namespace AI
         }
 
 
-        
         public void StopAttacking()
         {
             StopAllCoroutines();

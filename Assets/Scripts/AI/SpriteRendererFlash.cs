@@ -31,7 +31,7 @@ namespace AI
 
         private void Start()
         {
-            _defaultColor = SpriteRenderer.material.color;
+            _defaultColor = Color.white;
         }
 
         private Color _defaultColor;

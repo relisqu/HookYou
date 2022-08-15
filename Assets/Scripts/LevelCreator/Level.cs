@@ -159,6 +159,8 @@ namespace Assets.Scripts.LevelCreator
             }
 
             IsCompleted = true;
+            AudioManager.instance.Play("door");
+            AudioManager.instance.Play("level_pass");
             Player.GetPropCollector().CollectGem();
         }
 

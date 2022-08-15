@@ -20,6 +20,8 @@ namespace HookBlocks
             
         }
 
+        private Hook _hook;
+        
         public override void AddActivitiesAtHookStart()
         { 
             Animator.SetBool(Stunned,true);

@@ -1,5 +1,51 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &627675811
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 627675813}
+  - component: {fileID: 627675812}
+  m_Layer: 17
+  m_Name: WhiteFlash
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &627675813
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627675811}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1905978877553214992}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &627675812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627675811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba7eb9c74028402b8c8bbdecd0321603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlashColor: {r: 1, g: 1, b: 1, a: 1}
+  FlashDuration: 0.2
+  SpriteRenderer: {fileID: 1905978877553214999}
 --- !u!1 &1905978877553214997
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,7 +58,6 @@ GameObject:
   - component: {fileID: 1905978877553214999}
   - component: {fileID: 1905978877553214998}
   - component: {fileID: 1905978877553215084}
-  - component: {fileID: 1905978877553214995}
   - component: {fileID: 1905978877553214994}
   - component: {fileID: -1611460766174812999}
   - component: {fileID: 1258876572}
@@ -23,6 +68,8 @@ GameObject:
   - component: {fileID: 4822104167549633854}
   - component: {fileID: 7651225039689082005}
   - component: {fileID: 5726797488303764943}
+  - component: {fileID: 1905978877553214995}
+  - component: {fileID: 1500717443}
   m_Layer: 17
   m_Name: Bat
   m_TagString: Untagged
@@ -43,6 +90,7 @@ Transform:
   m_Children:
   - {fileID: 3061404424463830334}
   - {fileID: 9058754127884911209}
+  - {fileID: 627675813}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -65,7 +113,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 75d678e8abdd29247b9ae85da6d310f0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -137,20 +185,6 @@ MonoBehaviour:
   DeathImpulseRange: 2.85
   DeathImpulseSpeed: 4.29
   Obstacle: {fileID: 5726797488303764943}
---- !u!114 &1905978877553214995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1905978877553214997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bafee9226f704fcaaeded69d9f00c3b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InitialHealth: 2
-  Animator: {fileID: 1905978877553214994}
 --- !u!114 &1905978877553214994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,6 +362,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ThrowbackForce: 0
   Health: {fileID: 1905978877553214995}
+--- !u!114 &1905978877553214995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905978877553214997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bafee9226f704fcaaeded69d9f00c3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialHealth: 2
+  Animator: {fileID: 1905978877553214994}
+  OnDeathMethods: []
+  OnRespawnMethods: []
+  OnDamageMethods:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 627675812}
+        m_TargetAssemblyTypeName: AI.SpriteRendererFlash, Assembly-CSharp
+        m_MethodName: Flash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1500717443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905978877553214997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba7eb9c74028402b8c8bbdecd0321603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlashColor: {r: 0.87843144, g: 0, b: 0, a: 1}
+  FlashDuration: 0.2
+  SpriteRenderer: {fileID: 1905978877553214999}
 --- !u!1 &3653066014339885169
 GameObject:
   m_ObjectHideFlags: 0

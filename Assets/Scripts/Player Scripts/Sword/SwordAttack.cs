@@ -40,23 +40,39 @@ namespace Assets.Scripts
 
         public int GetDamage => 1;
 
-        public Action Attacked;
+        public Action<float> Attacked;
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0) && !startedAttack)
+            if (Input.GetMouseButtonDown(0))
             {
-                Animator.SetTrigger(IsHitting);
-                Animator.SetBool(IsOddSwing,isOddSwing);
-                isOddSwing = !isOddSwing;
-                StartCoroutine(SwingSword());
+                var time = Time.time - AttackStartTime;
+                switch (startedAttack)
+                {
+                    case true when (SwordReload-time<0.25f && !_createdCombo):
+                        Animator.SetTrigger(IsHitting);
+                        Animator.SetBool(IsOddSwing,isOddSwing);
+                        isOddSwing = !isOddSwing;
+                        StartCoroutine(SwingSword(3f));
+                        print("Combo");
+                        _createdCombo = true;
+                        break;
+                    case false:
+                        _createdCombo = false;
+                        Animator.SetTrigger(IsHitting);
+                        Animator.SetBool(IsOddSwing,isOddSwing);
+                        isOddSwing = !isOddSwing;
+                        StartCoroutine(SwingSword(1));
+                        break;
+                }
             }
 
         }
-        
+
+        private bool _createdCombo;
         private void OnDrawGizmosSelected()
         {
             if (AttackPoint == null) return;
-            Gizmos.DrawWireSphere(AttackPoint.position, AttackRange);
+            //Gizmos.DrawWireSphere(AttackPoint.position, AttackRange);
         }
         
         public void StopAttack()
@@ -80,15 +96,17 @@ namespace Assets.Scripts
             SwordHitVFX.Hit();
         }
 
-        private IEnumerator SwingSword()
+        private IEnumerator SwingSword(float thrust)
         {
-            Attacked?.Invoke();
+            Attacked?.Invoke(thrust);
             isVisuallyAttacking = true;
             startedAttack = true;
+            AttackStartTime = Time.time;
             yield return new WaitForSeconds(SwordReload);
             startedAttack = false;
         }
 
+        private float AttackStartTime;
         private bool startedAttack;
         private bool isAttacking;
         private static readonly int IsHitting = Animator.StringToHash("IsHitting");

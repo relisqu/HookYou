@@ -157,6 +157,20 @@ MonoBehaviour:
   Health: {fileID: 762364215639046142}
   ImpulseForce: 700
   Rigidbody2D: {fileID: 4771628366323194796}
+--- !u!114 &276920394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8328523885845370458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec56279832264703aa27f84b10e7a940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 762364215639046142}
+  ResurrectionTimer: 1.35
 --- !u!114 &762364215639046142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,6 +185,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitialHealth: 4
   Animator: {fileID: 5725912228172155711}
+  OnDeathMethods: []
+  OnRespawnMethods: []
+  OnDamageMethods:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8606939836471301202}
+        m_TargetAssemblyTypeName: Additional_Technical_Settings_Scripts.SoundPlayer,
+          Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: metal_damage
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5725912228172155711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +220,18 @@ MonoBehaviour:
   DeathTag: die
   RespawnTag: resurrect
   isAnimatedDifferently: 0
+--- !u!114 &8606939836471301202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8328523885845370458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1099a2588a2c4276b44a79800b0bbadf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &9160890647624486166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,17 +249,3 @@ MonoBehaviour:
   HookShotSpeed: 0
   Rigidbody2D: {fileID: 4771628366323194796}
   PushSpeed: 0.15
---- !u!114 &276920394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8328523885845370458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec56279832264703aa27f84b10e7a940, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: {fileID: 762364215639046142}
-  ResurrectionTimer: 1.35
