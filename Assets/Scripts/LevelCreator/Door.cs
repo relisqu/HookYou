@@ -25,13 +25,21 @@ namespace Assets.Scripts.LevelCreator
             else
                 TryClose();
             DoorLock.gameObject.SetActive(false);
-            DoorLock.LockDestroyed += Open;
+            DoorLock.LockDestroyed += RemoveLock;
             DoorAnimator.SetupDoor(Type == DoorType.AlwaysOpened);
         }
 
+        public void RemoveLock()
+        {
+            Open();
+            hadLock = true;
+        }
+
+        bool hadLock = false;
+
         private void OnDisable()
         {
-            DoorLock.LockDestroyed -= Open;
+            DoorLock.LockDestroyed -= RemoveLock;
         }
 
         private void OnCollisionEnter2D(Collision2D other)
@@ -62,6 +70,7 @@ namespace Assets.Scripts.LevelCreator
         {
             player.LastVisitedDoor = ConnectedDoor;
             player.transform.position = ConnectedDoor.PlayerTeleportationPoint.position;
+            player.Hook.ClearHook();
             ConnectedDoor.EnteredDoor?.Invoke(player);
             ExitedDoor?.Invoke(player);
         }
@@ -73,6 +82,8 @@ namespace Assets.Scripts.LevelCreator
                 isCurrentlyOpened = false;
                 DoorAnimator.SetClosed();
                 DoorAnimator.SetupDoor(isCurrentlyOpened);
+                if (hadLock)
+                    SetBlocked();
             }
         }
 

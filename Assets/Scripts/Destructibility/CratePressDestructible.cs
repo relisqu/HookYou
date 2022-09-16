@@ -21,6 +21,7 @@ namespace Destructibility
 
                 Health.TakeDamage(Int32.MaxValue);
                 block.Drake(DrakeCoefficient);
+                isPressed = true;
             }
         }
 
@@ -29,9 +30,32 @@ namespace Destructibility
             if (other.gameObject.TryGetComponent(out PushableBlock block))
             {
                     Health.Respawn();
-                
+                    isPressed = false;
             }
 
         }
+
+        private void OnTriggerStay2D(Collider2D other)
+        {
+            if (other.gameObject.TryGetComponent(out PushableBlock block))
+            {
+                isPressed = true;
+            }
+        }
+
+        private void Update()
+        {
+            Animator.SetBool("isPressed",isPressed);
+        }
+
+        private void Start()
+        {
+            Animator = GetComponent<Animator>();
+        }
+
+        private Animator Animator;
+
+        private bool isPressed;
+
     }
 }

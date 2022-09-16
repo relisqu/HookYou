@@ -105,7 +105,7 @@ Transform:
   m_GameObject: {fileID: 8967790167479799898}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.02, y: 6.36, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children:
   - {fileID: 8990085051353108633}
   m_Father: {fileID: 0}
@@ -289,6 +289,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitialHealth: 1
   Animator: {fileID: 1475857543719129673}
+  OnDeathMethods: []
+  OnRespawnMethods: []
+  OnDamageMethods: []
 --- !u!114 &4058927452824081450
 MonoBehaviour:
   m_ObjectHideFlags: 0

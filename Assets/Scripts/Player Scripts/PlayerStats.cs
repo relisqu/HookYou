@@ -17,7 +17,8 @@ namespace Player_Scripts
         {
             if (Instance == null) Instance = this;
             AudioManager.instance.Play("main_music");
-            gemsCount = PlayerPrefs.GetInt(GemsPropertyString, 0);
+            //gemsCount = PlayerPrefs.GetInt(GemsPropertyString, 0);
+            gemsCount = 0;
             StartCoroutine(RandomWind());
         }
 
@@ -42,12 +43,15 @@ namespace Player_Scripts
             if (Input.GetKeyDown("space") && _won)
             {
                 SceneManager.LoadScene("FirstLocation");
-                SaveProperty(GemsPropertyString, 0);
+                //SaveProperty(GemsPropertyString, 0);
+                gemsCount = 0;
             }
             else if (Input.GetKeyDown(KeyCode.F))
             {
                 SceneManager.LoadScene("FirstLocation");
-                SaveProperty(GemsPropertyString, 0);
+                //SaveProperty(GemsPropertyString, 0);
+                gemsCount = 0;
+
             }
         }
 

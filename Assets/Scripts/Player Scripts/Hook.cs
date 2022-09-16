@@ -182,7 +182,7 @@ namespace Player_Scripts
                     Mathf.Infinity,
                     HookFocusLayers);
                 var foundComponent = currentHit.transform.gameObject.TryGetComponent(out HookBlock block);
-                _isHookingObject = block.GetType() != typeof(StickyBlock);
+                _isHookingObject = block.GetType() != typeof(NonStickyBlock);
                 currentBlock = block;
                 AudioManager.instance.Play("hook_hit");
                 return foundComponent;

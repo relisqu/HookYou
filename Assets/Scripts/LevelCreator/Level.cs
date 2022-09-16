@@ -63,6 +63,7 @@ namespace Assets.Scripts.LevelCreator
                 door.ExitedDoor += LeaveLevel;
             }
 
+            // transform.parent.gameObject.SetActive(false);
             IsCompleted = Type == LevelType.Auto;
         }
 
@@ -139,6 +140,7 @@ namespace Assets.Scripts.LevelCreator
                 currentActiveObjectsCount = defaultObjectsAmount;
                 foreach (var door in Doors) door.TryClose();
             }
+
         }
 
         private void ReduceObjectsAmount()
@@ -171,6 +173,7 @@ namespace Assets.Scripts.LevelCreator
 
         public void EnterLevel(Player player)
         {
+           // transform.parent.gameObject.SetActive(true);
             CameraShift.Instance.ShiftToNewLevel(transform.position);
             Player = player;
             if (player.LastVisitedDoor != null && !IsCompleted) player.LastVisitedDoor.SetBlocked();

@@ -618,11 +618,11 @@ MonoBehaviour:
   WallsLayers:
     serializedVersion: 2
     m_Bits: 33280
-  ChargeBulletsCount: 5
+  ChargeBulletsCount: 2
   SmallChargeReload: 0.2
   BigChargeReload: 2
   DetectDistance: 6.78
-  BulletSpeed: 7.5
+  BulletSpeed: 4.875
   ShootingModule: {fileID: 8970919883127258878}
   Animator: {fileID: 8970919884486408992}
   GrappleZone: {fileID: 6892428651695633296}

@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Assets.Scripts;
 using Assets.Scripts.LevelCreator;
 using DG.Tweening;
+using DG.Tweening.Core;
+using DG.Tweening.Plugins.Options;
 using UnityEngine;
 
 namespace LevelCreator
@@ -14,11 +16,13 @@ namespace LevelCreator
         [Min(0.1f)] [SerializeField] private float Speed;
         public Action LockDestroyed;
 
+        TweenerCore<Vector3, Vector3, VectorOptions> transformSeq;
+        TweenerCore<Color, Color, ColorOptions> colorSeq;
         public void DropLock()
         {
             if (!_isBlocked) return;
-            transform.DOLocalMove(2 * Offset, 2 / Speed).SetEase(Ease.InSine);
-            _spriteRenderer.DOColor(Color.clear, 1 / Speed).OnComplete(() => { gameObject.SetActive(false); });
+            transformSeq = transform.DOLocalMove(2 * Offset, 2 / Speed).SetEase(Ease.InSine);
+            colorSeq = _spriteRenderer.DOColor(Color.clear, 1 / Speed).OnComplete(() => { gameObject.SetActive(false); });
             _isBlocked = false;
             LockDestroyed();
         }
@@ -26,6 +30,8 @@ namespace LevelCreator
         public void SetLock()
         {
             transform.position = _defaultPosition;
+            transformSeq.Kill();
+            colorSeq.Kill();
             _spriteRenderer.color = Color.white;
             gameObject.SetActive(true);
             _isBlocked = true;
