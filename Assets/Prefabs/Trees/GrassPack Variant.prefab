@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1026945052342723232, guid: 8fc938dd2e418ca4dacb833a7de3f9bc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1445494580488975568, guid: 8fc938dd2e418ca4dacb833a7de3f9bc,
         type: 3}
       propertyPath: m_RootOrder
@@ -62,6 +67,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3643083691479732191, guid: 8fc938dd2e418ca4dacb833a7de3f9bc,
+        type: 3}
+      propertyPath: Health
+      value: 
+      objectReference: {fileID: 902130124}
     - target: {fileID: 4998325891784573142, guid: 8fc938dd2e418ca4dacb833a7de3f9bc,
         type: 3}
       propertyPath: m_Sprite
@@ -76,7 +86,7 @@ PrefabInstance:
     - target: {fileID: 8090442408033993082, guid: 8fc938dd2e418ca4dacb833a7de3f9bc,
         type: 3}
       propertyPath: m_Name
-      value: GrassPack Variant (1)
+      value: GrassPack Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8090442408033993082, guid: 8fc938dd2e418ca4dacb833a7de3f9bc,
         type: 3}

@@ -181,7 +181,10 @@ namespace Player_Scripts
                 currentHit = Physics2D.Raycast(position, HookToMouseDirection.normalized,
                     Mathf.Infinity,
                     HookFocusLayers);
-                var foundComponent = currentHit.transform.gameObject.TryGetComponent(out HookBlock block);
+                var foundComponent = currentHit.collider.gameObject.TryGetComponent(out HookBlock block);
+                
+                print(currentHit.collider.name+ " "+foundComponent);
+                
                 _isHookingObject = block.GetType() != typeof(NonStickyBlock);
                 currentBlock = block;
                 AudioManager.instance.Play("hook_hit");

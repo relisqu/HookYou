@@ -11,6 +11,18 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 47e106e4ec0e8ed4d819113907c28782, type: 2}
+    - target: {fileID: 1283277588, guid: f5069926bc0bf5f4e9c5bff7a6e37cca, type: 3}
+      propertyPath: m_Size.x
+      value: 19.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 1283277588, guid: f5069926bc0bf5f4e9c5bff7a6e37cca, type: 3}
+      propertyPath: m_Size.y
+      value: 12.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1283277588, guid: f5069926bc0bf5f4e9c5bff7a6e37cca, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1486047797, guid: f5069926bc0bf5f4e9c5bff7a6e37cca, type: 3}
       propertyPath: GrappleDelay
       value: 0.12
@@ -190,18 +202,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 931233691270490065}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1630036619882439106 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1905978877553214995, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
+--- !u!95 &931233692159134029 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1258876572, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
     type: 3}
   m_PrefabInstance: {fileID: 931233691270490065}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1630036619882439108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bafee9226f704fcaaeded69d9f00c3b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1675688538611263792 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1994344504812080865, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
@@ -226,18 +232,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 873d722cf0aa4d6292518f9c8bdf7c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &931233691951099364 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1486047797, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
+--- !u!50 &5622715730605089519 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 4822104167549633854, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
     type: 3}
   m_PrefabInstance: {fileID: 931233691270490065}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+--- !u!114 &1630036619882439106 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1905978877553214995, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
+    type: 3}
+  m_PrefabInstance: {fileID: 931233691270490065}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630036619882439108}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5cb3b1bb355458c9b49d8593f0c6fc5, type: 3}
+  m_Script: {fileID: 11500000, guid: bafee9226f704fcaaeded69d9f00c3b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &7211273842398563620 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7566046557690538741, guid: f5069926bc0bf5f4e9c5bff7a6e37cca,
+    type: 3}
+  m_PrefabInstance: {fileID: 931233691270490065}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1457967229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,7 +278,7 @@ MonoBehaviour:
   PauseDuration: 1.1
   BatWarningVfx: {fileID: 1675688538611263792}
   StunVfx: {fileID: 7468677681982789743}
-  GrappleZone: {fileID: 931233691951099364}
+  GrappleZone: {fileID: 0}
   DamagedSpeed: 2
   DamagedAttackRadius: 4.6
   DamagedDashRange: 4
@@ -289,3 +307,22 @@ MonoBehaviour:
   BounceEase: 0
   AppearDuration: 0
   FadeDuration: 0.02
+--- !u!114 &7104585020973180670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7211273842398563620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc9bc7e783554f128c98f9ce9f39f000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SwingSpeed: 1.3
+  RequiresUniqueHookSpeed: 0
+  HookShotSpeed: 0
+  Rigidbody2D: {fileID: 5622715730605089519}
+  PushSpeed: 0
+  Animator: {fileID: 931233692159134029}
+  EnemyBehaviour: {fileID: 1457967229}

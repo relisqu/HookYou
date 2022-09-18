@@ -1,0 +1,177 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4343938854779581500
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 292370732129945060, guid: 80e3554d0d595c048addbd5dc7374ae8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 292370732129945060, guid: 80e3554d0d595c048addbd5dc7374ae8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 292370732129945060, guid: 80e3554d0d595c048addbd5dc7374ae8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -52.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 292370732129945060, guid: 80e3554d0d595c048addbd5dc7374ae8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 292370732129945060, guid: 80e3554d0d595c048addbd5dc7374ae8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 292370732129945060, guid: 80e3554d0d595c048addbd5dc7374ae8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 292370732129945060, guid: 80e3554d0d595c048addbd5dc7374ae8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 292370732129945060, guid: 80e3554d0d595c048addbd5dc7374ae8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 292370732129945060, guid: 80e3554d0d595c048addbd5dc7374ae8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 292370732129945060, guid: 80e3554d0d595c048addbd5dc7374ae8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 292370732129945060, guid: 80e3554d0d595c048addbd5dc7374ae8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6150869130760860130, guid: 80e3554d0d595c048addbd5dc7374ae8,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7623914614805268, guid: 703847fc86fbadd44971bf7c4624197c,
+        type: 3}
+    - target: {fileID: 6937476957663719502, guid: 80e3554d0d595c048addbd5dc7374ae8,
+        type: 3}
+      propertyPath: m_Name
+      value: LavandaBush Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1326310808033761417, guid: 80e3554d0d595c048addbd5dc7374ae8, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 80e3554d0d595c048addbd5dc7374ae8, type: 3}
+--- !u!1 &6633269911095837810 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6937476957663719502, guid: 80e3554d0d595c048addbd5dc7374ae8,
+    type: 3}
+  m_PrefabInstance: {fileID: 4343938854779581500}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &6436905500648477582
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6633269911095837810}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.07978398, y: 0.25811502}
+  m_Size: {x: 0.9523824, y: 0.51624125}
+  m_Direction: 1
+--- !u!114 &2720852850778607096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6633269911095837810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a45695ac754d4f819175e658fa2643, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialHealth: 1
+  Animator: {fileID: 6408786014500640795}
+  OnDeathMethods:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3972735885638655718}
+        m_TargetAssemblyTypeName: Additional_Technical_Settings_Scripts.ReplaceSprite,
+          Assembly-CSharp
+        m_MethodName: ChangeSprite
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnRespawnMethods: []
+  OnDamageMethods: []
+--- !u!114 &3972735885638655718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6633269911095837810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63dcdeb9b712470787248271b9a8dfd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NewSprite: {fileID: -6927029920478263033, guid: 703847fc86fbadd44971bf7c4624197c,
+    type: 3}
+  NewMaterial: {fileID: 2100000, guid: 2c0e1c5bc4cd93f468310c901ea4f3d6, type: 2}
+--- !u!114 &5408678636221869664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6633269911095837810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 476259a8243a42beb151a8aeeb63cdb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 2720852850778607096}
+--- !u!114 &6408786014500640795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6633269911095837810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f85f16a0d8524e5daa0bca4644e16c21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 0}
+  HitTag: 
+  DeathTag: 
+  RespawnTag: 
+  isAnimatedDifferently: 1

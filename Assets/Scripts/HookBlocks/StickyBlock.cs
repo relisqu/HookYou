@@ -2,11 +2,12 @@ using Player_Scripts;
 
 namespace HookBlocks
 {
-    public class StickyBlock : HookBlock
+    public class StickyBlock : DefaultPushableBlock
     {
         protected override void AddActivitiesAfterHook(Hook hook)
         {
-            hook.HangOnWall();
+           // hook.HangOnWall();
+           hook.ClearHook();
         }
         
     }

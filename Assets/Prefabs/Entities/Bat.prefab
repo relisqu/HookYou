@@ -66,11 +66,10 @@ GameObject:
   - component: {fileID: 1994344504812080865}
   - component: {fileID: 4288884701813502192}
   - component: {fileID: 4822104167549633854}
-  - component: {fileID: 7651225039689082005}
   - component: {fileID: 5726797488303764943}
   - component: {fileID: 1905978877553214995}
   - component: {fileID: 1500717443}
-  m_Layer: 17
+  m_Layer: 10
   m_Name: Bat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +167,7 @@ MonoBehaviour:
   PauseDuration: 1
   BatWarningVfx: {fileID: 1994344504812080865}
   StunVfx: {fileID: 4288884701813502192}
-  GrappleZone: {fileID: 1486047797}
+  GrappleZone: {fileID: 0}
 --- !u!114 &1905978877553215084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,25 +328,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &7651225039689082005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1905978877553214997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc9bc7e783554f128c98f9ce9f39f000, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SwingSpeed: 1
-  RequiresUniqueHookSpeed: 0
-  HookShotSpeed: 0
-  Rigidbody2D: {fileID: 4822104167549633854}
-  PushSpeed: 0
-  Animator: {fileID: 1258876572}
-  EnemyBehaviour: {fileID: 1905978877553214998}
 --- !u!114 &5726797488303764943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,9 +480,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9058754127884911209}
-  - component: {fileID: 6574685196427989322}
   - component: {fileID: 6892999968708142885}
-  - component: {fileID: 1486047797}
+  - component: {fileID: 1283277588}
   m_Layer: 17
   m_Name: GrappableZone
   m_TagString: Untagged
@@ -519,27 +498,11 @@ Transform:
   m_GameObject: {fileID: 7566046557690538741}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.08, y: -0.28, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 0.11, y: 0.11, z: 1}
   m_Children: []
   m_Father: {fileID: 1905978877553214992}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &6574685196427989322
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7566046557690538741}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0142054325, y: 0.21309498}
-  m_Size: {x: 1.1345465, y: 0.57576853}
-  m_Direction: 1
 --- !u!114 &6892999968708142885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -555,22 +518,23 @@ MonoBehaviour:
   SwingSpeed: 1.3
   RequiresUniqueHookSpeed: 0
   HookShotSpeed: 0
-  Rigidbody2D: {fileID: 0}
+  Rigidbody2D: {fileID: 4822104167549633854}
   PushSpeed: 0
-  Animator: {fileID: 0}
+  Animator: {fileID: 1258876572}
   EnemyBehaviour: {fileID: 1905978877553214998}
---- !u!114 &1486047797
-MonoBehaviour:
+--- !u!70 &1283277588
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7566046557690538741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5cb3b1bb355458c9b49d8593f0c6fc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GrappleCollider2D: {fileID: 6574685196427989322}
-  ActivatedGrappleDuration: 0.5
-  GrappleDelay: 0
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.0852563, y: 4.0309753}
+  m_Size: {x: 17.22731, y: 12.989601}
+  m_Direction: 1
