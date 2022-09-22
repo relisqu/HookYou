@@ -62,6 +62,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1740475342830076104, guid: bdf4c18b3576c964aa202e2a0fea6f83,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6850871547352132003, guid: bdf4c18b3576c964aa202e2a0fea6f83,
         type: 3}
       propertyPath: m_Sprite
@@ -78,6 +83,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BigBush
+      objectReference: {fileID: 0}
+    - target: {fileID: 7640839677450872847, guid: bdf4c18b3576c964aa202e2a0fea6f83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8065179306491223914, guid: bdf4c18b3576c964aa202e2a0fea6f83,
         type: 3}

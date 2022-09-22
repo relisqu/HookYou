@@ -73,6 +73,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LavandaBush Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6937476957663719502, guid: 80e3554d0d595c048addbd5dc7374ae8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1326310808033761417, guid: 80e3554d0d595c048addbd5dc7374ae8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 80e3554d0d595c048addbd5dc7374ae8, type: 3}

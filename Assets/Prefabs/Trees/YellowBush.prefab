@@ -84,6 +84,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: YellowBush
       objectReference: {fileID: 0}
+    - target: {fileID: 7640839677450872847, guid: bdf4c18b3576c964aa202e2a0fea6f83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8065179306491223914, guid: bdf4c18b3576c964aa202e2a0fea6f83,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -134,6 +139,21 @@ MonoBehaviour:
         m_CallState: 2
   OnRespawnMethods: []
   OnDamageMethods: []
+--- !u!114 &5705182441878669132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469707012616050125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63dcdeb9b712470787248271b9a8dfd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NewSprite: {fileID: -8809968742669483289, guid: 703847fc86fbadd44971bf7c4624197c,
+    type: 3}
+  NewMaterial: {fileID: 2100000, guid: 2c0e1c5bc4cd93f468310c901ea4f3d6, type: 2}
 --- !u!114 &8085659888027021090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,18 +184,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: {fileID: 1476954375960089199}
---- !u!114 &5705182441878669132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 469707012616050125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63dcdeb9b712470787248271b9a8dfd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NewSprite: {fileID: -8809968742669483289, guid: 703847fc86fbadd44971bf7c4624197c,
-    type: 3}
-  NewMaterial: {fileID: 2100000, guid: 2c0e1c5bc4cd93f468310c901ea4f3d6, type: 2}
