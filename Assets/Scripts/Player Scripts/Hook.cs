@@ -173,27 +173,28 @@ namespace Player_Scripts
         public bool TryGetCurrentSelectedTarget()
         {
             var position = HookStartPivot.position;
-            HookToMouseDirection = Camera.ScreenToWorldPoint(Input.mousePosition) - position;
-            isAbleToHook = Physics2D.Raycast(position, HookToMouseDirection.normalized, MaxDistance,
-                HookFocusLayers);
+            GetCurrentHit();
             if (isAbleToHook)
             {
                 currentHit = Physics2D.Raycast(position, HookToMouseDirection.normalized,
                     Mathf.Infinity,
                     HookFocusLayers);
                 var foundComponent = currentHit.collider.gameObject.TryGetComponent(out HookBlock block);
-                
-                print(currentHit.collider.name+ " "+foundComponent);
-                
-                _isHookingObject = block.GetType() != typeof(NonStickyBlock);
-                currentBlock = block;
-                AudioManager.instance.Play("hook_hit");
-                return foundComponent;
+
+                print(currentHit.collider.name + " " + foundComponent);
+                if (foundComponent)
+                {
+                    _isHookingObject = block.GetType() != typeof(NonStickyBlock);
+                    currentBlock = block;
+                    AudioManager.instance.Play("hook_hit");
+                    return true;
+                }
             }
-            
+
             AudioManager.instance.Play("hook_fail");
             ParticleSystemTransform.transform.parent = null;
-            ParticleSystemTransform.transform.position  = Camera.ScreenToWorldPoint(Input.mousePosition)+Vector3.forward*30;
+            ParticleSystemTransform.transform.position =
+                Camera.ScreenToWorldPoint(Input.mousePosition) + Vector3.forward * 30;
             ParticleSystem.Play();
 
 
@@ -291,7 +292,7 @@ namespace Player_Scripts
         private Vector3 grapplePoint;
         private Transform hookEndDefaultParent;
         private Coroutine hookingCoroutine;
-        private Vector2 HookToMouseDirection;
+        public Vector2 HookToMouseDirection;
         private bool isAbleToHook;
         private bool isTryingToBreakHook;
         private Vector3 playerMovement;
@@ -301,6 +302,29 @@ namespace Player_Scripts
         public bool IsInHookRadius(Transform obj)
         {
             return Vector2.Distance(obj.position, transform.position) <= MaxDistance;
+        }
+
+        public float GetDistance()
+        {
+            return MaxDistance;
+        }
+
+        public RaycastHit2D GetCurrentHit()
+        {
+            var position = HookStartPivot.position;
+            HookToMouseDirection = Camera.ScreenToWorldPoint(Input.mousePosition) - position;
+            isAbleToHook = Physics2D.Raycast(position, HookToMouseDirection.normalized, MaxDistance,
+                HookFocusLayers);
+            
+            if (isAbleToHook)
+            {
+                currentHit = Physics2D.Raycast(position, HookToMouseDirection.normalized,
+                    Mathf.Infinity,
+                    HookFocusLayers);
+                return currentHit;
+            }
+
+            return default;
         }
     }
 }
