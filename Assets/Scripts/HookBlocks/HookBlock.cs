@@ -28,7 +28,13 @@ namespace HookBlocks
         {
             return HookShotSpeed;
         }
+        public virtual void AddActivitiesAtHookStart()
+        { 
+        }
 
+        public virtual void OnHookBreak()
+        {
+        }
         public void TouchTheBlock(Hook hook)
         {
             HookTouchedBlock?.Invoke();
