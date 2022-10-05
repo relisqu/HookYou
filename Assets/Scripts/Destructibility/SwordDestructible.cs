@@ -39,15 +39,10 @@ namespace Destructibility
 
         private void TakeSwordDamage(Collider2D other)
         {
-            if (isAbleToAttack)
-                print("Hit");
             if (isAbleToAttack && other.TryGetComponent(out SwordAttack sword) && Health.IsAlive && !isImmuneToDamage)
             {
                 if (sword.IsAttacking)
                 {
-                    
-
-                    print("AA");
                     sword.Hit();
                     ReactToSwordHit(sword);
                 }
