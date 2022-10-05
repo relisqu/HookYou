@@ -79,7 +79,6 @@ namespace AI
 
         private IEnumerator StartShootingBehaviour()
         {
-            GrappleZone.DisableCollider();
             while (true)
             {
                 if (PlayerIsInRange(_player))
@@ -111,7 +110,6 @@ namespace AI
                 if (PlayerIsInRange(_player))
                 {
                     Animator.SetTrigger(Shoot1);
-                    StartCoroutine(GrappleZone.ActivateGrappleCollider());
                 }
 
                 if (i < ChargeBulletsCount) yield return new WaitForSeconds(SmallChargeReload);

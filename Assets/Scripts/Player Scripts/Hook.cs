@@ -184,7 +184,8 @@ namespace Player_Scripts
                 print(currentHit.collider.name + " " + foundComponent);
                 if (foundComponent)
                 {
-                    _isHookingObject = block.GetType().IsAssignableFrom(typeof(NonStickyBlock)) ||  block.GetType()==typeof(NonStickyBlock);
+                    _isHookingObject =!( block.GetType()==typeof(EnemyHookableBlock) ||  block.GetType()==typeof(NonStickyBlock)) ;
+                     // _isHookingObject =block.GetType() != typeof(NonStickyBlock);
                     currentBlock = block;
                     AudioManager.instance.Play("hook_hit");
                     return true;
