@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 3218316697580001659}
   - component: {fileID: 3218316697580001657}
   - component: {fileID: 3218316697580001607}
-  - component: {fileID: 3218316697580001600}
   - component: {fileID: 1301139277188926972}
+  - component: {fileID: 3218316697580001600}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -162,6 +162,20 @@ MonoBehaviour:
   DeathTag: press
   RespawnTag: unpress
   isAnimatedDifferently: 0
+--- !u!114 &1301139277188926972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3218316697580001656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5db4b62426244054859b8a89c828f9ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 3218316697580001659}
+  DrakeCoefficient: 0.6
 --- !u!95 &3218316697580001600
 Animator:
   serializedVersion: 3
@@ -181,17 +195,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1301139277188926972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3218316697580001656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5db4b62426244054859b8a89c828f9ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: {fileID: 3218316697580001659}
-  DrakeCoefficient: 0.6
