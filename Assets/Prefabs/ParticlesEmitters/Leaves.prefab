@@ -106,6 +106,7 @@ MonoBehaviour:
       m_NumAlphaKeys: 2
     m_ColorMin: {r: 0, g: 0, b: 0, a: 0}
     m_ColorMax: {r: 0, g: 0, b: 0, a: 0}
+  ParticlesMultiplier: 0.64
 --- !u!70 &2423604409415685563
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

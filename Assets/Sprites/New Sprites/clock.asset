@@ -42,25 +42,48 @@ MonoBehaviour:
   - m_ElementType: 2
     m_Unicode: 65534
     m_GlyphIndex: 0
-    m_Scale: 2
-    m_Name: clock
-    m_HashCode: 116772488
+    m_Scale: 1
+    m_Name: clock_1
+    m_HashCode: -1683776890
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 1
+    m_Scale: 1
+    m_Name: clock_0
+    m_HashCode: -1683776889
   m_SpriteGlyphTable:
   - m_Index: 0
     m_Metrics:
-      m_Width: 32
-      m_Height: 32
-      m_HorizontalBearingX: 0.43
-      m_HorizontalBearingY: 22.19
-      m_HorizontalAdvance: 9
+      m_Width: 26
+      m_Height: 30
+      m_HorizontalBearingX: -7.8
+      m_HorizontalBearingY: 20.87
+      m_HorizontalAdvance: 26
     m_GlyphRect:
-      m_X: 0
+      m_X: 3
       m_Y: 0
-      m_Width: 32
-      m_Height: 32
-    m_Scale: 1
+      m_Width: 26
+      m_Height: 30
+    m_Scale: 1.8
     m_AtlasIndex: 0
-    sprite: {fileID: 21300000, guid: 58fa7533b6b931a42a2295aa9a4c9079, type: 3}
+    sprite: {fileID: -9035044116731178127, guid: 58fa7533b6b931a42a2295aa9a4c9079,
+      type: 3}
+  - m_Index: 1
+    m_Metrics:
+      m_Width: 6
+      m_Height: 6
+      m_HorizontalBearingX: -4.23
+      m_HorizontalBearingY: 5.19
+      m_HorizontalAdvance: 6
+    m_GlyphRect:
+      m_X: 13
+      m_Y: 40
+      m_Width: 6
+      m_Height: 6
+    m_Scale: 0.62
+    m_AtlasIndex: 0
+    sprite: {fileID: 8581363780399802525, guid: 58fa7533b6b931a42a2295aa9a4c9079,
+      type: 3}
   spriteInfoList: []
   fallbackSpriteAssets: []
 --- !u!21 &2659682557460477274
