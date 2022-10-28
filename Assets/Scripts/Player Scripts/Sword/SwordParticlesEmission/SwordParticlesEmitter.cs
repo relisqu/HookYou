@@ -16,7 +16,7 @@ namespace Player_Scripts.Sword.SwordParticlesEmission
                 ParticleSystem.MainModule settings = sword.EmitParticles.main;
                 ParticlesColorScheme.mode = ParticleSystemGradientMode.RandomColor;
                 settings.startColor = ParticlesColorScheme;
-                sword.EmitParticles.Emit(6);
+                sword.EmitParticles.Emit(10);
             }
         }
     }

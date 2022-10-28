@@ -49,6 +49,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -497406288967409369, guid: 0b6dae84991fc74428e4a20f27a21403,
         type: 3}
+    - target: {fileID: 6905663725012085597, guid: bd6340f1e915b4b40a20efc29137c5dc,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.06825659
+      objectReference: {fileID: 0}
+    - target: {fileID: 6905663725012085597, guid: bd6340f1e915b4b40a20efc29137c5dc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6905663725012085597, guid: bd6340f1e915b4b40a20efc29137c5dc,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.017780602
+      objectReference: {fileID: 0}
+    - target: {fileID: 6905663725012085597, guid: bd6340f1e915b4b40a20efc29137c5dc,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.06825659
+      objectReference: {fileID: 0}
     - target: {fileID: 7890870327756933531, guid: bd6340f1e915b4b40a20efc29137c5dc,
         type: 3}
       propertyPath: m_RootOrder
@@ -121,7 +141,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7640839677450872847}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0

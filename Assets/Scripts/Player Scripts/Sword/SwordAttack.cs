@@ -41,6 +41,7 @@ namespace Assets.Scripts
         public int GetDamage => 1;
 
         public Action<float> Attacked;
+        public ParticleSystem EmitParticles;
         private void Update()
         {
             if (Input.GetMouseButtonDown(0))
