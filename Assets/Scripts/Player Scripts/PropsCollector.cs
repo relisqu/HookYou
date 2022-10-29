@@ -17,6 +17,7 @@ namespace Player_Scripts
         [SerializeField]private Ease ease;
         [Min(0.1f)][SerializeField]private float CrystalSpeed;
         [SerializeField]private float CrystalDistance;
+        [SerializeField]private UpdateGemText UpdateGemText;
 
         public void CollectGem()
         {
@@ -24,7 +25,7 @@ namespace Player_Scripts
             gem.transform.DOLocalMoveY(CrystalDistance, 1 / CrystalSpeed).SetEase(ease).OnComplete(()=>CrystalDisappear(gem));
             
             PlayerStats.Instance.AddGemsCount(1);
-            
+            UpdateGemText.UpdateText();
         }
 
         private void CrystalDisappear(GameObject gem)
