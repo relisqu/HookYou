@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using DefaultNamespace;
 using DG.Tweening;
 using Player_Scripts;
 using UnityEngine;
@@ -7,9 +8,8 @@ using Random = UnityEngine.Random;
 
 public class Tablet : MonoBehaviour
 {
-    [SerializeField] private Transform TextTransform;
+    [SerializeField] private TextPopup TextPopup;
     [SerializeField] private TMPro.TMP_Text Text;
-    [SerializeField] private float TextSpeed;
     [SerializeField] private float TextCorruptionValue;
     private PlayerMovement _player;
 
@@ -36,12 +36,12 @@ public class Tablet : MonoBehaviour
 
     private void ShowText()
     {
-        TextTransform.DOScaleY(1f, TextSpeed).SetEase(Ease.OutCubic);
+        TextPopup.ShowText();
     }
 
     private void HideText()
     {
-        TextTransform.DOScaleY(0f, TextSpeed).SetEase(Ease.OutCubic);
+        TextPopup.HideText();
     }
 
     public void ResetText()

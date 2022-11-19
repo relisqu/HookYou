@@ -1,4 +1,5 @@
 using System;
+using DefaultNamespace;
 using DG.Tweening;
 using UnityEngine;
 
@@ -7,10 +8,8 @@ namespace Player_Scripts
     public class StatsText : MonoBehaviour
     {
         [SerializeField] private Rigidbody2D Rigidbody;
-        [SerializeField] private Transform TextTransform;
-        [SerializeField] private float TextSpeed;
         [SerializeField] private float WaitDuration;
-        [SerializeField] private Ease Easing;
+        [SerializeField] private TextPopup TextPopup;
         [Range(0,2f)][SerializeField] private float Sensitivity;
         private bool _isHidden;
 
@@ -29,31 +28,25 @@ namespace Player_Scripts
             else
             {
                 _waitStartTime = 0;
-                HideText();
+                if (!_isHidden) HideText();
             }
 
             if (_waitStartTime >= WaitDuration)
             {
-                ShowText();
+                if (_isHidden) ShowText();
             }
         }
 
         private void ShowText()
         {
-            if (!_isHidden) return;
-            TextTransform.DOScaleY(1f, TextSpeed).SetEase(Ease.OutCubic).OnComplete(() =>
-            {
-                _isHidden = false;
-            });
+            _isHidden = false;
+            TextPopup.ShowText();
         }
 
         private void HideText()
         {
-            if (_isHidden) return;
-            TextTransform.DOScaleY(0f, TextSpeed).SetEase(Easing).OnComplete(() =>
-            {
-                _isHidden = true;
-            });
+            _isHidden = true;
+            TextPopup.HideText();
         }
 
     }

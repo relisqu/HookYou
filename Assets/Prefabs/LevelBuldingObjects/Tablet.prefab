@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 1795473074}
   - component: {fileID: 1795473076}
   - component: {fileID: 1776984676513121034}
+  - component: {fileID: 4671816000031644256}
   m_Layer: 0
   m_Name: Tablet
   m_TagString: Untagged
@@ -179,9 +180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae75c184dd6c4a689ee5997c593c48cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextTransform: {fileID: 3185407742482981259}
+  TextPopup: {fileID: 4671816000031644256}
   Text: {fileID: 3185407741975715120}
-  TextSpeed: 0.54
   TextCorruptionValue: 0.3
 --- !u!58 &1795473071
 CircleCollider2D:
@@ -292,6 +292,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1099a2588a2c4276b44a79800b0bbadf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4671816000031644256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3185407741868988571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502624f2d95342859ab7d81c49634a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextTransform: {fileID: 3185407742482981259}
+  TextShowSpeed: 4
+  TextHideSpeed: 4
+  ShowEasing: 1
+  HideEasing: 1
 --- !u!1 &3185407741975715122
 GameObject:
   m_ObjectHideFlags: 0
