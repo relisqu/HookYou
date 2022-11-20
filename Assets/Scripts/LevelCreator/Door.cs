@@ -15,6 +15,7 @@ namespace Assets.Scripts.LevelCreator
         public Action<Player> EnteredDoor;
         public Action<Player> ExitedDoor;
 
+        public bool IsCurrentlyOpened => isCurrentlyOpened;
 
         private bool isCurrentlyOpened;
 
@@ -56,16 +57,27 @@ namespace Assets.Scripts.LevelCreator
 
         public void Open()
         {
-            if (Type != DoorType.AlwaysClosed)
+            if (Type != DoorType.AlwaysClosed && Type != DoorType.Manual)
             {
-                isCurrentlyOpened = true;
-                DoorAnimator.SetupDoor(isCurrentlyOpened);
-                DoorAnimator.SetOpened();
-                SetUnblocked();
+                ManuallyOpen();
             }
         }
 
-
+        public void ManuallyOpen()
+        {
+            isCurrentlyOpened = true;
+            DoorAnimator.SetupDoor(isCurrentlyOpened);
+            DoorAnimator.SetOpened();
+            SetUnblocked();
+        }
+        public void ManuallyClose()
+        {
+            isCurrentlyOpened = false;
+            DoorAnimator.SetClosed();
+            DoorAnimator.SetupDoor(isCurrentlyOpened);
+            if (hadLock)
+                SetBlocked();
+        }
         public void GoThroughDoor(Player player)
         {
             player.LastVisitedDoor = ConnectedDoor;
@@ -77,13 +89,9 @@ namespace Assets.Scripts.LevelCreator
 
         public void TryClose()
         {
-            if (Type != DoorType.AlwaysOpened)
+            if (Type != DoorType.AlwaysOpened && Type != DoorType.Manual)
             {
-                isCurrentlyOpened = false;
-                DoorAnimator.SetClosed();
-                DoorAnimator.SetupDoor(isCurrentlyOpened);
-                if (hadLock)
-                    SetBlocked();
+                ManuallyClose();
             }
         }
 
@@ -91,6 +99,7 @@ namespace Assets.Scripts.LevelCreator
         {
             Deadend,
             Enemy,
+            Manual,
             AlwaysOpened,
             AlwaysClosed
         }
