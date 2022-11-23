@@ -55,7 +55,7 @@ namespace LevelCreator
         private void OnTriggerExit2D(Collider2D other)
         {
             if (!other.TryGetComponent(out Player _)) return;
-            DOTween.KillAll();
+            DOTween.KillAll(transform);
             _playerInZone = false;
             ChangeColor(DefaultColor);
         }

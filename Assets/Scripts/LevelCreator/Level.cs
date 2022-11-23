@@ -173,6 +173,7 @@ namespace Assets.Scripts.LevelCreator
 
         public void EnterLevel(Player player)
         {
+            print("Entered level");
            // transform.parent.gameObject.SetActive(true);
             CameraShift.Instance.ShiftToNewLevel(transform.position);
             Player = player;

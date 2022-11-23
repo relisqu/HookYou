@@ -24,7 +24,7 @@ namespace Assets.Scripts.LevelCreator
             if (Type == DoorType.AlwaysOpened)
                 Open();
             else
-                TryClose();
+                ManuallyClose();
             DoorLock.gameObject.SetActive(false);
             DoorLock.LockDestroyed += RemoveLock;
             DoorAnimator.SetupDoor(Type == DoorType.AlwaysOpened);
