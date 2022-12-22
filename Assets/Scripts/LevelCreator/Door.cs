@@ -70,6 +70,7 @@ namespace Assets.Scripts.LevelCreator
             DoorAnimator.SetOpened();
             SetUnblocked();
         }
+
         public void ManuallyClose()
         {
             isCurrentlyOpened = false;
@@ -78,6 +79,7 @@ namespace Assets.Scripts.LevelCreator
             if (hadLock)
                 SetBlocked();
         }
+
         public void GoThroughDoor(Player player)
         {
             player.LastVisitedDoor = ConnectedDoor;
@@ -95,7 +97,7 @@ namespace Assets.Scripts.LevelCreator
             }
         }
 
-        private enum DoorType
+        public enum DoorType
         {
             Deadend,
             Enemy,
@@ -118,5 +120,25 @@ namespace Assets.Scripts.LevelCreator
         }
 
         private bool isBlocked;
+
+        public DoorAnimator GetDoorAnimator()
+        {
+            return DoorAnimator;
+        }
+
+        public Door GetConnectedDoor()
+        {
+            return ConnectedDoor;
+        }
+
+        public void SetConnectedDoor(Door doorConnectedDoor)
+        {
+            ConnectedDoor = doorConnectedDoor;
+        }
+
+        public void SetType(DoorType doorType)
+        {
+            Type = doorType;
+        }
     }
 }

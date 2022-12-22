@@ -9,7 +9,7 @@ namespace Assets.Scripts.LevelCreator
         [SerializeField] private List<Level> Levels;
 
        
-
+        
 
         public void EnterTheFloor(Player player)
         {
@@ -57,6 +57,11 @@ namespace Assets.Scripts.LevelCreator
             }
             return lastRoom.IsCompleted;
             
+        }
+
+        public void AddLevel(Level levelSettings)
+        {
+            if(!Levels.Contains(levelSettings))Levels.Add(levelSettings);
         }
     }
 }

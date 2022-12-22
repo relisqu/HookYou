@@ -190,5 +190,23 @@ namespace Assets.Scripts.LevelCreator
         {
             return TeleportationPoint.position;
         }
+
+        public void AddDoorToList(Door door)
+        {
+            Doors.Add(door);
+        }
+        public void RemoveDoorFromList(Door door)
+        {
+            Doors.Remove(door);
+        }
+
+        public List<Door> GetDoors()
+        {
+            return Doors;
+        }
+        private bool HasDoorComponent(GameObject obj)
+        {
+            return obj.transform.parent==transform && obj.TryGetComponent(out Door _);
+        }
     }
 }

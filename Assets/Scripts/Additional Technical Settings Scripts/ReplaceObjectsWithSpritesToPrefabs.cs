@@ -27,7 +27,7 @@ namespace Additional_Technical_Settings_Scripts
             {
                 var transform1 = sprite.transform;
                 //var obj=PrefabUtility.InstantiatePrefab(ReplaceObject) as GameObject;
-               //obj.transform.position = transform1.position;
+                //obj.transform.position = transform1.position;
                 //obj.transform.rotation = transform1.rotation;
                 //obj.transform.parent = transform1.parent;
                                 
