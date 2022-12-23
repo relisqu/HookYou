@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 745e7c62fb3d65141b72099cd58323b3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_DefaultSprite: {fileID: 2755468964844097192, guid: 3e627f8c181438b49bc81afacde5c7b6,
+      type: 3}
+  - m_DefaultGameObject: {instanceID: 0}
+  - AbyssTile: {fileID: 11400000, guid: 322f2513e58f2144a86bc7af6fedde53, type: 2}
+  - FullTile: {fileID: 11400000, guid: 4d10acc8bef39f242a368a8627b4798a, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
