@@ -1,4 +1,3 @@
-
 using Assets.Scripts.LevelCreator;
 using LevelCreator;
 using Sirenix.OdinInspector;
@@ -34,7 +33,7 @@ namespace Additional_Technical_Settings_Scripts
             {
                 _message = "Selected level doesn't have doors to connect with this";
                 if (door == null || door.GetDoorAnimator().GetDirection() != doorDirection) continue;
-                
+
                 if (door.GetConnectedDoor() == null)
                 {
                     _doorConnectedDoor = door;
@@ -52,14 +51,15 @@ namespace Additional_Technical_Settings_Scripts
         [DisableIf("DoorIsNull")]
         public void AddDoor()
         {
+            CheckIfLevelExists(LevelNumber);
             Level levelSettings = GetComponentInChildren<Level>();
             Door door = PrefabUtility.InstantiatePrefab(Door, levelSettings.transform) as Door;
             if (door == null) return;
             levelSettings.AddDoorToList(door);
             door.SetType(DoorType);
             if (_doorConnectedDoor == null) return;
-            door.SetConnectedDoor(_doorConnectedDoor);
             _doorConnectedDoor.SetConnectedDoor(door);
+            door.SetConnectedDoor(_doorConnectedDoor);
         }
 
         [Button]
