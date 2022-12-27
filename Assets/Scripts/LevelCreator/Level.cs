@@ -82,7 +82,11 @@ namespace Assets.Scripts.LevelCreator
                 levelObject.GetHealth().Respawned -= RespawnObject;
             }
 
-            foreach (var door in Doors) door.EnteredDoor -= EnterLevel;
+            foreach (var door in Doors)
+            {
+                if (door != null)
+                    door.EnteredDoor -= EnterLevel;
+            }
         }
 
         public LevelType GetLevelType()
