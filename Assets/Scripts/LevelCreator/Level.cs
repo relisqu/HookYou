@@ -59,6 +59,7 @@ namespace Assets.Scripts.LevelCreator
 
             foreach (var door in Doors)
             {
+                if (door == null) continue;
                 door.EnteredDoor += EnterLevel;
                 door.ExitedDoor += LeaveLevel;
             }
@@ -109,7 +110,12 @@ namespace Assets.Scripts.LevelCreator
                 Timer.Restart();
             }
 
-            foreach (var door in Doors) door.TryClose();
+
+            foreach (var door in Doors)
+            {
+                if (door == null) continue;
+                door.TryClose();
+            }
 
             //Player.transform.position = TeleportationPoint.position;
         }
@@ -138,9 +144,12 @@ namespace Assets.Scripts.LevelCreator
                 }
 
                 currentActiveObjectsCount = defaultObjectsAmount;
-                foreach (var door in Doors) door.TryClose();
+                foreach (var door in Doors)
+                {
+                    if (door == null) continue;
+                    door.TryClose();
+                }
             }
-
         }
 
         private void ReduceObjectsAmount()
@@ -168,13 +177,17 @@ namespace Assets.Scripts.LevelCreator
 
         private void OpenAllDoors()
         {
-            foreach (var door in Doors) door.Open();
+            foreach (var door in Doors)
+            {
+                if (door == null) continue;
+                door.Open();
+            }
         }
 
         public void EnterLevel(Player player)
         {
             print("Entered level");
-           // transform.parent.gameObject.SetActive(true);
+            // transform.parent.gameObject.SetActive(true);
             CameraShift.Instance.ShiftToNewLevel(transform.position);
             Player = player;
             if (player.LastVisitedDoor != null && !IsCompleted) player.LastVisitedDoor.SetBlocked();
@@ -193,10 +206,13 @@ namespace Assets.Scripts.LevelCreator
 
         public void AddDoorToList(Door door)
         {
+            if (door == null) return;
             Doors.Add(door);
         }
+
         public void RemoveDoorFromList(Door door)
         {
+            if (door == null) return;
             Doors.Remove(door);
         }
 
@@ -204,9 +220,10 @@ namespace Assets.Scripts.LevelCreator
         {
             return Doors;
         }
+
         private bool HasDoorComponent(GameObject obj)
         {
-            return obj.transform.parent==transform && obj.TryGetComponent(out Door _);
+            return obj.transform.parent == transform && obj.TryGetComponent(out Door _);
         }
     }
 }
