@@ -43,7 +43,7 @@ namespace Assets.Scripts.LevelCreator
             DoorLock.LockDestroyed -= RemoveLock;
         }
 
-        private void OnCollisionEnter2D(Collision2D other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
             if (!isCurrentlyOpened || !other.gameObject.TryGetComponent(out Player player)) return;
             GoThroughDoor(player);
