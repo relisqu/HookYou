@@ -26,6 +26,9 @@ TextureImporter:
   - first:
       213: -1803178155874539499
     second: shooter_7
+  - first:
+      213: 7419933374542002447
+    second: shooter_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -302,6 +305,27 @@ TextureImporter:
       bones: []
       spriteID: 518aa585503d9f6e0800000000000000
       internalID: -1803178155874539499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shooter_8
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 12
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0934a67716e8f660800000000000000
+      internalID: 7419933374542002447
       vertices: []
       indices: 
       edges: []
