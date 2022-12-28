@@ -2,6 +2,7 @@ using System;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
+using UnityEngine.Rendering.Universal;
 using Vector3 = UnityEngine.Vector3;
 
 namespace Player_Scripts

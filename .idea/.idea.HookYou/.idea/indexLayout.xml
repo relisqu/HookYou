@@ -33,6 +33,7 @@
     </explicitIncludes>
     <explicitExcludes>
       <Path>.git</Path>
+      <Path>.github</Path>
       <Path>.idea</Path>
       <Path>Curves_Data</Path>
       <Path>Library</Path>
