@@ -60,12 +60,6 @@ namespace Player_Scripts
         public void AddGemsCount(int additionalGems)
         {
             gemsCount += additionalGems;
-            if (gemsCount >= 12)
-            {
-                GameScreen.SetActive(true);
-                _won = true;
-            }
-
             SaveProperty(GemsPropertyString, gemsCount);
         }
 

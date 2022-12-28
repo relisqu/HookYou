@@ -9,7 +9,7 @@ namespace LevelCreator
     public class GemDoor : MonoBehaviour
     {
         [SerializeField] private Door Door;
-        [SerializeField] private Level Level;
+        [Tooltip("Current level the door is in")][SerializeField] private Level Level;
         [FormerlySerializedAs("GemCount")] [SerializeField] private int RequiredGemCount;
 
         private void OnEnable()

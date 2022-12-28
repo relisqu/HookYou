@@ -34,6 +34,11 @@ namespace Player_Scripts
             {
                 Die();
             }
+
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                Manager.GetCurrentRoom(this).CompleteLevelAutomatically();
+            }
         }
 
         public void Teleport()

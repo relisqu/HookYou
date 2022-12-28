@@ -8,23 +8,25 @@ namespace Assets.Scripts.LevelCreator
     {
         [SerializeField] private List<Level> Levels;
 
-       
-        
 
         public void EnterTheFloor(Player player)
         {
             Levels[0].EnterLevel(player);
-            
         }
 
         public void RestartFloor(Player player)
         {
             foreach (var room in Levels) room.Restart();
-            
+
 
             player.LastVisitedDoor = null;
             var checkpoint = Levels.FindLast(level => level.IsCompleted);
             player.transform.position = checkpoint.GetDefaultTeleportLocation();
+        }
+
+        public Level GetCurrentRoom(Player player)
+        {
+            return Levels.FindLast(level => level.Player == player);
         }
 
         public void RestartCurrentRoom(Player player)
@@ -47,6 +49,7 @@ namespace Assets.Scripts.LevelCreator
                     : lastRoom.GetDefaultTeleportLocation();
             }
         }
+
         public bool IsCurrentRoomCompleted(Player player)
         {
             var lastRoom = Levels.FindLast(level => level.Player == player);
@@ -55,13 +58,13 @@ namespace Assets.Scripts.LevelCreator
                 Levels[0].Restart();
                 return Levels[0].IsCompleted;
             }
+
             return lastRoom.IsCompleted;
-            
         }
 
         public void AddLevel(Level levelSettings)
         {
-            if(!Levels.Contains(levelSettings))Levels.Add(levelSettings);
+            if (!Levels.Contains(levelSettings)) Levels.Add(levelSettings);
         }
     }
 }

@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using Assets.Scripts.LevelCreator;
 using LevelCreator;
 using Sirenix.OdinInspector;
@@ -81,6 +82,7 @@ namespace Additional_Technical_Settings_Scripts
         {
             Level levelSettings = GetComponentInChildren<Level>();
             FindObjectOfType<LevelManager>().AddLevel(levelSettings);
+            FindObjectOfType<AbyssColliderChanger>().UpdateCollidersList();
         }
 
         private Door _doorConnectedDoor;

@@ -68,6 +68,13 @@ namespace Assets.Scripts.LevelCreator
             IsCompleted = Type == LevelType.Auto;
         }
 
+        public void CompleteLevelAutomatically()
+        {
+            foreach (var obj in CompletionLevelObjects)
+            {
+                obj.GetHealth().TakeDamage(1000);
+            }
+        }
 
         private void RespawnObject()
         {
@@ -127,11 +134,7 @@ namespace Assets.Scripts.LevelCreator
         private void LeaveLevel(Player _)
         {
             //TODO: Check this method is bugs occur
-            if (LevelType.Time == Type)
-            {
-                Timer.TimeIsOver -= Player.Die;
-                Timer.Reset();
-            }
+
 
             Player = null;
 
@@ -171,6 +174,8 @@ namespace Assets.Scripts.LevelCreator
             if (LevelType.Time == Type)
             {
                 Timer.Disable();
+                Timer.TimeIsOver -= Player.Die;
+                Timer.Reset();
             }
 
             IsCompleted = true;
