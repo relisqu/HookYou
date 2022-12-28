@@ -34,7 +34,7 @@ namespace Assets.Scripts
         private bool isVisuallyAttacking;
 
         public bool IsAttacking => isAttacking;
-
+        public int SwingId;
         public bool StartedAttack => startedAttack;
         public bool IsAttackingVisually => isVisuallyAttacking;
 
@@ -99,6 +99,7 @@ namespace Assets.Scripts
 
         private IEnumerator SwingSword(float thrust)
         {
+            SwingId += 1;
             Attacked?.Invoke(thrust);
             isVisuallyAttacking = true;
             startedAttack = true;

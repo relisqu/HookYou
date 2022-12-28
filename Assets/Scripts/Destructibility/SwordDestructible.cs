@@ -11,6 +11,8 @@ namespace Destructibility
         [SerializeField] protected Health Health;
         private bool isAbleToAttack = true;
         private bool isImmuneToDamage = false;
+        private int SwordAttackId;
+
 
         private void OnEnable()
         {
@@ -24,7 +26,7 @@ namespace Destructibility
 
         private void OnTriggerStay2D(Collider2D other)
         {
-          //  if (Health.IsAlive) TakeSwordDamage(other);
+            //  if (Health.IsAlive) TakeSwordDamage(other);
         }
 
         private void OnCollisionEnter2D(Collision2D other)
@@ -43,8 +45,13 @@ namespace Destructibility
             {
                 if (sword.IsAttacking)
                 {
-                    sword.Hit();
-                    ReactToSwordHit(sword);
+                    if (sword.SwingId != SwordAttackId)
+                    {
+                        sword.Hit();
+                        ReactToSwordHit(sword);
+                    }
+                    
+                    SwordAttackId = sword.SwingId;
                 }
             }
         }
