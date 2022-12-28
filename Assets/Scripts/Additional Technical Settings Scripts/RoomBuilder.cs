@@ -63,7 +63,7 @@ namespace Additional_Technical_Settings_Scripts
             if (_doorConnectedDoor == null) return;
             _doorConnectedDoor.SetConnectedDoor(door);
             door.SetConnectedDoor(_doorConnectedDoor);
-#endif
+#endif 
         }
 
         [Button]
