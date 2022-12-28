@@ -54,13 +54,16 @@ namespace Additional_Technical_Settings_Scripts
         {
             CheckIfLevelExists(LevelNumber);
             Level levelSettings = GetComponentInChildren<Level>();
+#if UNITY_EDITOR
             Door door = PrefabUtility.InstantiatePrefab(Door, levelSettings.transform) as Door;
+
             if (door == null) return;
             levelSettings.AddDoorToList(door);
             door.SetType(DoorType);
             if (_doorConnectedDoor == null) return;
             _doorConnectedDoor.SetConnectedDoor(door);
             door.SetConnectedDoor(_doorConnectedDoor);
+#endif
         }
 
         [Button]
