@@ -135,6 +135,12 @@ namespace Assets.Scripts.LevelCreator
         {
             //TODO: Check this method is bugs occur
 
+            if (LevelType.Time == Type && !IsCompleted)
+            {
+                Timer.Disable();
+                Timer.TimeIsOver -= Player.Die;
+                Timer.Reset();
+            }
 
             Player = null;
 
