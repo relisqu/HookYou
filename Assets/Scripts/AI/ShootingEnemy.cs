@@ -32,7 +32,7 @@ namespace AI
         [BoxGroup("References")] [SerializeField]
         private GrappleZone GrappleZone;
 
-
+        
         public void StopShooting()
         {
             StopAllCoroutines();

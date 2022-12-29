@@ -147,6 +147,9 @@ GameObject:
   - component: {fileID: 1795271233}
   - component: {fileID: 1795271232}
   - component: {fileID: 1795271231}
+  - component: {fileID: 8626857668153121968}
+  - component: {fileID: 2880703984534190167}
+  - component: {fileID: 2443560636307429430}
   m_Layer: 5
   m_Name: GemText
   m_TagString: Untagged
@@ -235,6 +238,55 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 524087
+--- !u!114 &8626857668153121968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795271226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e49b54884c9f42179bd0fa11f941dd2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultColor: {r: 1, g: 1, b: 1, a: 1}
+  RedColor: {r: 0.990566, g: 0.17194729, b: 0.17194729, a: 1}
+  GreenColor: {r: 0.5709397, g: 0.9056604, b: 0.43915984, a: 1}
+  Text: {fileID: 451350282}
+  ColorChangeSpeed: 4.6
+  DoorOpenWaitPause: 0.25
+--- !u!114 &2880703984534190167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795271226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b9a66d023574be4bb7d871ea758c41a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Door: {fileID: 6092271532302140676}
+  Level: {fileID: 0}
+  RequiredGemCount: 5
+--- !u!58 &2443560636307429430
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795271226}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.39, y: -1.29}
+  serializedVersion: 2
+  m_Radius: 2.55
 --- !u!1001 &6196990012372708777
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -325,17 +377,17 @@ PrefabInstance:
     - target: {fileID: 5709332196874510466, guid: afe08805f9db4984ab76520a70742eb8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.8
+      value: -2.16
       objectReference: {fileID: 0}
     - target: {fileID: 6458644893736870135, guid: afe08805f9db4984ab76520a70742eb8,
         type: 3}
       propertyPath: m_Size.x
-      value: 1.3928757
+      value: 1.4707543
       objectReference: {fileID: 0}
     - target: {fileID: 6458644893736870135, guid: afe08805f9db4984ab76520a70742eb8,
         type: 3}
       propertyPath: m_Size.y
-      value: 1.6271334
+      value: 1.3779216
       objectReference: {fileID: 0}
     - target: {fileID: 6458644893736870135, guid: afe08805f9db4984ab76520a70742eb8,
         type: 3}
@@ -345,21 +397,15 @@ PrefabInstance:
     - target: {fileID: 6458644893736870135, guid: afe08805f9db4984ab76520a70742eb8,
         type: 3}
       propertyPath: m_Offset.x
-      value: 0.037362695
+      value: -0.0015766025
       objectReference: {fileID: 0}
     - target: {fileID: 6458644893736870135, guid: afe08805f9db4984ab76520a70742eb8,
         type: 3}
       propertyPath: m_Offset.y
-      value: -0.09058285
+      value: 0.034023046
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afe08805f9db4984ab76520a70742eb8, type: 3}
---- !u!1 &1560869869112390051 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4875555018038811658, guid: afe08805f9db4984ab76520a70742eb8,
-    type: 3}
-  m_PrefabInstance: {fileID: 6196990012372708777}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1560869869112390062 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4875555018038811655, guid: afe08805f9db4984ab76520a70742eb8,
@@ -372,58 +418,9 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 6196990012372708777}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1560869869112390051}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d492418ee3d44c2a80a95efd78f912d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!58 &1299489898
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1560869869112390051}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 2.55
---- !u!114 &1299489899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1560869869112390051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b9a66d023574be4bb7d871ea758c41a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Door: {fileID: 6092271532302140676}
-  Level: {fileID: 0}
-  RequiredGemCount: 5
---- !u!114 &1299489902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1560869869112390051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e49b54884c9f42179bd0fa11f941dd2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DefaultColor: {r: 1, g: 1, b: 1, a: 1}
-  RedColor: {r: 0.990566, g: 0.17194729, b: 0.17194729, a: 1}
-  GreenColor: {r: 0.5709397, g: 0.9056604, b: 0.43915984, a: 1}
-  Text: {fileID: 451350282}
-  ColorChangeSpeed: 4.6
-  DoorOpenWaitPause: 0.25

@@ -19,6 +19,7 @@ namespace AI
 
         public void SetStunned()
         {
+            if (!Health.IsAlive) return;
             ShowStunEffect();
             Stunned?.Invoke();
         }
