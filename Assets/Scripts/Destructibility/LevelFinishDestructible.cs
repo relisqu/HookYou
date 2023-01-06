@@ -11,15 +11,14 @@ namespace Destructibility
 
         private void Start()
         {
-            print("AAAAAAAAAAA");
-            Level.CompletedLevel += Health.Died;
-            Level.RestartedLevel += Health.Respawned;
+            Level.CompletedLevel += Health.Die;
+            Level.RestartedLevel += Health.Respawn;
         }
 
         private void OnDestroy()
         {
-            Level.CompletedLevel -= Health.Died;
-            Level.RestartedLevel -= Health.Respawned;
+            Level.CompletedLevel -=  Health.Die;
+            Level.RestartedLevel -= Health.Respawn;
         }
     }
 }

@@ -44,7 +44,6 @@ namespace LevelCreator
         private void Awake()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
-            print(_spriteRenderer);
             _defaultPosition = transform.position;
         }
 

@@ -207,8 +207,6 @@ namespace Assets.Scripts.LevelCreator
         private void CompleteLevel()
         {
             if (IsCompleted) return;
-            print("COMPLETED");
-            print(CompletedLevel.GetInvocationList().Length);
             CompletedLevel?.Invoke();
             if (LevelType.Time == Type)
             {
