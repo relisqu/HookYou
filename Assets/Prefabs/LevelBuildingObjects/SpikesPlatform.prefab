@@ -275,7 +275,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!60 &36158792362740501
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -289,10 +289,10 @@ PolygonCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.57}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.4}
+    pivot: {x: 0.5, y: 0.1}
     oldSize: {x: 1.875, y: 1.5625}
     newSize: {x: 1.875, y: 1.5625}
     adaptiveTilingThreshold: 0.5
@@ -347,7 +347,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 36158792362740520}
         m_TargetAssemblyTypeName: Obstacles.MovingObstacle, Assembly-CSharp
-        m_MethodName: ResetMovement
+        m_MethodName: RestartMovement
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -387,16 +387,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e75059fa1cb24bbaaaeac36758567e7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Easing: 13
+  Speed: 3
+  WaitsOnStop: 1
+  WaitDuration: 0.1
   Points:
-  - {x: 22.9, y: -21.02, z: 0}
-  - {x: 16.038473, y: -15.99438, z: 0}
-  - {x: 14.1143465, y: -16.984509, z: 0}
-  - {x: 12.929999, y: -20.56, z: 0}
+  - {x: 21.5, y: -20.5, z: 0}
+  - {x: 13.2, y: -20.55, z: 0}
   HelperTransform: {fileID: 36158791986699541}
-  Easing: 4
-  Speed: 2
-  WaitsOnStop: 0
-  WaitDuration: 2
 --- !u!114 &2053507105
 MonoBehaviour:
   m_ObjectHideFlags: 0

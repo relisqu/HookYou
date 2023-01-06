@@ -12,6 +12,18 @@ namespace Obstacles
 {
     public class MovingObstacle : MonoBehaviour
     {
+        [BoxGroup("MovementSettings")] [SerializeField]
+        private Ease Easing;
+
+        [BoxGroup("MovementSettings")] [SerializeField]
+        private float Speed;
+
+        [BoxGroup("MovementSettings")] [SerializeField]
+        private bool WaitsOnStop;
+
+        [BoxGroup("MovementSettings")] [ShowIf("WaitsOnStop")] [SerializeField]
+        private float WaitDuration;
+
         [BoxGroup("Points")] [SerializeField] private List<Vector3> Points;
         [BoxGroup("Points")] [SerializeField] private Transform HelperTransform;
 
@@ -28,30 +40,27 @@ namespace Obstacles
             _isMoving = true;
             _currentPoint++;
             _currentPoint %= Points.Count;
-            movementTween = transform.DOMove(Points[_currentPoint], Speed).SetSpeedBased().SetEase(Easing)
+            _movementTween = transform.DOMove(Points[_currentPoint], Speed).SetSpeedBased().SetEase(Easing)
                 .OnComplete(() => StartCoroutine(WaitOnPoint()));
         }
 
-        [Button]
         public void StopMovement()
         {
-            movementTween?.Kill();
+            _movementTween?.Kill();
             StopAllCoroutines();
             _canMove = false;
             _isMoving = false;
         }
 
-        [Button]
-        public void ResetMovement()
+        public void RestartMovement()
         {
+            StopMovement();
+            _currentPoint = 0;
+            transform.position = Points[_currentPoint];
             _canMove = true;
-            _currentPoint--;
-            _currentPoint %= Points.Count;
             StartCoroutine(StartMovement());
         }
 
-        TweenerCore<Vector3, Vector3, VectorOptions> movementTween;
-        private bool _canMove = true;
 
         public IEnumerator StartMovement()
         {
@@ -77,13 +86,6 @@ namespace Obstacles
             _isMoving = false;
         }
 
-        [SerializeField] private Ease Easing;
-
-        [SerializeField] private float Speed;
-        [SerializeField] private bool WaitsOnStop;
-
-        [ShowIf("WaitsOnStop")] [SerializeField]
-        private float WaitDuration;
 
         [Button]
         [BoxGroup("Points")]
@@ -121,5 +123,7 @@ namespace Obstacles
 
         private int _currentPoint = 0;
         private bool _isMoving;
+        private TweenerCore<Vector3, Vector3, VectorOptions> _movementTween;
+        private bool _canMove = true;
     }
 }
