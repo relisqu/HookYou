@@ -48,8 +48,14 @@ namespace Assets.Scripts.LevelCreator
             if (!isCurrentlyOpened || !other.gameObject.TryGetComponent(out Player player)) return;
             GoThroughDoor(player);
         }
+        private void OnTriggerStay2D(Collider2D other)
+        {
+            if (!isCurrentlyOpened || !other.gameObject.TryGetComponent(out Player player) ) return;
+            GoThroughDoor(player); 
+        }
 
-
+            
+        
         public Vector3 GetTeleportationPoint()
         {
             return PlayerTeleportationPoint.position;
