@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 4051670682256166620}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children:
   - {fileID: 4051670682753199032}
   - {fileID: 9197066933674347872}
@@ -253,8 +253,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2722293609469449256}
   - component: {fileID: 5509356897714716715}
-  - component: {fileID: 306464117481376905}
   - component: {fileID: 6892428651695633296}
+  - component: {fileID: 1831352648}
   m_Layer: 17
   m_Name: GrappableZone (1)
   m_TagString: Untagged
@@ -271,7 +271,7 @@ Transform:
   m_GameObject: {fileID: 6051208874674861368}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4051670682256166623}
   m_RootOrder: 2
@@ -292,25 +292,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.014205435, y: 0.2929733}
   m_Size: {x: 1.1345466, y: 0.7355257}
   m_Direction: 1
---- !u!114 &306464117481376905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6051208874674861368}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc9bc7e783554f128c98f9ce9f39f000, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SwingSpeed: 1.3
-  RequiresUniqueHookSpeed: 0
-  HookShotSpeed: 0
-  Rigidbody2D: {fileID: 0}
-  PushSpeed: 0
-  Animator: {fileID: 0}
-  EnemyBehaviour: {fileID: 8970919884034128024}
 --- !u!114 &6892428651695633296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,6 +307,23 @@ MonoBehaviour:
   GrappleCollider2D: {fileID: 5509356897714716715}
   ActivatedGrappleDuration: 2
   GrappleDelay: 0.12
+--- !u!114 &1831352648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6051208874674861368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf5d58fa33134b8685fbcf4b7523c01c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SwingSpeed: 1.3
+  RequiresUniqueHookSpeed: 0
+  HookShotSpeed: 0
+  Animator: {fileID: 8970919884486408992}
+  EnemyBehaviour: {fileID: 8970919884034128024}
 --- !u!1001 &8431849301929142040
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -558,7 +556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 873d722cf0aa4d6292518f9c8bdf7c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Object: {fileID: 1791208056670278726, guid: 5d4922c7b664df7448495e49ee7a1238, type: 3}
+  Object: {fileID: 2440524204234772428, guid: 5d4922c7b664df7448495e49ee7a1238, type: 3}
   Offset: {x: -0.23, y: 0.4, z: 0}
   Ease: 0
   Speed: 2

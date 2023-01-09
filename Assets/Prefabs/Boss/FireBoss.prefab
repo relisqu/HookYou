@@ -74,6 +74,9 @@ MonoBehaviour:
   SwingSpeed: 1
   RequiresUniqueHookSpeed: 0
   HookShotSpeed: 1
+  Rigidbody2D: {fileID: 0}
+  PushSpeed: 0
+  Animator: {fileID: 0}
   EnemyBehaviour: {fileID: 0}
 --- !u!114 &5796012890932276578
 MonoBehaviour:
@@ -431,6 +434,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitialHealth: 12
   Animator: {fileID: 0}
+  OnDeathMethods: []
+  OnRespawnMethods: []
+  OnDamageMethods: []
 --- !u!1 &5796012891263284669
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,7 +532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 873d722cf0aa4d6292518f9c8bdf7c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Object: {fileID: 1722968007354784519, guid: 20acc0f3728424445b08629e789974cc, type: 3}
+  Object: {fileID: 3381336560156852365, guid: 20acc0f3728424445b08629e789974cc, type: 3}
   Offset: {x: 0, y: 4.5, z: 0}
   Ease: 0
   Speed: 0.46
@@ -885,6 +891,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitialHealth: 5
   Animator: {fileID: 5796012892908496116}
+  OnDeathMethods: []
+  OnRespawnMethods: []
+  OnDamageMethods: []
 --- !u!114 &5796012892908496116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -972,7 +981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 873d722cf0aa4d6292518f9c8bdf7c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Object: {fileID: 2862513045572197531, guid: 4ea1a16f2c8699e4e9c2a157aa5fe18b, type: 3}
+  Object: {fileID: 7915702931760001816, guid: 4ea1a16f2c8699e4e9c2a157aa5fe18b, type: 3}
   Offset: {x: 0, y: 4.5, z: 0.5}
   Ease: 1
   Speed: 2.67

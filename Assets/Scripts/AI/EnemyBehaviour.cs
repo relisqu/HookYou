@@ -19,6 +19,7 @@ namespace AI
 
         public void SetStunned()
         {
+            if (!Health.IsAlive) return;
             ShowStunEffect();
             Stunned?.Invoke();
         }
@@ -35,7 +36,7 @@ namespace AI
 
         public void StopStunEffect()
         {
-            if (StunEffect != null) StunEffect.DestroyObject();
+            if (StunEffect != null) StunEffect.HideObject();
         }
     }
 }

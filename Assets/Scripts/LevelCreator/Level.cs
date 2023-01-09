@@ -10,6 +10,7 @@ using Player_Scripts;
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
 namespace Assets.Scripts.LevelCreator
@@ -42,6 +43,29 @@ namespace Assets.Scripts.LevelCreator
         private int defaultObjectsAmount;
         public Player Player { get; private set; }
 
+        public Action CompletedLevel;
+
+        public Action RestartedLevel;
+        [SerializeField] public List<UnityEvent> OnCompleteMethods;
+        [SerializeField] public List<UnityEvent> OnRestartMethods;
+
+
+        public void AddAllEventsToAction(List<UnityEvent> events, ref Action action)
+        {
+            foreach (var unityEvent in events)
+            {
+                action += unityEvent.Invoke;
+            }
+        }
+
+        public void RemoveAllEventsFromAction(List<UnityEvent> events, ref Action action)
+        {
+            foreach (var unityEvent in events)
+            {
+                action -= unityEvent.Invoke;
+            }
+        }
+
         private void Awake()
         {
             defaultObjectsAmount = CompletionLevelObjects.Count;
@@ -59,14 +83,24 @@ namespace Assets.Scripts.LevelCreator
 
             foreach (var door in Doors)
             {
+                if (door == null) continue;
                 door.EnteredDoor += EnterLevel;
                 door.ExitedDoor += LeaveLevel;
             }
 
             // transform.parent.gameObject.SetActive(false);
             IsCompleted = Type == LevelType.Auto;
+            AddAllEventsToAction(OnCompleteMethods, ref CompletedLevel);
+            AddAllEventsToAction(OnRestartMethods, ref RestartedLevel);
         }
 
+        public void CompleteLevelAutomatically()
+        {
+            foreach (var obj in CompletionLevelObjects)
+            {
+                obj.GetHealth().TakeDamage(1000);
+            }
+        }
 
         private void RespawnObject()
         {
@@ -81,7 +115,14 @@ namespace Assets.Scripts.LevelCreator
                 levelObject.GetHealth().Respawned -= RespawnObject;
             }
 
-            foreach (var door in Doors) door.EnteredDoor -= EnterLevel;
+            foreach (var door in Doors)
+            {
+                if (door != null)
+                    door.EnteredDoor -= EnterLevel;
+            }
+
+            RemoveAllEventsFromAction(OnCompleteMethods, ref CompletedLevel);
+            RemoveAllEventsFromAction(OnRestartMethods, ref RestartedLevel);
         }
 
         public LevelType GetLevelType()
@@ -91,6 +132,7 @@ namespace Assets.Scripts.LevelCreator
 
         public void Restart()
         {
+            RestartedLevel?.Invoke();
             TemporaryObjectsCleaner.ClearObjects();
             if (IsCompleted) return;
             foreach (var enemy in CompletionLevelObjects)
@@ -109,7 +151,12 @@ namespace Assets.Scripts.LevelCreator
                 Timer.Restart();
             }
 
-            foreach (var door in Doors) door.TryClose();
+
+            foreach (var door in Doors)
+            {
+                if (door == null) continue;
+                door.TryClose();
+            }
 
             //Player.transform.position = TeleportationPoint.position;
         }
@@ -117,8 +164,10 @@ namespace Assets.Scripts.LevelCreator
         private void LeaveLevel(Player _)
         {
             //TODO: Check this method is bugs occur
-            if (LevelType.Time == Type)
+
+            if (LevelType.Time == Type && !IsCompleted)
             {
+                Timer.Disable();
                 Timer.TimeIsOver -= Player.Die;
                 Timer.Reset();
             }
@@ -138,9 +187,12 @@ namespace Assets.Scripts.LevelCreator
                 }
 
                 currentActiveObjectsCount = defaultObjectsAmount;
-                foreach (var door in Doors) door.TryClose();
+                foreach (var door in Doors)
+                {
+                    if (door == null) continue;
+                    door.TryClose();
+                }
             }
-
         }
 
         private void ReduceObjectsAmount()
@@ -155,9 +207,12 @@ namespace Assets.Scripts.LevelCreator
         private void CompleteLevel()
         {
             if (IsCompleted) return;
+            CompletedLevel?.Invoke();
             if (LevelType.Time == Type)
             {
                 Timer.Disable();
+                Timer.TimeIsOver -= Player.Die;
+                Timer.Reset();
             }
 
             IsCompleted = true;
@@ -168,12 +223,17 @@ namespace Assets.Scripts.LevelCreator
 
         private void OpenAllDoors()
         {
-            foreach (var door in Doors) door.Open();
+            foreach (var door in Doors)
+            {
+                if (door == null) continue;
+                door.Open();
+            }
         }
 
         public void EnterLevel(Player player)
         {
-           // transform.parent.gameObject.SetActive(true);
+            print("Entered level");
+            // transform.parent.gameObject.SetActive(true);
             CameraShift.Instance.ShiftToNewLevel(transform.position);
             Player = player;
             if (player.LastVisitedDoor != null && !IsCompleted) player.LastVisitedDoor.SetBlocked();
@@ -188,6 +248,28 @@ namespace Assets.Scripts.LevelCreator
         public Vector3 GetDefaultTeleportLocation()
         {
             return TeleportationPoint.position;
+        }
+
+        public void AddDoorToList(Door door)
+        {
+            if (door == null) return;
+            Doors.Add(door);
+        }
+
+        public void RemoveDoorFromList(Door door)
+        {
+            if (door == null) return;
+            Doors.Remove(door);
+        }
+
+        public List<Door> GetDoors()
+        {
+            return Doors;
+        }
+
+        private bool HasDoorComponent(GameObject obj)
+        {
+            return obj.transform.parent == transform && obj.TryGetComponent(out Door _);
         }
     }
 }

@@ -15,10 +15,18 @@ namespace Assets.Scripts
         [SerializeField] private LayerMask ObstaclesMask;
         [SerializeField] private LayerMask AbyssMask;
 
+        [Button]
+        public void UpdateCollidersList()
+        {
+            AbyssLayerCollider.Clear();
+            foreach (var abyss in GameObject.FindGameObjectsWithTag("Abyss"))
+            {
+                AbyssLayerCollider.Add(abyss.GetComponent<CompositeCollider2D>());
+            }
+        }
 
         public void SetAbyssTrigger(bool isTrigger)
         {
-            
             foreach (var collider in AbyssLayerCollider)
             {
                 collider.isTrigger = isTrigger;
@@ -37,7 +45,6 @@ namespace Assets.Scripts
         private void OnCollisionEnter2D(Collision2D other)
         {
             if (ObstaclesMask == (ObstaclesMask | (1 << other.gameObject.layer))) Player.Die();
-
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -59,7 +66,5 @@ namespace Assets.Scripts
                 Player.Die();
             }
         }
-
-        
     }
 }

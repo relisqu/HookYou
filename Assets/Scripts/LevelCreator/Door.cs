@@ -15,6 +15,7 @@ namespace Assets.Scripts.LevelCreator
         public Action<Player> EnteredDoor;
         public Action<Player> ExitedDoor;
 
+        public bool IsCurrentlyOpened => isCurrentlyOpened;
 
         private bool isCurrentlyOpened;
 
@@ -23,7 +24,7 @@ namespace Assets.Scripts.LevelCreator
             if (Type == DoorType.AlwaysOpened)
                 Open();
             else
-                TryClose();
+                ManuallyClose();
             DoorLock.gameObject.SetActive(false);
             DoorLock.LockDestroyed += RemoveLock;
             DoorAnimator.SetupDoor(Type == DoorType.AlwaysOpened);
@@ -42,13 +43,19 @@ namespace Assets.Scripts.LevelCreator
             DoorLock.LockDestroyed -= RemoveLock;
         }
 
-        private void OnCollisionEnter2D(Collision2D other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
             if (!isCurrentlyOpened || !other.gameObject.TryGetComponent(out Player player)) return;
             GoThroughDoor(player);
         }
+        private void OnTriggerStay2D(Collider2D other)
+        {
+            if (!isCurrentlyOpened || !other.gameObject.TryGetComponent(out Player player) ) return;
+            GoThroughDoor(player); 
+        }
 
-
+            
+        
         public Vector3 GetTeleportationPoint()
         {
             return PlayerTeleportationPoint.position;
@@ -56,15 +63,28 @@ namespace Assets.Scripts.LevelCreator
 
         public void Open()
         {
-            if (Type != DoorType.AlwaysClosed)
+            if (Type != DoorType.AlwaysClosed && Type != DoorType.Manual)
             {
-                isCurrentlyOpened = true;
-                DoorAnimator.SetupDoor(isCurrentlyOpened);
-                DoorAnimator.SetOpened();
-                SetUnblocked();
+                ManuallyOpen();
             }
         }
 
+        public void ManuallyOpen()
+        {
+            isCurrentlyOpened = true;
+            DoorAnimator.SetupDoor(isCurrentlyOpened);
+            DoorAnimator.SetOpened();
+            SetUnblocked();
+        }
+
+        public void ManuallyClose()
+        {
+            isCurrentlyOpened = false;
+            DoorAnimator.SetClosed();
+            DoorAnimator.SetupDoor(isCurrentlyOpened);
+            if (hadLock)
+                SetBlocked();
+        }
 
         public void GoThroughDoor(Player player)
         {
@@ -77,20 +97,17 @@ namespace Assets.Scripts.LevelCreator
 
         public void TryClose()
         {
-            if (Type != DoorType.AlwaysOpened)
+            if (Type != DoorType.AlwaysOpened && Type != DoorType.Manual)
             {
-                isCurrentlyOpened = false;
-                DoorAnimator.SetClosed();
-                DoorAnimator.SetupDoor(isCurrentlyOpened);
-                if (hadLock)
-                    SetBlocked();
+                ManuallyClose();
             }
         }
 
-        private enum DoorType
+        public enum DoorType
         {
             Deadend,
             Enemy,
+            Manual,
             AlwaysOpened,
             AlwaysClosed
         }
@@ -109,5 +126,25 @@ namespace Assets.Scripts.LevelCreator
         }
 
         private bool isBlocked;
+
+        public DoorAnimator GetDoorAnimator()
+        {
+            return DoorAnimator;
+        }
+
+        public Door GetConnectedDoor()
+        {
+            return ConnectedDoor;
+        }
+
+        public void SetConnectedDoor(Door doorConnectedDoor)
+        {
+            ConnectedDoor = doorConnectedDoor;
+        }
+
+        public void SetType(DoorType doorType)
+        {
+            Type = doorType;
+        }
     }
 }

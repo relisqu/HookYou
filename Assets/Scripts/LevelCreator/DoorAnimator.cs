@@ -15,6 +15,23 @@ namespace LevelCreator
         [Header("Reference: ")] [SerializeField]
         private Animator Animator;
 
+        public static DoorDirectionType GetOppositeDirection(DoorDirectionType direction)
+        {
+            switch (direction)
+            {
+                case DoorDirectionType.Down:
+                    return DoorDirectionType.Top;
+                case DoorDirectionType.Left:
+                    return DoorDirectionType.Right;
+                case DoorDirectionType.Right:
+                    return DoorDirectionType.Left;
+                case DoorDirectionType.Top:
+                    return DoorDirectionType.Down;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(direction), direction, null);
+            }
+        }
+
         private void OnEnable()
         {
             var xDirection = 0;
@@ -57,12 +74,17 @@ namespace LevelCreator
             Animator.SetBool(IsOpenedFromBeginning, isOpenedFromBeginning);
         }
 
-        private enum DoorDirectionType
+        public enum DoorDirectionType
         {
             Left,
             Right,
             Top,
             Down
+        }
+
+        public DoorDirectionType GetDirection()
+        {
+            return Direction;
         }
     }
 }

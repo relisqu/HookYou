@@ -92,7 +92,7 @@ namespace Player_Scripts
             }
 
             if (CurrentHookState == HookState.NotHooking) return;
-            CalculateDropTime();
+            //CalculateDropTime();
         }
 
 
@@ -119,7 +119,7 @@ namespace Player_Scripts
                 if (_isHookingObject)
                 {
                     HookSpringJoint2D.enabled = true;
-                    ((DefaultPushableBlock) currentBlock).AddActivitiesAtHookStart();
+                    currentBlock.AddActivitiesAtHookStart();
                     hookingCoroutine = StartCoroutine(MoveToWall(HookSpringJoint2D));
                     HookSpringJoint2D.connectedBody = currentHit.rigidbody;
                     CurrentHookState = HookState.Grappling;
@@ -184,7 +184,8 @@ namespace Player_Scripts
                 print(currentHit.collider.name + " " + foundComponent);
                 if (foundComponent)
                 {
-                    _isHookingObject = block.GetType() != typeof(NonStickyBlock);
+                    _isHookingObject =!( block.GetType()==typeof(EnemyHookableBlock) ||  block.GetType()==typeof(NonStickyBlock)) ;
+                     // _isHookingObject =block.GetType() != typeof(NonStickyBlock);
                     currentBlock = block;
                     AudioManager.instance.Play("hook_hit");
                     return true;
@@ -249,7 +250,7 @@ namespace Player_Scripts
         {
             if (CurrentHookState == HookState.Grappling)
             {
-                ((DefaultPushableBlock) currentBlock).OnHookBreak();
+                currentBlock.OnHookBreak();
             }
 
             CurrentHookState = HookState.DroppedHook;

@@ -34,13 +34,14 @@ namespace Assets.Scripts
         private bool isVisuallyAttacking;
 
         public bool IsAttacking => isAttacking;
-
+        public int SwingId;
         public bool StartedAttack => startedAttack;
         public bool IsAttackingVisually => isVisuallyAttacking;
 
         public int GetDamage => 1;
 
         public Action<float> Attacked;
+        public ParticleSystem EmitParticles;
         private void Update()
         {
             if (Input.GetMouseButtonDown(0))
@@ -98,6 +99,7 @@ namespace Assets.Scripts
 
         private IEnumerator SwingSword(float thrust)
         {
+            SwingId += 1;
             Attacked?.Invoke(thrust);
             isVisuallyAttacking = true;
             startedAttack = true;

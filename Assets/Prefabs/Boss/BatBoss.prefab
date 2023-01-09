@@ -411,7 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 873d722cf0aa4d6292518f9c8bdf7c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Object: {fileID: 1722968007354784519, guid: 20acc0f3728424445b08629e789974cc, type: 3}
+  Object: {fileID: 3381336560156852365, guid: 20acc0f3728424445b08629e789974cc, type: 3}
   Offset: {x: 0.39, y: 6.3, z: 0.5}
   Ease: 1
   Speed: 2.67
@@ -868,7 +868,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4997254739501400994
 Transform:
   m_ObjectHideFlags: 0
@@ -993,7 +993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 873d722cf0aa4d6292518f9c8bdf7c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Object: {fileID: 8537296549731774667, guid: ef7e6e0c36ba9654c88f350abb978744, type: 3}
+  Object: {fileID: 3994642918250714085}
   Offset: {x: -0.05, y: 5.35, z: 0}
   Ease: 15
   Speed: 1.58
@@ -1081,7 +1081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 873d722cf0aa4d6292518f9c8bdf7c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Object: {fileID: 2862513045572197531, guid: 4ea1a16f2c8699e4e9c2a157aa5fe18b, type: 3}
+  Object: {fileID: 7915702931760001816, guid: 4ea1a16f2c8699e4e9c2a157aa5fe18b, type: 3}
   Offset: {x: 0.39, y: 6.3, z: 0.5}
   Ease: 1
   Speed: 2.67
