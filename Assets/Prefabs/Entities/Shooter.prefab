@@ -556,7 +556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 873d722cf0aa4d6292518f9c8bdf7c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Object: {fileID: 1791208056670278726, guid: 5d4922c7b664df7448495e49ee7a1238, type: 3}
+  Object: {fileID: 2440524204234772428, guid: 5d4922c7b664df7448495e49ee7a1238, type: 3}
   Offset: {x: -0.23, y: 0.4, z: 0}
   Ease: 0
   Speed: 2

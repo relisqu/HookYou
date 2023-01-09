@@ -36,7 +36,7 @@ namespace AI
 
         public void StopStunEffect()
         {
-            if (StunEffect != null) StunEffect.DestroyObject();
+            if (StunEffect != null) StunEffect.HideObject();
         }
     }
 }

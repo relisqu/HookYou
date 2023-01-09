@@ -3,6 +3,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.Serialization;
 using Vector3 = UnityEngine.Vector3;
 
 namespace Player_Scripts
@@ -11,16 +12,16 @@ namespace Player_Scripts
     {
         [SerializeField] private GameObject GemObject;
         [SerializeField] private Vector3 Offset;
-        [SerializeField] private Ease ease;
+        [FormerlySerializedAs("ease")] [SerializeField] private Ease Easing;
         [Min(0.1f)] [SerializeField] private float CrystalSpeed;
         [SerializeField] private float CrystalDistance;
         [SerializeField] private UpdateGemText UpdateGemText;
-        [SerializeField] public static Action OnGemCollect;
+        public static Action OnGemCollect;
 
         public void CollectGem()
         {
             var gem = Instantiate(GemObject, transform.position + Offset, transform.rotation, transform.root);
-            gem.transform.DOLocalMoveY(CrystalDistance, 1 / CrystalSpeed).SetEase(ease)
+            gem.transform.DOLocalMoveY(CrystalDistance, 1 / CrystalSpeed).SetEase(Easing)
                 .OnComplete(() => CrystalDisappear(gem));
 
             PlayerStats.Instance.AddGemsCount(1);
