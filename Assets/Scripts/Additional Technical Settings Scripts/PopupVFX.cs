@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using DG.Tweening;
 using Sirenix.OdinInspector;
@@ -38,11 +39,14 @@ namespace AI
         private float FadeDuration;
 
         private SpriteRenderer _popupObj;
-
-        public void Start()
+        private Vector3 _defaultScale;
+        public Action OnHideStart;
+        public void Awake()
         {
             _popupObj = Instantiate(Object, transform.position + Offset, transform.rotation, transform);
             _popupObj.gameObject.SetActive(false);
+            _defaultScale = _popupObj.transform.localScale;
+
         }
 
         public void InitiateObject()
@@ -52,18 +56,18 @@ namespace AI
             _popupObj.gameObject.SetActive(true);
             if (IsBouncy)
             {
-                _popupObj.transform.localScale = new Vector3(0.8f * Stiffness, 1f, 1f);
+                _popupObj.transform.localScale = new Vector3(0.8f * Stiffness*_defaultScale.x, 1f*_defaultScale.y, 1f);
 
 
-                _popupObj.transform.DOScaleX(1f, 1 / BounceSpeed * 0.08f).SetEase(BounceEase).OnComplete(() =>
+                _popupObj.transform.DOScaleX(_defaultScale.x, 1 / BounceSpeed * 0.08f).SetEase(BounceEase).OnComplete(() =>
                 {
-                    _popupObj.transform.DOScaleY(1.3f * Stiffness, 1 / BounceSpeed * 0.08f).OnComplete(
-                        () => { _popupObj.transform.DOScaleY(0.7f, 1 / BounceSpeed * 0.02f); }
+                    _popupObj.transform.DOScaleY(1.3f * Stiffness*_defaultScale.y, 1 / BounceSpeed * 0.08f).OnComplete(
+                        () => { _popupObj.transform.DOScaleY(0.7f*_defaultScale.y, 1 / BounceSpeed * 0.02f); }
                     );
                 });
             }
 
-            _popupObj.transform.DOLocalMoveY(FlyDistance, 1 / Speed).SetEase(Ease)
+            _popupObj.transform.DOLocalMoveY(Offset.y+FlyDistance, 1 / Speed).SetEase(Ease)
                 .OnComplete(() => StartCoroutine(RemoveObject(_popupObj)));
         }
 
@@ -76,8 +80,14 @@ namespace AI
         public void HideObject()
         {
             StopAllCoroutines();
+            OnHideStart?.Invoke();
             _popupObj.DOColor(Color.clear, FadeDuration)
                 .OnComplete(() => _popupObj.gameObject.SetActive(false));
+        }
+
+        public SpriteRenderer GetCurrentObject()
+        {
+            return _popupObj;
         }
     }
 }

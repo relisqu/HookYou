@@ -31,8 +31,6 @@ namespace AI
         [BoxGroup("References")] [SerializeField]
         private PopupVFX BatWarningVfx;
 
-        [BoxGroup("References")] [SerializeField]
-        private PopupVFX StunVfx;
 
 
         private void OnEnable()
