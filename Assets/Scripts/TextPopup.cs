@@ -23,7 +23,12 @@ namespace DefaultNamespace
         {
             TextTransform.DOScaleY(0f, TextHideSpeed).SetSpeedBased().SetEase(HideEasing);
         }
- 
+
+        public float GetTextSize()
+        {
+            return TextTransform.transform.localScale.y;
+        }
+
     }
 
   

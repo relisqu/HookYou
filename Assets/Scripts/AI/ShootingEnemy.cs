@@ -29,8 +29,6 @@ namespace AI
         private Animator Animator;
 
 
-        [BoxGroup("References")] [SerializeField]
-        private GrappleZone GrappleZone;
 
         
         public void StopShooting()

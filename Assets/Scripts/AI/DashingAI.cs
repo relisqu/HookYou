@@ -31,11 +31,7 @@ namespace AI
         [BoxGroup("References")] [SerializeField]
         private PopupVFX BatWarningVfx;
 
-        [BoxGroup("References")] [SerializeField]
-        private PopupVFX StunVfx;
 
-        [BoxGroup("References")] [SerializeField]
-        private GrappleZone GrappleZone;
 
         private void OnEnable()
         {
@@ -121,7 +117,6 @@ namespace AI
                     if (!Health.IsAlive) return;
                     _isDashing = false;
                     _animator.SetDashing(_isDashing);
-                    StartCoroutine(GrappleZone.ActivateGrappleCollider());
                 });
         }
 

@@ -10,6 +10,7 @@ using Player_Scripts;
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
 namespace Assets.Scripts.LevelCreator
@@ -42,6 +43,29 @@ namespace Assets.Scripts.LevelCreator
         private int defaultObjectsAmount;
         public Player Player { get; private set; }
 
+        public Action CompletedLevel;
+
+        public Action RestartedLevel;
+        [SerializeField] public List<UnityEvent> OnCompleteMethods;
+        [SerializeField] public List<UnityEvent> OnRestartMethods;
+
+
+        public void AddAllEventsToAction(List<UnityEvent> events, ref Action action)
+        {
+            foreach (var unityEvent in events)
+            {
+                action += unityEvent.Invoke;
+            }
+        }
+
+        public void RemoveAllEventsFromAction(List<UnityEvent> events, ref Action action)
+        {
+            foreach (var unityEvent in events)
+            {
+                action -= unityEvent.Invoke;
+            }
+        }
+
         private void Awake()
         {
             defaultObjectsAmount = CompletionLevelObjects.Count;
@@ -66,6 +90,8 @@ namespace Assets.Scripts.LevelCreator
 
             // transform.parent.gameObject.SetActive(false);
             IsCompleted = Type == LevelType.Auto;
+            AddAllEventsToAction(OnCompleteMethods, ref CompletedLevel);
+            AddAllEventsToAction(OnRestartMethods, ref RestartedLevel);
         }
 
         public void CompleteLevelAutomatically()
@@ -94,6 +120,9 @@ namespace Assets.Scripts.LevelCreator
                 if (door != null)
                     door.EnteredDoor -= EnterLevel;
             }
+
+            RemoveAllEventsFromAction(OnCompleteMethods, ref CompletedLevel);
+            RemoveAllEventsFromAction(OnRestartMethods, ref RestartedLevel);
         }
 
         public LevelType GetLevelType()
@@ -103,6 +132,7 @@ namespace Assets.Scripts.LevelCreator
 
         public void Restart()
         {
+            RestartedLevel?.Invoke();
             TemporaryObjectsCleaner.ClearObjects();
             if (IsCompleted) return;
             foreach (var enemy in CompletionLevelObjects)
@@ -177,6 +207,7 @@ namespace Assets.Scripts.LevelCreator
         private void CompleteLevel()
         {
             if (IsCompleted) return;
+            CompletedLevel?.Invoke();
             if (LevelType.Time == Type)
             {
                 Timer.Disable();

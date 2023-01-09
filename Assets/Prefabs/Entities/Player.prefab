@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 506106735}
   - component: {fileID: 506106738}
   - component: {fileID: 506106739}
+  - component: {fileID: 1572742927}
   m_Layer: 5
   m_Name: GemText
   m_TagString: Untagged
@@ -115,10 +116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rigidbody: {fileID: 2424392383973034742}
-  TextTransform: {fileID: 506106734}
-  TextSpeed: 1.27
   WaitDuration: 2
-  Easing: 15
+  TextPopup: {fileID: 1572742927}
   Sensitivity: 0.46
 --- !u!114 &506106739
 MonoBehaviour:
@@ -133,6 +132,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GemText: {fileID: 1235625712}
+--- !u!114 &1572742927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506106733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502624f2d95342859ab7d81c49634a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextTransform: {fileID: 1235625711}
+  TextShowSpeed: 5
+  TextHideSpeed: 8
+  ShowEasing: 6
+  HideEasing: 15
 --- !u!1 &1235625710
 GameObject:
   m_ObjectHideFlags: 0
@@ -5533,6 +5549,7 @@ MonoBehaviour:
     m_Bits: 130871
   Animator: {fileID: 4635049064546730705}
   SwordHitVFX: {fileID: 1255179505}
+  SwingId: 0
   EmitParticles: {fileID: 8614243559773798309}
 --- !u!60 &5209836070904504666
 PolygonCollider2D:
@@ -10518,6 +10535,7 @@ GameObject:
   - component: {fileID: 1117095667}
   - component: {fileID: 1117095672}
   - component: {fileID: 1117095674}
+  - component: {fileID: 1046009457}
   m_Layer: 12
   m_Name: Player
   m_TagString: Untagged
@@ -10637,6 +10655,20 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   ChangeReactTime: 0.08
   Player: {fileID: 2424392383973034741}
   ObstaclesMask:
@@ -10659,7 +10691,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitialHealth: 1
   Animator: {fileID: 1117095672}
-  OnDeathMethods: []
+  OnDeathMethods:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1572742927}
+        m_TargetAssemblyTypeName: DefaultNamespace.TextPopup, Assembly-CSharp
+        m_MethodName: HideText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnRespawnMethods: []
   OnDamageMethods: []
   Player: {fileID: 2424392383973034741}
@@ -10694,12 +10740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8cc80b79f55404ca5f7b4bd7ee9260b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GemObject: {fileID: 6381154328460603104, guid: bdf5e1866bcf5c6409e83ac983843fa3,
-    type: 3}
-  Offset: {x: 0, y: 0.4, z: 0}
-  ease: 21
-  CrystalSpeed: 1.2
-  CrystalDistance: 1.33
+  Gem: {fileID: 1046009457}
   UpdateGemText: {fileID: 506106739}
 --- !u!114 &1117095667
 MonoBehaviour:
@@ -10744,6 +10785,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: {fileID: 4635049064491891812}
+--- !u!114 &1046009457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2424392383973034738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873d722cf0aa4d6292518f9c8bdf7c3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Object: {fileID: 7614244842525414042, guid: c5d43b9bef3c5054c9965c6bc00620a6, type: 3}
+  Offset: {x: 0, y: 1.57, z: 0}
+  Ease: 21
+  Speed: 1.2
+  FlyDistance: 0.43
+  IsBouncy: 0
+  Stiffness: 0
+  BounceSpeed: 0
+  BounceEase: 0
+  AppearDuration: 0.31
+  FadeDuration: 0.253
 --- !u!1 &2424392383996463237
 GameObject:
   m_ObjectHideFlags: 0
@@ -10872,7 +10936,7 @@ SpriteRenderer:
   m_Size: {x: 5.12, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
 --- !u!114 &4635049065171475265
@@ -16183,7 +16247,7 @@ MonoBehaviour:
   - {x: -0.17009926, y: 0.1604557, z: 0}
   m_ShapePathHash: 1758350357
   m_Mesh: {fileID: 0}
-  m_InstanceId: -180406
+  m_InstanceId: -25660
 --- !u!1 &7350164295269350727
 GameObject:
   m_ObjectHideFlags: 0

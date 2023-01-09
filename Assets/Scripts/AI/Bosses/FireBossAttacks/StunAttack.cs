@@ -16,7 +16,7 @@ namespace AI
             GrappleZone.EnableCollider();
             yield return new WaitForSeconds(StunDuration);
             GrappleZone.DisableCollider();
-            StunEffect.DestroyObject();
+            StunEffect.HideObject();
         }
         
 

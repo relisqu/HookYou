@@ -10,7 +10,7 @@ namespace Player_Scripts
         [SerializeField] private Rigidbody2D Rigidbody;
         [SerializeField] private float WaitDuration;
         [SerializeField] private TextPopup TextPopup;
-        [Range(0,2f)][SerializeField] private float Sensitivity;
+        [Range(0, 2f)] [SerializeField] private float Sensitivity;
         private bool _isHidden;
 
         private void Start()
@@ -19,6 +19,7 @@ namespace Player_Scripts
         }
 
         private float _waitStartTime;
+
         private void FixedUpdate()
         {
             if (Rigidbody.velocity.magnitude < Sensitivity)
@@ -28,7 +29,7 @@ namespace Player_Scripts
             else
             {
                 _waitStartTime = 0;
-                if (!_isHidden) HideText();
+                if (!_isHidden || TextPopup.GetTextSize() > 0.01f) HideText();
             }
 
             if (_waitStartTime >= WaitDuration)
@@ -48,6 +49,5 @@ namespace Player_Scripts
             _isHidden = true;
             TextPopup.HideText();
         }
-
     }
 }
