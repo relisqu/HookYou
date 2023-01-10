@@ -17,6 +17,18 @@ namespace AI
         [BoxGroup("References")] [SerializeField]
         private PopupVFX StunEffect;
 
+        private Rigidbody2D _rigidbody2D;
+
+        private void Start()
+        {
+            _rigidbody2D = GetComponent<Rigidbody2D>();
+        }
+
+        public Rigidbody2D GetRigidbody2D()
+        {
+            return _rigidbody2D;
+        }
+
         public void SetStunned()
         {
             if (!Health.IsAlive) return;
@@ -37,6 +49,11 @@ namespace AI
         public void StopStunEffect()
         {
             if (StunEffect != null) StunEffect.HideObject();
+        }
+
+        public Health GetHealth()
+        {
+            return Health;
         }
     }
 }

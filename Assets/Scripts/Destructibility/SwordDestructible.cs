@@ -12,6 +12,7 @@ namespace Destructibility
         private bool isAbleToAttack = true;
         private bool isImmuneToDamage = false;
         private int SwordAttackId;
+        public Action TookSwordHit;
 
 
         private void OnEnable()
@@ -26,7 +27,7 @@ namespace Destructibility
 
         private void OnTriggerStay2D(Collider2D other)
         {
-            //  if (Health.IsAlive) TakeSwordDamage(other);
+            if (Health.IsAlive) TakeSwordDamage(other);
         }
 
         private void OnCollisionEnter2D(Collision2D other)
@@ -47,10 +48,11 @@ namespace Destructibility
                 {
                     if (sword.SwingId != SwordAttackId)
                     {
+                        TookSwordHit?.Invoke();
                         sword.Hit();
                         ReactToSwordHit(sword);
                     }
-                    
+
                     SwordAttackId = sword.SwingId;
                 }
             }
