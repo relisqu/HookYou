@@ -21,6 +21,7 @@ namespace Destructibility
 
         private void Start()
         {
+            if (Level == null) Level = GetComponentInParent<Level>();
             Level.CompletedLevel += Health.TakeMaxDamage;
             Level.RestartedLevel += RespawnOnUncompletedLevel;
         }

@@ -28,10 +28,15 @@ namespace Obstacles
         [BoxGroup("Points")] [SerializeField] private Transform HelperTransform;
 
 
+        private bool _hasParticles;
+        private ParticleSystem _particleSystem;
+
         private void OnEnable()
         {
             transform.position = Points[_currentPoint];
             StartCoroutine(StartMovement());
+            _particleSystem = GetComponentInChildren<ParticleSystem>();
+            _hasParticles = _particleSystem != null;
         }
 
         public void MoveToNextPoint()
@@ -50,6 +55,12 @@ namespace Obstacles
             StopAllCoroutines();
             _canMove = false;
             _isMoving = false;
+            if (_hasParticles)
+            {
+                _particleSystem.Stop();
+                _particleSystem.Clear();
+                
+            }
         }
 
         public void RestartMovement()
@@ -59,6 +70,7 @@ namespace Obstacles
             transform.position = Points[_currentPoint];
             _canMove = true;
             StartCoroutine(StartMovement());
+            _particleSystem.Play();
         }
 
 
