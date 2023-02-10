@@ -32,7 +32,7 @@ namespace Pathfinding {
 		[System.Obsolete("Only exists for compatibility reasons. Use desiredVelocity or steeringTarget instead.")]
 		public Vector3 targetDirection {
 			get {
-				return (steeringTarget - tr.position).normalized;
+				return (steeringTarget - Transform.position).normalized;
 			}
 		}
 

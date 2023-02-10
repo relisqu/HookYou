@@ -92,11 +92,11 @@ namespace Pathfinding {
 		///
 		/// Here are a few example videos showing some typical outcomes with good values as well as how it looks when this value is too low and too high.
 		/// <table>
-		/// <tr><td>[Open online documentation to see videos]</td><td>\xmlonly <verbatim><span class="label label-danger">Too low</span><br/></verbatim>\endxmlonly A too low value and a too low acceleration will result in the agent overshooting a lot and not managing to follow the path well.</td></tr>
-		/// <tr><td>[Open online documentation to see videos]</td><td>\xmlonly <verbatim><span class="label label-warning">Ok</span><br/></verbatim>\endxmlonly A low value but a high acceleration works decently to make the AI follow the path more closely. Note that the <see cref="Pathfinding.AILerp"/> component is better suited if you want the agent to follow the path without any deviations.</td></tr>
-		/// <tr><td>[Open online documentation to see videos]</td><td>\xmlonly <verbatim><span class="label label-success">Ok</span><br/></verbatim>\endxmlonly A reasonable value in this example.</td></tr>
-		/// <tr><td>[Open online documentation to see videos]</td><td>\xmlonly <verbatim><span class="label label-success">Ok</span><br/></verbatim>\endxmlonly A reasonable value in this example, but the path is followed slightly more loosely than in the previous video.</td></tr>
-		/// <tr><td>[Open online documentation to see videos]</td><td>\xmlonly <verbatim><span class="label label-danger">Too high</span><br/></verbatim>\endxmlonly A too high value will make the agent follow the path too loosely and may cause it to try to move through obstacles.</td></tr>
+		/// <Transform><td>[Open online documentation to see videos]</td><td>\xmlonly <verbatim><span class="label label-danger">Too low</span><br/></verbatim>\endxmlonly A too low value and a too low acceleration will result in the agent overshooting a lot and not managing to follow the path well.</td></Transform>
+		/// <Transform><td>[Open online documentation to see videos]</td><td>\xmlonly <verbatim><span class="label label-warning">Ok</span><br/></verbatim>\endxmlonly A low value but a high acceleration works decently to make the AI follow the path more closely. Note that the <see cref="Pathfinding.AILerp"/> component is better suited if you want the agent to follow the path without any deviations.</td></Transform>
+		/// <Transform><td>[Open online documentation to see videos]</td><td>\xmlonly <verbatim><span class="label label-success">Ok</span><br/></verbatim>\endxmlonly A reasonable value in this example.</td></Transform>
+		/// <Transform><td>[Open online documentation to see videos]</td><td>\xmlonly <verbatim><span class="label label-success">Ok</span><br/></verbatim>\endxmlonly A reasonable value in this example, but the path is followed slightly more loosely than in the previous video.</td></Transform>
+		/// <Transform><td>[Open online documentation to see videos]</td><td>\xmlonly <verbatim><span class="label label-danger">Too high</span><br/></verbatim>\endxmlonly A too high value will make the agent follow the path too loosely and may cause it to try to move through obstacles.</td></Transform>
 		/// </table>
 		/// </summary>
 		public float pickNextWaypointDist = 2;
@@ -188,7 +188,7 @@ namespace Pathfinding {
 					// Check if the destination is above the head of the character or far below the feet of it
 					float yDifference;
 					movementPlane.ToPlane(destination - position, out yDifference);
-					var h = tr.localScale.y * height;
+					var h = Transform.localScale.y * height;
 					if (yDifference > h || yDifference < -h*0.5) return false;
 				}
 
@@ -349,9 +349,9 @@ namespace Pathfinding {
 			if (updatePosition) {
 				// Get our current position. We read from transform.position as few times as possible as it is relatively slow
 				// (at least compared to a local variable)
-				simulatedPosition = tr.position;
+				simulatedPosition = Transform.position;
 			}
-			if (updateRotation) simulatedRotation = tr.rotation;
+			if (updateRotation) simulatedRotation = Transform.rotation;
 
 			var currentPosition = simulatedPosition;
 

@@ -144,7 +144,7 @@ namespace Pathfinding.Legacy {
 			} else if (rigid != null) {
 				rigid.AddForce(dir);
 			} else {
-				tr.Translate(dir*Time.deltaTime, Space.World);
+				Transform.Translate(dir*Time.deltaTime, Space.World);
 			}
 		}
 
@@ -223,7 +223,7 @@ namespace Pathfinding.Legacy {
 				return Vector3.zero;
 			}
 
-			Vector3 forward = tr.forward;
+			Vector3 forward = Transform.forward;
 			float dot = Vector3.Dot(dir.normalized, forward);
 			float sp = maxSpeed * Mathf.Max(dot, minMoveScale) * slowdown;
 
@@ -250,7 +250,7 @@ namespace Pathfinding.Legacy {
 		protected void RotateTowards (Vector3 dir) {
 			if (dir == Vector3.zero) return;
 
-			Quaternion rot = tr.rotation;
+			Quaternion rot = Transform.rotation;
 			Quaternion toTarget = Quaternion.LookRotation(dir);
 
 			rot = Quaternion.Slerp(rot, toTarget, turningSpeed*Time.deltaTime);
@@ -259,7 +259,7 @@ namespace Pathfinding.Legacy {
 			euler.x = 0;
 			rot = Quaternion.Euler(euler);
 
-			tr.rotation = rot;
+			Transform.rotation = rot;
 		}
 
 		/// <summary>
