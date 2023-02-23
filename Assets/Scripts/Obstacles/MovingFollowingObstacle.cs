@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Destructibility;
@@ -6,7 +7,7 @@ using UnityEngine;
 
 namespace Obstacles
 {
-    public class MovingFollowingObstacle : MovingObstacle
+    public class MovingFollowingObstacle : MonoBehaviour
     {
         public Transform targetPosition;
 
@@ -26,11 +27,18 @@ namespace Obstacles
                 _searchesPath = false;
             }
         }
-/*
-        public override void StartMovementActions()
+
+        private Seeker _seeker;
+        private void OnEnable()
         {
-            Seeker seeker = GetComponent<Seeker>();
-            seeker.StartPath(transform.position, targetPosition.position, OnPathComplete);
+            _seeker = GetComponent<Seeker>();
+            StartMovementActions();
+            StartCoroutine(StartMovementPathfinding());
+        }
+
+        public void StartMovementActions()
+        {
+            _seeker.StartPath(transform.position, targetPosition.position, OnPathComplete);
             _searchesPath = true;
         }
 
@@ -41,20 +49,22 @@ namespace Obstacles
                 if (_searchesPath) yield return null;
                 if (_hasPath)
                 {
-                    if (!_isMoving)
+                    if (!MovingVisual.IsMoving)
                     {
-                        _isMoving = true;
+                        MovingVisual.IsMoving = true;
                         _hasPath = false;
                         _searchesPath = false;
-                        MoveToNextPoint(_path[0]);
+                        MovingVisual.MoveToPoint(_path[0]);
                     }
                 }
                 else
                 {
                     StartMovementActions();
                 }
+
+                yield return null;
             }
         }
-    }*/
     }
+    
 }
