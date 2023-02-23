@@ -12,54 +12,35 @@ namespace Obstacles
 {
     public class MovingObstacle : MonoBehaviour
     {
-        [BoxGroup("MovementSettings")] [SerializeField]
-        private Ease Easing;
-
-        [BoxGroup("MovementSettings")] [SerializeField]
-        private float Speed;
-
-        [BoxGroup("MovementSettings")] [SerializeField]
-        private bool WaitsOnStop;
-
-        [BoxGroup("MovementSettings")] [ShowIf("WaitsOnStop")] [SerializeField]
-        private float WaitDuration;
 
         [BoxGroup("Points")] [SerializeField] private List<Vector3> Points;
         [BoxGroup("Points")] [SerializeField] private Transform HelperTransform;
 
-
-        private bool _hasParticles;
-        private ParticleSystem _particleSystem;
+        [SerializeField] private MovingSpikesVisual MovingVisual;
 
         private void OnEnable()
         {
             transform.position = Points[_currentPoint];
             StartCoroutine(StartMovement());
-            _particleSystem = GetComponentInChildren<ParticleSystem>();
-            _hasParticles = _particleSystem != null;
         }
 
         public void MoveToNextPoint()
         {
-            if (_isMoving) return;
-            _isMoving = true;
             _currentPoint++;
             _currentPoint %= Points.Count;
-            _movementTween = transform.DOMove(Points[_currentPoint], Speed).SetSpeedBased().SetEase(Easing)
-                .OnComplete(() => StartCoroutine(WaitOnPoint()));
+            MovingVisual.MoveToPoint(Points[_currentPoint]);
         }
+    
 
         public void StopMovement()
         {
-            _movementTween?.Kill();
+            MovingVisual.MovementTween?.Kill();
             StopAllCoroutines();
             _canMove = false;
-            _isMoving = false;
-            if (_hasParticles)
+            MovingVisual.IsMoving = false;
+            if (MovingVisual.HasParticles)
             {
-                _particleSystem.Stop();
-                _particleSystem.Clear();
-                
+                MovingVisual.ClearParticles();
             }
         }
 
@@ -70,7 +51,7 @@ namespace Obstacles
             transform.position = Points[_currentPoint];
             _canMove = true;
             StartCoroutine(StartMovement());
-            _particleSystem.Play();
+            MovingVisual.PlayParticles();
         }
 
 
@@ -79,23 +60,11 @@ namespace Obstacles
             while (true)
             {
                 if (!_canMove) yield break;
-                if (_isMoving)
+                if (MovingVisual.IsMoving)
                     yield return null;
                 MoveToNextPoint();
                 yield return null;
             }
-        }
-
-        private IEnumerator WaitOnPoint()
-        {
-            if (!WaitsOnStop)
-            {
-                _isMoving = false;
-                yield break;
-            }
-
-            yield return new WaitForSeconds(WaitDuration);
-            _isMoving = false;
         }
 
 
@@ -134,8 +103,6 @@ namespace Obstacles
         }
 
         private int _currentPoint = 0;
-        private bool _isMoving;
-        private TweenerCore<Vector3, Vector3, VectorOptions> _movementTween;
         private bool _canMove = true;
     }
 }

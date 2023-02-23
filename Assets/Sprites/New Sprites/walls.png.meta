@@ -174,7 +174,7 @@ TextureImporter:
       213: 197780450198225363
     second: walls_56
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -195,6 +195,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -233,6 +234,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -272,6 +274,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1528,6 +1542,64 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      walls_0: -8185252286816643056
+      walls_1: 4723250963254362342
+      walls_10: 4725566240530097611
+      walls_11: 6941044494407015772
+      walls_12: 4948975480665631257
+      walls_13: 4419895515107148841
+      walls_14: -2858659963971078791
+      walls_15: 3050078739295607600
+      walls_16: -6942478570949865756
+      walls_17: 5808592622507235539
+      walls_18: -5199613361349611217
+      walls_19: 2689462866469278851
+      walls_2: 2029603016695656400
+      walls_20: -674365099278563466
+      walls_21: 2937849406781047536
+      walls_22: 3596951920826154220
+      walls_23: -2025498520911094271
+      walls_24: -156255788768204352
+      walls_25: -394062059835265117
+      walls_26: -6810102771080225870
+      walls_27: 1612206129647790914
+      walls_28: -5893872823423097886
+      walls_29: 7640190859277038996
+      walls_3: 8147275610191718606
+      walls_30: 5298484932928284341
+      walls_31: 2235706861101534849
+      walls_32: -2083587809605425556
+      walls_33: 1393229536087524929
+      walls_34: 4348915520329845232
+      walls_35: -7778011983984834028
+      walls_36: -4736528836439802678
+      walls_37: 5630870268809034554
+      walls_38: -167388734037847649
+      walls_39: -2477936197045412786
+      walls_4: -24075806118037059
+      walls_40: 261074717711556055
+      walls_41: 8357702965634739773
+      walls_42: 5668241749830637126
+      walls_43: 8961658934299784465
+      walls_44: -6374669732604373977
+      walls_45: -926729684182868150
+      walls_46: -5543484424512286162
+      walls_47: -1910834801046434070
+      walls_48: 9011702929377101749
+      walls_49: 1843661150099973749
+      walls_5: -4818650310412941511
+      walls_50: 4587476378402164411
+      walls_51: -3303040638038861427
+      walls_52: -675258098023705648
+      walls_53: -2366613113284852524
+      walls_54: 37492714645190475
+      walls_55: -7450777465938075793
+      walls_56: 197780450198225363
+      walls_6: -1031414003539726126
+      walls_7: 1115358595779141345
+      walls_8: 261897327538917956
+      walls_9: -8797753539667543100
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

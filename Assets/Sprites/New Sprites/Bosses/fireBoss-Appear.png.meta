@@ -60,7 +60,7 @@ TextureImporter:
       213: 2749229786747437521
     second: fireBoss-Appear_18
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -81,6 +81,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -119,6 +120,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -158,6 +160,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
@@ -580,6 +594,26 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      fireBoss-Appear_0: -4406362842939958533
+      fireBoss-Appear_1: -5317585113112153258
+      fireBoss-Appear_10: -4889792553562057437
+      fireBoss-Appear_11: 8798033286072339623
+      fireBoss-Appear_12: 5816664088841776538
+      fireBoss-Appear_13: 2743475386379923607
+      fireBoss-Appear_14: 1730740801321759463
+      fireBoss-Appear_15: -839233701777705286
+      fireBoss-Appear_16: 766912178413912336
+      fireBoss-Appear_17: 2633107271147091318
+      fireBoss-Appear_18: 2749229786747437521
+      fireBoss-Appear_2: -6599567724127677813
+      fireBoss-Appear_3: -3788771296864694061
+      fireBoss-Appear_4: 1168379782141804957
+      fireBoss-Appear_5: 8084939031844096518
+      fireBoss-Appear_6: -7323308009268031665
+      fireBoss-Appear_7: -7655646243515319044
+      fireBoss-Appear_8: -6501186608014970420
+      fireBoss-Appear_9: 3442909707425898834
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

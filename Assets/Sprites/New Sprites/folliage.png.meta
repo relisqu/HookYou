@@ -132,7 +132,7 @@ TextureImporter:
       213: 1275604165486262601
     second: folliage_14
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -153,6 +153,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -191,6 +192,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -230,6 +232,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1156,6 +1170,50 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      folliage_0: 6676588311026594179
+      folliage_1: -7928432318833863178
+      folliage_10: -5606880366658290002
+      folliage_11: -5923110263890523672
+      folliage_12: 1876856304406688963
+      folliage_13: -830120049591719425
+      folliage_14: 1275604165486262601
+      folliage_16: 5971277529275719098
+      folliage_17: 5161348641633388687
+      folliage_18: 1392955553556870525
+      folliage_19: 4824179403314545302
+      folliage_2: 7623914614805268
+      folliage_20: -6683967255300842432
+      folliage_21: -5216088740292503959
+      folliage_22: 3411956729019007379
+      folliage_23: -7666347786695630747
+      folliage_24: 2830304391413032330
+      folliage_25: -826324681324904324
+      folliage_26: -7207913284130326496
+      folliage_27: 4052239381299159365
+      folliage_28: -6385824770752836145
+      folliage_29: -3854215411703441301
+      folliage_3: 5750289016880594550
+      folliage_30: 3140387932595907637
+      folliage_31: -7918200803936176172
+      folliage_32: -7492880447330862623
+      folliage_33: -5054058880323492510
+      folliage_34: 8606435557141596482
+      folliage_35: -7916145758685222732
+      folliage_36: -6039430943815855257
+      folliage_37: -5233174773249696964
+      folliage_38: -963335452893380995
+      folliage_39: -847537758728869674
+      folliage_4: -8498885459923773872
+      folliage_40: 4264598438508925175
+      folliage_41: -2182384765960336812
+      folliage_42: 4231228884836873829
+      folliage_43: 1041017434247256696
+      folliage_5: 2978359389853516214
+      folliage_6: 8943867607110546816
+      folliage_7: -8809968742669483289
+      folliage_8: -6927029920478263033
+      folliage_9: -1072776580249215815
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
