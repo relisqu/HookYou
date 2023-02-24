@@ -17,10 +17,5 @@ public class RotateAppearance : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, -Vector2.SignedAngle(lookRotation, Vector3.right)));
     }
 
-    private void OnDrawGizmos()
-    {
-        var mousePos = Input.mousePosition;
-        mousePos.z=Camera.nearClipPlane;
-        Gizmos.DrawCube(Camera.ScreenToWorldPoint(mousePos), Vector3.one);
-    }
+ 
 }

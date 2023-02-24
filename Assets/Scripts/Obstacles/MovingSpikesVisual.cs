@@ -26,6 +26,8 @@ namespace Obstacles
         private bool _hasParticles;
         private ParticleSystem _particleSystem;
         public bool HasParticles => _hasParticles;
+        public Action Paused;
+        public Action StoppedPause;
         public bool IsMoving
         {
             get => _isMoving;
@@ -36,6 +38,7 @@ namespace Obstacles
         {
             _particleSystem = GetComponentInChildren<ParticleSystem>();
             _hasParticles = _particleSystem != null;
+            MovementTween?.Kill();
         }
 
         public void MoveToPoint(Vector3 point)
@@ -52,8 +55,9 @@ namespace Obstacles
                 _isMoving = false;
                 yield break;
             }
-
+            Paused?.Invoke();
             yield return new WaitForSeconds(WaitDuration);
+            StoppedPause?.Invoke();
             _isMoving = false;
         }
 
