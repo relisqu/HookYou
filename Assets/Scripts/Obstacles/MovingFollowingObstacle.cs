@@ -26,6 +26,7 @@ namespace Obstacles
         {
             if (!p.error)
             {
+                if (!Health.IsAlive) return;
                 _path = p.vectorPath;
                 _hasPath = true;
                 _searchesPath = false;
@@ -39,11 +40,11 @@ namespace Obstacles
                     print(hit.collider.name);
                     point = hit.collider.ClosestPoint(point);
                     point = CalculatePoint(point, false);
-                    MovingVisual.MoveToPoint(point,false);
+                    MovingVisual.MoveToPoint(point, false);
                     return;
                 }
 
-                MovingVisual.MoveToPoint(point,true);
+                MovingVisual.MoveToPoint(point, true);
             }
         }
 
@@ -66,21 +67,11 @@ namespace Obstacles
 
         public void StartMovementActions()
         {
+            if (!Health.IsAlive) return;
             _seeker.StartPath(transform.position, TargetPosition.position, OnPathComplete);
             _searchesPath = true;
         }
 
-        public void OnCollisionEnter2D(Collision2D other)
-        {
-            return;
-            if (other.gameObject.TryGetComponent(out HookBlock _))
-            {
-                MovingVisual.IsMoving = false;
-                MovingVisual.MovementTween.Kill();
-                MovingVisual.StopAllCoroutines();
-                StartMovementActions();
-            }
-        }
 
         private Vector2 CalculatePoint(Vector2 path, bool _needDashForce)
         {
@@ -89,7 +80,6 @@ namespace Obstacles
             var directionToTarget = (targetPosition - position);
             var directionToPath = (path - position).normalized;
 
-            //print(DashDistance+ " "+  directionToTarget.magnitude +" "+directionToPath.magnitude +" "+ (DashDistance * directionToPath).magnitude);
             float maxDistance;
             if (_needDashForce)
             {
