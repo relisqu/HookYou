@@ -28,7 +28,7 @@ namespace Obstacles
         {
             _currentPoint++;
             _currentPoint %= Points.Count;
-            MovingVisual.MoveToPoint(Points[_currentPoint]);
+            MovingVisual.MoveToPoint(Points[_currentPoint], true);
         }
     
 

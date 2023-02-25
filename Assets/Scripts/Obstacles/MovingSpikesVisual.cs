@@ -41,12 +41,25 @@ namespace Obstacles
             MovementTween?.Kill();
         }
 
-        public void MoveToPoint(Vector3 point)
+        public void MoveToPoint(Vector3 point, bool needToWait)
         {
             if (_isMoving) return;
+            StopAllCoroutines();
             _isMoving = true;
-            MovementTween = transform.DOMove(point, Speed).SetSpeedBased().SetEase(Easing)
-                .OnComplete(() => StartCoroutine(WaitOnPoint()));
+            MovementTween = transform.DOMove(point, Speed).SetSpeedBased().SetEase(Easing);
+            if (needToWait)
+            {
+                MovementTween.OnComplete( () => StartCoroutine(WaitOnPoint()));
+            }
+            else
+            {
+                MovementTween.OnComplete(() =>
+                {
+                    
+                    _isMoving = false;
+                    StoppedPause?.Invoke();
+                });
+            }
         }
         public IEnumerator WaitOnPoint()
         {
