@@ -153,12 +153,12 @@ TextureImporter:
       name: doors-back_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 4
-        width: 24
-        height: 13
+        x: 3
+        y: 3
+        width: 26
+        height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -174,12 +174,12 @@ TextureImporter:
       name: doors-back_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 4
-        width: 24
-        height: 13
+        x: 31
+        y: 3
+        width: 26
+        height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -195,12 +195,12 @@ TextureImporter:
       name: doors-back_2
       rect:
         serializedVersion: 2
-        x: 60
-        y: 4
-        width: 24
-        height: 13
+        x: 59
+        y: 3
+        width: 26
+        height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -216,12 +216,12 @@ TextureImporter:
       name: doors-back_3
       rect:
         serializedVersion: 2
-        x: 88
-        y: 4
-        width: 24
-        height: 13
+        x: 87
+        y: 3
+        width: 26
+        height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -237,12 +237,12 @@ TextureImporter:
       name: doors-back_4
       rect:
         serializedVersion: 2
-        x: 116
-        y: 4
-        width: 24
-        height: 13
+        x: 115
+        y: 3
+        width: 26
+        height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -258,12 +258,12 @@ TextureImporter:
       name: doors-back_5
       rect:
         serializedVersion: 2
-        x: 144
-        y: 4
-        width: 24
-        height: 13
+        x: 143
+        y: 3
+        width: 26
+        height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -279,12 +279,12 @@ TextureImporter:
       name: doors-back_6
       rect:
         serializedVersion: 2
-        x: 172
-        y: 4
-        width: 24
-        height: 13
+        x: 171
+        y: 3
+        width: 26
+        height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -877,10 +877,10 @@ TextureImporter:
       name: trees_28
       rect:
         serializedVersion: 2
-        x: 33
+        x: 32
         y: 340
-        width: 21
-        height: 27
+        width: 23
+        height: 29
       alignment: 9
       pivot: {x: 0.4950418, y: 0.074074075}
       border: {x: 0, y: 0, z: 0, w: 0}

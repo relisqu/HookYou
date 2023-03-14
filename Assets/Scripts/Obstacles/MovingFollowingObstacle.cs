@@ -53,16 +53,23 @@ namespace Obstacles
         private void OnEnable()
         {
             _seeker = GetComponent<Seeker>();
-            StartMovementActions();
             MovingVisual.StoppedPause += StartMovementActions;
-            _hasPath = false;
-            _searchesPath = false;
-            MovingVisual.IsMoving = false;
+            StopMovement();
+            StartMovementActions();
         }
 
         private void OnDisable()
         {
             MovingVisual.StoppedPause -= StartMovementActions;
+        }
+
+        public void StopMovement()
+        {
+            _hasPath = false;
+            _searchesPath = false;
+            MovingVisual.IsMoving = false;
+            MovingVisual.MovementTween?.Kill();
+            
         }
 
         public void StartMovementActions()

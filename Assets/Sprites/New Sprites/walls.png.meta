@@ -305,7 +305,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 144
-        width: 18
+        width: 20
         height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -353,9 +353,9 @@ TextureImporter:
       name: walls_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 63
         y: 143
-        width: 18
+        width: 20
         height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -428,7 +428,7 @@ TextureImporter:
       name: walls_5
       rect:
         serializedVersion: 2
-        x: 34
+        x: 36
         y: 112
         width: 16
         height: 23
@@ -453,7 +453,7 @@ TextureImporter:
       name: walls_6
       rect:
         serializedVersion: 2
-        x: 0
+        x: 2
         y: 79
         width: 17
         height: 25
@@ -478,7 +478,7 @@ TextureImporter:
       name: walls_7
       rect:
         serializedVersion: 2
-        x: 17
+        x: 20
         y: 79
         width: 16
         height: 25
@@ -503,7 +503,7 @@ TextureImporter:
       name: walls_8
       rect:
         serializedVersion: 2
-        x: 33
+        x: 37
         y: 79
         width: 17
         height: 25
@@ -528,9 +528,9 @@ TextureImporter:
       name: walls_9
       rect:
         serializedVersion: 2
-        x: 64
+        x: 63
         y: 79
-        width: 18
+        width: 20
         height: 41
       alignment: 9
       pivot: {x: 0.5, y: 0.275}
@@ -1473,7 +1473,7 @@ TextureImporter:
       name: walls_54
       rect:
         serializedVersion: 2
-        x: 31
+        x: 30
         y: 205
         width: 16
         height: 32
@@ -1515,7 +1515,7 @@ TextureImporter:
       name: walls_56
       rect:
         serializedVersion: 2
-        x: 65
+        x: 66
         y: 205
         width: 16
         height: 32
