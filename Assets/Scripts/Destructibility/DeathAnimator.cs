@@ -9,17 +9,17 @@ namespace Destructibility
         [SerializeField] private string HitTag;
         [SerializeField] private string DeathTag;
         [SerializeField] private string RespawnTag;
+        [SerializeField] private string HealthTag = "Health";
         [SerializeField] private bool isAnimatedDifferently;
 
 
         private bool _animatorExists;
-        private static readonly int Health = Animator.StringToHash("Health");
 
         public void UpdateHealth(int health)
         {
-            if (_animatorExists)
+            if (_animatorExists && HealthTag != "")
             {
-                Animator.SetInteger(Health,health);
+                Animator.SetInteger(HealthTag, health);
             }
         }
 
@@ -35,16 +35,16 @@ namespace Destructibility
 
         public virtual void PlayHitAnimation()
         {
-            if (Animator != null) Animator.SetTrigger(HitTag);
+            if (_animatorExists) Animator.SetTrigger(HitTag);
         }
 
         public virtual void PlayDeathAnimation()
         {
-            if (Animator != null)
+            if (_animatorExists)
             {
                 Animator.SetTrigger(DeathTag);
             }
-            else if(!isAnimatedDifferently)
+            else if (!isAnimatedDifferently)
             {
                 gameObject.SetActive(false);
             }
@@ -52,13 +52,13 @@ namespace Destructibility
 
         public virtual void PlayRespawnAnimation()
         {
-            if (Animator != null)
+            if (_animatorExists)
             {
                 Animator.SetTrigger(RespawnTag);
             }
-            else if(!isAnimatedDifferently)
+            else if (!isAnimatedDifferently)
             {
-                gameObject.SetActive(false);
+                gameObject.SetActive(true);
             }
         }
     }

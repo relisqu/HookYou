@@ -59,6 +59,11 @@ namespace Player_Scripts
         public HookState CurrentHookState { get; private set; }
 
 
+        private void Awake()
+        {
+            _dashEffect = FindObjectOfType<DashEffect>();
+        }
+
         private void Start()
         {
             hookEndDefaultParent = HookFinalPivot.parent;
@@ -129,6 +134,8 @@ namespace Player_Scripts
                     PlayerSpringJoint2D.enabled = true;
                     hookingCoroutine = StartCoroutine(MoveToWall(PlayerSpringJoint2D));
                     CurrentHookState = HookState.Hooking;
+                    _dashEffect.StartDash();
+                    HookParticles.Play();
                 }
 
                 HookTouchedWall?.Invoke();
@@ -144,12 +151,15 @@ namespace Player_Scripts
             var speed = currentBlock.RequiresSpecificHookSpeed() ? currentBlock.GetHookShotSpeed() : LaunchSpeed;
             while (springJoint2D.distance > HookWallStopability / 1.2f && currentDistance > HookWallStopability)
             {
+                HookParticles.Play();
                 springJoint2D.distance =
                     Mathf.Lerp(springJoint2D.distance, 0.1f, Time.deltaTime * speed);
 
                 yield return null;
             }
 
+            _dashEffect.StopDash();
+            HookParticles.Stop();
             yield return new WaitForSeconds(0.01f);
             currentBlock.TouchTheBlock(this);
         }
@@ -215,37 +225,6 @@ namespace Player_Scripts
             return (HookFinalPivot.position - HookStartPivot.position).normalized;
         }
 
-        private void CalculateDropTime()
-        {
-            if (Vector3.Dot(playerMovement, GetHookDirection().normalized) < BreakForceDirection)
-            {
-                if (isTryingToBreakHook)
-                {
-                    currentBreakTime += Time.deltaTime;
-                }
-                else
-                {
-                    isTryingToBreakHook = true;
-                    currentBreakTime = 0;
-                }
-            }
-            else
-            {
-                currentBreakTime = 0;
-                isTryingToBreakHook = false;
-            }
-
-            if (currentBreakTime > BreakRequiredTime) DropHook();
-        }
-
-        public void HangOnWall()
-        {
-            if (hookingCoroutine != null) StopCoroutine(hookingCoroutine);
-            if (wallHangingCoroutine != null) StopCoroutine(wallHangingCoroutine);
-            if (droppingCoroutine != null) StopCoroutine(droppingCoroutine);
-            wallHangingCoroutine = StartCoroutine(HangOnWallIEnumerator());
-        }
-
         private IEnumerator DropHookEnumerator()
         {
             if (CurrentHookState == HookState.Grappling)
@@ -270,6 +249,7 @@ namespace Player_Scripts
             Rope.enabled = false;
             currentBreakTime = 0;
             isTryingToBreakHook = false;
+            HookParticles.Stop();
             CurrentHookState = HookState.NotHooking;
         }
 
@@ -299,6 +279,8 @@ namespace Player_Scripts
         private Vector3 playerMovement;
         private Coroutine wallHangingCoroutine;
         private HookBlock currentBlock;
+        private DashEffect _dashEffect;
+        [SerializeField]private ParticleSystem HookParticles;
 
         public bool IsInHookRadius(Transform obj)
         {

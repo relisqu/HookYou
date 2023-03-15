@@ -12,21 +12,11 @@ namespace Obstacles
 {
     public class MovingObstacle : MonoBehaviour
     {
-        [BoxGroup("MovementSettings")] [SerializeField]
-        private Ease Easing;
-
-        [BoxGroup("MovementSettings")] [SerializeField]
-        private float Speed;
-
-        [BoxGroup("MovementSettings")] [SerializeField]
-        private bool WaitsOnStop;
-
-        [BoxGroup("MovementSettings")] [ShowIf("WaitsOnStop")] [SerializeField]
-        private float WaitDuration;
 
         [BoxGroup("Points")] [SerializeField] private List<Vector3> Points;
         [BoxGroup("Points")] [SerializeField] private Transform HelperTransform;
 
+        [SerializeField] private MovingSpikesVisual MovingVisual;
 
         private void OnEnable()
         {
@@ -36,20 +26,22 @@ namespace Obstacles
 
         public void MoveToNextPoint()
         {
-            if (_isMoving) return;
-            _isMoving = true;
             _currentPoint++;
             _currentPoint %= Points.Count;
-            _movementTween = transform.DOMove(Points[_currentPoint], Speed).SetSpeedBased().SetEase(Easing)
-                .OnComplete(() => StartCoroutine(WaitOnPoint()));
+            MovingVisual.MoveToPoint(Points[_currentPoint], true);
         }
+    
 
         public void StopMovement()
         {
-            _movementTween?.Kill();
+            MovingVisual.MovementTween?.Kill();
             StopAllCoroutines();
             _canMove = false;
-            _isMoving = false;
+            MovingVisual.IsMoving = false;
+            if (MovingVisual.HasParticles)
+            {
+                MovingVisual.ClearParticles();
+            }
         }
 
         public void RestartMovement()
@@ -59,6 +51,7 @@ namespace Obstacles
             transform.position = Points[_currentPoint];
             _canMove = true;
             StartCoroutine(StartMovement());
+            MovingVisual.PlayParticles();
         }
 
 
@@ -67,23 +60,11 @@ namespace Obstacles
             while (true)
             {
                 if (!_canMove) yield break;
-                if (_isMoving)
+                if (MovingVisual.IsMoving)
                     yield return null;
                 MoveToNextPoint();
                 yield return null;
             }
-        }
-
-        private IEnumerator WaitOnPoint()
-        {
-            if (!WaitsOnStop)
-            {
-                _isMoving = false;
-                yield break;
-            }
-
-            yield return new WaitForSeconds(WaitDuration);
-            _isMoving = false;
         }
 
 
@@ -122,8 +103,6 @@ namespace Obstacles
         }
 
         private int _currentPoint = 0;
-        private bool _isMoving;
-        private TweenerCore<Vector3, Vector3, VectorOptions> _movementTween;
         private bool _canMove = true;
     }
 }

@@ -84,7 +84,7 @@ TextureImporter:
       213: 7159113277307552269
     second: GrassWalls_26
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -105,6 +105,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -114,8 +115,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -136,11 +137,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -180,6 +184,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -770,6 +786,34 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      GrassWalls_0: -3204812408917189670
+      GrassWalls_1: 8825130499515346967
+      GrassWalls_10: -8226345819731352863
+      GrassWalls_11: 2500491774051199207
+      GrassWalls_12: 3074622050580235998
+      GrassWalls_13: -3785209378081123864
+      GrassWalls_14: -22603511803086704
+      GrassWalls_15: 4979744640439154071
+      GrassWalls_16: 587324159443802472
+      GrassWalls_17: -1353214216477264905
+      GrassWalls_18: 1748247839977605756
+      GrassWalls_19: -433449713361759616
+      GrassWalls_2: -1142934467919218693
+      GrassWalls_20: -1803461601484287705
+      GrassWalls_21: -3260002547985788407
+      GrassWalls_22: -6088551217316939674
+      GrassWalls_23: 4790519060569276399
+      GrassWalls_24: 7301629749950043797
+      GrassWalls_25: -8289607765165647811
+      GrassWalls_26: 7159113277307552269
+      GrassWalls_3: -3719671532828020511
+      GrassWalls_4: 2322603455317141955
+      GrassWalls_5: -3487960616089452070
+      GrassWalls_6: -8399773773892815840
+      GrassWalls_7: 8440722863218284942
+      GrassWalls_8: 93495955868151617
+      GrassWalls_9: -3641811779776133127
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

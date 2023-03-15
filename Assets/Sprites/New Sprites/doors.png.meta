@@ -78,7 +78,7 @@ TextureImporter:
       213: 1596648987123739756
     second: doors_24
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -99,6 +99,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -137,13 +138,14 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -186,6 +188,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -193,10 +207,10 @@ TextureImporter:
       name: doors_0
       rect:
         serializedVersion: 2
-        x: 23
-        y: 13
-        width: 15
-        height: 28
+        x: 22
+        y: 12
+        width: 17
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,10 +228,10 @@ TextureImporter:
       name: doors_1
       rect:
         serializedVersion: 2
-        x: 116
-        y: 16
-        width: 24
-        height: 23
+        x: 115
+        y: 15
+        width: 26
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,10 +249,10 @@ TextureImporter:
       name: doors_2
       rect:
         serializedVersion: 2
-        x: 232
-        y: 13
-        width: 15
-        height: 28
+        x: 231
+        y: 12
+        width: 17
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,10 +270,10 @@ TextureImporter:
       name: doors_3
       rect:
         serializedVersion: 2
-        x: 280
-        y: 13
-        width: 15
-        height: 28
+        x: 279
+        y: 12
+        width: 17
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -277,10 +291,10 @@ TextureImporter:
       name: doors_4
       rect:
         serializedVersion: 2
-        x: 373
-        y: 16
-        width: 24
-        height: 23
+        x: 372
+        y: 15
+        width: 26
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -298,10 +312,10 @@ TextureImporter:
       name: doors_5
       rect:
         serializedVersion: 2
-        x: 489
-        y: 13
-        width: 15
-        height: 28
+        x: 488
+        y: 12
+        width: 17
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -319,10 +333,10 @@ TextureImporter:
       name: doors_6
       rect:
         serializedVersion: 2
-        x: 537
-        y: 13
-        width: 15
-        height: 28
+        x: 536
+        y: 12
+        width: 17
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -340,10 +354,10 @@ TextureImporter:
       name: doors_7
       rect:
         serializedVersion: 2
-        x: 630
-        y: 16
-        width: 24
-        height: 23
+        x: 629
+        y: 15
+        width: 26
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -361,10 +375,10 @@ TextureImporter:
       name: doors_8
       rect:
         serializedVersion: 2
-        x: 746
-        y: 13
-        width: 15
-        height: 28
+        x: 745
+        y: 12
+        width: 17
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -382,10 +396,10 @@ TextureImporter:
       name: doors_9
       rect:
         serializedVersion: 2
-        x: 794
-        y: 13
-        width: 15
-        height: 28
+        x: 793
+        y: 12
+        width: 17
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -403,10 +417,10 @@ TextureImporter:
       name: doors_10
       rect:
         serializedVersion: 2
-        x: 887
-        y: 16
-        width: 24
-        height: 23
+        x: 886
+        y: 15
+        width: 26
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -424,10 +438,10 @@ TextureImporter:
       name: doors_11
       rect:
         serializedVersion: 2
-        x: 1003
-        y: 13
-        width: 15
-        height: 28
+        x: 1002
+        y: 12
+        width: 17
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -445,10 +459,10 @@ TextureImporter:
       name: doors_12
       rect:
         serializedVersion: 2
-        x: 1051
-        y: 13
-        width: 15
-        height: 28
+        x: 1050
+        y: 12
+        width: 17
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -466,10 +480,10 @@ TextureImporter:
       name: doors_13
       rect:
         serializedVersion: 2
-        x: 1144
-        y: 16
-        width: 24
-        height: 23
+        x: 1143
+        y: 15
+        width: 26
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -487,10 +501,10 @@ TextureImporter:
       name: doors_14
       rect:
         serializedVersion: 2
-        x: 1260
-        y: 13
-        width: 15
-        height: 28
+        x: 1259
+        y: 12
+        width: 17
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -508,10 +522,10 @@ TextureImporter:
       name: doors_15
       rect:
         serializedVersion: 2
-        x: 1308
-        y: 13
-        width: 15
-        height: 28
+        x: 1307
+        y: 12
+        width: 17
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -529,10 +543,10 @@ TextureImporter:
       name: doors_16
       rect:
         serializedVersion: 2
-        x: 1401
-        y: 16
-        width: 24
-        height: 23
+        x: 1400
+        y: 15
+        width: 26
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -550,10 +564,10 @@ TextureImporter:
       name: doors_17
       rect:
         serializedVersion: 2
-        x: 1517
-        y: 13
-        width: 15
-        height: 28
+        x: 1516
+        y: 12
+        width: 17
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -571,10 +585,10 @@ TextureImporter:
       name: doors_18
       rect:
         serializedVersion: 2
-        x: 1565
-        y: 13
-        width: 15
-        height: 28
+        x: 1564
+        y: 12
+        width: 17
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -592,10 +606,10 @@ TextureImporter:
       name: doors_19
       rect:
         serializedVersion: 2
-        x: 1658
-        y: 16
-        width: 24
-        height: 23
+        x: 1657
+        y: 15
+        width: 26
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -613,10 +627,10 @@ TextureImporter:
       name: doors_20
       rect:
         serializedVersion: 2
-        x: 1774
-        y: 13
-        width: 15
-        height: 28
+        x: 1773
+        y: 12
+        width: 17
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -634,12 +648,12 @@ TextureImporter:
       name: doors_21
       rect:
         serializedVersion: 2
-        x: 27
-        y: 64
-        width: 4
-        height: 24
+        x: 26
+        y: 63
+        width: 6
+        height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -655,12 +669,12 @@ TextureImporter:
       name: doors_22
       rect:
         serializedVersion: 2
-        x: 40
-        y: 64
-        width: 4
-        height: 24
+        x: 39
+        y: 63
+        width: 6
+        height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -676,12 +690,12 @@ TextureImporter:
       name: doors_23
       rect:
         serializedVersion: 2
-        x: 54
-        y: 74
-        width: 22
-        height: 4
+        x: 53
+        y: 73
+        width: 24
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -697,12 +711,12 @@ TextureImporter:
       name: doors_24
       rect:
         serializedVersion: 2
-        x: 85
-        y: 73
-        width: 24
-        height: 6
+        x: 84
+        y: 72
+        width: 26
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -724,6 +738,32 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      doors_0: -3813957895643319183
+      doors_1: -5869873724788712370
+      doors_10: 5466900881963460571
+      doors_11: 6750987736431425758
+      doors_12: 1308679017610120818
+      doors_13: -8458522060679029643
+      doors_14: -6564391307037914582
+      doors_15: -5899190155484250575
+      doors_16: 4175052448552185335
+      doors_17: -6025679175451820724
+      doors_18: -3681002762094653604
+      doors_19: -1280752913425907830
+      doors_2: -7037842594108204779
+      doors_20: -5049243504920101666
+      doors_21: -1958119218845726607
+      doors_22: 6889700044301887726
+      doors_23: 1363996149854214005
+      doors_24: 1596648987123739756
+      doors_3: -7794273071397281860
+      doors_4: -3625015000923761378
+      doors_5: -1156514691743307414
+      doors_6: 3997338004448197912
+      doors_7: 8272023497553938944
+      doors_8: 2982644332970639994
+      doors_9: -7972576404697737973
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

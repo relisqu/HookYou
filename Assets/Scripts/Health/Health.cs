@@ -53,21 +53,26 @@ namespace Destructibility
 
         public void TakeDamage(int damage)
         {
-            //Died += Respawn;
+            
             if(!IsAlive) return;
             
             currentHealth -= Math.Abs(damage);
             if (currentHealth <= 0)
             {
-                Die();
                 Animator.PlayDeathAnimation();
+                Die();
                 
             }
             else
             {
-               Animator?.PlayHitAnimation();
+               Animator.PlayHitAnimation();
                TookDamage?.Invoke();    
             }
+        }
+
+        public void TakeMaxDamage()
+        {
+            TakeDamage(Int32.MaxValue);
         }
 
         public abstract void Die();
