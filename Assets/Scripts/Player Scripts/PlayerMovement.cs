@@ -18,29 +18,33 @@ namespace Player_Scripts
 
         private Vector2 movement;
         private bool isMoving;
-        private Vector2 lastMovement= Vector2.right;
-        [SerializeField]private Rigidbody2D rigidbody2D;
+        private Vector2 lastMovement = Vector2.right;
+        [SerializeField] private Rigidbody2D rigidbody2D;
+        [SerializeField] private ParticleSystem GroundParticles;
         private bool previouslyMoved;
         public Vector2 GetMovement => movement;
         public bool IsMoving => isMoving;
 
         public void CreateSwordTrust(Vector2 direction, float force)
-        {   rigidbody2D.velocity=Vector2.zero;
-            rigidbody2D.AddForce(SwordTrust*force*direction,ForceMode2D.Impulse);
+        {
+            rigidbody2D.velocity = Vector2.zero;
+            rigidbody2D.AddForce(SwordTrust * force * direction, ForceMode2D.Impulse);
         }
 
         private void Update()
-        {   
+        {
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
             movement.Normalize();
             Hook.SetPlayerWalkingMovement(movement);
             var finalSpeed = movement * GetCurrentSpeed();
-            isMoving = finalSpeed.sqrMagnitude > 0;
-            switch (isMoving)
+            isMoving = finalSpeed.sqrMagnitude > 0 &&  Hook.CurrentHookState != Hook.HookState.Hooking;
+            switch (isMoving )
             {
                 case true:
-                    if (!previouslyMoved) AudioManager.instance.Play("walk");
+                    GroundParticles.Play();
+                    if (previouslyMoved) break;
+                    AudioManager.instance.Play("walk");
 
                     break;
                 case false:
@@ -50,10 +54,10 @@ namespace Player_Scripts
 
             if (isMoving) lastMovement = movement;
             previouslyMoved = isMoving;
-            if(Sword.IsAttackingVisually) return;
+            if (Sword.IsAttackingVisually) return;
             rigidbody2D.velocity = finalSpeed;
         }
-    
+
 
         public float GetCurrentSpeed()
         {
@@ -63,16 +67,18 @@ namespace Player_Scripts
                 currentSpeed *= HookFlyingMultiplier;
             }
 
-            if (Sword.IsAttacking ||Sword.IsAttackingVisually)
+            if (Sword.IsAttacking || Sword.IsAttackingVisually)
             {
                 currentSpeed *= SwordSlowDownMultiplier;
             }
 
             return currentSpeed;
         }
+
         public float GetMovementRotationAngle()
         {
             return Vector2.SignedAngle(Vector2.right, lastMovement);
         }
     }
-    }
+
+}

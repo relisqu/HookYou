@@ -12,9 +12,10 @@ namespace Player_Scripts
         [SerializeField] private TextPopup TextPopup;
         [Range(0, 2f)] [SerializeField] private float Sensitivity;
         private bool _isHidden;
-
+        private Hook _hook;
         private void Start()
         {
+            _hook = FindObjectOfType<Hook>();
             HideText();
         }
 
@@ -22,7 +23,7 @@ namespace Player_Scripts
 
         private void FixedUpdate()
         {
-            if (Rigidbody.velocity.magnitude < Sensitivity)
+            if (Rigidbody.velocity.magnitude < Sensitivity && _hook.CurrentHookState == Hook.HookState.NotHooking)
             {
                 _waitStartTime += Time.fixedDeltaTime;
             }
