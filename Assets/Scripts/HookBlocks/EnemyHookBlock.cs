@@ -30,7 +30,6 @@ namespace HookBlocks
         }
         
         private SwordDestructible _enemySwordHit;
-        private bool _needsToRemoveHookOnDamage;
         private static readonly int Stunned = Animator.StringToHash("Stunned");
 
 
