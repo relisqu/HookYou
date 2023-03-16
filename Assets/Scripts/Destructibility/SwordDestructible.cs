@@ -15,11 +15,6 @@ namespace Destructibility
         public Action TookSwordHit;
 
 
-        private void OnEnable()
-        {
-            isAbleToAttack = true;
-        }
-
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (Health.IsAlive) TakeSwordDamage(other);

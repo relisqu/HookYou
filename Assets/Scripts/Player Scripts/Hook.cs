@@ -135,7 +135,6 @@ namespace Player_Scripts
                     hookingCoroutine = StartCoroutine(MoveToWall(PlayerSpringJoint2D));
                     CurrentHookState = HookState.Hooking;
                     _dashEffect.StartDash();
-                    HookParticles.Play();
                 }
 
                 HookTouchedWall?.Invoke();
@@ -151,7 +150,11 @@ namespace Player_Scripts
             var speed = currentBlock.RequiresSpecificHookSpeed() ? currentBlock.GetHookShotSpeed() : LaunchSpeed;
             while (springJoint2D.distance > HookWallStopability / 1.2f && currentDistance > HookWallStopability)
             {
-                HookParticles.Play();
+                if (CurrentHookState == HookState.Hooking &&  springJoint2D.distance> 1f)
+                {
+                    HookParticles.Play(); 
+                }
+
                 springJoint2D.distance =
                     Mathf.Lerp(springJoint2D.distance, 0.1f, Time.deltaTime * speed);
 
@@ -194,8 +197,9 @@ namespace Player_Scripts
                 print(currentHit.collider.name + " " + foundComponent);
                 if (foundComponent)
                 {
-                    _isHookingObject =!( block.GetType()==typeof(EnemyHookableBlock) ||  block.GetType()==typeof(NonStickyBlock)) ;
-                     // _isHookingObject =block.GetType() != typeof(NonStickyBlock);
+                    _isHookingObject = !(block.GetType() == typeof(EnemyHookableBlock) ||
+                                         block.GetType() == typeof(NonStickyBlock));
+                    // _isHookingObject =block.GetType() != typeof(NonStickyBlock);
                     currentBlock = block;
                     AudioManager.instance.Play("hook_hit");
                     return true;
@@ -249,7 +253,6 @@ namespace Player_Scripts
             Rope.enabled = false;
             currentBreakTime = 0;
             isTryingToBreakHook = false;
-            HookParticles.Stop();
             CurrentHookState = HookState.NotHooking;
         }
 
@@ -280,7 +283,7 @@ namespace Player_Scripts
         private Coroutine wallHangingCoroutine;
         private HookBlock currentBlock;
         private DashEffect _dashEffect;
-        [SerializeField]private ParticleSystem HookParticles;
+        [SerializeField] private ParticleSystem HookParticles;
 
         public bool IsInHookRadius(Transform obj)
         {
@@ -298,7 +301,7 @@ namespace Player_Scripts
             HookToMouseDirection = Camera.ScreenToWorldPoint(Input.mousePosition) - position;
             isAbleToHook = Physics2D.Raycast(position, HookToMouseDirection.normalized, MaxDistance,
                 HookFocusLayers);
-            
+
             if (isAbleToHook)
             {
                 currentHit = Physics2D.Raycast(position, HookToMouseDirection.normalized,

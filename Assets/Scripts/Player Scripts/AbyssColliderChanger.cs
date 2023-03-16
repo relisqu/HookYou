@@ -47,6 +47,7 @@ namespace Assets.Scripts
             if (ObstaclesMask == (ObstaclesMask | (1 << other.gameObject.layer))) Player.Die();
         }
 
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (ObstaclesMask == (ObstaclesMask | (1 << other.gameObject.layer))) Player.Die();
@@ -66,5 +67,6 @@ namespace Assets.Scripts
                 Player.Die();
             }
         }
+
     }
 }
