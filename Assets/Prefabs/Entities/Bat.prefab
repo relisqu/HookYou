@@ -524,6 +524,7 @@ MonoBehaviour:
   SwingSpeed: 1.3
   RequiresUniqueHookSpeed: 0
   HookShotSpeed: 0
+  SwordDestructible: {fileID: 1905978877553215084}
   Rigidbody2D: {fileID: 4822104167549633854}
   PushSpeed: 0
   Animator: {fileID: 1258876572}

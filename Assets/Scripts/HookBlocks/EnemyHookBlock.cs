@@ -13,6 +13,7 @@ namespace HookBlocks
 
         public override void AddActivitiesAtHookStart()
         {
+            _isHooked = true;
             Animator.SetBool(Stunned, true);
             EnemyBehaviour.InvokeEvent();
         }
