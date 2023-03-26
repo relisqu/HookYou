@@ -24,13 +24,15 @@ namespace AI
         [Tooltip("How fast the AI will fly while dashing")] [SerializeField] [BoxGroup("Default constrains")]
         protected float DashSpeed;
 
+        [SerializeField] [BoxGroup("Default constrains")]
+        protected Vector3 DashOffset;
+
         [BoxGroup("Default constrains")] [SerializeField]
         protected float PauseDuration;
 
 
         [BoxGroup("References")] [SerializeField]
         private PopupVFX BatWarningVfx;
-
 
 
         private void OnEnable()
@@ -98,6 +100,7 @@ namespace AI
 
         private Coroutine _dashCoroutine;
 
+
         IEnumerator Dash()
         {
             _animator.PrepareToDash();
@@ -110,7 +113,7 @@ namespace AI
 
             var distance = (playerPosition - position).normalized * DashRange;
             if (!Health.IsAlive) yield break;
-            dashTween = transform.DOMove(position + distance, 1 / DashSpeed * 0.1f * distance.magnitude)
+            dashTween = transform.DOMove(position + distance+ DashOffset, 1 / DashSpeed * 0.1f * distance.magnitude)
                 .SetEase(Ease.OutCubic)
                 .OnComplete(() =>
                 {
@@ -123,6 +126,12 @@ namespace AI
 
         private void OnDrawGizmos()
         {
+            var position = transform.position;
+           // var playerPosition = _player.transform.position;
+
+           // var distance = (playerPosition - position).normalized * DashRange;
+           // Gizmos.color = Color.blue;
+           // Gizmos.DrawSphere(position + distance+DashOffset, 0.2f);
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, AttackRadius);
             Gizmos.color = Color.green;

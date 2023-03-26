@@ -65,10 +65,15 @@ namespace Player_Scripts
 
         public void StopDash()
         {
-            for (var index = 0; index < _dashes.Length; index++)
+            foreach (var dash in _dashes)
             {
-                _dashes[index].DOColor(Color.clear, 0.5f).OnPlay(
-                    () => { _dashes[index].material.SetColor("FlashColor", _dashes[index].color); });
+                dash.DOColor(Color.clear, 0.5f).OnPlay(
+                    () =>
+                    {
+                        dash.material.SetColor("FlashColor", dash.color);
+                        dash.gameObject.SetActive(false);
+                        
+                    });
             }
         }
 

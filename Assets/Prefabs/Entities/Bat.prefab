@@ -167,7 +167,8 @@ MonoBehaviour:
   AttackRadius: 4.6
   DashRange: 4
   DashSpeed: 0.82
-  PauseDuration: 1
+  DashOffset: {x: 0, y: 0.78, z: 0}
+  PauseDuration: 0.77
   BatWarningVfx: {fileID: 1994344504812080865}
 --- !u!114 &1905978877553215084
 MonoBehaviour:
