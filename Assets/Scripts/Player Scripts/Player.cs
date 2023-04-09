@@ -30,15 +30,7 @@ namespace Player_Scripts
         {
             AbyssColliderChanger.SetAbyssTrigger(Hook.CurrentHookState != Hook.HookState.NotHooking &&
                                                  Hook.CurrentHookState != Hook.HookState.Grappling);
-            if (Input.GetKeyDown(KeyCode.R) && !Manager.IsCurrentRoomCompleted(this))
-            {
-                Die();
-            }
-
-            if (Input.GetKeyDown(KeyCode.C))
-            {
-                Manager.GetCurrentRoom(this).CompleteLevelAutomatically();
-            }
+            
         }
 
         public void Teleport()

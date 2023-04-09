@@ -16,6 +16,7 @@ namespace Player_Scripts
         [SerializeField] private Color OffsetColor;
         private SpriteRenderer[] _dashes;
 
+        private bool _dashIsActive;
         private void Awake()
         {
             _dashes = new SpriteRenderer[PlayerSpriteCount];
@@ -45,11 +46,10 @@ namespace Player_Scripts
         {
             for (var index = 0; index < _dashes.Length; index++)
             {
-
                 var offsetPercent = (index + 1.0f) / _dashes.Length;
                 _dashes[index].color = DefaultColor;
                 _dashes[index].color -= OffsetColor * offsetPercent;
-                _dashes[index].color *= new Vector4(1,1,1,1 - offsetPercent);
+                _dashes[index].color *= new Vector4(1, 1, 1, 1 - offsetPercent);
 
                 _dashes[index].material.SetInt("IsEnabled", 1);
                 _dashes[index].transform.position = PlayerSprite.gameObject.transform.position;
@@ -60,6 +60,17 @@ namespace Player_Scripts
             foreach (var dash in _dashes)
             {
                 dash.gameObject.SetActive(true);
+                _dashIsActive = true;
+            }
+        }
+
+        public void StopDashImmediate()
+        {
+            foreach (var dash in _dashes)
+            {
+                print("AAAAAAAA");
+                dash.gameObject.SetActive(false);
+                _dashIsActive = false;
             }
         }
 
@@ -70,12 +81,15 @@ namespace Player_Scripts
                 dash.DOColor(Color.clear, 0.5f).OnPlay(
                     () =>
                     {
-                        dash.material.SetColor("FlashColor", dash.color);
-                        dash.gameObject.SetActive(false);
                         
-                    });
+                        if (!_dashIsActive) return;
+                        dash.material.SetColor("FlashColor", dash.color);
+                    }).OnComplete(() =>
+                {
+                    _dashIsActive = false;
+                    dash.gameObject.SetActive(false);
+                });
             }
         }
-
     }
 }

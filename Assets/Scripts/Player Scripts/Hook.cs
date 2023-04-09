@@ -179,9 +179,17 @@ namespace Player_Scripts
         {
             if (currentHit.collider != null && isAbleToHook)
             {
-                grapplePoint = currentHit.point;
-                HookFinalPivot.transform.position = grapplePoint;
+                if (!_isHookingObject)
+                {
+                    grapplePoint = currentHit.point;
+                }
+                else
+                {
+                    grapplePoint = currentHit.transform.position;
+                }
                 HookFinalPivot.transform.parent = currentHit.transform;
+
+                HookFinalPivot.transform.position =grapplePoint;
                 Rope.SetupLinePoints(HookStartPivot, HookFinalPivot);
                 Rope.SetHook();
                 return true;
