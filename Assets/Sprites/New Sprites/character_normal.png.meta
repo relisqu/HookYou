@@ -144,7 +144,7 @@ TextureImporter:
       213: 833887612406998555
     second: character_normal_46
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -165,6 +165,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -174,8 +175,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 0
     wrapV: 0
     wrapW: 0
@@ -203,6 +204,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -242,6 +244,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1252,6 +1266,54 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      character_normal_0: -3267643684186925102
+      character_normal_1: 5659992945292526538
+      character_normal_10: -3332253109539596579
+      character_normal_11: 1411290860550525183
+      character_normal_12: -5458721888896927653
+      character_normal_13: -7893257615846090172
+      character_normal_14: -4830166301558986574
+      character_normal_15: -7484517112185672807
+      character_normal_16: 4006375572262220179
+      character_normal_17: 6175984983343538468
+      character_normal_18: 3457226094636087013
+      character_normal_19: -4558809390778622755
+      character_normal_2: 2892627224326181142
+      character_normal_20: 157835114913964741
+      character_normal_21: 1242605702842797528
+      character_normal_22: -4125463982433042287
+      character_normal_23: -8815699178212724361
+      character_normal_24: 5362952239320756215
+      character_normal_25: -3100310724837303757
+      character_normal_26: 685521556337851678
+      character_normal_27: -6816155559450374185
+      character_normal_28: -5159985877921588414
+      character_normal_29: -47831285920278961
+      character_normal_3: -1183933913679775215
+      character_normal_30: 5877378069607201575
+      character_normal_31: -328214973954327298
+      character_normal_32: -822357740267005519
+      character_normal_33: -3199318625833312790
+      character_normal_34: -1504769471455472407
+      character_normal_35: 6480847168037605752
+      character_normal_36: 3474991012752450818
+      character_normal_37: 4583571853219502531
+      character_normal_38: 3193759799961638789
+      character_normal_39: 7279680386728733144
+      character_normal_4: 3099476444314275837
+      character_normal_40: 7745125605911678423
+      character_normal_41: 4085335910205354792
+      character_normal_42: 5360519465504627790
+      character_normal_43: -1006405213409104362
+      character_normal_44: -4085096919259217687
+      character_normal_45: 3795991810051449217
+      character_normal_46: 833887612406998555
+      character_normal_5: 5740785656608358501
+      character_normal_6: -2053060027862949523
+      character_normal_7: -3930107189547891316
+      character_normal_8: -6526231705385459171
+      character_normal_9: 1921939005162536912
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

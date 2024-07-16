@@ -21,6 +21,13 @@ namespace AI
             StartCoroutine(GenerateFlash());
         }
 
+        private void OnDisable()
+        {
+            StopAllCoroutines();
+            SpriteRenderer.material.SetInt("IsEnabled", 0);
+            
+        }
+
         IEnumerator GenerateFlash()
         {
             SpriteRenderer.material.SetColor("FlashColor",FlashColor); 

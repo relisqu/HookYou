@@ -225,6 +225,7 @@ MonoBehaviour:
   HitTag: takeDamage
   DeathTag: die
   RespawnTag: resurrect
+  HealthTag: Health
   isAnimatedDifferently: 0
 --- !u!114 &8606939836471301202
 MonoBehaviour:
@@ -255,6 +256,22 @@ MonoBehaviour:
   HookShotSpeed: 0
   Rigidbody2D: {fileID: 4771628366323194796}
   PushSpeed: 0.15
+--- !u!114 &6418698255271362879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8328523885845370458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 183748dd497aa473a98ff0cd8cb67fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  uniqueID: 1841819790956385193
+  updateError: 1
+  checkTime: 0.2
 --- !u!1001 &7012213051769758483
 PrefabInstance:
   m_ObjectHideFlags: 0

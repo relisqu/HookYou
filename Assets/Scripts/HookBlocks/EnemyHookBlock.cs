@@ -10,21 +10,11 @@ namespace HookBlocks
     {
         [SerializeField] private Animator Animator;
         [SerializeField] private EnemyBehaviour EnemyBehaviour;
-        private static readonly int Stunned = Animator.StringToHash("Stunned");
 
-        protected override void AddActivitiesAfterHook(Hook hook)
-        {
-            Animator.SetBool(Stunned, false);
-            EnemyBehaviour.SetStunned();
-            hook.ClearHook();
-            
-        }
-
-        private Hook _hook;
-        
         public override void AddActivitiesAtHookStart()
-        { 
-            Animator.SetBool(Stunned,true);
+        {
+            _isHooked = true;
+            Animator.SetBool(Stunned, true);
             EnemyBehaviour.InvokeEvent();
         }
 
@@ -32,5 +22,17 @@ namespace HookBlocks
         {
             Animator.SetBool(Stunned, false);
         }
+
+        protected override void AddActivitiesAfterHook(Hook hook)
+        {
+            Animator.SetBool(Stunned, false);
+            EnemyBehaviour.SetStunned();
+            hook.ClearHook();
+        }
+        
+        private SwordDestructible _enemySwordHit;
+        private static readonly int Stunned = Animator.StringToHash("Stunned");
+
+
     }
 }

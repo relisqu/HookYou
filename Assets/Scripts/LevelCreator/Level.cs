@@ -72,7 +72,7 @@ namespace Assets.Scripts.LevelCreator
             foreach (var respawnableLevelObject in CompletionLevelObjects)
             {
                 respawnableLevelObject.GetHealth().Died += ReduceObjectsAmount;
-                respawnableLevelObject.GetHealth().Respawned += RespawnObject;
+                respawnableLevelObject.GetHealth().Respawned += UpdateObjectsCount;
                 respawnableLevelObject.Despawn();
             }
 
@@ -102,9 +102,9 @@ namespace Assets.Scripts.LevelCreator
             }
         }
 
-        private void RespawnObject()
+        private void UpdateObjectsCount()
         {
-            currentActiveObjectsCount++;
+            currentActiveObjectsCount = GetActiveObjectsCount();
         }
 
         private void OnDestroy()
@@ -112,7 +112,7 @@ namespace Assets.Scripts.LevelCreator
             foreach (var levelObject in CompletionLevelObjects)
             {
                 levelObject.GetHealth().Died -= ReduceObjectsAmount;
-                levelObject.GetHealth().Respawned -= RespawnObject;
+                levelObject.GetHealth().Respawned -= UpdateObjectsCount;
             }
 
             foreach (var door in Doors)
@@ -195,10 +195,20 @@ namespace Assets.Scripts.LevelCreator
             }
         }
 
+        public int GetActiveObjectsCount()
+        {
+            int count = 0;
+            foreach (var levelObject in CompletionLevelObjects)
+            {
+                if (levelObject.GetHealth().IsAlive) count++;
+            }
+
+            return count;
+        }
+
         private void ReduceObjectsAmount()
         {
-            currentActiveObjectsCount--;
-            print(currentActiveObjectsCount);
+            UpdateObjectsCount();
             if (currentActiveObjectsCount >= 1) return;
             CompleteLevel();
             OpenAllDoors();

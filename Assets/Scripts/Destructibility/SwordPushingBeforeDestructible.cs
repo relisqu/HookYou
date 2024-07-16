@@ -37,7 +37,6 @@ namespace Destructibility
             routine = transform.DOMove(newPosition, 1 / DeathImpulseSpeed).SetEase(Ease.OutCubic).OnComplete(() =>
             {
                 Obstacle.SetThrown(false);
-                print("Took damage. Health: " + Health.CurrentHealth);
                 animator.SetNormalSprite();
                 if (isDying)
                 {

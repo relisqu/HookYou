@@ -22,10 +22,6 @@ namespace Assets.Scripts
         [Header("References: ")] [FormerlySerializedAs("attackPoint")]
         public Transform AttackPoint;
 
-
-        [FormerlySerializedAs("enemyLayers")] [SerializeField]
-        private LayerMask EnemyLayers;
-
         [FormerlySerializedAs("animator")] [SerializeField]
         private Animator Animator;
         [SerializeField]private SwordHitVFX SwordHitVFX;

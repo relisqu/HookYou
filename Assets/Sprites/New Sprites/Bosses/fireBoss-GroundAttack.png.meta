@@ -51,7 +51,7 @@ TextureImporter:
       213: 4908233248352217366
     second: fireBoss-GroundAttack_15
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -72,6 +72,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -110,6 +111,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -149,6 +151,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -508,6 +522,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      fireBoss-GroundAttack_0: 5138748210529922237
+      fireBoss-GroundAttack_1: -4389017734526912687
+      fireBoss-GroundAttack_10: 5513428433846559733
+      fireBoss-GroundAttack_11: -1505870464979284756
+      fireBoss-GroundAttack_12: -4569048407747188824
+      fireBoss-GroundAttack_13: 6655189549920668865
+      fireBoss-GroundAttack_14: 4019855095192439133
+      fireBoss-GroundAttack_15: 4908233248352217366
+      fireBoss-GroundAttack_2: 2309190399361688080
+      fireBoss-GroundAttack_3: 3390034678241892820
+      fireBoss-GroundAttack_4: 3594571994130321655
+      fireBoss-GroundAttack_5: 8638814595101948098
+      fireBoss-GroundAttack_6: -8888656091617660224
+      fireBoss-GroundAttack_7: 725117765066634799
+      fireBoss-GroundAttack_8: -7816861481794679145
+      fireBoss-GroundAttack_9: 3188291047752850279
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

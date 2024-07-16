@@ -1,5 +1,5 @@
-
 using System;
+using Destructibility;
 using Player_Scripts;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -9,10 +9,17 @@ namespace HookBlocks
     public abstract class HookBlock : MonoBehaviour
     {
         [SerializeField] private float SwingSpeed;
-        [FormerlySerializedAs("UsingSpecificHookSpeed")] [SerializeField] private bool RequiresUniqueHookSpeed;
+
+        [FormerlySerializedAs("UsingSpecificHookSpeed")] [SerializeField]
+        private bool RequiresUniqueHookSpeed;
+
         [SerializeField] private float HookShotSpeed;
+        protected bool _isHooked;
+        private static Hook _hook;
+        [SerializeField] private SwordDestructible SwordDestructible;
+        private bool _needsToRemoveHookOnDamage;
         public Action HookTouchedBlock { get; set; }
-        
+
 
         public float GetSwingSpeed()
         {
@@ -28,17 +35,45 @@ namespace HookBlocks
         {
             return HookShotSpeed;
         }
+
         public virtual void AddActivitiesAtHookStart()
-        { 
+        {
+            _isHooked = true;
         }
 
         public virtual void OnHookBreak()
         {
+            _isHooked = false;
         }
+
         public void TouchTheBlock(Hook hook)
         {
+            _isHooked = false;
             HookTouchedBlock?.Invoke();
-            AddActivitiesAfterHook( hook);
+            AddActivitiesAfterHook(hook);
+        }
+
+        private void RemoveHook()
+        {
+            if (_isHooked)
+            {
+                _isHooked = false;
+                _hook.ClearHook();
+            }
+        }
+
+        private void Start()
+        {
+            if (_hook == null) _hook = FindObjectOfType<Hook>();
+            if (SwordDestructible == null)
+                SwordDestructible = GetComponent<SwordDestructible>();
+            _needsToRemoveHookOnDamage = SwordDestructible != null;
+            if (_needsToRemoveHookOnDamage) SwordDestructible.TookSwordHit += RemoveHook;
+        }
+
+        private void OnDestroy()
+        {
+            if (_needsToRemoveHookOnDamage) SwordDestructible.TookSwordHit -= RemoveHook;
         }
 
         protected abstract void AddActivitiesAfterHook(Hook hook);
